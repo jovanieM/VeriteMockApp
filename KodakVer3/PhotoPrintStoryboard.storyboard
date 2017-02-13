@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="width" secondItem="0Yx-ap-T1S" secondAttribute="height" multiplier="87:11" id="BiT-HW-fMb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="1" green="0.59821109480000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="settingtab_left" translatesAutoresizingMaskIntoConstraints="NO" id="oOZ-HB-vlA">
