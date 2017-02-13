@@ -10,6 +10,13 @@ import UIKit
 
 class FirstViewController: UIViewController, PrinterSelectDelegate{
     
+    
+    @IBAction func openSettingScene(_ sender: UIBarButtonItem) {
+        let settingSB = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
+        let vc = settingSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
+    
     let screenSize = UIScreen.main.bounds
     
     @IBOutlet weak var name: UILabel!

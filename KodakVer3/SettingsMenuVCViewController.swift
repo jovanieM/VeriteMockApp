@@ -10,6 +10,13 @@ import UIKit
 
 class SettingsMenuVCViewController: UIViewController {
 
+    @IBAction func openPhotoPrintSB(_ sender: UIButton) {
+        
+        let settingSB = UIStoryboard(name: "PhotoPrintStoryboard", bundle: nil)
+        let vc = settingSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

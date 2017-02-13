@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1015D0AD1E487BD400B706C6 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1015D0AC1E487BD400B706C6 /* PopupViewController.swift */; };
 		11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */; };
 		1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */; };
 		1116A3291E30A92B0038F2E5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */; };
 		1116A32B1E30BC430038F2E5 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A32A1E30BC430038F2E5 /* SettingsTableViewCell.swift */; };
+		113123A51E51AC8D0079CEAB /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 113123A41E51AC8D0079CEAB /* SettingsStoryboard.storyboard */; };
+		113123A71E51AF400079CEAB /* PhotoPrintStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 113123A61E51AF400079CEAB /* PhotoPrintStoryboard.storyboard */; };
 		113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113255961E28AC3500A66A9A /* SettingsViewer.swift */; };
 		114B30A81DF90A57008A57F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B30A71DF90A57008A57F1 /* AppDelegate.swift */; };
 		114B30AA1DF90A57008A57F1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B30A91DF90A57008A57F1 /* FirstViewController.swift */; };
@@ -55,11 +56,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1015D0AC1E487BD400B706C6 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSelectPopUp.swift; sourceTree = "<group>"; };
 		1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUITableViewController.swift; sourceTree = "<group>"; };
 		1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		1116A32A1E30BC430038F2E5 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		113123A41E51AC8D0079CEAB /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
+		113123A61E51AF400079CEAB /* PhotoPrintStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoPrintStoryboard.storyboard; sourceTree = "<group>"; };
 		113255961E28AC3500A66A9A /* SettingsViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewer.swift; sourceTree = "<group>"; };
 		114B30A41DF90A57008A57F1 /* KodakVer3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KodakVer3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		114B30A71DF90A57008A57F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		113123A31E51AC410079CEAB /* SettingsStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				113123A41E51AC8D0079CEAB /* SettingsStoryboard.storyboard */,
+				114B30D51DF92BEF008A57F1 /* SettingsMenuVCViewController.swift */,
+			);
+			name = SettingsStoryboard;
+			sourceTree = "<group>";
+		};
+		113123A81E51AF590079CEAB /* PhotoPrintStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				113123A61E51AF400079CEAB /* PhotoPrintStoryboard.storyboard */,
+				114B30D71DF92C44008A57F1 /* PrintPhotoVC.swift */,
+				1158B74E1DFA8655008F081F /* QuickViewController.swift */,
+				1158B7501DFA86C1008F081F /* DetailViewController.swift */,
+			);
+			name = PhotoPrintStoryboard;
+			sourceTree = "<group>";
+		};
 		114B309B1DF90A57008A57F1 = {
 			isa = PBXGroup;
 			children = (
@@ -139,8 +161,9 @@
 		114B30A61DF90A57008A57F1 /* KodakVer3 */ = {
 			isa = PBXGroup;
 			children = (
+				113123A81E51AF590079CEAB /* PhotoPrintStoryboard */,
+				113123A31E51AC410079CEAB /* SettingsStoryboard */,
 				11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */,
-				1015D0AC1E487BD400B706C6 /* PopupViewController.swift */,
 				114B30A71DF90A57008A57F1 /* AppDelegate.swift */,
 				114B30A91DF90A57008A57F1 /* FirstViewController.swift */,
 				114B30AB1DF90A57008A57F1 /* Main.storyboard */,
@@ -151,15 +174,11 @@
 				114B30AE1DF90A57008A57F1 /* Assets.xcassets */,
 				114B30B01DF90A57008A57F1 /* LaunchScreen.storyboard */,
 				114B30B31DF90A57008A57F1 /* Info.plist */,
-				114B30D51DF92BEF008A57F1 /* SettingsMenuVCViewController.swift */,
-				114B30D71DF92C44008A57F1 /* PrintPhotoVC.swift */,
 				114B30D91DF92D78008A57F1 /* QuickDetailSelector.swift */,
 				1158B74C1DFA4A5B008F081F /* MyNavController.swift */,
 				11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */,
-				1158B74E1DFA8655008F081F /* QuickViewController.swift */,
 				116CE2671E1F445F005687E9 /* MyTableViewDataSource.swift */,
 				118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */,
-				1158B7501DFA86C1008F081F /* DetailViewController.swift */,
 				113255961E28AC3500A66A9A /* SettingsViewer.swift */,
 				11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */,
 				1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */,
@@ -296,7 +315,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				113123A51E51AC8D0079CEAB /* SettingsStoryboard.storyboard in Resources */,
 				1156AAF81E1E2F24009C2493 /* TableViewCell2.xib in Resources */,
+				113123A71E51AF400079CEAB /* PhotoPrintStoryboard.storyboard in Resources */,
 				114B30B21DF90A57008A57F1 /* LaunchScreen.storyboard in Resources */,
 				114B30AF1DF90A57008A57F1 /* Assets.xcassets in Resources */,
 				114B30AD1DF90A57008A57F1 /* Main.storyboard in Resources */,
@@ -345,7 +366,6 @@
 				1156AAF71E1E2F24009C2493 /* TableViewCell2.swift in Sources */,
 				1158B7511DFA86C1008F081F /* DetailViewController.swift in Sources */,
 				118186E71E249FFA00B40A5F /* MyTableViewDelegate.swift in Sources */,
-				1015D0AD1E487BD400B706C6 /* PopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
