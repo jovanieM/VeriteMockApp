@@ -1,5 +1,5 @@
 //
-//  InkLevel.swift
+//  NetworkStatus.swift
 //  KodakVer3
 //
 //  Created by anarte on 14/02/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InkLevel: UIViewController{
+class NetworkStatus: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
@@ -18,5 +18,5 @@ class InkLevel: UIViewController{
         navTransition.subtype = kCATransitionPush
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
-
+    
 }

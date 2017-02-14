@@ -1,5 +1,5 @@
 //
-//  InkLevel.swift
+//  DeviceSettings.swift
 //  KodakVer3
 //
 //  Created by anarte on 14/02/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InkLevel: UIViewController{
+class DeviceSettings: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
@@ -18,5 +18,11 @@ class InkLevel: UIViewController{
         navTransition.subtype = kCATransitionPush
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
-
+    
+    @IBAction func toNetworkStatus(_ sender: UIButton) {
+        let settingSB = UIStoryboard(name: "NetworkStatusStoryboard", bundle: nil)
+        let vc = settingSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
+    
 }
