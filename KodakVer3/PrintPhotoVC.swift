@@ -72,7 +72,7 @@ class PrintPhotoVC: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        quickBtn.setTitleColor(gold, for: .normal)
+        detailBtn.setTitleColor(gold, for: .normal)
         
     }
     
