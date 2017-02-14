@@ -28,7 +28,7 @@
 		1116A3291E30A92B0038F2E5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */; };
 		1116A32B1E30BC430038F2E5 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A32A1E30BC430038F2E5 /* SettingsTableViewCell.swift */; };
 		113123A51E51AC8D0079CEAB /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 113123A41E51AC8D0079CEAB /* SettingsStoryboard.storyboard */; };
-		113123A71E51AF400079CEAB /* PhotoPrintStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 113123A61E51AF400079CEAB /* PhotoPrintStoryboard.storyboard */; };
+		113123A71E51AF400079CEAB /* PhotoPrintSettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 113123A61E51AF400079CEAB /* PhotoPrintSettingsStoryboard.storyboard */; };
 		113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113255961E28AC3500A66A9A /* SettingsViewer.swift */; };
 		114B30A81DF90A57008A57F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B30A71DF90A57008A57F1 /* AppDelegate.swift */; };
 		114B30AA1DF90A57008A57F1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B30A91DF90A57008A57F1 /* FirstViewController.swift */; };
@@ -93,7 +93,7 @@
 		1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		1116A32A1E30BC430038F2E5 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		113123A41E51AC8D0079CEAB /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
-		113123A61E51AF400079CEAB /* PhotoPrintStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoPrintStoryboard.storyboard; sourceTree = "<group>"; };
+		113123A61E51AF400079CEAB /* PhotoPrintSettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoPrintSettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		113255961E28AC3500A66A9A /* SettingsViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewer.swift; sourceTree = "<group>"; };
 		114B30A41DF90A57008A57F1 /* KodakVer3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KodakVer3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		114B30A71DF90A57008A57F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -296,15 +296,15 @@
 			name = SettingsStoryboard;
 			sourceTree = "<group>";
 		};
-		113123A81E51AF590079CEAB /* PhotoPrintStoryboard */ = {
+		113123A81E51AF590079CEAB /* PhotoPrintSettingsStoryboard */ = {
 			isa = PBXGroup;
 			children = (
-				113123A61E51AF400079CEAB /* PhotoPrintStoryboard.storyboard */,
+				113123A61E51AF400079CEAB /* PhotoPrintSettingsStoryboard.storyboard */,
 				114B30D71DF92C44008A57F1 /* PrintPhotoVC.swift */,
 				1158B74E1DFA8655008F081F /* QuickViewController.swift */,
 				1158B7501DFA86C1008F081F /* DetailViewController.swift */,
 			);
-			name = PhotoPrintStoryboard;
+			name = PhotoPrintSettingsStoryboard;
 			sourceTree = "<group>";
 		};
 		114B309B1DF90A57008A57F1 = {
@@ -347,7 +347,7 @@
 				1033031B1E52AB5D00E7D24C /* TermsConditionsStoryboard */,
 				103303181E52AB1000E7D24C /* DeviceSettingsStoryboard */,
 				103303171E52AACC00E7D24C /* HomeScreen */,
-				113123A81E51AF590079CEAB /* PhotoPrintStoryboard */,
+				113123A81E51AF590079CEAB /* PhotoPrintSettingsStoryboard */,
 				113123A31E51AC410079CEAB /* SettingsStoryboard */,
 				11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */,
 				114B30A71DF90A57008A57F1 /* AppDelegate.swift */,
@@ -508,7 +508,7 @@
 				103303471E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard in Resources */,
 				113123A51E51AC8D0079CEAB /* SettingsStoryboard.storyboard in Resources */,
 				1156AAF81E1E2F24009C2493 /* TableViewCell2.xib in Resources */,
-				113123A71E51AF400079CEAB /* PhotoPrintStoryboard.storyboard in Resources */,
+				113123A71E51AF400079CEAB /* PhotoPrintSettingsStoryboard.storyboard in Resources */,
 				114B30B21DF90A57008A57F1 /* LaunchScreen.storyboard in Resources */,
 				103303231E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard in Resources */,
 				103303381E52AD8400E7D24C /* NetworkStatusStoryboard.storyboard in Resources */,

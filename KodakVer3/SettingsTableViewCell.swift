@@ -11,25 +11,17 @@ import UIKit
 class SettingsTableViewCell: UITableViewCell {
     
     var settingName: UILabel!
-    var checkMark: UIImageView!
+  
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        //contentView.backgroundColor = .green
-//        settingName = UILabel(frame: .zero)
-//     
-//        contentView.addSubview(settingName)
-//        
-//        
+        
+      
         settingName = UILabel(frame: CGRect(x: self.frame.height / 4, y: 0, width: self.frame.width / 2, height: self.frame.height))
         settingName.textAlignment = .left
         self.addSubview(settingName)
-        checkMark = UIImageView(frame: CGRect(x: UIScreen.main.bounds.width - contentView.frame.height * 1.5, y: 0, width: self.frame.height, height: self.frame.height))
-        checkMark.contentMode = .scaleAspectFit
+
         
-        print(contentView.frame.width)
-        print(UIScreen.main.bounds.width)
-        self.addSubview(checkMark)
     }
     
     
@@ -41,15 +33,15 @@ class SettingsTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected{
-            
-            checkMark.image = UIImage(named: "checkmark_list")
-            //checkMark.image = UIImage(named: "checkmark_list")
+            self.accessoryView = UIImageView(image: #imageLiteral(resourceName: "checkmark_list"))
+          
         }
         
      
         
         // Configure the view for the selected state
     }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()

@@ -11,11 +11,18 @@ import UIKit
 class QuickViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var quickSettings: UITableView!
+    var selectedCell: Int?
     
     var sizes = ["Photo 4x6 in. borderless", "Photo Letter borderless", "Document Letter"]
     
     private let kSeparatorID = 123
     private let kSeparatorHeight: CGFloat = 1.5
+    let button : UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "checkmark_list"), for: .selected)
+        return button
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +33,7 @@ class QuickViewController: UIViewController, UITableViewDelegate, UITableViewDat
         quickSettings.tableFooterView = UIView(frame: .zero)
         quickSettings.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: quickSettings.frame.width, height: kSeparatorHeight))
         quickSettings.tableHeaderView?.backgroundColor = .lightGray
+       
 
     
     }
@@ -35,10 +43,12 @@ class QuickViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = SettingsTableViewCell(style: .default, reuseIdentifier: "cellId2")
+        cell.backgroundColor = .black
+        cell.textLabel?.textColor = .lightGray
         cell.textLabel?.text = sizes[indexPath.row]
-        cell.backgroundColor = UIColor.black
-        cell.textLabel?.textColor = UIColor.lightGray
+      
+        //cell.isSelected = true
         
         return cell
     }
@@ -52,24 +62,41 @@ class QuickViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.addSubview(separatorView)
         }
     }
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        //print(indexPath.row)
+    }
+    
+
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
+//        for index in 0..<sizes.count{
+//            print(index)
+//            let cell = tableView.cellForRow(at: IndexPath(item: index, section: 0)
+//        }
+//        
+//        for index in 0...sizes.count{
+//            if index == indexPath.row{
+//                
+////                let image = UIImage(named: "checkmark_list")
+////                let imageView = UIImageView (image: image)
+//                
+//                cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "checkmark_list"))
+//                cell.selectionStyle = UITableViewCellSelectionStyle.none
+//                
+//
+//            }else{
+//                cell.accessoryView = .none
+//                
+//            }
+//        }
+    }
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
-        for index in 0..<sizes.count{
-            if index == indexPath.row{
-                if let cell = tableView.cellForRow(at: indexPath){
-                    let image = UIImage(named: "checkmark_list")
-                    let imageView = UIImageView (image: image)
-                    
-                    cell.accessoryView = imageView
-                    cell.selectionStyle = UITableViewCellSelectionStyle.none
-                }
-
-            }else{
-            }
-        }
-        }
+        selectedCell = indexPath.row
+        return indexPath
+    }
 //    
 //    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath){
 //        if let cell = tableView.cellForRow(at: indexPath){

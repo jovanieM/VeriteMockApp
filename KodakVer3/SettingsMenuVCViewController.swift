@@ -12,7 +12,7 @@ class SettingsMenuVCViewController: UIViewController {
 
     @IBAction func openPhotoPrintSB(_ sender: UIButton) {
         
-        let settingSB = UIStoryboard(name: "PhotoPrintStoryboard", bundle: nil)
+        let settingSB = UIStoryboard(name: "PhotoPrintSettingsStoryboard", bundle: nil)
         let vc = settingSB.instantiateInitialViewController()!
         self.show(vc, sender: self)
     }
