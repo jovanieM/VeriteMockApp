@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1033031A1E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303191E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard */; };
+		1033031D1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */; };
+		103303201E52AC2500E7D24C /* InkLevelStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033031F1E52AC2500E7D24C /* InkLevelStoryboard.storyboard */; };
+		103303231E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303221E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard */; };
+		103303261E52AC6D00E7D24C /* CopyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303251E52AC6D00E7D24C /* CopyStoryboard.storyboard */; };
+		103303291E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303281E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard */; };
+		1033032C1E52ACB300E7D24C /* ScanPhotoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033032B1E52ACB300E7D24C /* ScanPhotoStoryboard.storyboard */; };
+		1033032F1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033032E1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard */; };
+		103303321E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303311E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard */; };
+		103303351E52AD2A00E7D24C /* ScanSettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303341E52AD2A00E7D24C /* ScanSettingsStoryboard.storyboard */; };
+		103303381E52AD8400E7D24C /* NetworkStatusStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303371E52AD8400E7D24C /* NetworkStatusStoryboard.storyboard */; };
+		1033033B1E52AD9F00E7D24C /* WiFiSetupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033033A1E52AD9F00E7D24C /* WiFiSetupStoryboard.storyboard */; };
+		1033033E1E52ADC100E7D24C /* GCPStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033033D1E52ADC100E7D24C /* GCPStoryboard.storyboard */; };
+		103303411E52ADE900E7D24C /* AirPrintStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303401E52ADE900E7D24C /* AirPrintStoryboard.storyboard */; };
+		103303441E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303431E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard */; };
+		103303471E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */; };
 		11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */; };
 		1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */; };
 		1116A3291E30A92B0038F2E5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */; };
@@ -56,6 +72,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		103303191E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeviceSettingsStoryboard.storyboard; sourceTree = "<group>"; };
+		1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsConditionsStoryboard.storyboard; sourceTree = "<group>"; };
+		1033031F1E52AC2500E7D24C /* InkLevelStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InkLevelStoryboard.storyboard; sourceTree = "<group>"; };
+		103303221E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PrintPhotoStoryboard.storyboard; sourceTree = "<group>"; };
+		103303251E52AC6D00E7D24C /* CopyStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CopyStoryboard.storyboard; sourceTree = "<group>"; };
+		103303281E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScanDocumentStoryboard.storyboard; sourceTree = "<group>"; };
+		1033032B1E52ACB300E7D24C /* ScanPhotoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScanPhotoStoryboard.storyboard; sourceTree = "<group>"; };
+		1033032E1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddressPrintStoryboard.storyboard; sourceTree = "<group>"; };
+		103303311E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoAdjustmentsStoryboard.storyboard; sourceTree = "<group>"; };
+		103303341E52AD2A00E7D24C /* ScanSettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScanSettingsStoryboard.storyboard; sourceTree = "<group>"; };
+		103303371E52AD8400E7D24C /* NetworkStatusStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NetworkStatusStoryboard.storyboard; sourceTree = "<group>"; };
+		1033033A1E52AD9F00E7D24C /* WiFiSetupStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WiFiSetupStoryboard.storyboard; sourceTree = "<group>"; };
+		1033033D1E52ADC100E7D24C /* GCPStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GCPStoryboard.storyboard; sourceTree = "<group>"; };
+		103303401E52ADE900E7D24C /* AirPrintStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AirPrintStoryboard.storyboard; sourceTree = "<group>"; };
+		103303431E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PrinterUtilityStoryboard.storyboard; sourceTree = "<group>"; };
+		103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SoftwareUpdateStoryboard.storyboard; sourceTree = "<group>"; };
 		11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSelectPopUp.swift; sourceTree = "<group>"; };
 		1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUITableViewController.swift; sourceTree = "<group>"; };
 		1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -118,6 +150,143 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		103303171E52AACC00E7D24C /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				114B30A91DF90A57008A57F1 /* FirstViewController.swift */,
+				114B30AB1DF90A57008A57F1 /* Main.storyboard */,
+			);
+			name = HomeScreen;
+			sourceTree = "<group>";
+		};
+		103303181E52AB1000E7D24C /* DeviceSettingsStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				103303191E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard */,
+			);
+			name = DeviceSettingsStoryboard;
+			sourceTree = "<group>";
+		};
+		1033031B1E52AB5D00E7D24C /* TermsConditionsStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */,
+			);
+			name = TermsConditionsStoryboard;
+			sourceTree = "<group>";
+		};
+		1033031E1E52AC0A00E7D24C /* InkLevelStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				1033031F1E52AC2500E7D24C /* InkLevelStoryboard.storyboard */,
+			);
+			name = InkLevelStoryboard;
+			sourceTree = "<group>";
+		};
+		103303211E52AC2900E7D24C /* PrintPhotoStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				103303221E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard */,
+			);
+			name = PrintPhotoStoryboard;
+			sourceTree = "<group>";
+		};
+		103303241E52AC5A00E7D24C /* CopyStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				103303251E52AC6D00E7D24C /* CopyStoryboard.storyboard */,
+			);
+			name = CopyStoryboard;
+			sourceTree = "<group>";
+		};
+		103303271E52AC7700E7D24C /* ScanDocument */ = {
+			isa = PBXGroup;
+			children = (
+				103303281E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard */,
+			);
+			name = ScanDocument;
+			sourceTree = "<group>";
+		};
+		1033032A1E52AC8F00E7D24C /* ScanPhotoStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				1033032B1E52ACB300E7D24C /* ScanPhotoStoryboard.storyboard */,
+			);
+			name = ScanPhotoStoryboard;
+			sourceTree = "<group>";
+		};
+		1033032D1E52ACB900E7D24C /* AddressPrintStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				1033032E1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard */,
+			);
+			name = AddressPrintStoryboard;
+			sourceTree = "<group>";
+		};
+		103303301E52ACE200E7D24C /* PhotoAdjustmentsStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				103303311E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard */,
+			);
+			name = PhotoAdjustmentsStoryboard;
+			sourceTree = "<group>";
+		};
+		103303331E52AD0200E7D24C /* ScanSettingsStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				103303341E52AD2A00E7D24C /* ScanSettingsStoryboard.storyboard */,
+			);
+			name = ScanSettingsStoryboard;
+			sourceTree = "<group>";
+		};
+		103303361E52AD4000E7D24C /* NetworkStatusStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				103303371E52AD8400E7D24C /* NetworkStatusStoryboard.storyboard */,
+			);
+			name = NetworkStatusStoryboard;
+			sourceTree = "<group>";
+		};
+		103303391E52AD8800E7D24C /* WiFiSetupStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				1033033A1E52AD9F00E7D24C /* WiFiSetupStoryboard.storyboard */,
+			);
+			name = WiFiSetupStoryboard;
+			sourceTree = "<group>";
+		};
+		1033033C1E52ADA900E7D24C /* GCPStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				1033033D1E52ADC100E7D24C /* GCPStoryboard.storyboard */,
+			);
+			name = GCPStoryboard;
+			sourceTree = "<group>";
+		};
+		1033033F1E52ADC500E7D24C /* AirPrintStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				103303401E52ADE900E7D24C /* AirPrintStoryboard.storyboard */,
+			);
+			name = AirPrintStoryboard;
+			sourceTree = "<group>";
+		};
+		103303421E52ADEE00E7D24C /* PrinterUtilityStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				103303431E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard */,
+			);
+			name = PrinterUtilityStoryboard;
+			sourceTree = "<group>";
+		};
+		103303451E52AE1200E7D24C /* SoftwareUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */,
+			);
+			name = SoftwareUpdate;
+			sourceTree = "<group>";
+		};
 		113123A31E51AC410079CEAB /* SettingsStoryboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,12 +330,27 @@
 		114B30A61DF90A57008A57F1 /* KodakVer3 */ = {
 			isa = PBXGroup;
 			children = (
+				103303451E52AE1200E7D24C /* SoftwareUpdate */,
+				103303421E52ADEE00E7D24C /* PrinterUtilityStoryboard */,
+				1033033F1E52ADC500E7D24C /* AirPrintStoryboard */,
+				1033033C1E52ADA900E7D24C /* GCPStoryboard */,
+				103303391E52AD8800E7D24C /* WiFiSetupStoryboard */,
+				103303361E52AD4000E7D24C /* NetworkStatusStoryboard */,
+				103303331E52AD0200E7D24C /* ScanSettingsStoryboard */,
+				103303301E52ACE200E7D24C /* PhotoAdjustmentsStoryboard */,
+				1033032D1E52ACB900E7D24C /* AddressPrintStoryboard */,
+				1033032A1E52AC8F00E7D24C /* ScanPhotoStoryboard */,
+				103303271E52AC7700E7D24C /* ScanDocument */,
+				103303241E52AC5A00E7D24C /* CopyStoryboard */,
+				103303211E52AC2900E7D24C /* PrintPhotoStoryboard */,
+				1033031E1E52AC0A00E7D24C /* InkLevelStoryboard */,
+				1033031B1E52AB5D00E7D24C /* TermsConditionsStoryboard */,
+				103303181E52AB1000E7D24C /* DeviceSettingsStoryboard */,
+				103303171E52AACC00E7D24C /* HomeScreen */,
 				113123A81E51AF590079CEAB /* PhotoPrintStoryboard */,
 				113123A31E51AC410079CEAB /* SettingsStoryboard */,
 				11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */,
 				114B30A71DF90A57008A57F1 /* AppDelegate.swift */,
-				114B30A91DF90A57008A57F1 /* FirstViewController.swift */,
-				114B30AB1DF90A57008A57F1 /* Main.storyboard */,
 				1156AAF11E1E2EFC009C2493 /* TableViewCell1.swift */,
 				1156AAF21E1E2EFC009C2493 /* TableViewCell1.xib */,
 				1156AAF51E1E2F24009C2493 /* TableViewCell2.swift */,
@@ -315,13 +499,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				103303351E52AD2A00E7D24C /* ScanSettingsStoryboard.storyboard in Resources */,
+				103303411E52ADE900E7D24C /* AirPrintStoryboard.storyboard in Resources */,
+				103303261E52AC6D00E7D24C /* CopyStoryboard.storyboard in Resources */,
+				103303321E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard in Resources */,
+				1033032C1E52ACB300E7D24C /* ScanPhotoStoryboard.storyboard in Resources */,
+				103303291E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard in Resources */,
+				103303471E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard in Resources */,
 				113123A51E51AC8D0079CEAB /* SettingsStoryboard.storyboard in Resources */,
 				1156AAF81E1E2F24009C2493 /* TableViewCell2.xib in Resources */,
 				113123A71E51AF400079CEAB /* PhotoPrintStoryboard.storyboard in Resources */,
 				114B30B21DF90A57008A57F1 /* LaunchScreen.storyboard in Resources */,
+				103303231E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard in Resources */,
+				103303381E52AD8400E7D24C /* NetworkStatusStoryboard.storyboard in Resources */,
+				1033031A1E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard in Resources */,
+				1033032F1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard in Resources */,
+				1033033B1E52AD9F00E7D24C /* WiFiSetupStoryboard.storyboard in Resources */,
 				114B30AF1DF90A57008A57F1 /* Assets.xcassets in Resources */,
 				114B30AD1DF90A57008A57F1 /* Main.storyboard in Resources */,
+				103303201E52AC2500E7D24C /* InkLevelStoryboard.storyboard in Resources */,
 				1156AAF41E1E2EFC009C2493 /* TableViewCell1.xib in Resources */,
+				1033033E1E52ADC100E7D24C /* GCPStoryboard.storyboard in Resources */,
+				1033031D1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard in Resources */,
+				103303441E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
