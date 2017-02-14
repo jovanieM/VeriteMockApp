@@ -54,20 +54,28 @@ class QuickViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        if let cell = tableView.cellForRow(at: indexPath){
-            let image = UIImage(named: "checkmark_list")
-            let imageView = UIImageView (image: image)
-            
-            cell.accessoryView = imageView
-            cell.selectionStyle = UITableViewCellSelectionStyle.none
+        
+        
+        for index in 0..<sizes.count{
+            if index == indexPath.row{
+                if let cell = tableView.cellForRow(at: indexPath){
+                    let image = UIImage(named: "checkmark_list")
+                    let imageView = UIImageView (image: image)
+                    
+                    cell.accessoryView = imageView
+                    cell.selectionStyle = UITableViewCellSelectionStyle.none
+                }
+
+            }else{
+            }
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath){
-        if let cell = tableView.cellForRow(at: indexPath){
-            cell.accessoryView = .none
         }
-    }
+//    
+//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath){
+//        if let cell = tableView.cellForRow(at: indexPath){
+//            cell.accessoryView = .none
+//        }
+//    }
     
     
   
