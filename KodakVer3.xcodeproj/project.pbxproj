@@ -52,6 +52,7 @@
 		11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */; };
 		11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */; };
 		11DF48201E36E46A0012AD60 /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF481F1E36E46A0012AD60 /* FirstCell.swift */; };
+		11F865961E530B1D00326907 /* PrintPhotoHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F865951E530B1D00326907 /* PrintPhotoHomeVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavBar.swift; sourceTree = "<group>"; };
 		11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintSettingsModel.swift; sourceTree = "<group>"; };
 		11DF481F1E36E46A0012AD60 /* FirstCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCell.swift; sourceTree = "<group>"; };
+		11F865951E530B1D00326907 /* PrintPhotoHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintPhotoHomeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				103303221E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard */,
+				11F865951E530B1D00326907 /* PrintPhotoHomeVC.swift */,
 			);
 			name = PrintPhotoStoryboard;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				11DF48201E36E46A0012AD60 /* FirstCell.swift in Sources */,
 				11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */,
 				1156AAF71E1E2F24009C2493 /* TableViewCell2.swift in Sources */,
+				11F865961E530B1D00326907 /* PrintPhotoHomeVC.swift in Sources */,
 				1158B7511DFA86C1008F081F /* DetailViewController.swift in Sources */,
 				118186E71E249FFA00B40A5F /* MyTableViewDelegate.swift in Sources */,
 			);
