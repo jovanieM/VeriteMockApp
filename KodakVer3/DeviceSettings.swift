@@ -20,7 +20,7 @@ class DeviceSettings: UIViewController{
     }
     
     // transition to Network Status
-    @IBAction func toNetworkStatus(_ sender: UIButton) {
+    @IBAction func toNetworkStatus(_ sender: UIButton) {        
         let networkStatusSB = UIStoryboard(name: "NetworkStatusStoryboard", bundle: nil)
         let vc = networkStatusSB.instantiateInitialViewController()!
         self.show(vc, sender: self)
