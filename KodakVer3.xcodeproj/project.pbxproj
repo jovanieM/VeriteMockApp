@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000F6001E52CDB700DE4B3C /* InkLevel.swift */; };
 		1033031A1E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303191E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard */; };
 		1033031D1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */; };
 		103303201E52AC2500E7D24C /* InkLevelStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033031F1E52AC2500E7D24C /* InkLevelStoryboard.storyboard */; };
@@ -23,6 +24,10 @@
 		103303411E52ADE900E7D24C /* AirPrintStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303401E52ADE900E7D24C /* AirPrintStoryboard.storyboard */; };
 		103303441E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303431E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard */; };
 		103303471E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */; };
+		105965E41E531B95003B7CD6 /* DeviceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105965E21E531B95003B7CD6 /* DeviceSettings.swift */; };
+		105965E51E531B95003B7CD6 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105965E31E531B95003B7CD6 /* NetworkStatus.swift */; };
+		105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105965EC1E5320C6003B7CD6 /* WiFiSetupHome.swift */; };
+		10A630731E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A630721E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift */; };
 		11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */; };
 		1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */; };
 		1116A3291E30A92B0038F2E5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */; };
@@ -73,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1000F6001E52CDB700DE4B3C /* InkLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InkLevel.swift; sourceTree = "<group>"; };
 		103303191E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeviceSettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsConditionsStoryboard.storyboard; sourceTree = "<group>"; };
 		1033031F1E52AC2500E7D24C /* InkLevelStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InkLevelStoryboard.storyboard; sourceTree = "<group>"; };
@@ -89,6 +95,10 @@
 		103303401E52ADE900E7D24C /* AirPrintStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AirPrintStoryboard.storyboard; sourceTree = "<group>"; };
 		103303431E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PrinterUtilityStoryboard.storyboard; sourceTree = "<group>"; };
 		103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SoftwareUpdateStoryboard.storyboard; sourceTree = "<group>"; };
+		105965E21E531B95003B7CD6 /* DeviceSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSettings.swift; sourceTree = "<group>"; };
+		105965E31E531B95003B7CD6 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
+		105965EC1E5320C6003B7CD6 /* WiFiSetupHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiFiSetupHome.swift; sourceTree = "<group>"; };
+		10A630721E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSearchingPrinter.swift; sourceTree = "<group>"; };
 		11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSelectPopUp.swift; sourceTree = "<group>"; };
 		1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUITableViewController.swift; sourceTree = "<group>"; };
 		1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -165,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				103303191E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard */,
+				105965E21E531B95003B7CD6 /* DeviceSettings.swift */,
 			);
 			name = DeviceSettingsStoryboard;
 			sourceTree = "<group>";
@@ -181,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				1033031F1E52AC2500E7D24C /* InkLevelStoryboard.storyboard */,
+				1000F6001E52CDB700DE4B3C /* InkLevel.swift */,
 			);
 			name = InkLevelStoryboard;
 			sourceTree = "<group>";
@@ -246,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				103303371E52AD8400E7D24C /* NetworkStatusStoryboard.storyboard */,
+				105965E31E531B95003B7CD6 /* NetworkStatus.swift */,
 			);
 			name = NetworkStatusStoryboard;
 			sourceTree = "<group>";
@@ -254,6 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				1033033A1E52AD9F00E7D24C /* WiFiSetupStoryboard.storyboard */,
+				105965EC1E5320C6003B7CD6 /* WiFiSetupHome.swift */,
+				10A630721E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift */,
 			);
 			name = WiFiSetupStoryboard;
 			sourceTree = "<group>";
@@ -553,6 +568,8 @@
 				1158B74F1DFA8655008F081F /* QuickViewController.swift in Sources */,
 				113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */,
 				1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */,
+				105965E51E531B95003B7CD6 /* NetworkStatus.swift in Sources */,
+				105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */,
 				114B30AA1DF90A57008A57F1 /* FirstViewController.swift in Sources */,
 				114B30D81DF92C44008A57F1 /* PrintPhotoVC.swift in Sources */,
 				11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */,
@@ -565,6 +582,9 @@
 				1116A32B1E30BC430038F2E5 /* SettingsTableViewCell.swift in Sources */,
 				116CE2681E1F445F005687E9 /* MyTableViewDataSource.swift in Sources */,
 				11DF48201E36E46A0012AD60 /* FirstCell.swift in Sources */,
+				1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */,
+				10A630731E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift in Sources */,
+				105965E41E531B95003B7CD6 /* DeviceSettings.swift in Sources */,
 				11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */,
 				1156AAF71E1E2F24009C2493 /* TableViewCell2.swift in Sources */,
 				11F865961E530B1D00326907 /* PrintPhotoHomeVC.swift in Sources */,

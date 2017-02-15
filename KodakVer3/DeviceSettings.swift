@@ -19,10 +19,17 @@ class DeviceSettings: UIViewController{
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
     
+    // transition to Network Status
     @IBAction func toNetworkStatus(_ sender: UIButton) {
-        let settingSB = UIStoryboard(name: "NetworkStatusStoryboard", bundle: nil)
-        let vc = settingSB.instantiateInitialViewController()!
+        let networkStatusSB = UIStoryboard(name: "NetworkStatusStoryboard", bundle: nil)
+        let vc = networkStatusSB.instantiateInitialViewController()!
         self.show(vc, sender: self)
     }
     
+    // transition to Wi-Fi Setup
+    @IBAction func toWiFiSetup(_ sender: UIButton) {
+        let wifiSetupSB = UIStoryboard(name:"WiFiSetupStoryboard", bundle: nil)
+        let vc = wifiSetupSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
 }

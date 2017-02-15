@@ -1,14 +1,14 @@
 //
-//  WiFiSetup.swift
+//  NetworkAndPasswordSearchingPrinter.swift
 //  KodakVer3
 //
-//  Created by anarte on 14/02/2017.
+//  Created by anarte on 15/02/2017.
 //  Copyright © 2017 jmolas. All rights reserved.
 //
 
 import UIKit
 
-class WiFiSetup: UIViewController{
+class NetworkAndPasswordSearchingPrinter: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
