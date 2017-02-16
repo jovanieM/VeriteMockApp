@@ -27,6 +27,8 @@
 		105965E41E531B95003B7CD6 /* DeviceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105965E21E531B95003B7CD6 /* DeviceSettings.swift */; };
 		105965E51E531B95003B7CD6 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105965E31E531B95003B7CD6 /* NetworkStatus.swift */; };
 		105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105965EC1E5320C6003B7CD6 /* WiFiSetupHome.swift */; };
+		105FAB171E55794000A180E8 /* NetworkAndPasswordManual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105FAB151E55794000A180E8 /* NetworkAndPasswordManual.swift */; };
+		105FAB181E55794000A180E8 /* SecurityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105FAB161E55794000A180E8 /* SecurityType.swift */; };
 		10759B2E1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */; };
 		10A630731E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A630721E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift */; };
 		11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */; };
@@ -99,6 +101,8 @@
 		105965E21E531B95003B7CD6 /* DeviceSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSettings.swift; sourceTree = "<group>"; };
 		105965E31E531B95003B7CD6 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		105965EC1E5320C6003B7CD6 /* WiFiSetupHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiFiSetupHome.swift; sourceTree = "<group>"; };
+		105FAB151E55794000A180E8 /* NetworkAndPasswordManual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordManual.swift; sourceTree = "<group>"; };
+		105FAB161E55794000A180E8 /* SecurityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityType.swift; sourceTree = "<group>"; };
 		10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSelectTheNetwork.swift; sourceTree = "<group>"; };
 		10A630721E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSearchingPrinter.swift; sourceTree = "<group>"; };
 		11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSelectPopUp.swift; sourceTree = "<group>"; };
@@ -268,6 +272,8 @@
 		103303391E52AD8800E7D24C /* WiFiSetupStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				105FAB151E55794000A180E8 /* NetworkAndPasswordManual.swift */,
+				105FAB161E55794000A180E8 /* SecurityType.swift */,
 				10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */,
 				1033033A1E52AD9F00E7D24C /* WiFiSetupStoryboard.storyboard */,
 				105965EC1E5320C6003B7CD6 /* WiFiSetupHome.swift */,
@@ -571,6 +577,7 @@
 				1158B74F1DFA8655008F081F /* QuickViewController.swift in Sources */,
 				113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */,
 				1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */,
+				105FAB181E55794000A180E8 /* SecurityType.swift in Sources */,
 				105965E51E531B95003B7CD6 /* NetworkStatus.swift in Sources */,
 				105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */,
 				114B30AA1DF90A57008A57F1 /* FirstViewController.swift in Sources */,
@@ -594,6 +601,7 @@
 				11F865961E530B1D00326907 /* PrintPhotoHomeVC.swift in Sources */,
 				1158B7511DFA86C1008F081F /* DetailViewController.swift in Sources */,
 				118186E71E249FFA00B40A5F /* MyTableViewDelegate.swift in Sources */,
+				105FAB171E55794000A180E8 /* NetworkAndPasswordManual.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
