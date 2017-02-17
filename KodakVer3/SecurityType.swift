@@ -18,6 +18,9 @@ class SecurityType: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var cell: SettingsTableViewCell!
     
+    private let kSeparatorID = 123
+    private let kSeparatorHeight: CGFloat = 1.5
+    
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
         navTransition.duration = 1
@@ -33,9 +36,9 @@ class SecurityType: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         
         // table
-        //securityType.dataSource = self
-        //securityType.delegate = self
-        securityType.backgroundColor = .lightGray
+        securityType.dataSource = self
+        securityType.delegate = self
+        securityType.backgroundColor = UIColor.gray
         
     }
     
@@ -45,9 +48,12 @@ class SecurityType: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cell = SettingsTableViewCell(style: .default, reuseIdentifier: "cellId2")
+        cell.backgroundColor = UIColor.gray
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = security[indexPath.row]
         
         return cell
     }
+    
+   
 }

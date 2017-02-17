@@ -31,6 +31,9 @@
 		105FAB181E55794000A180E8 /* SecurityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105FAB161E55794000A180E8 /* SecurityType.swift */; };
 		10759B2E1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */; };
 		10A630731E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A630721E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift */; };
+		10CD81811E567A22001815A1 /* HostName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD817E1E567A22001815A1 /* HostName.swift */; };
+		10CD81821E567A22001815A1 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD817F1E567A22001815A1 /* IPAddress.swift */; };
+		10CD81831E567A22001815A1 /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD81801E567A22001815A1 /* Proxy.swift */; };
 		11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */; };
 		1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */; };
 		1116A3291E30A92B0038F2E5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */; };
@@ -105,6 +108,9 @@
 		105FAB161E55794000A180E8 /* SecurityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityType.swift; sourceTree = "<group>"; };
 		10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSelectTheNetwork.swift; sourceTree = "<group>"; };
 		10A630721E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSearchingPrinter.swift; sourceTree = "<group>"; };
+		10CD817E1E567A22001815A1 /* HostName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostName.swift; sourceTree = "<group>"; };
+		10CD817F1E567A22001815A1 /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
+		10CD81801E567A22001815A1 /* Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
 		11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSelectPopUp.swift; sourceTree = "<group>"; };
 		1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUITableViewController.swift; sourceTree = "<group>"; };
 		1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -272,6 +278,9 @@
 		103303391E52AD8800E7D24C /* WiFiSetupStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				10CD817E1E567A22001815A1 /* HostName.swift */,
+				10CD817F1E567A22001815A1 /* IPAddress.swift */,
+				10CD81801E567A22001815A1 /* Proxy.swift */,
 				105FAB151E55794000A180E8 /* NetworkAndPasswordManual.swift */,
 				105FAB161E55794000A180E8 /* SecurityType.swift */,
 				10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */,
@@ -575,10 +584,13 @@
 			files = (
 				1116A3291E30A92B0038F2E5 /* DetailTableViewCell.swift in Sources */,
 				1158B74F1DFA8655008F081F /* QuickViewController.swift in Sources */,
+				10CD81811E567A22001815A1 /* HostName.swift in Sources */,
 				113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */,
+				10CD81821E567A22001815A1 /* IPAddress.swift in Sources */,
 				1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */,
 				105FAB181E55794000A180E8 /* SecurityType.swift in Sources */,
 				105965E51E531B95003B7CD6 /* NetworkStatus.swift in Sources */,
+				10CD81831E567A22001815A1 /* Proxy.swift in Sources */,
 				105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */,
 				114B30AA1DF90A57008A57F1 /* FirstViewController.swift in Sources */,
 				114B30D81DF92C44008A57F1 /* PrintPhotoVC.swift in Sources */,
