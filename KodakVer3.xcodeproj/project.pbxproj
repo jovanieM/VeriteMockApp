@@ -34,6 +34,8 @@
 		10CD81811E567A22001815A1 /* HostName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD817E1E567A22001815A1 /* HostName.swift */; };
 		10CD81821E567A22001815A1 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD817F1E567A22001815A1 /* IPAddress.swift */; };
 		10CD81831E567A22001815A1 /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD81801E567A22001815A1 /* Proxy.swift */; };
+		10D36C1E1E5A8E8900D79664 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D36C1D1E5A8E8900D79664 /* Images-2.xcassets */; };
+		10D36C201E5A8E9500D79664 /* Images-3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D36C1F1E5A8E9500D79664 /* Images-3.xcassets */; };
 		11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */; };
 		1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */; };
 		1116A3291E30A92B0038F2E5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */; };
@@ -111,6 +113,8 @@
 		10CD817E1E567A22001815A1 /* HostName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostName.swift; sourceTree = "<group>"; };
 		10CD817F1E567A22001815A1 /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
 		10CD81801E567A22001815A1 /* Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
+		10D36C1D1E5A8E8900D79664 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
+		10D36C1F1E5A8E9500D79664 /* Images-3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-3.xcassets"; sourceTree = "<group>"; };
 		11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSelectPopUp.swift; sourceTree = "<group>"; };
 		1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUITableViewController.swift; sourceTree = "<group>"; };
 		1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -405,6 +409,8 @@
 				1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */,
 				1116A32A1E30BC430038F2E5 /* SettingsTableViewCell.swift */,
 				11DF481F1E36E46A0012AD60 /* FirstCell.swift */,
+				10D36C1D1E5A8E8900D79664 /* Images-2.xcassets */,
+				10D36C1F1E5A8E9500D79664 /* Images-3.xcassets */,
 			);
 			path = KodakVer3;
 			sourceTree = "<group>";
@@ -495,7 +501,7 @@
 				TargetAttributes = {
 					114B30A31DF90A57008A57F1 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = MQ489N5BME;
+						DevelopmentTeam = 5GFTBY65QD;
 						ProvisioningStyle = Automatic;
 					};
 					114B30B71DF90A57008A57F1 = {
@@ -552,7 +558,9 @@
 				1033032F1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard in Resources */,
 				1033033B1E52AD9F00E7D24C /* WiFiSetupStoryboard.storyboard in Resources */,
 				114B30AF1DF90A57008A57F1 /* Assets.xcassets in Resources */,
+				10D36C201E5A8E9500D79664 /* Images-3.xcassets in Resources */,
 				114B30AD1DF90A57008A57F1 /* Main.storyboard in Resources */,
+				10D36C1E1E5A8E8900D79664 /* Images-2.xcassets in Resources */,
 				103303201E52AC2500E7D24C /* InkLevelStoryboard.storyboard in Resources */,
 				1156AAF41E1E2EFC009C2493 /* TableViewCell1.xib in Resources */,
 				1033033E1E52ADC100E7D24C /* GCPStoryboard.storyboard in Resources */,
@@ -765,12 +773,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = MQ489N5BME;
+				DEVELOPMENT_TEAM = 5GFTBY65QD;
 				INFOPLIST_FILE = KodakVer3/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sqacebu.KodakVer3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sqacebu.KodakVer3.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -780,12 +789,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = MQ489N5BME;
+				DEVELOPMENT_TEAM = 5GFTBY65QD;
 				INFOPLIST_FILE = KodakVer3/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sqacebu.KodakVer3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sqacebu.KodakVer3.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
