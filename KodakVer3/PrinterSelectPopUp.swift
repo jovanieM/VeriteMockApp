@@ -31,15 +31,11 @@ class PrinterSelectPopUp: UIView, UITableViewDelegate, UITableViewDataSource{
     var printerList: [String] = []{
         didSet {
           
-
             height = CGFloat(computeHeight(numberOfItems: printerList.count) * 44)
           
             tableView.delegate = self
             tableView.dataSource = self
             
-        
-            
-            print("didSet")
         }
     
     }
@@ -48,8 +44,6 @@ class PrinterSelectPopUp: UIView, UITableViewDelegate, UITableViewDataSource{
         super.init(frame: frame)
         width = frame.width * 0.9
         setupViews()
-        print("init")
-    
         
     }
     
@@ -115,7 +109,6 @@ class PrinterSelectPopUp: UIView, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         delegate?.select(index: indexPath.row)
-        print("it works")
         self.removeFromSuperview()
     }
     

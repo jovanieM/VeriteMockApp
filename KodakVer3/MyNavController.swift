@@ -19,7 +19,7 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
         //visibleViewController?.navigationController?.navigationItem.title = "Home"
         visibleViewController?.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1.0)
         visibleViewController?.navigationController?.delegate = self
-        print("viewDidload")
+       
         //visibleViewController?.navigationController?.navigationBar.topItem?.title = "hello"
        
     }
@@ -31,7 +31,7 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
         
         viewController.navigationController?.navigationBar.backIndicatorImage = UIImage()
         viewController.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
-        let item: UIBarButtonItem = UIBarButtonItem(title: "<back", style: .plain, target: self, action: #selector(self.pop))
+        let item: UIBarButtonItem = UIBarButtonItem(title: "< back", style: .plain, target: self, action: #selector(self.pop))
     
         viewController.navigationItem.leftBarButtonItem = item
         super.pushViewController(viewController, animated: animated)
@@ -48,7 +48,7 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
         //viewController.navigationController?.navigationBar.topItem?.setHidesBackButton(true, animated: true)
 //        let bck = UIBarButtonItem(title: "<back", style: .plain, target: self, action: nil)
 //        viewController.navigationController?.navigationBar.topItem?.leftBarButtonItem = bck
-        print("override func pushViewController")
+        
     }
     
     func pop(){
@@ -67,8 +67,7 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
 //        viewController.navigationController?.navigationBar.backIndicatorImage = UIImage()
 //        viewController.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
         //viewController.navigationController?.navigationBar.topItem?.title = "hello"
-        print("func navigationController")
-        //viewController.navigationController?.navigationBar.backItem.
+               //viewController.navigationController?.navigationBar.backItem.
         //let bck = UIBarButtonItem(title: "<back", style: .plain, target: self, action: nil)
 
     }
@@ -76,20 +75,5 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
         //let item: UIBarButtonItem = UIBarButtonItem(title: "<hello", style: .plain, target: self, action: nil)
         //item.backButtonTitlePositionAdjustment(for: .compact)
     }
-    
-  
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

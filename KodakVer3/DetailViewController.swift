@@ -48,13 +48,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         detailSettings.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: detailSettings.frame.width, height: kSeparatorHeight))
         detailSettings.tableHeaderView?.backgroundColor = .lightGray
 //      detailSettings.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
-        for index in 1...4{
-            setData(value: 0, receiverIndex: index)
-        }
-        
-        
-        
-       
 
     }
     
@@ -100,7 +93,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let cell2 = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
             cell2.mainLabel.adjustsFontSizeToFitWidth = true
             cell2.mainLabel.text = arrayofMainLbl[indexPath.row]
-            cell2.selectionLabel.text = collections[indexPath.row][0]
+            cell2.selectionLabel.text = collections[indexPath.row][getSavedData(receiver: indexPath.row)]
                       
             return cell2
         }
@@ -145,10 +138,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     }
   
-   
-    
 
-  
     func computeHeight(numberOfItems: Int) ->Int{
         if numberOfItems > 5 {
             let height = UIScreen.main.bounds.height * 0.8
