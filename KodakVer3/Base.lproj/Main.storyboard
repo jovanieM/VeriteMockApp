@@ -121,9 +121,6 @@
                                                             <constraint firstAttribute="height" constant="140" id="FbZ-sf-nIt"/>
                                                         </constraints>
                                                         <state key="normal" backgroundImage="main_button"/>
-                                                        <connections>
-                                                            <action selector="copyButtonPressed:" destination="wZA-pm-V9E" eventType="touchUpInside" id="7OB-nR-bV6"/>
-                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keb-3u-ZYL" userLabel="Scandoc_button">
                                                         <rect key="frame" x="0.0" y="301" width="151" height="140"/>
