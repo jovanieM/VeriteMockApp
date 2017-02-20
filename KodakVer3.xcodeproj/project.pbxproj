@@ -59,6 +59,8 @@
 		1158B74F1DFA8655008F081F /* QuickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158B74E1DFA8655008F081F /* QuickViewController.swift */; };
 		1158B7511DFA86C1008F081F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158B7501DFA86C1008F081F /* DetailViewController.swift */; };
 		116CE2681E1F445F005687E9 /* MyTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116CE2671E1F445F005687E9 /* MyTableViewDataSource.swift */; };
+		11715AA41E5AC3FE005367B9 /* ImageCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11715AA31E5AC3FE005367B9 /* ImageCollectionVC.swift */; };
+		11715AA61E5AC413005367B9 /* PhotoAssetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */; };
 		118186E71E249FFA00B40A5F /* MyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */; };
 		11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */; };
 		11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */; };
@@ -142,6 +144,8 @@
 		1158B74E1DFA8655008F081F /* QuickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickViewController.swift; sourceTree = "<group>"; };
 		1158B7501DFA86C1008F081F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		116CE2671E1F445F005687E9 /* MyTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewDataSource.swift; sourceTree = "<group>"; };
+		11715AA31E5AC3FE005367B9 /* ImageCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionVC.swift; sourceTree = "<group>"; };
+		11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAssetCollection.swift; sourceTree = "<group>"; };
 		118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewDelegate.swift; sourceTree = "<group>"; };
 		11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavBar.swift; sourceTree = "<group>"; };
 		11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintSettingsModel.swift; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 		103303211E52AC2900E7D24C /* PrintPhotoStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				11715AA31E5AC3FE005367B9 /* ImageCollectionVC.swift */,
+				11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */,
 				103303221E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard */,
 				11F865951E530B1D00326907 /* PrintPhotoHomeVC.swift */,
 			);
@@ -587,6 +593,7 @@
 				10CD81811E567A22001815A1 /* HostName.swift in Sources */,
 				113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */,
 				10CD81821E567A22001815A1 /* IPAddress.swift in Sources */,
+				11715AA61E5AC413005367B9 /* PhotoAssetCollection.swift in Sources */,
 				1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */,
 				105FAB181E55794000A180E8 /* SecurityType.swift in Sources */,
 				105965E51E531B95003B7CD6 /* NetworkStatus.swift in Sources */,
@@ -598,6 +605,7 @@
 				114B30DA1DF92D78008A57F1 /* QuickDetailSelector.swift in Sources */,
 				11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */,
 				1156AAF31E1E2EFC009C2493 /* TableViewCell1.swift in Sources */,
+				11715AA41E5AC3FE005367B9 /* ImageCollectionVC.swift in Sources */,
 				114B30D61DF92BEF008A57F1 /* SettingsMenuVCViewController.swift in Sources */,
 				114B30A81DF90A57008A57F1 /* AppDelegate.swift in Sources */,
 				1158B74D1DFA4A5B008F081F /* MyNavController.swift in Sources */,
