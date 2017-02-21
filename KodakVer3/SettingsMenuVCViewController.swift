@@ -28,7 +28,7 @@ class SettingsMenuVCViewController: UIViewController {
         let deviceSettingsSB = UIStoryboard(name: "DeviceSettingsStoryboard", bundle: nil)
         let deviceSettingVC = deviceSettingsSB.instantiateInitialViewController()!
         self.show(deviceSettingVC, sender: self)
-    }    
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
