@@ -24,6 +24,9 @@ class CopyViewController: UIViewController {
     
     @IBOutlet weak var viewCustom: UIView!
     
+    var gold: UIColor {
+        return UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1.0)
+    }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         numcopies.text  = Int(sender.value).description
@@ -74,15 +77,8 @@ class CopyViewController: UIViewController {
     
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+   
 }
+
+
