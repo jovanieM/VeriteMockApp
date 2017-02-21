@@ -41,9 +41,9 @@ class Proxy: UIViewController, UITextFieldDelegate{
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(Proxy.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-        saveSettingButton.layer.cornerRadius = 25
+        saveSettingButton.layer.cornerRadius = 15
         saveSettingButton.layer.borderWidth = 2
-        saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 138/255, blue: 0/255, alpha: 1).cgColor
+        saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
         
     }
     

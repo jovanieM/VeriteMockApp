@@ -1,17 +1,16 @@
 //
-//  HostName.swift
+//  FriendlyName.swift
 //  KodakVer3
 //
-//  Created by anarte on 17/02/2017.
+//  Created by anarte on 21/02/2017.
 //  Copyright © 2017 jmolas. All rights reserved.
 //
 
 import UIKit
 
-class HostName: UIViewController {
-
-    @IBOutlet weak var saveSettingButton: UIButton!
+class FriendlyName: UIViewController{
     
+    @IBOutlet weak var saveSettingButton: UIButton!
     //navigation bar
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
@@ -30,5 +29,4 @@ class HostName: UIViewController {
         saveSettingButton.layer.borderWidth = 2
         saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
     }
-    
 }
