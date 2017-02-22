@@ -19,6 +19,8 @@ class Proxy: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var onOffLabel: UILabel!
     @IBOutlet weak var portTextField: UITextField!
     
+    var alert: UIAlertController!
+    var indicator: UIActivityIndicatorView!
     
     //navigation bar
     override func viewWillAppear(_ animated: Bool) {
@@ -30,10 +32,10 @@ class Proxy: UIViewController, UITextFieldDelegate{
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadAlerts()
         
         proxyAddressView.isHidden = true
         portProxyView.isHidden = true
@@ -76,8 +78,29 @@ class Proxy: UIViewController, UITextFieldDelegate{
         indicator.isUserInteractionEnabled = false
         indicator.startAnimating()
         
-        self.present(alert, animated: true, completion: nil)     
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func loadAlerts(){
+        alert = UIAlertController(title: "Getting Network \n information... \n", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.dismiss(animated: true, completion: nil)
+        }))
         
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 90, width: 40, height:40))
+        indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        indicator.activityIndicatorViewStyle = .gray
+        
+        alert.view.addSubview(indicator)
+        indicator.startAnimating()
+        self.present(alert, animated: true, completion: nil)
+        
+        _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
+    }
+    
+    func dismissAlert(){
+        indicator.stopAnimating()
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

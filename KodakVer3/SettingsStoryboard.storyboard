@@ -141,6 +141,9 @@
                                         <state key="normal" backgroundImage="selectmenu">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="toTermsAndCondition:" destination="9xx-qH-rLL" eventType="touchUpInside" id="dfn-yH-KaB"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Terms and Conditions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB2-MI-19b">
                                         <rect key="frame" x="8" y="10" width="160" height="21"/>

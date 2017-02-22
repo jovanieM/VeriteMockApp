@@ -24,6 +24,7 @@ class SettingsMenuVCViewController: UIViewController {
         self.show(scanSettingsVC, sender: self)
     }*/
     
+    // to device settings storyboard
     @IBAction func toDeviceSettings(_ sender: UIButton) {
         let deviceSettingsSB = UIStoryboard(name: "DeviceSettingsStoryboard", bundle: nil)
         let deviceSettingVC = deviceSettingsSB.instantiateInitialViewController()!
@@ -49,12 +50,16 @@ class SettingsMenuVCViewController: UIViewController {
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
   
+    @IBAction func toTermsAndCondition(_ sender: UIButton) {
+        let termAndConditionSB = UIStoryboard(name: "TermsConditionsStoryboard", bundle: nil)
+        let termsAndConditionVC = termAndConditionSB.instantiateInitialViewController()!
+        self.show(termsAndConditionVC, sender: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 
     /*
     // MARK: - Navigation

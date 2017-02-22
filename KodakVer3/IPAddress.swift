@@ -36,9 +36,6 @@ class IPAddress: UIViewController{
         
         loadAlerts()
         
-        //automatic segue to next screen
-        //_ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
-        
         // hide views
         hideViews()
         
@@ -47,11 +44,9 @@ class IPAddress: UIViewController{
         saveSettingButton.layer.borderWidth = 2
         saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
         
-        //text fields
-  
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(IPAddress.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
@@ -105,16 +100,11 @@ class IPAddress: UIViewController{
         indicator.startAnimating()
         self.present(alert, animated: true, completion: nil)
         
-        
         _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
-        
      }
     
     func dismissAlert(){
         indicator.stopAnimating()
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-    
 }
