@@ -11,24 +11,36 @@ import UIKit
 class IPAddress: UIViewController{
 
     @IBOutlet weak var switchController: UISwitch!
-    
     @IBOutlet weak var autoManualLabel: UILabel!
-    
     @IBOutlet weak var viewIpAddress: UIView!
     @IBOutlet weak var viewSubnetMask: UIView!
     @IBOutlet weak var viewDefaultGateway: UIView!
     @IBOutlet weak var viewDnsAddress: UIView!
-    
     @IBOutlet weak var saveSettingButton: UIButton!
+    
+    var alert: UIAlertController!
+    var indicator: UIActivityIndicatorView!
+    
+    //navigation bar
+    override func viewWillAppear(_ animated: Bool) {
+        let navTransition = CATransition()
+        navTransition.duration = 1
+        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        navTransition.type = kCATransitionPush
+        navTransition.subtype = kCATransitionPush
+        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadAlerts()
+        
+        //automatic segue to next screen
+        //_ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
+        
         // hide views
-        viewIpAddress.isHidden = true
-        viewSubnetMask.isHidden = true
-        viewDefaultGateway.isHidden = true
-        viewDnsAddress.isHidden = true
+        hideViews()
         
         //button
         saveSettingButton.layer.cornerRadius = 15
@@ -72,16 +84,37 @@ class IPAddress: UIViewController{
         view.endEditing(true)
     }
     
-    
-    //navigation bar
-    override func viewWillAppear(_ animated: Bool) {
-        let navTransition = CATransition()
-        navTransition.duration = 1
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        navTransition.type = kCATransitionPush
-        navTransition.subtype = kCATransitionPush
-        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+    func hideViews(){
+        viewIpAddress.isHidden = true
+        viewSubnetMask.isHidden = true
+        viewDefaultGateway.isHidden = true
+        viewDnsAddress.isHidden = true
     }
+    
+    func loadAlerts(){
+        alert = UIAlertController(title: "Getting Network \n information... \n", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 90, width: 40, height:40))
+        indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        indicator.activityIndicatorViewStyle = .gray
+        
+        alert.view.addSubview(indicator)
+        indicator.startAnimating()
+        self.present(alert, animated: true, completion: nil)
+        
+        
+        _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
+        
+     }
+    
+    func dismissAlert(){
+        indicator.stopAnimating()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     
 }

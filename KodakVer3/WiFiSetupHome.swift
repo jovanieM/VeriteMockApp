@@ -10,6 +10,9 @@ import UIKit
 
 class WiFiSetupHome: UIViewController{
     
+    var alert: UIAlertController!
+    var indicator: UIActivityIndicatorView!
+    
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
         navTransition.duration = 1
@@ -18,5 +21,4 @@ class WiFiSetupHome: UIViewController{
         navTransition.subtype = kCATransitionPush
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
-    
 }
