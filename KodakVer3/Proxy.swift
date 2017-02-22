@@ -18,8 +18,10 @@ class Proxy: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var saveSettingButton: UIButton!
     @IBOutlet weak var onOffLabel: UILabel!
     @IBOutlet weak var portTextField: UITextField!
+    @IBOutlet weak var proxyTopView: UIView!
     
     var alert: UIAlertController!
+    var alert2: UIAlertController!
     var indicator: UIActivityIndicatorView!
     
     //navigation bar
@@ -53,12 +55,10 @@ class Proxy: UIViewController, UITextFieldDelegate{
     @IBAction func switcher(_ sender: UISwitch) {
         if proxySwitch.isOn == true{
             onOffLabel.text = "ON"
-            
             proxyAddressView.isHidden = false
             portProxyView.isHidden = false
         } else {
             onOffLabel.text = "OFF"
-            
             proxyAddressView.isHidden = true
             portProxyView.isHidden = true
         }
@@ -69,9 +69,9 @@ class Proxy: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Settings", message: " \n ", preferredStyle: .alert)
+        alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
         
-        let indicator = UIActivityIndicatorView(frame: alert.view.bounds)
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         alert.view.addSubview(indicator)
@@ -79,15 +79,21 @@ class Proxy: UIViewController, UITextFieldDelegate{
         indicator.startAnimating()
         
         self.present(alert, animated: true, completion: nil)
+        _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert_2), userInfo: nil, repeats: false)
+        
     }
     
     func loadAlerts(){
+        proxyTopView.isHidden = true
+        saveSettingButton.isHidden = true
+        
         alert = UIAlertController(title: "Getting Network \n information... \n", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             self.dismiss(animated: true, completion: nil)
+            _ = self.navigationController?.popViewController(animated: true)
         }))
         
-        indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 90, width: 40, height:40))
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 90, width: 50, height:50))
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         indicator.activityIndicatorViewStyle = .gray
         
@@ -99,8 +105,26 @@ class Proxy: UIViewController, UITextFieldDelegate{
     }
     
     func dismissAlert(){
-        indicator.stopAnimating()
-        self.dismiss(animated: true, completion: nil)
+        self.alert?.dismiss(animated: true, completion: nil)
+        
+        //to display top view and button
+        proxyTopView.isHidden = false
+        saveSettingButton.isHidden = false
+    }
+    
+    func dismissAlert_2(){
+        self.alert?.dismiss(animated: true, completion: {
+            self.alert2 = UIAlertController(title: "", message: "Setting is saved", preferredStyle: .alert)
+            self.present(self.alert2, animated: true, completion: {
+                //self.alert2?.dismiss(animated: true, completion: nil)
+                _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.dismissAlert_3), userInfo: nil, repeats: false)
+            })
+        })
+    }
+    
+    func dismissAlert_3(){
+        self.alert2?.dismiss(animated: true, completion: nil)
+        _ = navigationController?.popViewController(animated: true)
     }
 }
 

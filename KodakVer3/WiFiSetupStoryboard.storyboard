@@ -12,7 +12,7 @@
         <!--Wi Fi Setup Home-->
         <scene sceneID="FkI-Ds-0v1">
             <objects>
-                <viewController id="am9-F1-DKG" customClass="WiFiSetupHome" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WiFiSetupHome" id="am9-F1-DKG" customClass="WiFiSetupHome" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vkD-fG-KZW"/>
                         <viewControllerLayoutGuide type="bottom" id="jAF-x7-9SZ"/>
@@ -566,6 +566,7 @@
                     </view>
                     <connections>
                         <outlet property="autoManualLabel" destination="XLM-eI-zcW" id="2xb-t7-Qxx"/>
+                        <outlet property="ipaddressTopView" destination="r7i-I9-04e" id="5bl-EZ-Kx6"/>
                         <outlet property="saveSettingButton" destination="zk7-wU-P0a" id="3y9-cY-p5k"/>
                         <outlet property="switchController" destination="BEO-Sh-bgc" id="uuI-2r-wUl"/>
                         <outlet property="viewDefaultGateway" destination="Eio-nx-Sff" id="gAL-ir-RE9"/>
@@ -637,6 +638,9 @@
                                 <state key="normal" title="Save setting">
                                     <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveSettingActionButton:" destination="W4e-JP-eof" eventType="touchUpInside" id="epg-xe-hpC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -703,6 +707,9 @@
                                 <state key="normal" title="Save setting">
                                     <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveSettingActionButton:" destination="EY3-kg-A76" eventType="touchUpInside" id="Z4c-eN-5nn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -774,6 +781,9 @@
                                 <state key="normal" title="Save setting">
                                     <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveSettingActionButton:" destination="0XY-63-C2w" eventType="touchUpInside" id="FTL-3d-gx0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -910,6 +920,7 @@
                         <outlet property="portTextField" destination="4Z7-JR-tEx" id="kdW-Na-PQ0"/>
                         <outlet property="proxyAddressView" destination="Wsz-dg-mIm" id="oTZ-Ir-bki"/>
                         <outlet property="proxySwitch" destination="B1L-lm-hh1" id="zQW-aL-kas"/>
+                        <outlet property="proxyTopView" destination="NGq-lb-g7w" id="cpA-8Y-Ub9"/>
                         <outlet property="saveSettingButton" destination="LXm-BL-qYJ" id="hR9-ck-4Fl"/>
                     </connections>
                 </viewController>

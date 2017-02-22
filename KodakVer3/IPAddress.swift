@@ -17,6 +17,7 @@ class IPAddress: UIViewController{
     @IBOutlet weak var viewDefaultGateway: UIView!
     @IBOutlet weak var viewDnsAddress: UIView!
     @IBOutlet weak var saveSettingButton: UIButton!
+    @IBOutlet weak var ipaddressTopView: UIView!
     
     var alert: UIAlertController!
     var indicator: UIActivityIndicatorView!
@@ -50,9 +51,13 @@ class IPAddress: UIViewController{
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
-        let alert = UIAlertController(title: "", message: "If [OK] is touched, IP Address setting is modified, and this app is closed.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "If [OK] is touched, IP Address\n setting is modified, and this\n app is closed.", message: "", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+            alert.dismiss(animated: true, completion: nil)
+            
+            UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+        }))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -87,9 +92,13 @@ class IPAddress: UIViewController{
     }
     
     func loadAlerts(){
+        ipaddressTopView.isHidden = true
+        saveSettingButton.isHidden = true
+        
         alert = UIAlertController(title: "Getting Network \n information... \n", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             self.dismiss(animated: true, completion: nil)
+            _ = self.navigationController?.popViewController(animated: true)
         }))
         
         indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 90, width: 40, height:40))
@@ -104,7 +113,10 @@ class IPAddress: UIViewController{
      }
     
     func dismissAlert(){
-        indicator.stopAnimating()
+        //indicator.stopAnimating()
         self.dismiss(animated: true, completion: nil)
+        
+        ipaddressTopView.isHidden = false
+        saveSettingButton.isHidden = false
     }
 }
