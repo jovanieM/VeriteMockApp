@@ -81,12 +81,12 @@ class QuickViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        
-        
+    
         setDefault(value: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: false)
 
     }
+    
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
         for index in 0..<sizes.count{
