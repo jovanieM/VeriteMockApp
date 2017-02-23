@@ -31,6 +31,11 @@
 		105FAB181E55794000A180E8 /* SecurityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105FAB161E55794000A180E8 /* SecurityType.swift */; };
 		10759B2E1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */; };
 		10A630731E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A630721E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift */; };
+		10CC15131E5E7DCE00CF3B4F /* GCPEnableDisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC150F1E5E7DCE00CF3B4F /* GCPEnableDisable.swift */; };
+		10CC15141E5E7DCE00CF3B4F /* GCPHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC15101E5E7DCE00CF3B4F /* GCPHome.swift */; };
+		10CC15151E5E7DCE00CF3B4F /* GCPRegisterUnregister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC15111E5E7DCE00CF3B4F /* GCPRegisterUnregister.swift */; };
+		10CC15161E5E7DCE00CF3B4F /* GCPStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC15121E5E7DCE00CF3B4F /* GCPStatus.swift */; };
+		10CC15181E5E7DE100CF3B4F /* AirPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC15171E5E7DE100CF3B4F /* AirPrint.swift */; };
 		10CD81811E567A22001815A1 /* HostName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD817E1E567A22001815A1 /* HostName.swift */; };
 		10CD81821E567A22001815A1 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD817F1E567A22001815A1 /* IPAddress.swift */; };
 		10CD81831E567A22001815A1 /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD81801E567A22001815A1 /* Proxy.swift */; };
@@ -116,6 +121,11 @@
 		105FAB161E55794000A180E8 /* SecurityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityType.swift; sourceTree = "<group>"; };
 		10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSelectTheNetwork.swift; sourceTree = "<group>"; };
 		10A630721E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSearchingPrinter.swift; sourceTree = "<group>"; };
+		10CC150F1E5E7DCE00CF3B4F /* GCPEnableDisable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCPEnableDisable.swift; sourceTree = "<group>"; };
+		10CC15101E5E7DCE00CF3B4F /* GCPHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCPHome.swift; sourceTree = "<group>"; };
+		10CC15111E5E7DCE00CF3B4F /* GCPRegisterUnregister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCPRegisterUnregister.swift; sourceTree = "<group>"; };
+		10CC15121E5E7DCE00CF3B4F /* GCPStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCPStatus.swift; sourceTree = "<group>"; };
+		10CC15171E5E7DE100CF3B4F /* AirPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirPrint.swift; sourceTree = "<group>"; };
 		10CD817E1E567A22001815A1 /* HostName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostName.swift; sourceTree = "<group>"; };
 		10CD817F1E567A22001815A1 /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
 		10CD81801E567A22001815A1 /* Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
@@ -318,6 +328,10 @@
 		1033033C1E52ADA900E7D24C /* GCPStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				10CC150F1E5E7DCE00CF3B4F /* GCPEnableDisable.swift */,
+				10CC15101E5E7DCE00CF3B4F /* GCPHome.swift */,
+				10CC15111E5E7DCE00CF3B4F /* GCPRegisterUnregister.swift */,
+				10CC15121E5E7DCE00CF3B4F /* GCPStatus.swift */,
 				1033033D1E52ADC100E7D24C /* GCPStoryboard.storyboard */,
 			);
 			name = GCPStoryboard;
@@ -326,6 +340,7 @@
 		1033033F1E52ADC500E7D24C /* AirPrintStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				10CC15171E5E7DE100CF3B4F /* AirPrint.swift */,
 				103303401E52ADE900E7D24C /* AirPrintStoryboard.storyboard */,
 			);
 			name = AirPrintStoryboard;
@@ -625,14 +640,19 @@
 				114B30DA1DF92D78008A57F1 /* QuickDetailSelector.swift in Sources */,
 				11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */,
 				1156AAF31E1E2EFC009C2493 /* TableViewCell1.swift in Sources */,
+				10CC15151E5E7DCE00CF3B4F /* GCPRegisterUnregister.swift in Sources */,
+				10CC15141E5E7DCE00CF3B4F /* GCPHome.swift in Sources */,
 				11715AA41E5AC3FE005367B9 /* ImageCollectionVC.swift in Sources */,
+				10CC15181E5E7DE100CF3B4F /* AirPrint.swift in Sources */,
 				10D36C2C1E5C55BF00D79664 /* CopyViewController.swift in Sources */,
 				114B30D61DF92BEF008A57F1 /* SettingsMenuVCViewController.swift in Sources */,
+				10CC15161E5E7DCE00CF3B4F /* GCPStatus.swift in Sources */,
 				114B30A81DF90A57008A57F1 /* AppDelegate.swift in Sources */,
 				10D36C321E5C567400D79664 /* PhotoGallery.swift in Sources */,
 				1158B74D1DFA4A5B008F081F /* MyNavController.swift in Sources */,
 				1116A32B1E30BC430038F2E5 /* SettingsTableViewCell.swift in Sources */,
 				116CE2681E1F445F005687E9 /* MyTableViewDataSource.swift in Sources */,
+				10CC15131E5E7DCE00CF3B4F /* GCPEnableDisable.swift in Sources */,
 				11DF48201E36E46A0012AD60 /* FirstCell.swift in Sources */,
 				1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */,
 				10D36C301E5C55D600D79664 /* AnonymousPrinterUsageViewController.swift in Sources */,

@@ -88,6 +88,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <state key="normal" backgroundImage="main_button"/>
+                                        <connections>
+                                            <action selector="toGCP:" destination="zbQ-7A-xZs" eventType="touchUpInside" id="Wnj-w2-coo"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gcp_setting" translatesAutoresizingMaskIntoConstraints="NO" id="gAN-L9-YEW">
                                         <rect key="frame" x="35" y="35" width="80" height="80"/>
@@ -111,6 +114,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <state key="normal" backgroundImage="main_button"/>
+                                        <connections>
+                                            <action selector="toAirPrint:" destination="zbQ-7A-xZs" eventType="touchUpInside" id="PSe-Ux-sx8"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="airprint_setting" translatesAutoresizingMaskIntoConstraints="NO" id="uSS-FM-Zfp">
                                         <rect key="frame" x="35" y="35" width="80" height="80"/>

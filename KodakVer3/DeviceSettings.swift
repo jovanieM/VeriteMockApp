@@ -20,7 +20,7 @@ class DeviceSettings: UIViewController{
     }
     
     // transition to Network Status
-    @IBAction func toNetworkStatus(_ sender: UIButton) {        
+    @IBAction func toNetworkStatus(_ sender: UIButton) {
         let networkStatusSB = UIStoryboard(name: "NetworkStatusStoryboard", bundle: nil)
         let vc = networkStatusSB.instantiateInitialViewController()!
         self.show(vc, sender: self)
@@ -31,5 +31,18 @@ class DeviceSettings: UIViewController{
         let wifiSetupSB = UIStoryboard(name:"WiFiSetupStoryboard", bundle: nil)
         let vc = wifiSetupSB.instantiateInitialViewController()!
         self.show(vc, sender: self)
+    }
+    
+    @IBAction func toGCP(_ sender: UIButton) {
+        let gcpSB = UIStoryboard(name: "GCPStoryboard", bundle: nil)
+        let vc = gcpSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
+    
+    @IBAction func toAirPrint(_ sender: UIButton) {
+        let airPrintSB = UIStoryboard(name: "AirPrintStoryboard", bundle: nil)
+        let vc = airPrintSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+
     }
 }
