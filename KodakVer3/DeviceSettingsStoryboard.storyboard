@@ -140,6 +140,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <state key="normal" backgroundImage="main_button"/>
+                                        <connections>
+                                            <action selector="toPrinterUtility:" destination="zbQ-7A-xZs" eventType="touchUpInside" id="SjC-Zz-Rr4"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="printer_utility" translatesAutoresizingMaskIntoConstraints="NO" id="kQh-kb-iCy">
                                         <rect key="frame" x="35" y="35" width="80" height="80"/>
@@ -163,6 +166,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <state key="normal" backgroundImage="main_button"/>
+                                        <connections>
+                                            <action selector="toSoftwareUpdate:" destination="zbQ-7A-xZs" eventType="touchUpInside" id="wub-5c-Dgs"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="update" translatesAutoresizingMaskIntoConstraints="NO" id="CxV-yD-4f4">
                                         <rect key="frame" x="35" y="35" width="80" height="80"/>

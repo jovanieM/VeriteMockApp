@@ -10,6 +10,7 @@ import UIKit
 
 class DeviceSettings: UIViewController{
     
+    // navigation bar
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
         navTransition.duration = 1
@@ -33,16 +34,31 @@ class DeviceSettings: UIViewController{
         self.show(vc, sender: self)
     }
     
+    // transition to Google Cloud Print
     @IBAction func toGCP(_ sender: UIButton) {
         let gcpSB = UIStoryboard(name: "GCPStoryboard", bundle: nil)
         let vc = gcpSB.instantiateInitialViewController()!
         self.show(vc, sender: self)
     }
     
+    // transition to AirPrint
     @IBAction func toAirPrint(_ sender: UIButton) {
         let airPrintSB = UIStoryboard(name: "AirPrintStoryboard", bundle: nil)
         let vc = airPrintSB.instantiateInitialViewController()!
         self.show(vc, sender: self)
-
+    }
+    
+    // transition to Printer Utility
+    @IBAction func toPrinterUtility(_ sender: UIButton) {
+        let printerUtilitySB = UIStoryboard(name: "PrinterUtilityStoryboard", bundle: nil)
+        let vc = printerUtilitySB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
+    
+    //to Software Update
+    @IBAction func toSoftwareUpdate(_ sender: UIButton) {
+        let softwareUpdateSB = UIStoryboard(name: "SoftwareUpdateStoryboard", bundle: nil)
+        let vc = softwareUpdateSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
     }
 }
