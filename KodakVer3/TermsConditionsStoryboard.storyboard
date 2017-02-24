@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yrl-FU-yk4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vCZ-3U-THC">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -154,7 +154,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1Q-NV-WaO" userLabel="ViewTermsOfUse">
-                                <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Terms of Use" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3J-v1-YtI">
                                         <rect key="frame" x="0.0" y="15" width="320" height="21"/>
@@ -167,15 +167,15 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1N-M0-bJl">
-                                <rect key="frame" x="0.0" y="122" width="320" height="446"/>
+                                <rect key="frame" x="0.0" y="61" width="320" height="487"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WG9-G9-R7E">
                                         <rect key="frame" x="0.0" y="0.0" width="312" height="446"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PgO-OC-SJP">
-                                                <rect key="frame" x="16" y="0.0" width="288" height="438"/>
+                                                <rect key="frame" x="16" y="0.0" width="303" height="485"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                <mutableString key="text">FUNAI SOFTWARE LIMITED WARRANTY AND LICENSE AGREEMENT
+                                                <string key="text">FUNAI SOFTWARE LIMITED WARRANTY AND LICENSE AGREEMENT
 
 This License Agreement is a separate legal agreement between you (either an individual or a single entity) and Funai Electric Co., Ltd. ("Funai") that, to the extent your Funai product or Software Program is not otherwise subject to a written software license agreement between you and Funai or its suppliers, governs your use of any Software Program installed on or provided by Funai for use in connection with your Funai product. The term "Software Program" includes machine-readable instructions, audio/visual content (such as images and recordings), and associated media, printed materials and electronic documentation, whether incorporated into, distributed with or for use with your Funai product. 
 
@@ -225,7 +225,7 @@ d. 	OTHER SOFTWARE.  Notwithstanding the terms and conditions of this License Ag
 
 19.	ENTIRE AGREEMENT.  This License Agreement (including any addendum or amendment to this License Agreement that is included with the Software Program) is the entire agreement between you and Funai relating to the Software Program and any other subject matter hereof.  Except as otherwise expressly provided for herein, these terms and conditions supersede all prior or contemporaneous oral or written communications, proposals and representations with respect to the Software Program or any other subject matter covered by this License Agreement (except to the extent such extraneous terms do not conflict with the terms of this License Agreement, any other written agreement signed by you and Funai relating to your Use of the Software Program).  To the extent any Funai policies or programs for support services conflict with the terms of this License Agreement, the terms of this License Agreement shall control.
 
-</mutableString>
+</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -235,17 +235,17 @@ d. 	OTHER SOFTWARE.  Notwithstanding the terms and conditions of this License Ag
                                         <constraints>
                                             <constraint firstItem="PgO-OC-SJP" firstAttribute="top" secondItem="WG9-G9-R7E" secondAttribute="top" id="OkS-RR-Ure"/>
                                             <constraint firstItem="PgO-OC-SJP" firstAttribute="leading" secondItem="WG9-G9-R7E" secondAttribute="leading" constant="16" id="R5e-Q2-0yl"/>
-                                            <constraint firstAttribute="trailing" secondItem="PgO-OC-SJP" secondAttribute="trailing" constant="8" id="W6g-4G-jF1"/>
-                                            <constraint firstAttribute="bottom" secondItem="PgO-OC-SJP" secondAttribute="bottom" constant="8" id="aqi-Gm-T2v"/>
+                                            <constraint firstAttribute="trailing" secondItem="PgO-OC-SJP" secondAttribute="trailing" constant="-7" id="W6g-4G-jF1"/>
+                                            <constraint firstAttribute="bottom" secondItem="PgO-OC-SJP" secondAttribute="bottom" constant="-39" id="aqi-Gm-T2v"/>
                                             <constraint firstAttribute="width" constant="312" id="kPA-Ki-MO0"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="WG9-G9-R7E" firstAttribute="centerY" secondItem="j1N-M0-bJl" secondAttribute="centerY" id="8Q9-U6-Oy0"/>
-                                    <constraint firstAttribute="trailing" secondItem="WG9-G9-R7E" secondAttribute="trailing" id="KBA-Je-DXc"/>
+                                    <constraint firstItem="WG9-G9-R7E" firstAttribute="centerY" secondItem="j1N-M0-bJl" secondAttribute="centerY" constant="-20.5" id="8Q9-U6-Oy0"/>
+                                    <constraint firstAttribute="trailing" secondItem="WG9-G9-R7E" secondAttribute="trailing" constant="8" id="KBA-Je-DXc"/>
                                     <constraint firstItem="WG9-G9-R7E" firstAttribute="leading" secondItem="j1N-M0-bJl" secondAttribute="leading" id="LgW-Lk-8es"/>
-                                    <constraint firstAttribute="bottom" secondItem="WG9-G9-R7E" secondAttribute="bottom" id="YKX-bf-xae"/>
+                                    <constraint firstAttribute="bottom" secondItem="WG9-G9-R7E" secondAttribute="bottom" constant="41" id="YKX-bf-xae"/>
                                     <constraint firstItem="WG9-G9-R7E" firstAttribute="top" secondItem="j1N-M0-bJl" secondAttribute="top" id="bao-iJ-bmz"/>
                                 </constraints>
                             </scrollView>
@@ -253,17 +253,17 @@ d. 	OTHER SOFTWARE.  Notwithstanding the terms and conditions of this License Ag
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="j1N-M0-bJl" firstAttribute="centerX" secondItem="6tN-Oc-xKJ" secondAttribute="centerX" id="3GG-M4-4N7"/>
-                            <constraint firstItem="j1N-M0-bJl" firstAttribute="top" secondItem="K1Q-NV-WaO" secondAttribute="bottom" constant="8" symbolic="YES" id="6tt-en-uOM"/>
+                            <constraint firstItem="j1N-M0-bJl" firstAttribute="top" secondItem="K1Q-NV-WaO" secondAttribute="bottom" constant="11" id="6tt-en-uOM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="j1N-M0-bJl" secondAttribute="trailing" constant="-16" id="DCb-pb-orb"/>
                             <constraint firstItem="K1Q-NV-WaO" firstAttribute="trailing" secondItem="j1N-M0-bJl" secondAttribute="trailing" id="HLh-gQ-U57"/>
                             <constraint firstItem="K1Q-NV-WaO" firstAttribute="leading" secondItem="6tN-Oc-xKJ" secondAttribute="leadingMargin" constant="-16" id="Mxg-gD-Uyf"/>
                             <constraint firstItem="j1N-M0-bJl" firstAttribute="leading" secondItem="6tN-Oc-xKJ" secondAttribute="leadingMargin" constant="-16" id="Wf3-ob-Rj3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K1Q-NV-WaO" secondAttribute="trailing" constant="-16" id="dXv-H5-ZR3"/>
-                            <constraint firstItem="K1Q-NV-WaO" firstAttribute="top" secondItem="IgA-8C-GPu" secondAttribute="bottom" id="gC2-dz-ya8"/>
-                            <constraint firstItem="j1N-M0-bJl" firstAttribute="top" secondItem="6tN-Oc-xKJ" secondAttribute="top" constant="122" id="kXL-bz-OOo"/>
+                            <constraint firstItem="K1Q-NV-WaO" firstAttribute="top" secondItem="IgA-8C-GPu" secondAttribute="bottom" constant="-20" id="gC2-dz-ya8"/>
+                            <constraint firstItem="j1N-M0-bJl" firstAttribute="top" secondItem="6tN-Oc-xKJ" secondAttribute="top" constant="61" id="kXL-bz-OOo"/>
                             <constraint firstItem="K1Q-NV-WaO" firstAttribute="centerX" secondItem="6tN-Oc-xKJ" secondAttribute="centerX" id="rSu-St-ote"/>
                             <constraint firstItem="K1Q-NV-WaO" firstAttribute="leading" secondItem="j1N-M0-bJl" secondAttribute="leading" id="upU-m7-m9Q"/>
-                            <constraint firstItem="j1N-M0-bJl" firstAttribute="bottom" secondItem="3sR-cG-brI" secondAttribute="top" id="xDH-ei-B5d"/>
+                            <constraint firstItem="j1N-M0-bJl" firstAttribute="bottom" secondItem="3sR-cG-brI" secondAttribute="top" constant="-20" id="xDH-ei-B5d"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -357,24 +357,6 @@ d. 	OTHER SOFTWARE.  Notwithstanding the terms and conditions of this License Ag
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JUE-FE-OAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3405" y="61.267605633802816"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="V26-j7-HBg">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yrl-FU-yk4" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5l2-1I-Wqw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="vCZ-3U-THC" kind="relationship" relationship="rootViewController" id="ELH-BX-4y0"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GIj-aL-oYf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1592.8" y="-645.42728635682158"/>
         </scene>
     </scenes>
     <resources>

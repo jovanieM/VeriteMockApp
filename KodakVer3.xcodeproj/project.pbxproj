@@ -47,6 +47,13 @@
 		10CD81811E567A22001815A1 /* HostName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD817E1E567A22001815A1 /* HostName.swift */; };
 		10CD81821E567A22001815A1 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD817F1E567A22001815A1 /* IPAddress.swift */; };
 		10CD81831E567A22001815A1 /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD81801E567A22001815A1 /* Proxy.swift */; };
+		10D36C601E5FE0C400D79664 /* CopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C5B1E5FE0C400D79664 /* CopyViewController.swift */; };
+		10D36C611E5FE0C400D79664 /* CustomCopySecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C5C1E5FE0C400D79664 /* CustomCopySecondCell.swift */; };
+		10D36C621E5FE0C400D79664 /* CustomCopySecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10D36C5D1E5FE0C400D79664 /* CustomCopySecondCell.xib */; };
+		10D36C631E5FE0C400D79664 /* CustomCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C5E1E5FE0C400D79664 /* CustomCopyViewController.swift */; };
+		10D36C641E5FE0C400D79664 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C5F1E5FE0C400D79664 /* CustomViewController.swift */; };
+		10D36C661E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C651E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift */; };
+		10D36C681E5FE0F500D79664 /* StandardCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C671E5FE0F500D79664 /* StandardCopyViewController.swift */; };
 		11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */; };
 		1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */; };
 		1116A3291E30A92B0038F2E5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */; };
@@ -140,6 +147,13 @@
 		10CD817E1E567A22001815A1 /* HostName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostName.swift; sourceTree = "<group>"; };
 		10CD817F1E567A22001815A1 /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
 		10CD81801E567A22001815A1 /* Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
+		10D36C5B1E5FE0C400D79664 /* CopyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyViewController.swift; sourceTree = "<group>"; };
+		10D36C5C1E5FE0C400D79664 /* CustomCopySecondCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCopySecondCell.swift; sourceTree = "<group>"; };
+		10D36C5D1E5FE0C400D79664 /* CustomCopySecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCopySecondCell.xib; sourceTree = "<group>"; };
+		10D36C5E1E5FE0C400D79664 /* CustomCopyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCopyViewController.swift; sourceTree = "<group>"; };
+		10D36C5F1E5FE0C400D79664 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		10D36C651E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnonymousPrinterUsageViewController.swift; sourceTree = "<group>"; };
+		10D36C671E5FE0F500D79664 /* StandardCopyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardCopyViewController.swift; sourceTree = "<group>"; };
 		11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSelectPopUp.swift; sourceTree = "<group>"; };
 		1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUITableViewController.swift; sourceTree = "<group>"; };
 		1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -227,6 +241,7 @@
 		1033031B1E52AB5D00E7D24C /* TermsConditionsStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				10D36C651E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift */,
 				1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */,
 			);
 			name = TermsConditionsStoryboard;
@@ -256,7 +271,13 @@
 		103303241E52AC5A00E7D24C /* CopyStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				10D36C671E5FE0F500D79664 /* StandardCopyViewController.swift */,
 				103303251E52AC6D00E7D24C /* CopyStoryboard.storyboard */,
+				10D36C5B1E5FE0C400D79664 /* CopyViewController.swift */,
+				10D36C5C1E5FE0C400D79664 /* CustomCopySecondCell.swift */,
+				10D36C5D1E5FE0C400D79664 /* CustomCopySecondCell.xib */,
+				10D36C5E1E5FE0C400D79664 /* CustomCopyViewController.swift */,
+				10D36C5F1E5FE0C400D79664 /* CustomViewController.swift */,
 			);
 			name = CopyStoryboard;
 			sourceTree = "<group>";
@@ -594,6 +615,7 @@
 				1156AAF81E1E2F24009C2493 /* TableViewCell2.xib in Resources */,
 				113123A71E51AF400079CEAB /* PhotoPrintSettingsStoryboard.storyboard in Resources */,
 				114B30B21DF90A57008A57F1 /* LaunchScreen.storyboard in Resources */,
+				10D36C621E5FE0C400D79664 /* CustomCopySecondCell.xib in Resources */,
 				103303231E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard in Resources */,
 				103303381E52AD8400E7D24C /* NetworkStatusStoryboard.storyboard in Resources */,
 				1033031A1E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard in Resources */,
@@ -649,8 +671,10 @@
 				105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */,
 				114B30AA1DF90A57008A57F1 /* FirstViewController.swift in Sources */,
 				114B30D81DF92C44008A57F1 /* PrintPhotoVC.swift in Sources */,
+				10D36C641E5FE0C400D79664 /* CustomViewController.swift in Sources */,
 				11B56EB91E5D69180031108D /* FlickPrintViewController.swift in Sources */,
 				11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */,
+				10D36C681E5FE0F500D79664 /* StandardCopyViewController.swift in Sources */,
 				114B30DA1DF92D78008A57F1 /* QuickDetailSelector.swift in Sources */,
 				11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */,
 				1156AAF31E1E2EFC009C2493 /* TableViewCell1.swift in Sources */,
@@ -665,16 +689,20 @@
 				1116A32B1E30BC430038F2E5 /* SettingsTableViewCell.swift in Sources */,
 				107B37B51E5FDF08007CA90C /* DeviceSleepTime.swift in Sources */,
 				107B37A71E5FDE30007CA90C /* GCPHome.swift in Sources */,
+				10D36C631E5FE0C400D79664 /* CustomCopyViewController.swift in Sources */,
 				116CE2681E1F445F005687E9 /* MyTableViewDataSource.swift in Sources */,
 				107B37B61E5FDF08007CA90C /* PaperSetup.swift in Sources */,
 				11DF48201E36E46A0012AD60 /* FirstCell.swift in Sources */,
 				1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */,
+				10D36C601E5FE0C400D79664 /* CopyViewController.swift in Sources */,
 				10A630731E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift in Sources */,
 				105965E41E531B95003B7CD6 /* DeviceSettings.swift in Sources */,
 				11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */,
 				10759B2E1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift in Sources */,
 				1156AAF71E1E2F24009C2493 /* TableViewCell2.swift in Sources */,
+				10D36C611E5FE0C400D79664 /* CustomCopySecondCell.swift in Sources */,
 				11F865961E530B1D00326907 /* PrintPhotoHomeVC.swift in Sources */,
+				10D36C661E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift in Sources */,
 				1158B7511DFA86C1008F081F /* DetailViewController.swift in Sources */,
 				118186E71E249FFA00B40A5F /* MyTableViewDelegate.swift in Sources */,
 				105FAB171E55794000A180E8 /* NetworkAndPasswordManual.swift in Sources */,

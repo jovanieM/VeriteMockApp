@@ -94,7 +94,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell2.mainLabel.adjustsFontSizeToFitWidth = true
             cell2.mainLabel.text = arrayofMainLbl[indexPath.row]
            
-            cell2.selectionLabel.text = collections[indexPath.row][getSavedData(receiver: indexPath.row) ?? 0]
+//            cell2.selectionLabel.text = collections[indexPath.row][getSavedData(receiver: indexPath.row) ?? 0]
          
           
                       
@@ -139,6 +139,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         
         }
+    
         
     
     }
