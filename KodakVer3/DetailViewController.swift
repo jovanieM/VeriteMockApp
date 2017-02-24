@@ -126,7 +126,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if indexPath.row != 0{
         
             
-           table  = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
+            table  = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
+            
             table.propertyIndex = indexPath
             table.data = collections[indexPath.row]
             
@@ -153,6 +154,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return numberOfItems
         }
     }
+    
     func getSavedData(receiver: Int) -> Int?{
         
         switch receiver {
