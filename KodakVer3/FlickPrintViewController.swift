@@ -23,8 +23,9 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         super.viewDidLoad()
         
         
-        //let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(pan:)))
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(pan:)))
         let pinchZoom = UIPinchGestureRecognizer(target: self, action: #selector(pinchHandler(sender:)))
+        pinchZoom.delegate = self
         
         //pan.delegate = self
         //let pan2 = MyGestureRecognizer(target: self, action: #selector(pan(pan:)))
@@ -44,6 +45,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         container.addSubview(imageView)
         //container.addGestureRecognizer(pan)
         container.addGestureRecognizer(pinchZoom)
+        container.addGestureRecognizer(pan)
       
         
         
@@ -77,20 +79,22 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
        
     }
     
-    var scale: CGFloat!
+    var cont : CGFloat = 0.0
     
     func pinchHandler(sender: UIPinchGestureRecognizer){
         print(sender.scale)
-        var cont: CGFloat = 1.0
+        //var cont: CGFloat = 0.0
         var initial : CGFloat!
         
         if sender.state == .began{
             print("began \(sender.scale)")
             initial = sender.scale
-            cont = scale - initial
+            if cont != 0.0{
+                cont = cont - initial
+            }
             
         }else if sender.state == .changed{
-            let newScale = cont
+            let newScale = sender.scale + cont
             if newScale >= 1.0 {
                 
                 imageView.transform = CGAffineTransform(scaleX: newScale, y: newScale)
@@ -99,15 +103,24 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
             
         }else if sender.state == .ended{
             print("ended \(sender.scale)")
-            let sca = sender.scale
-            scale = sca - initial
-            imageView.transform = CGAffineTransform(scaleX: sca, y: sca)
+            
+            let s = sender.scale + cont
+            if s >= 1.0{
+                cont = s
+                imageView.transform = CGAffineTransform(scaleX: s, y: s)
+            }else{
+                imageView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                cont = 0.0
+            }
+            
+//            let sca = sender.scale
+//            scale = sca - initial
+//            
            
         }
-        
-        
-        
-        
+    }
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 
    
