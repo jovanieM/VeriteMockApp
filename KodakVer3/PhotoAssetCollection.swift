@@ -18,22 +18,22 @@ class PhotoAssetCollection: UITableViewController {
     var imagesArray = [UIImage]()
     var imageCollections = [[UIImage]]()
     var phAsset : PHFetchResult<PHAsset>!
+    var authStatus : Bool!
     //var il :ImageLoader!
-    
-    
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-//        il = ImageLoader()
+
+        
         grabPhoto()
+     
         
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
-    
+  
     
     func grabPhoto(){
-         let imgManager = PHImageManager.default()
+    
+        let imgManager = PHImageManager.default()
         
         let requestOp = PHImageRequestOptions()
         requestOp.isSynchronous = true
@@ -81,10 +81,12 @@ class PhotoAssetCollection: UITableViewController {
                 self.folderInfoArray.name.append(phAssetCollections[i].localizedTitle!)
                 let temp: String = String(phAsset.count)
                 self.folderInfoArray.contents.append(temp)
+                self.tableView.reloadData()
                 
             }
         }else{
             print("no photo")
+            
             self.tableView.reloadData()
         }
         
@@ -92,12 +94,7 @@ class PhotoAssetCollection: UITableViewController {
         
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+   
     // MARK: - Table view data source
     
     
