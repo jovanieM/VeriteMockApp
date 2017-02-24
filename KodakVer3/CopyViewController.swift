@@ -24,9 +24,16 @@ class CopyViewController: UIViewController {
     
     @IBOutlet weak var viewCustom: UIView!
     
-    var gold: UIColor {
-        return UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1.0)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        stepper.autorepeat = true
+        stepper.maximumValue = 99
+        stepper.minimumValue = 1
+        
+        
     }
+
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         numcopies.text  = Int(sender.value).description
@@ -59,26 +66,11 @@ class CopyViewController: UIViewController {
         self.viewCustom.alpha = 1.0
     }
 
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        stepper.autorepeat = true
-        stepper.maximumValue = 99
-        stepper.minimumValue = 1
-        
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-          
-    
+ 
     }
     
-    
+
    
-}
+
 
 
