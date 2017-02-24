@@ -8,19 +8,17 @@
 
 import UIKit
 
-class SecurityType: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class SecurityType: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    @IBOutlet weak var securityType: UITableView!
+    @IBOutlet var tableViewCell: UITableViewCell!
     
-    let defaultSelection = UserDefaults.standard
+    @IBOutlet var tableView: UITableView!
     
-    private let selectedCellKey = "choice"
+    var securityType = ["Open", "WEP", "WPA/WPA2-PSK MIX", "WPA2-PSK AES"]
     
-    var cell: SettingsTableViewCell!
+    var textCellIdentifier = "TextCell"
     
-    private let kSeparatorID = 123
-    private let kSeparatorHeight: CGFloat = 1.5
-    
+    // navigation bar
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
         navTransition.duration = 1
@@ -30,30 +28,43 @@ class SecurityType: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
     
-    var security = ["Open", "WEP", "WPA/WPA2-PSK MIX", "WPA@-PSK AES"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // table
-        securityType.dataSource = self
-        securityType.delegate = self
-        securityType.backgroundColor = UIColor.gray
-        
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return security.count
+        return securityType.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        cell = SettingsTableViewCell(style: .default, reuseIdentifier: "cellId2")
-        cell.backgroundColor = UIColor.gray
-        cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = security[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
+        
+        let row = indexPath.row
+        cell.textLabel?.text = securityType[row]
         
         return cell
     }
     
-   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let row = indexPath.row
+        print(securityType[row])
+        
+        let indexPath = tableView.indexPathForSelectedRow
+        let currentCell = tableView.cellForRow(at: indexPath!)! as UITableViewCell
+        let sb = UIStoryboard(name: "WiFiSetupStoryboard", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "manual") as! NetworkAndPasswordManual
+        vc.securityLabel?.text = currentCell.textLabel?.text
+        _ = self.navigationController?.popViewController(animated: true)
+        
+    }
+    
 }

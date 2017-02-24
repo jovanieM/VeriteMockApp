@@ -12,6 +12,7 @@ class NetworkAndPasswordManual: UIViewController{
     
     @IBOutlet weak var ssidTextField: UITextField!
     @IBOutlet weak var viewPassword: UIView!
+    @IBOutlet weak var securityLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
@@ -29,6 +30,7 @@ class NetworkAndPasswordManual: UIViewController{
         ssidTextField.tintColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1)
         
         viewPassword.isHidden = true
+        
     }
     
 }

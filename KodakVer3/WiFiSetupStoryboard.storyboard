@@ -254,7 +254,7 @@
         <!--Address-->
         <scene sceneID="QFj-zx-bbx">
             <objects>
-                <viewController id="bqI-vu-wr3" customClass="IPAddress" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bqI-vu-wr3" customClass="IPAddress" customModule="KodakVer3" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hg0-QM-JIo"/>
                         <viewControllerLayoutGuide type="bottom" id="p88-Ax-4WY"/>
