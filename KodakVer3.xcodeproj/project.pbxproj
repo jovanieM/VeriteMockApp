@@ -43,6 +43,9 @@
 		107B37B81E5FDF08007CA90C /* PrintReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37B11E5FDF08007CA90C /* PrintReport.swift */; };
 		107B37B91E5FDF08007CA90C /* RestoreFactoryDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37B21E5FDF08007CA90C /* RestoreFactoryDefault.swift */; };
 		107B37BB1E5FDF1D007CA90C /* SoftwareUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37BA1E5FDF1D007CA90C /* SoftwareUpdate.swift */; };
+		10A4E08C1E603FBB007724EF /* TextFieldMaxLengths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4E08B1E603FBB007724EF /* TextFieldMaxLengths.swift */; };
+		10A4E08F1E604010007724EF /* DirectConnectTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4E08D1E604010007724EF /* DirectConnectTime.swift */; };
+		10A4E0901E604010007724EF /* FriendlyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4E08E1E604010007724EF /* FriendlyName.swift */; };
 		10A630731E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A630721E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift */; };
 		10CD81811E567A22001815A1 /* HostName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD817E1E567A22001815A1 /* HostName.swift */; };
 		10CD81821E567A22001815A1 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD817F1E567A22001815A1 /* IPAddress.swift */; };
@@ -143,6 +146,9 @@
 		107B37B11E5FDF08007CA90C /* PrintReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintReport.swift; sourceTree = "<group>"; };
 		107B37B21E5FDF08007CA90C /* RestoreFactoryDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreFactoryDefault.swift; sourceTree = "<group>"; };
 		107B37BA1E5FDF1D007CA90C /* SoftwareUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareUpdate.swift; sourceTree = "<group>"; };
+		10A4E08B1E603FBB007724EF /* TextFieldMaxLengths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMaxLengths.swift; sourceTree = "<group>"; };
+		10A4E08D1E604010007724EF /* DirectConnectTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectConnectTime.swift; sourceTree = "<group>"; };
+		10A4E08E1E604010007724EF /* FriendlyName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendlyName.swift; sourceTree = "<group>"; };
 		10A630721E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSearchingPrinter.swift; sourceTree = "<group>"; };
 		10CD817E1E567A22001815A1 /* HostName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostName.swift; sourceTree = "<group>"; };
 		10CD817F1E567A22001815A1 /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
@@ -334,6 +340,8 @@
 		103303391E52AD8800E7D24C /* WiFiSetupStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				10A4E08D1E604010007724EF /* DirectConnectTime.swift */,
+				10A4E08E1E604010007724EF /* FriendlyName.swift */,
 				10CD817E1E567A22001815A1 /* HostName.swift */,
 				10CD817F1E567A22001815A1 /* IPAddress.swift */,
 				10CD81801E567A22001815A1 /* Proxy.swift */,
@@ -435,6 +443,7 @@
 		114B30A61DF90A57008A57F1 /* KodakVer3 */ = {
 			isa = PBXGroup;
 			children = (
+				10A4E08B1E603FBB007724EF /* TextFieldMaxLengths.swift */,
 				103303451E52AE1200E7D24C /* SoftwareUpdate */,
 				103303421E52ADEE00E7D24C /* PrinterUtilityStoryboard */,
 				1033033F1E52ADC500E7D24C /* AirPrintStoryboard */,
@@ -666,6 +675,7 @@
 				107B37A81E5FDE30007CA90C /* GCPRegisterUnregister.swift in Sources */,
 				1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */,
 				105FAB181E55794000A180E8 /* SecurityType.swift in Sources */,
+				10A4E08F1E604010007724EF /* DirectConnectTime.swift in Sources */,
 				105965E51E531B95003B7CD6 /* NetworkStatus.swift in Sources */,
 				10CD81831E567A22001815A1 /* Proxy.swift in Sources */,
 				105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */,
@@ -685,6 +695,7 @@
 				107B37B81E5FDF08007CA90C /* PrintReport.swift in Sources */,
 				107B37BB1E5FDF1D007CA90C /* SoftwareUpdate.swift in Sources */,
 				1158B74D1DFA4A5B008F081F /* MyNavController.swift in Sources */,
+				10A4E08C1E603FBB007724EF /* TextFieldMaxLengths.swift in Sources */,
 				107B37A91E5FDE30007CA90C /* GCPStatus.swift in Sources */,
 				1116A32B1E30BC430038F2E5 /* SettingsTableViewCell.swift in Sources */,
 				107B37B51E5FDF08007CA90C /* DeviceSleepTime.swift in Sources */,
@@ -705,6 +716,7 @@
 				10D36C661E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift in Sources */,
 				1158B7511DFA86C1008F081F /* DetailViewController.swift in Sources */,
 				118186E71E249FFA00B40A5F /* MyTableViewDelegate.swift in Sources */,
+				10A4E0901E604010007724EF /* FriendlyName.swift in Sources */,
 				105FAB171E55794000A180E8 /* NetworkAndPasswordManual.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
