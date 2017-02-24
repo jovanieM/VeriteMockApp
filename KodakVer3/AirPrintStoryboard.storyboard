@@ -31,6 +31,10 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TEY-id-kJB">
                                 <rect key="frame" x="255" y="49" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="1" green="0.71764705882352942" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="airprintActionSwitcher:" destination="Utc-MQ-Bly" eventType="valueChanged" id="QVa-dC-zrh"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AirPrint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9x-20-IqB">
                                 <rect key="frame" x="16" y="59" width="150" height="21"/>
@@ -49,15 +53,25 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxG-dM-Zkq">
                                 <rect key="frame" x="0.0" y="112" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save setting"/>
+                                <state key="normal" title="Save setting">
+                                    <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveSettingActionButton:" destination="Utc-MQ-Bly" eventType="touchUpInside" id="2Dd-DX-OGH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="airprintSwitcher" destination="TEY-id-kJB" id="jEk-I7-BUQ"/>
+                        <outlet property="enableDisableLabel" destination="u5d-Nk-OLs" id="zGE-wc-ooD"/>
+                        <outlet property="saveSettingButton" destination="bxG-dM-Zkq" id="2VX-fc-558"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S51-Jq-QbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-242" y="161"/>
+            <point key="canvasLocation" x="-446" y="157"/>
         </scene>
     </scenes>
 </document>

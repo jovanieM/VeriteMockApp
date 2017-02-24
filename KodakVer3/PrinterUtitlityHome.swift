@@ -10,6 +10,7 @@ import UIKit
 
 class PrinterUtilityHome: UIViewController {
     
+    // navigation bar
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
         navTransition.duration = 1
