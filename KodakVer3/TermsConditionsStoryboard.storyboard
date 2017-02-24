@@ -168,6 +168,86 @@
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1N-M0-bJl">
                                 <rect key="frame" x="0.0" y="122" width="320" height="446"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WG9-G9-R7E">
+                                        <rect key="frame" x="0.0" y="0.0" width="312" height="446"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PgO-OC-SJP">
+                                                <rect key="frame" x="16" y="0.0" width="288" height="438"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <mutableString key="text">FUNAI SOFTWARE LIMITED WARRANTY AND LICENSE AGREEMENT
+
+This License Agreement is a separate legal agreement between you (either an individual or a single entity) and Funai Electric Co., Ltd. ("Funai") that, to the extent your Funai product or Software Program is not otherwise subject to a written software license agreement between you and Funai or its suppliers, governs your use of any Software Program installed on or provided by Funai for use in connection with your Funai product. The term "Software Program" includes machine-readable instructions, audio/visual content (such as images and recordings), and associated media, printed materials and electronic documentation, whether incorporated into, distributed with or for use with your Funai product. 
+
+1. 	STATEMENT OF SOFTWARE LIMITED WARRANTY.  Funai warrants for the duration of the warranty period provided herein that (a) the Software Program shall perform substantially in accordance with the accompanying written materials; and (b) that the media (e.g., DVD or compact disk) on which the Software Program (if any) is furnished is free from defects in materials and workmanship under normal use.  The warranty period is one year and commences on the date the Software Program is delivered to the original end-user ("Warranty Period"). This limited warranty applies only to the Software Program media purchased new from Funai or an Authorized Funai Reseller or Distributor.  This limited warranty shall not apply to any defect that may arise in any way from any third party hardware or software product. This limited warranty shall be void if failure of the Software Program resulted from accident, abuse or misuse. Funai will replace the Software Program should it be determined that it does not conform to this limited warranty. YOU HEREBY ACKNOWLEDGE AND AGREE THAT THIS SHALL BE YOUR SOLE AND EXCLUSIVE REMEDY AND FUNAI'S SOLE LIABILITY UNDER THIS LICENSE AGREEMENT. Any replacement Software Program shall be warranted for the remainder of the original Warranty Period. 
+
+2. 	DISCLAIMER AND LIMITATION OF WARRANTIES.  EXCEPT AS EXPRESSLY PROVIDED IN THIS LICENSE AGREEMENT AND TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, FUNAI AND ITS SUPPLIERS PROVIDE THE SOFTWARE PROGRAM (INCLUDING THE MEDIA) "AS IS" AND HEREBY DISCLAIM ALL OTHER WARRANTIES AND CONDITIONS, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, TITLE, NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, AND ABSENCE OF VIRUSES.  TO THE EXTENT FUNAI CANNOT BY LAW DISCLAIM ANY COMPONENT OF THE IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, FUNAI HEREBY LIMITS THE DURATION OF SUCH WARRANTIES TO THE ONE YEAR WARRANTY PERIOD OF THE EXPRESS SOFTWARE LIMITED WARRANTY.
+
+        The Software Program may include internet links to other software applications and/or internet web pages hosted and operated by third parties unaffiliated with Funai.  YOU ACKNOWLEDGE AND AGREE THAT FUNAI IS NOT RESPONSIBLE IN ANY WAY FOR THE HOSTING, PERFORMANCE, OPERATION, MAINTENANCE OR CONTENT OF SUCH SOFTWARE APPLICATIONS AND/OR INTERNET WEB PAGES.
+
+3. 	LIMITATION OF REMEDY.  TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, ANY AND ALL LIABILITY OF FUNAI UNDER THIS LICENSE AGREEMENT IS EXPRESSLY LIMITED TO THE GREATER OF THE PRICE PAID FOR THE SOFTWARE PROGRAM AND FIVE U.S. DOLLARS (OR THE EQUIVALENT IN ANY OTHER CURRENCY).  YOUR SOLE REMEDY AGAINST FUNAI IN ANY DISPUTE UNDER THIS LICENSE AGREEMENT SHALL BE TO SEEK TO RECOVER ONE OF THESE AMOUNTS, UPON PAYMENT OF WHICH FUNAI AND ITS SUPPLIERS, AFFILIATES OR RESELLERS SHALL BE RELEASED AND DISCHARGED OF ALL FURTHER OBLIGATIONS AND LIABILITY TO YOU.  
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL FUNAI, ITS SUPPLIERS, SUBSIDIARIES OR RESELLERS BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, EXEMPLARY, PUNITIVE, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO LOST PROFITS OR REVENUES, LOST SAVINGS, INTERRUPTION OF USE OR ANY LOSS OF, INACCURACY IN, OR DAMAGE TO, DATA OR RECORDS, FOR CLAIMS OF THIRD PARTIES, OR DAMAGE TO REAL OR TANGIBLE PROPERTY, FOR LOSS OF PRIVACY ARISING OUT OF OR IN ANY WAY RELATED TO THE USE OF OR INABILITY TO USE THE SOFTWARE PROGRAM, OR OTHERWISE IN CONNECTION WITH ANY PROVISION OF THIS LICENSE AGREEMENT), REGARDLESS OF THE NATURE OF THE CLAIM, INCLUDING BUT NOT LIMITED TO BREACH OF WARRANTY OR CONTRACT, TORT (INCLUDING NEGLIGENCE OR STRICT LIABILITY), AND EVEN IF FUNAI, OR ITS SUPPLIERS, AFFILIATES OR RESELLERS HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, OR FOR ANY CLAIM BY YOU BASED ON A THIRD-PARTY CLAIM.  THE FOREGOING LIMITATIONS APPLY EVEN IF THE ABOVE-STATED REMEDIES FAIL OF THEIR ESSENTIAL PURPOSE.
+
+4.	LICENSE GRANT.  Funai hereby grants you a non-exclusive license to use the Software Program, including the following rights, provided you comply with all the terms and conditions of this License Agreement:
+a.	Use. You may Use the Software Program only for legal purposes. The term "Use" means storing, loading, installing, executing displaying or otherwise utilizing the Software Program.  If Funai has licensed the Software Program to you for concurrent use, you must limit the number of authorized users to the number specified in your agreement with Funai.  You shall not separate the components of the Software Program for Use on more than one computer.  You agree that you will not Use the Software Program, in whole or in part, in any manner that has the effect of overriding, modifying, eliminating, obscuring, altering or de-emphasizing the visual appearance of any trademark, trade name, trade dress or intellectual property notice that appears on any computer display screen normally generated by, or as a result of, the Software Program.
+b.	Copying. You may make only one (1) copy of the Software Program solely for purposes of backup, archiving or installation, provided the copy contains all of the original Software Program's proprietary notices.  You shall not copy the Software Program to any public or distributed network.
+c. 	RESERVATION OF RIGHTS. All rights, title and interests, including copyrights and any other intellectual property rights, in and to the Software Program, including all fonts therein, are owned by Funai and/or its suppliers and protected by applicable laws.  This License Agreement does not grant you any right to use any trademark or other marks of Funai. Funai reserves all rights not expressly granted to you in this License Agreement.
+d. 	OTHER SOFTWARE.  Notwithstanding the terms and conditions of this License Agreement, all or any portion of the Software Program that constitutes software provided by or under public license by third parties ("Other Software") is licensed to you subject to the terms and conditions of the software license agreement accompanying such Other Software, whether in the form of a discrete agreement, shrink-wrap license or electronic license terms at the time of download or installation.  Use of the Other Software by you shall be governed entirely by the terms and conditions of such license.
+
+5.	TRANSFER.  You may transfer the Software Program to another end-user.  Such transfer must include all software components, media, printed materials, upgrades, supplements and this License Agreement, and you shall not retain copies of the Software Program or components, etc., thereof.  The transfer shall not be an indirect transfer, such as a consignment, lease, rent or usage agreement.  Prior to the transfer, the end-user receiving the transferred Software Program must agree to all these License Agreement terms.  In any event, the use of any part by such transferee of any part of the Funai Product (including the Software Program) shall constitute the transferee's agreement to all the terms of this License Agreement.  Upon transfer of the Software Program, your license shall be automatically terminated.  You shall not rent, sublicense or assign the Software Program, in whole or in part, except to the extent expressly permitted in this License Agreement. Any transfer in violation of this section shall be void and of no effect, and shall result in the immediate termination of this License Agreement.
+
+6.	UPGRADES.  To use a Software Program identified as an upgrade, you must first be licensed to the original Software Program identified by Funai as eligible for the upgrade.  After upgrading, you may no longer use the original Software Program that formed the basis for your upgrade eligibility.
+
+7.	LIMITATION ON REVERSE ENGINEERING.  You shall not alter, decrypt, reverse engineer, reverse assemble, reverse compile or otherwise translate the Software Program or assist or otherwise facilitate others to do so, except as and to the extent expressly permitted to do so by applicable law for the purposes of inter-operability, error correction and security testing.  If you have such statutory rights, you will notify Funai in writing of any intended reverse engineering, reverse assembly or reverse compilation.  You shall not decrypt the Software Program unless necessary for the legitimate Use of the Software Program.
+
+8.	ADDITIONAL SOFTWARE.  This License Agreement applies to updates or supplements to the original Software Program provided by Funai unless Funai provides other terms along with such updates or supplements. In case of a conflict between the terms hereof and such other terms, the latter shall control.
+ 
+9.	TERM.  This License Agreement shall be effective unless terminated or cancelled in accordance with the following provisions.  You may terminate or cancel this license at any time by destroying all copies of the Software Program, together with all its components, modifications, documentation and merged portions in any form, or as otherwise described herein.  Without prejudice to any other rights or remedies, Funai may terminate your license upon notice if you fail to comply with any of the terms of this License Agreement.  Upon such termination, you agree to destroy all copies of the Software Program together with all its components, modifications, documentation, and merged portions in any form.  
+
+10.	CHOICE OF LAW.  This License Agreement, including the validity, interpretation and enforcement hereof, and all matters arising out of or related to this License Agreement or its making, performance or breach, shall be governed by the internal laws of New York. No choice of law rules in any jurisdiction shall apply.  The UN Convention on Contracts for the International Sale of Goods shall not apply. The Uniform Computer Information Transactions Act, as enacted in any jurisdiction shall not apply. YOU HEREBY ACKNOWLEDGE AND CONSENT THE ABOVE CHOICE OF LAW.
+
+11.	CHOICE OF FORUM. ANY LEGAL ACTION OR PROCEEDING CONCERNING THE VALIDITY, INTERPRETATION AND ENFORCEMENT OF THIS LICENSE AGREEMENT, MATTERS ARISING OUT OF OR RELATED TO THIS LICENSE AGREEMENT OR ITS MAKING, PERFORMANCE OR BREACH, AND ANY OTHER RELATED MATTER, SHALL BE BROUGHT EXCLUSIVELY IN THE COURTS OF THE STATE OF NEW YORK IN THE COUNTY OF NEW YORK OR OF THE UNITED STATES OF AMERICA FOR THE SOUTHERN DISTRICT OF NEW YORK. YOU HEREBY CONSENT TO THE EXCLUSIVE JURISDICTION OF SUCH COURTS, WAIVING TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, ANY OBJECTIONS TO THE LAYING OF VENUE, THE DEFENSE OF AN INCONVENIENT FORUM, AND ANY RIGHT TO TRIAL BY JURY. 
+
+12.	EXPORT AND USE RESTRICTIONS.  You shall not (a) acquire, ship, transfer or reexport, directly or indirectly, the Software Program or any direct product derived therefrom, in violation of any and all applicable export laws, or (b) permit the Software Program to be used for any purpose prohibited by such export laws, including, without limitation, nuclear, chemical or biological weapons proliferation.
+
+13.	AGREEMENT TO CONTRACT ELECTRONICALLY.  You and Funai agree to form this License Agreement electronically.  This means that when you click the "Agree" button on this page or use any part of the Funai product (including the Software Program), you acknowledge your agreement to these License Agreement terms and conditions and that you are doing so with the intent to "sign" a contract with Funai.
+
+14.	CAPACITY AND AUTHORITY TO CONTRACT.  You represent that you are of the legal age of majority in the place you sign and/or agree to this License Agreement and, if applicable, you are duly authorized by your employer or principal to enter into this License Agreement.
+
+15. 	WAIVER. Any of the provisions of this License Agreement may be waived in writing at any time by the party entitled to the benefit thereof. Any valid waiver of any breach of any provision of this License Agreement shall not operate or be construed as a waiver of any prior or subsequent breach. Further, no failure by any party to exercise any right or privilege hereunder shall be deemed a waiver of such party's right or privilege or a waiver of such party's right to exercise the same at any subsequent time or times hereunder.
+
+16. 	SEVERABILITY. Any provision of this License Agreement, which is declared void, unconscionable or unenforceable by any competent authority shall not invalidate the remaining provisions hereof, and any such provision, to the extent invalid, unconscionable or unenforceable, shall be deemed replaced by a valid and enforceable provision closest to that intended by the underlying invalid or unenforceable provision.
+
+17.	AMENDMENT. Funai may amend any provision of this License Agreement together with any update or supplement to the Software Program. No amendment by you of any of the provisions of this License Agreement shall be binding upon Funai without its prior written consent.
+
+18. 	THIRD PARTY BENEFICIARY. Except as expressly provided herein, this License Agreement shall not benefit or create any right or cause of action in or on behalf of any person other than the parties hereto; provided that, the terms of this License Agreement may be varied in any way or waived, or this License Agreement may be terminated without the consent of any such third party beneficiary.
+
+19.	ENTIRE AGREEMENT.  This License Agreement (including any addendum or amendment to this License Agreement that is included with the Software Program) is the entire agreement between you and Funai relating to the Software Program and any other subject matter hereof.  Except as otherwise expressly provided for herein, these terms and conditions supersede all prior or contemporaneous oral or written communications, proposals and representations with respect to the Software Program or any other subject matter covered by this License Agreement (except to the extent such extraneous terms do not conflict with the terms of this License Agreement, any other written agreement signed by you and Funai relating to your Use of the Software Program).  To the extent any Funai policies or programs for support services conflict with the terms of this License Agreement, the terms of this License Agreement shall control.
+
+</mutableString>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="PgO-OC-SJP" firstAttribute="top" secondItem="WG9-G9-R7E" secondAttribute="top" id="OkS-RR-Ure"/>
+                                            <constraint firstItem="PgO-OC-SJP" firstAttribute="leading" secondItem="WG9-G9-R7E" secondAttribute="leading" constant="16" id="R5e-Q2-0yl"/>
+                                            <constraint firstAttribute="trailing" secondItem="PgO-OC-SJP" secondAttribute="trailing" constant="8" id="W6g-4G-jF1"/>
+                                            <constraint firstAttribute="bottom" secondItem="PgO-OC-SJP" secondAttribute="bottom" constant="8" id="aqi-Gm-T2v"/>
+                                            <constraint firstAttribute="width" constant="312" id="kPA-Ki-MO0"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="WG9-G9-R7E" firstAttribute="centerY" secondItem="j1N-M0-bJl" secondAttribute="centerY" id="8Q9-U6-Oy0"/>
+                                    <constraint firstAttribute="trailing" secondItem="WG9-G9-R7E" secondAttribute="trailing" id="KBA-Je-DXc"/>
+                                    <constraint firstItem="WG9-G9-R7E" firstAttribute="leading" secondItem="j1N-M0-bJl" secondAttribute="leading" id="LgW-Lk-8es"/>
+                                    <constraint firstAttribute="bottom" secondItem="WG9-G9-R7E" secondAttribute="bottom" id="YKX-bf-xae"/>
+                                    <constraint firstItem="WG9-G9-R7E" firstAttribute="top" secondItem="j1N-M0-bJl" secondAttribute="top" id="bao-iJ-bmz"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -256,12 +336,15 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSd-8W-Oah">
-                                <rect key="frame" x="27" y="362" width="265" height="29"/>
+                                <rect key="frame" x="16" y="362" width="288" height="29"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="0.59821109480000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Save Setting">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="savebuttonPressed:" destination="WzU-TW-Hur" eventType="touchUpInside" id="gEf-oS-0Zz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

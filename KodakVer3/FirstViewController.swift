@@ -68,10 +68,6 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
         
         
         printers.delegate = self
-    
-//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PopupViewController") as! PopupViewController
-//        self.present(nextViewController, animated: true, completion: nil)
         
     }
     func select(index: Int) {
@@ -80,9 +76,41 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
         previousPrinter = index
     }
     
+    @IBAction func Copy(_ sender: Any) {
+        let CopySB = UIStoryboard(name: "CopyStoryboard", bundle: nil)
+        let vc = CopySB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
     
-  
+    @IBAction func InkLevel(_ sender: Any) {
+        let InkLevelSB = UIStoryboard(name: "InkLevelStoryboard", bundle: nil)
+        let vc = InkLevelSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
+    
+    @IBAction func ScanDoc(_ sender: Any) {
+        let ScanDocSB = UIStoryboard(name: "ScanDocumentStoryboard", bundle: nil)
+        let vc = ScanDocSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
+    
+    @IBAction func AddressPrint(_ sender: Any) {
+        let AddressPrintSB = UIStoryboard(name: "AddressPrintStoryboard", bundle: nil)
+        let vc = AddressPrintSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
 
+    @IBAction func ScanPhoto(_ sender: Any) {
+        let ScanPhotoSB = UIStoryboard(name: "ScanPhotoStoryboard", bundle: nil)
+        let vc = ScanPhotoSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
+    
+    @IBAction func Print(_ sender: Any) {
+        let PrintSB = UIStoryboard(name: "PrintPhotoStoryboard", bundle: nil)
+        let vc = PrintSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
     
 
 }

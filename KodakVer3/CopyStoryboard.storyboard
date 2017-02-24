@@ -66,8 +66,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="color_ink_full" translatesAutoresizingMaskIntoConstraints="NO" id="jVD-xU-kNQ">
-                                                <rect key="frame" x="38" y="75" width="45" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="38" y="79" width="45" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2EN-YZ-hfA" userLabel="standardcolorButton">
                                                 <rect key="frame" x="11" y="8" width="90" height="110"/>
@@ -99,8 +99,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="black_ink_full" translatesAutoresizingMaskIntoConstraints="NO" id="nBG-2i-uBo">
-                                                <rect key="frame" x="25" y="75" width="45" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="25" y="79" width="45" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVr-wk-aMU" userLabel="standardbwButton">
                                                 <rect key="frame" x="0.0" y="8" width="90" height="110"/>
@@ -181,12 +181,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtq-2y-Gi0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948.75" y="-1176.7605633802816"/>
+            <point key="canvasLocation" x="1946.25" y="-1176.7605633802816"/>
         </scene>
         <!--StandardViewController-->
         <scene sceneID="KAW-cY-Ckx">
             <objects>
-                <viewController id="2hQ-xh-WDK" userLabel="StandardViewController" customClass="StandardViewController" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2hQ-xh-WDK" userLabel="StandardViewController" customClass="StandardCopyViewController" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YyS-kA-SLP"/>
                         <viewControllerLayoutGuide type="bottom" id="C9e-NQ-knN"/>
@@ -195,39 +195,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="305" height="340"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMX-H7-fMO">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iMX-H7-fMO">
                                 <rect key="frame" x="0.0" y="0.0" width="305" height="340"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGh-r4-uaG">
-                                        <rect key="frame" x="105" y="155" width="95" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Copy" backgroundImage="main_button">
-                                            <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="70" y="91" width="165" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Copy">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="copystandardButtonPressed:" destination="2hQ-xh-WDK" eventType="touchUpInside" id="fqm-Zj-Ml5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="iMX-H7-fMO" firstAttribute="top" secondItem="fUU-YA-NFa" secondAttribute="top" id="183-FB-QAc"/>
-                            <constraint firstItem="C9e-NQ-knN" firstAttribute="top" secondItem="iMX-H7-fMO" secondAttribute="bottom" id="4t0-lc-xXm"/>
-                            <constraint firstAttribute="trailing" secondItem="iMX-H7-fMO" secondAttribute="trailing" id="LZf-fM-1Ih"/>
-                            <constraint firstItem="iMX-H7-fMO" firstAttribute="leading" secondItem="fUU-YA-NFa" secondAttribute="leading" id="PYQ-2h-tKl"/>
-                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="305" height="340"/>
+                    <connections>
+                        <outlet property="copyButton" destination="AGh-r4-uaG" id="o52-Cu-leW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xql-YJ-KhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1769.0625" y="-1217.9577464788733"/>
+            <point key="canvasLocation" x="2766.5625" y="-1217.9577464788733"/>
         </scene>
         <!--CustomViewController-->
         <scene sceneID="B1v-Ok-HAy">
             <objects>
-                <viewController id="t5g-IP-Dn9" userLabel="CustomViewController" customClass="CustomViewController" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="t5g-IP-Dn9" userLabel="CustomViewController" customClass="CustomCopyViewController" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v4R-8T-uR3"/>
                         <viewControllerLayoutGuide type="bottom" id="LDl-4q-CoM"/>
@@ -236,48 +237,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="305" height="340"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0o8-uv-GET">
-                                <rect key="frame" x="0.0" y="0.0" width="313" height="498"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TsB-7g-f0c">
+                                <rect key="frame" x="45" y="8" width="214" height="30"/>
+                                <state key="normal" title="Copy">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="customcopybuttonPressed:" destination="t5g-IP-Dn9" eventType="touchUpInside" id="uxX-Bf-swV"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzm-zN-vEQ">
+                                <rect key="frame" x="0.0" y="48" width="305" height="305"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Il-xG-ZjR">
-                                        <rect key="frame" x="0.0" y="-1" width="313" height="343"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IqQ-fj-h5E">
+                                        <rect key="frame" x="0.0" y="36" width="305" height="261"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="343" id="oGx-xq-VDI"/>
+                                            <constraint firstAttribute="height" constant="261" id="L5z-I5-I2t"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="dataSource" destination="t5g-IP-Dn9" id="vY4-v0-iR2"/>
-                                            <outlet property="delegate" destination="t5g-IP-Dn9" id="MgY-2N-Kxc"/>
+                                            <outlet property="dataSource" destination="t5g-IP-Dn9" id="Dse-Ro-H6a"/>
+                                            <outlet property="delegate" destination="t5g-IP-Dn9" id="JlB-XZ-qrl"/>
                                         </connections>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Advanced Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ak-yc-IHf">
+                                        <rect key="frame" x="8" y="8" width="171" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="0Il-xG-ZjR" firstAttribute="centerX" secondItem="0o8-uv-GET" secondAttribute="centerX" id="IPg-aC-sRu"/>
-                                    <constraint firstAttribute="trailing" secondItem="0Il-xG-ZjR" secondAttribute="trailing" id="KDH-pv-lHg"/>
-                                    <constraint firstItem="0Il-xG-ZjR" firstAttribute="leading" secondItem="0o8-uv-GET" secondAttribute="leading" id="hUZ-i6-LJD"/>
-                                    <constraint firstAttribute="bottom" secondItem="0Il-xG-ZjR" secondAttribute="bottom" constant="156" id="jox-jq-K3a"/>
-                                    <constraint firstItem="0Il-xG-ZjR" firstAttribute="top" secondItem="0o8-uv-GET" secondAttribute="top" constant="-1" id="pob-Tr-1nS"/>
+                                    <constraint firstItem="IqQ-fj-h5E" firstAttribute="leading" secondItem="mzm-zN-vEQ" secondAttribute="leading" id="HPt-Iz-3yh"/>
+                                    <constraint firstAttribute="trailing" secondItem="IqQ-fj-h5E" secondAttribute="trailing" id="cWy-yf-KQL"/>
+                                    <constraint firstItem="IqQ-fj-h5E" firstAttribute="top" secondItem="mzm-zN-vEQ" secondAttribute="top" constant="36" id="qsd-jK-bJf"/>
+                                    <constraint firstItem="IqQ-fj-h5E" firstAttribute="centerX" secondItem="mzm-zN-vEQ" secondAttribute="centerX" id="sHr-2k-3HD"/>
+                                    <constraint firstItem="IqQ-fj-h5E" firstAttribute="bottom" secondItem="mzm-zN-vEQ" secondAttribute="bottomMargin" id="um1-XC-FPq"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0o8-uv-GET" firstAttribute="centerY" secondItem="Gvv-In-zsM" secondAttribute="centerY" constant="79" id="LKs-jU-3g8"/>
-                            <constraint firstItem="0o8-uv-GET" firstAttribute="centerX" secondItem="Gvv-In-zsM" secondAttribute="centerX" constant="4" id="Tq8-ym-b98"/>
-                            <constraint firstItem="0o8-uv-GET" firstAttribute="leading" secondItem="Gvv-In-zsM" secondAttribute="leadingMargin" constant="-16" id="fy9-rq-VOK"/>
-                            <constraint firstItem="0o8-uv-GET" firstAttribute="top" secondItem="v4R-8T-uR3" secondAttribute="bottom" id="j0R-AA-JIM"/>
+                            <constraint firstItem="TsB-7g-f0c" firstAttribute="centerX" secondItem="mzm-zN-vEQ" secondAttribute="centerX" id="H9r-fb-vg2"/>
+                            <constraint firstAttribute="trailing" secondItem="mzm-zN-vEQ" secondAttribute="trailing" id="M4e-L8-GN4"/>
+                            <constraint firstItem="mzm-zN-vEQ" firstAttribute="top" secondItem="TsB-7g-f0c" secondAttribute="bottom" constant="10" id="OH2-pN-UhW"/>
+                            <constraint firstItem="mzm-zN-vEQ" firstAttribute="leading" secondItem="Gvv-In-zsM" secondAttribute="leading" id="SNt-c0-kCM"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="mzm-zN-vEQ" secondAttribute="bottom" constant="-13" id="bPe-O9-TcG"/>
+                            <constraint firstItem="TsB-7g-f0c" firstAttribute="top" secondItem="v4R-8T-uR3" secondAttribute="bottom" constant="8" symbolic="YES" id="cBY-Mb-oao"/>
+                            <constraint firstItem="TsB-7g-f0c" firstAttribute="leading" secondItem="Gvv-In-zsM" secondAttribute="leadingMargin" constant="29" id="kqK-h6-hqh"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="305" height="340"/>
                     <connections>
-                        <outlet property="CopyCustomTableView" destination="0Il-xG-ZjR" id="f6D-Vr-e4F"/>
-                        <outlet property="customCopySetting" destination="Gvv-In-zsM" id="ErC-jP-YPS"/>
+                        <outlet property="customTable" destination="IqQ-fj-h5E" id="qNn-vv-Z7f"/>
+                        <outlet property="customcopyTableview" destination="IqQ-fj-h5E" id="a4l-r6-acN"/>
+                        <outlet property="customcopybutton" destination="TsB-7g-f0c" id="hxp-mu-a3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldy-26-cKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1765.3125" y="-791.19718309859161"/>
+            <point key="canvasLocation" x="2766.5625" y="-702.46478873239437"/>
         </scene>
     </scenes>
     <resources>
@@ -285,6 +306,5 @@
         <image name="color_ink_full" width="30" height="44"/>
         <image name="copysetting_select" width="300" height="400"/>
         <image name="copysetting_unselect" width="300" height="400"/>
-        <image name="main_button" width="154" height="154"/>
     </resources>
 </document>
