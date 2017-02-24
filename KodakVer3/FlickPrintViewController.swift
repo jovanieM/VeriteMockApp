@@ -10,19 +10,57 @@ import UIKit
 
 class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     
+    
     @IBOutlet weak var container: UIView!
     var imageView: UIImageView!
     var image: UIImage!
-   
-    //var scaleFactor: CGFloat!
+    var toggler : Bool = false
     
-      
-  
+    @IBOutlet weak var toggleButton: UIButton!{
+        didSet{
+            toggleButton.setImage(#imageLiteral(resourceName: "copy_detect"), for: .selected)
+        }
+    }
+    
+    @IBOutlet weak var flickLabel: UILabel!
+    
+    @IBOutlet weak var swipeLabel: UILabel!
+    
+    @IBOutlet weak var swipImage: UIImageView!
+    
+    @IBOutlet weak var settingsDisplay: UIView!
+    
+    @IBAction func hintDisplayToggle(_ sender: UIButton) {
+        
+        
+        toggler = !toggler
+        sender.isSelected = toggler
+        toggle(tog: toggler)
+        
+    }
+   
+    func toggle(tog : Bool){
+        if tog == true{
+            container.alpha = 1.0
+            flickLabel.alpha = 0.0
+            swipeLabel.alpha = 0.0
+            swipImage.alpha = 0.0
+            settingsDisplay.alpha = 0.0
+            
+        }else{
+            container.alpha = 0.6
+            flickLabel.alpha = 1.0
+            swipeLabel.alpha = 1.0
+            swipImage.alpha = 1.0
+            settingsDisplay.alpha = 1.0
+        }
+    
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+
         let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(pan:)))
         let pinchZoom = UIPinchGestureRecognizer(target: self, action: #selector(pinchHandler(sender:)))
         pinchZoom.delegate = self
@@ -43,20 +81,12 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     
         imageView.image = image
         container.addSubview(imageView)
+        container.alpha = 0.5
         //container.addGestureRecognizer(pan)
         container.addGestureRecognizer(pinchZoom)
         container.addGestureRecognizer(pan)
-      
-        
-        
-        
-        print(image.size)
 
-        // Do any additional setup after loading the view.
-    }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+
     }
   
     func pan(pan: UIPanGestureRecognizer){

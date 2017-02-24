@@ -93,7 +93,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let cell2 = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
             cell2.mainLabel.adjustsFontSizeToFitWidth = true
             cell2.mainLabel.text = arrayofMainLbl[indexPath.row]
-            cell2.selectionLabel.text = collections[indexPath.row][getSavedData(receiver: indexPath.row)]
+           
+            cell2.selectionLabel.text = collections[indexPath.row][getSavedData(receiver: indexPath.row) ?? 0]
+         
+          
                       
             return cell2
         }
@@ -129,9 +132,11 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             
             //setData(value: 0, receiverIndex: indexPath.row - 1)
-            self.view.window?.addSubview(table)
+            
             table.sendDataDelegate = self
             tableView.deselectRow(at: indexPath, animated: false)
+            self.view.window?.addSubview(table)
+            
         
         }
         
@@ -147,7 +152,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return numberOfItems
         }
     }
-    func getSavedData(receiver: Int) -> Int{
+    func getSavedData(receiver: Int) -> Int?{
         
         switch receiver {
         case 1:
@@ -185,7 +190,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
        
         let cell = self.detailSettings.cellForRow(at: receiver) as! TableViewCell2
      
-        cell.selectionLabel.text = collections[receiver.row][getSavedData(receiver: receiver.row)]
+        cell.selectionLabel.text = collections[receiver.row][getSavedData(receiver: receiver.row) ?? 0]
     }
     
     
