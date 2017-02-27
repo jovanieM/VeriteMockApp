@@ -29,6 +29,7 @@
 		105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105965EC1E5320C6003B7CD6 /* WiFiSetupHome.swift */; };
 		105FAB171E55794000A180E8 /* NetworkAndPasswordManual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105FAB151E55794000A180E8 /* NetworkAndPasswordManual.swift */; };
 		105FAB181E55794000A180E8 /* SecurityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105FAB161E55794000A180E8 /* SecurityType.swift */; };
+		106C69351E6420D700CDA7B6 /* PopUpPaperSizeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C69341E6420D700CDA7B6 /* PopUpPaperSizeVC.swift */; };
 		10759B2E1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */; };
 		107B37A61E5FDE30007CA90C /* GCPEnableDisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37A21E5FDE30007CA90C /* GCPEnableDisable.swift */; };
 		107B37A71E5FDE30007CA90C /* GCPHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37A31E5FDE30007CA90C /* GCPHome.swift */; };
@@ -132,6 +133,7 @@
 		105965EC1E5320C6003B7CD6 /* WiFiSetupHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiFiSetupHome.swift; sourceTree = "<group>"; };
 		105FAB151E55794000A180E8 /* NetworkAndPasswordManual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordManual.swift; sourceTree = "<group>"; };
 		105FAB161E55794000A180E8 /* SecurityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityType.swift; sourceTree = "<group>"; };
+		106C69341E6420D700CDA7B6 /* PopUpPaperSizeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpPaperSizeVC.swift; sourceTree = "<group>"; };
 		10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSelectTheNetwork.swift; sourceTree = "<group>"; };
 		107B37A21E5FDE30007CA90C /* GCPEnableDisable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCPEnableDisable.swift; sourceTree = "<group>"; };
 		107B37A31E5FDE30007CA90C /* GCPHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCPHome.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 		103303421E52ADEE00E7D24C /* PrinterUtilityStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				106C69341E6420D700CDA7B6 /* PopUpPaperSizeVC.swift */,
 				107B37AC1E5FDF08007CA90C /* CartridgeSetup.swift */,
 				107B37AD1E5FDF08007CA90C /* CleanPrinthead.swift */,
 				107B37AE1E5FDF08007CA90C /* DeviceSleepTime.swift */,
@@ -668,6 +671,7 @@
 				10CD81811E567A22001815A1 /* HostName.swift in Sources */,
 				113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */,
 				107B37B91E5FDF08007CA90C /* RestoreFactoryDefault.swift in Sources */,
+				106C69351E6420D700CDA7B6 /* PopUpPaperSizeVC.swift in Sources */,
 				10CD81821E567A22001815A1 /* IPAddress.swift in Sources */,
 				11715AA61E5AC413005367B9 /* PhotoAssetCollection.swift in Sources */,
 				107B37B41E5FDF08007CA90C /* CleanPrinthead.swift in Sources */,

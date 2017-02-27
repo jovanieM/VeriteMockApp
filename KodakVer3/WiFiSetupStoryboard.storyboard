@@ -292,9 +292,6 @@
                                         <rect key="frame" x="263" y="4" width="51" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="onTintColor" red="1" green="0.71764705882352942" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="changeSwitch:" destination="bqI-vu-wr3" eventType="valueChanged" id="hfh-wG-rIJ"/>
-                                        </connections>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -557,9 +554,6 @@
                                 <state key="normal" title="Save setting">
                                     <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="saveSettingActionButton:" destination="bqI-vu-wr3" eventType="touchUpInside" id="srf-iO-Yk2"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
