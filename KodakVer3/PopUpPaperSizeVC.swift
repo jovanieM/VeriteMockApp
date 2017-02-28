@@ -10,32 +10,52 @@ import UIKit
 
 class PopUpPaperSizeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let paperSizeList = ["Letter", "A4", "Legal", "Folio"]
+    @IBOutlet weak var tablePaperSizes: UITableView!
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    let paperSizeList = ["Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "4x6 in.", "3x5 in.", "5x7 in.(2L)", "3.5x5 in.(L)", "Hagaki", "10 Envelope", "DL Envelope", "C5 Envelope"]
+    
+    let textCellIdentifier  = "cell"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        
+        tablePaperSizes.delegate = self
+        tablePaperSizes.dataSource = self
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return (paperSizeList.count)
     }
     
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tablePaperSizes.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
+        //let row = indexPath.row
         cell.textLabel?.text = paperSizeList[indexPath.row]
         
-        return(cell)
+        return cell
+        
+        /* let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+        cell.textLabel?.text = paperSizeList[indexPath.row]
+        
+        return(cell) */
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBAction func dismissButton(_ sender: Any) {
+        //self.dismiss(animated: true, completion: nil)
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-
-        // Do any additional setup after loading the view.
+        self.view.removeFromSuperview()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    
+    
     
 
     /*

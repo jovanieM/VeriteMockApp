@@ -24,6 +24,8 @@
 		103303411E52ADE900E7D24C /* AirPrintStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303401E52ADE900E7D24C /* AirPrintStoryboard.storyboard */; };
 		103303441E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303431E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard */; };
 		103303471E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */; };
+		104F1D391E6575AC00532AC3 /* CartridgeSetupPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F1D371E6575AC00532AC3 /* CartridgeSetupPrinting.swift */; };
+		104F1D3A1E6575AC00532AC3 /* CartridgeSetupStartScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F1D381E6575AC00532AC3 /* CartridgeSetupStartScan.swift */; };
 		105965E41E531B95003B7CD6 /* DeviceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105965E21E531B95003B7CD6 /* DeviceSettings.swift */; };
 		105965E51E531B95003B7CD6 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105965E31E531B95003B7CD6 /* NetworkStatus.swift */; };
 		105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105965EC1E5320C6003B7CD6 /* WiFiSetupHome.swift */; };
@@ -128,6 +130,8 @@
 		103303401E52ADE900E7D24C /* AirPrintStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AirPrintStoryboard.storyboard; sourceTree = "<group>"; };
 		103303431E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PrinterUtilityStoryboard.storyboard; sourceTree = "<group>"; };
 		103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SoftwareUpdateStoryboard.storyboard; sourceTree = "<group>"; };
+		104F1D371E6575AC00532AC3 /* CartridgeSetupPrinting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupPrinting.swift; sourceTree = "<group>"; };
+		104F1D381E6575AC00532AC3 /* CartridgeSetupStartScan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupStartScan.swift; sourceTree = "<group>"; };
 		105965E21E531B95003B7CD6 /* DeviceSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSettings.swift; sourceTree = "<group>"; };
 		105965E31E531B95003B7CD6 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		105965EC1E5320C6003B7CD6 /* WiFiSetupHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiFiSetupHome.swift; sourceTree = "<group>"; };
@@ -381,6 +385,8 @@
 		103303421E52ADEE00E7D24C /* PrinterUtilityStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				104F1D371E6575AC00532AC3 /* CartridgeSetupPrinting.swift */,
+				104F1D381E6575AC00532AC3 /* CartridgeSetupStartScan.swift */,
 				106C69341E6420D700CDA7B6 /* PopUpPaperSizeVC.swift */,
 				107B37AC1E5FDF08007CA90C /* CartridgeSetup.swift */,
 				107B37AD1E5FDF08007CA90C /* CleanPrinthead.swift */,
@@ -669,6 +675,7 @@
 				1158B74F1DFA8655008F081F /* QuickViewController.swift in Sources */,
 				107B37AB1E5FDE4E007CA90C /* AirPrint.swift in Sources */,
 				10CD81811E567A22001815A1 /* HostName.swift in Sources */,
+				104F1D3A1E6575AC00532AC3 /* CartridgeSetupStartScan.swift in Sources */,
 				113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */,
 				107B37B91E5FDF08007CA90C /* RestoreFactoryDefault.swift in Sources */,
 				106C69351E6420D700CDA7B6 /* PopUpPaperSizeVC.swift in Sources */,
@@ -684,6 +691,7 @@
 				10CD81831E567A22001815A1 /* Proxy.swift in Sources */,
 				105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */,
 				114B30AA1DF90A57008A57F1 /* FirstViewController.swift in Sources */,
+				104F1D391E6575AC00532AC3 /* CartridgeSetupPrinting.swift in Sources */,
 				114B30D81DF92C44008A57F1 /* PrintPhotoVC.swift in Sources */,
 				10D36C641E5FE0C400D79664 /* CustomViewController.swift in Sources */,
 				11B56EB91E5D69180031108D /* FlickPrintViewController.swift in Sources */,

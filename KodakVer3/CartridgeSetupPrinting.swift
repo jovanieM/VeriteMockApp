@@ -1,34 +1,34 @@
 //
-//  CartridgeSetup.swift
+//  CartridgeSetupPrinting.swift
 //  KodakVer3
 //
-//  Created by anarte on 23/02/2017.
+//  Created by anarte on 28/02/2017.
 //  Copyright © 2017 jmolas. All rights reserved.
 //
 
 import UIKit
 
-class CartridgeSetup: UIViewController{
+class CartridgeSetupPrinting: UIViewController{
     
-    @IBOutlet weak var saveSettingButton: UIButton!
-    
+    // navigation bar
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
         navTransition.duration = 1
         navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         navTransition.type = kCATransitionPush
         navTransition.subtype = kCATransitionPush
+        self.navigationController?.navigationItem.hidesBackButton = true
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+        //self.navigationItem.setHidesBackButton(false, animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // button
-        saveSettingButton.layer.cornerRadius = 15
-        saveSettingButton.layer.borderWidth = 2
-        saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+         _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(toTransition), userInfo: nil, repeats: false)
     }
     
-    
+    func toTransition(){
+        self.performSegue(withIdentifier: "toStartScan", sender: self)
+    }
 }
