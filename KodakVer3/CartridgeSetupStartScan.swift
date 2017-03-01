@@ -35,6 +35,17 @@ class CartridgeSetupStartScan: UIViewController {
         helpButton.layer.cornerRadius = 15
         helpButton.layer.borderWidth = 2
         helpButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< back", style: .plain, target: self, action: #selector(backAction))
+    }
+    
+    func backAction(){
+        let vc: [UIViewController] = self.navigationController!.viewControllers
+        for aViewController in vc{
+            if aViewController is CartridgeSetup{
+                self.navigationController!.popToViewController(aViewController, animated: true)
+            }
+        }
     }
     
 }
