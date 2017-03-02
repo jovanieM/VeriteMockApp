@@ -49,7 +49,8 @@ class NetworkStatus: UIViewController{
         
         indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 90, width: 50, height:50))
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        indicator.activityIndicatorViewStyle = .gray
+        indicator.activityIndicatorViewStyle = .whiteLarge
+        indicator.color = UIColor.black        
         
         alert.view.addSubview(indicator)
         indicator.startAnimating()

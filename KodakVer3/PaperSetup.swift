@@ -11,10 +11,12 @@ import UIKit
 class PaperSetup: UIViewController{
 
     @IBOutlet weak var saveSettingButton: UIButton!
-    
     var alert: UIAlertController!
     var alert2: UIAlertController!
+    var alrController: UIAlertController!
     var indicator: UIActivityIndicatorView!
+    
+    
     
     // navigation bar
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +37,7 @@ class PaperSetup: UIViewController{
         saveSettingButton.layer.cornerRadius = 15
         saveSettingButton.layer.borderWidth = 2
         saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        
     }
     
     func loadAlerts(){
@@ -59,16 +62,7 @@ class PaperSetup: UIViewController{
     
     func dismissAlert(){
         self.alert?.dismiss(animated: true, completion: nil)
-        
-    }
+    }  
     
-    @IBAction func showPaperSize(_ sender: Any) {
-        
-        let paperSizePopUpList = UIStoryboard(name: "PrinterUtilityStoryboard", bundle: nil).instantiateViewController(withIdentifier: "popUpPaperSize") as! PopUpPaperSizeVC
-        self.addChildViewController(paperSizePopUpList)
-        paperSizePopUpList.view.frame = self.view.frame
-        self.view.addSubview(paperSizePopUpList.view)
-        paperSizePopUpList.didMove(toParentViewController: self)
-        
-    }
+    
 }

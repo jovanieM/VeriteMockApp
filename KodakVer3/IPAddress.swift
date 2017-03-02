@@ -51,17 +51,31 @@ class IPAddress: UIViewController{
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
-        let alert = UIAlertController(title: "If [OK] is touched, IP Address\n setting is modified, and this\n app is closed.", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        alert = UIAlertController(title: "If [OK] is touched, IP Address\n setting is modified, and this\n app is closed.", message: "", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
-            alert.dismiss(animated: true, completion: nil)
+            self.alert.dismiss(animated: true, completion: nil)
             
-            UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+            self.alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
+            
+            self.indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
+            self.indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.indicator.activityIndicatorViewStyle = .whiteLarge
+            self.indicator.color = UIColor.black
+            
+            self.alert.view.addSubview(self.indicator)
+            self.indicator.isUserInteractionEnabled = false
+            self.indicator.startAnimating()
+            
+            self.present(self.alert, animated: true, completion: nil)
+            _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.exitApp), userInfo: nil, repeats: false)
+            
+            
         }))
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func changeSwitch(_ sender: UISwitch) {
+    @IBAction func switcher(_ sender: UISwitch) {
         if switchController.isOn == true{
             autoManualLabel.text = "manual"
             
@@ -84,6 +98,11 @@ class IPAddress: UIViewController{
         view.endEditing(true)
     }
     
+    func exitApp(){
+        //UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+        exit(0)
+    }
+    
     func hideViews(){
         viewIpAddress.isHidden = true
         viewSubnetMask.isHidden = true
@@ -103,7 +122,8 @@ class IPAddress: UIViewController{
         
         indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 90, width: 40, height:40))
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        indicator.activityIndicatorViewStyle = .gray
+        indicator.activityIndicatorViewStyle = .whiteLarge
+        indicator.color = UIColor.black
         
         alert.view.addSubview(indicator)
         indicator.startAnimating()

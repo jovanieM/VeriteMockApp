@@ -39,12 +39,15 @@ class Proxy: UIViewController, UITextFieldDelegate{
         
         loadAlerts()
         
+        // hide view
         proxyAddressView.isHidden = true
         portProxyView.isHidden = true
         
+        // dismiss soft keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(Proxy.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
+        //button
         saveSettingButton.layer.cornerRadius = 15
         saveSettingButton.layer.borderWidth = 2
         saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
@@ -73,6 +76,8 @@ class Proxy: UIViewController, UITextFieldDelegate{
         
         indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        indicator.activityIndicatorViewStyle = .whiteLarge
+        indicator.color = UIColor.black
         
         alert.view.addSubview(indicator)
         indicator.isUserInteractionEnabled = false
@@ -95,7 +100,8 @@ class Proxy: UIViewController, UITextFieldDelegate{
         
         indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 90, width: 50, height:50))
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        indicator.activityIndicatorViewStyle = .gray
+        indicator.activityIndicatorViewStyle = .whiteLarge
+        indicator.color = UIColor.black
         
         alert.view.addSubview(indicator)
         indicator.startAnimating()

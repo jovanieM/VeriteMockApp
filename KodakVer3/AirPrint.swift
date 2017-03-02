@@ -53,6 +53,8 @@ class AirPrint: UIViewController {
         
         indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        indicator.activityIndicatorViewStyle = .whiteLarge
+        indicator.color = .black
         
         alert.view.addSubview(indicator)
         indicator.isUserInteractionEnabled = false
@@ -72,7 +74,8 @@ class AirPrint: UIViewController {
         
         indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 90, width: 50, height:50))
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        indicator.activityIndicatorViewStyle = .gray
+        indicator.activityIndicatorViewStyle = .whiteLarge
+        indicator.color = .black
         
         alert.view.addSubview(indicator)
         indicator.startAnimating()

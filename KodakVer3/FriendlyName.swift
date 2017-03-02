@@ -35,6 +35,10 @@ class FriendlyName: UIViewController{
         saveSettingButton.layer.cornerRadius = 15
         saveSettingButton.layer.borderWidth = 2
         saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        
+        // dismiss soft keyboard
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(FriendlyName.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     func loadAlerts(){
@@ -46,7 +50,8 @@ class FriendlyName: UIViewController{
         
         indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 90, width: 40, height:40))
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        indicator.activityIndicatorViewStyle = .gray
+        indicator.activityIndicatorViewStyle = .whiteLarge
+        indicator.color = UIColor.black
         
         alert.view.addSubview(indicator)
         indicator.startAnimating()
@@ -59,11 +64,18 @@ class FriendlyName: UIViewController{
         indicator.stopAnimating()
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func dismissKeyboard(){
+        view.endEditing(true)
+    }
+    
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
         alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
         
         indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        indicator.activityIndicatorViewStyle = .whiteLarge
+        indicator.color = UIColor.black
         
         alert.view.addSubview(indicator)
         indicator.isUserInteractionEnabled = false

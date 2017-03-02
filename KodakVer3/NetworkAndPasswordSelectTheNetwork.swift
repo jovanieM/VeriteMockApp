@@ -51,6 +51,8 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
         btnManual.layer.cornerRadius = 25
         btnManual.layer.borderWidth = 2
         btnManual.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< back", style: .plain, target: self, action: #selector(backAction))
     }
     
     func setDefault(value: Int){
@@ -98,6 +100,15 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
         }
         
         return indexPath
+    }
+    
+    func backAction(){
+        let vc: [UIViewController] = self.navigationController!.viewControllers
+        for aViewController in vc{
+            if aViewController is WiFiSetupHome{
+                self.navigationController!.popToViewController(aViewController, animated: true)
+            }
+        }
     }
 }
 
