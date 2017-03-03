@@ -255,7 +255,7 @@
         <!--Paper Setup-->
         <scene sceneID="cKp-RD-4m7">
             <objects>
-                <viewController id="kc9-xD-Vzw" customClass="PaperSetup" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PaperSize" id="kc9-xD-Vzw" customClass="PaperSetup" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IC2-Nd-T8n"/>
                         <viewControllerLayoutGuide type="bottom" id="yYI-W2-jha"/>
@@ -290,13 +290,16 @@
                                 <rect key="frame" x="0.0" y="123" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ekt-nc-m3e">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ekt-nc-m3e">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Letter">
+                                        <state key="normal" title="                                              ">
                                             <color key="titleColor" red="1" green="0.71764705882352942" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="xcU-7l-ieg" kind="presentation" identifier="popUpPaperSize" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="VTn-jy-S8Z"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Paper Size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSg-h4-d0o">
                                         <rect key="frame" x="8" y="15" width="86" height="21"/>
@@ -312,6 +315,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="paperSizeButton" destination="Ekt-nc-m3e" id="dZY-Ww-ryI"/>
                         <outlet property="saveSettingButton" destination="xAh-au-eCz" id="AEz-Il-LYS"/>
                     </connections>
                 </viewController>

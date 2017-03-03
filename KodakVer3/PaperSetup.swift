@@ -8,13 +8,17 @@
 
 import UIKit
 
-class PaperSetup: UIViewController{
+class PaperSetup: UIViewController, MyProtocol{
 
+    
+    @IBOutlet weak var paperSizeButton: UIButton!
     @IBOutlet weak var saveSettingButton: UIButton!
     var alert: UIAlertController!
     var alert2: UIAlertController!
     var alrController: UIAlertController!
     var indicator: UIActivityIndicatorView!
+    
+    var paperSizeData: String?
     
     
     
@@ -28,15 +32,33 @@ class PaperSetup: UIViewController{
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
     
+    func setTableRowData(dataRow: String) {
+        paperSizeButton.titleLabel?.text = dataRow
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "popUpPaperSize"{
+            let vc: PopUpPaperSizeVC = segue.destination as! PopUpPaperSizeVC
+            vc.delegate = self
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadAlerts()
         
+        paperSizeButton.setTitle("Letter               ", for: .normal)
+        
+        
         // button
         saveSettingButton.layer.cornerRadius = 15
         saveSettingButton.layer.borderWidth = 2
         saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        
+        //paperSizeButton.contentHorizontalAlignment = .right
+        paperSizeButton.titleEdgeInsets.right = 10
+        
         
     }
     
@@ -62,7 +84,12 @@ class PaperSetup: UIViewController{
     
     func dismissAlert(){
         self.alert?.dismiss(animated: true, completion: nil)
-    }  
+    }
     
+    func setDataFromDisplay(dataSent: String){
+        self.paperSizeData = dataSent
+    }
+    
+   
     
 }

@@ -8,9 +8,17 @@
 
 import UIKit
 
+protocol MyProtocol{
+    func setTableRowData(dataRow: String)
+}
+
 class PopUpPaperSizeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tablePaperSizes: UITableView!
+    
+    var data:String?
+    
+    var delegate: MyProtocol? = nil
     
     let paperSizeList = ["Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "4x6 in.", "3x5 in.", "5x7 in.(2L)", "3.5x5 in.(L)", "Hagaki", "10 Envelope", "DL Envelope", "C5 Envelope"]
     
@@ -26,10 +34,18 @@ class PopUpPaperSizeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         tablePaperSizes.dataSource = self
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    //func numberOfSections(in tableView: UITableView) -> Int {
+    //    return 1
+    //}
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
     }
-
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return (paperSizeList.count)
     }
@@ -48,15 +64,32 @@ class PopUpPaperSizeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         return(cell) */
     }
     
-    @IBAction func dismissButton(_ sender: Any) {
-        //self.dismiss(animated: true, completion: nil)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //data = self.paperSizeList[indexPath.row]
         
-        self.view.removeFromSuperview()
+        let indexPath = tableView.indexPathForSelectedRow!
+        let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
+        
+        if delegate != nil{
+            data = currentCell.textLabel?.text
+            delegate?.setTableRowData(dataRow: data!)
+        }
+        
+        
+        //let sb: UIStoryboard = UIStoryboard(name: "PrinterUtilityStoryboard", bundle: nil)
+        //let sizeVC = sb.instantiateViewController(withIdentifier: "PaperSize") as! PaperSetup
+        
+        //sizeVC.paperSizeButton.titleLabel?.text = data
+        print("\(data)")
+        //self.navigationController?.popToViewController(sizeVC, animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    
-    
-    
+    @IBAction func dismissButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        
+        //self.view.removeFromSuperview()
+    }
 
     /*
     // MARK: - Navigation
