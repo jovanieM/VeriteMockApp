@@ -62,6 +62,7 @@
 		10D36C641E5FE0C400D79664 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C5F1E5FE0C400D79664 /* CustomViewController.swift */; };
 		10D36C661E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C651E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift */; };
 		10D36C681E5FE0F500D79664 /* StandardCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C671E5FE0F500D79664 /* StandardCopyViewController.swift */; };
+		10F4969A1E6D350800E10DA1 /* PopUpPaperTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */; };
 		11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */; };
 		1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */; };
 		1116A3291E30A92B0038F2E5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */; };
@@ -170,6 +171,7 @@
 		10D36C5F1E5FE0C400D79664 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		10D36C651E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnonymousPrinterUsageViewController.swift; sourceTree = "<group>"; };
 		10D36C671E5FE0F500D79664 /* StandardCopyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardCopyViewController.swift; sourceTree = "<group>"; };
+		10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpPaperTypeVC.swift; sourceTree = "<group>"; };
 		11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSelectPopUp.swift; sourceTree = "<group>"; };
 		1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUITableViewController.swift; sourceTree = "<group>"; };
 		1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 		103303421E52ADEE00E7D24C /* PrinterUtilityStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */,
 				1073B5771E669801000C60EB /* CartridgeSetupHelp.swift */,
 				1073B5781E669801000C60EB /* CartridgeSetupScanning.swift */,
 				104F1D371E6575AC00532AC3 /* CartridgeSetupPrinting.swift */,
@@ -686,6 +689,7 @@
 				107B37B91E5FDF08007CA90C /* RestoreFactoryDefault.swift in Sources */,
 				1073B57A1E669801000C60EB /* CartridgeSetupScanning.swift in Sources */,
 				106C69351E6420D700CDA7B6 /* PopUpPaperSizeVC.swift in Sources */,
+				10F4969A1E6D350800E10DA1 /* PopUpPaperTypeVC.swift in Sources */,
 				10CD81821E567A22001815A1 /* IPAddress.swift in Sources */,
 				11715AA61E5AC413005367B9 /* PhotoAssetCollection.swift in Sources */,
 				107B37B41E5FDF08007CA90C /* CleanPrinthead.swift in Sources */,

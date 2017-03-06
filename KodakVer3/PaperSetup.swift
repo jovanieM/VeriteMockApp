@@ -1,5 +1,5 @@
 //
-//  SaveSetting.swift
+//  PaperSetup.swift
 //  KodakVer3
 //
 //  Created by anarte on 23/02/2017.
@@ -8,18 +8,30 @@
 
 import UIKit
 
-class PaperSetup: UIViewController, MyProtocol{
-
+class PaperSetup: UIViewController, PaperSizeProtocol, PaperTypeProtocol{
+    
+    internal func setTableRow(dataRow: String) {
+        paperTypeButton.titleLabel!.text = dataRow
+    }
+    
+    func setTableRowData(dataRow: String) {
+        paperSizeButton.titleLabel?.text = dataRow
+    }
     
     @IBOutlet weak var paperSizeButton: UIButton!
+    @IBOutlet weak var paperTypeButton: UIButton!
     @IBOutlet weak var saveSettingButton: UIButton!
+    @IBOutlet weak var descPaperSetup: UILabel!
+    @IBOutlet weak var viewPaperSize: UIView!
+    @IBOutlet weak var viewPaperType: UIView!
+    
     var alert: UIAlertController!
     var alert2: UIAlertController!
     var alrController: UIAlertController!
     var indicator: UIActivityIndicatorView!
     
     var paperSizeData: String?
-    
+    var paperTypeData: String?
     
     
     // navigation bar
@@ -32,13 +44,14 @@ class PaperSetup: UIViewController, MyProtocol{
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
     
-    func setTableRowData(dataRow: String) {
-        paperSizeButton.titleLabel?.text = dataRow
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "popUpPaperSize"{
             let vc: PopUpPaperSizeVC = segue.destination as! PopUpPaperSizeVC
+            vc.delegate = self
+        }
+        else if segue.identifier == "popUpPaperType"{
+            let vc: PopUpPaperTypeVC = segue.destination as! PopUpPaperTypeVC
             vc.delegate = self
         }
     }
@@ -49,7 +62,7 @@ class PaperSetup: UIViewController, MyProtocol{
         loadAlerts()
         
         paperSizeButton.setTitle("Letter               ", for: .normal)
-        
+        paperTypeButton.setTitle("Plain                ", for: .normal)        
         
         // button
         saveSettingButton.layer.cornerRadius = 15
@@ -58,12 +71,17 @@ class PaperSetup: UIViewController, MyProtocol{
         
         //paperSizeButton.contentHorizontalAlignment = .right
         paperSizeButton.titleEdgeInsets.right = 10
-        
-        
+        paperTypeButton.titleEdgeInsets.right = 10
     }
     
     func loadAlerts(){
         
+        descPaperSetup.isHidden = true
+        viewPaperSize.isHidden = true
+        viewPaperType.isHidden = true
+        saveSettingButton.isHidden = true
+        
+            
         alert = UIAlertController(title: "Getting Printer setting...\n\n", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             self.dismiss(animated: true, completion: nil)
@@ -84,12 +102,46 @@ class PaperSetup: UIViewController, MyProtocol{
     
     func dismissAlert(){
         self.alert?.dismiss(animated: true, completion: nil)
+        
+        descPaperSetup.isHidden = false
+        viewPaperSize.isHidden = false
+        viewPaperType.isHidden = false
+        saveSettingButton.isHidden = false
     }
     
     func setDataFromDisplay(dataSent: String){
         self.paperSizeData = dataSent
+        self.paperTypeData = dataSent
     }
     
-   
+    @IBAction func saveSettingActionButton(_ sender: UIButton) {
+        alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
+        
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
+        indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        indicator.activityIndicatorViewStyle = .whiteLarge
+        indicator.color = UIColor.black
+        
+        alert.view.addSubview(indicator)
+        indicator.isUserInteractionEnabled = false
+        indicator.startAnimating()
+        
+        self.present(alert, animated: true, completion: nil)
+        _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert_2), userInfo: nil, repeats: false)
+    }
     
+    func dismissAlert_2(){
+        self.alert?.dismiss(animated: true, completion: {
+            self.alert2 = UIAlertController(title: "", message: "Setting is saved", preferredStyle: .alert)
+            self.present(self.alert2, animated: true, completion: {
+                //self.alert2?.dismiss(animated: true, completion: nil)
+                _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.dismissAlert_3), userInfo: nil, repeats: false)
+            })
+        })
+    }
+    
+    func dismissAlert_3(){
+        self.alert2?.dismiss(animated: true, completion: nil)
+        _ = navigationController?.popViewController(animated: true)
+    }    
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MyProtocol{
+protocol PaperSizeProtocol{
     func setTableRowData(dataRow: String)
 }
 
@@ -18,7 +18,7 @@ class PopUpPaperSizeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     var data:String?
     
-    var delegate: MyProtocol? = nil
+    var delegate: PaperSizeProtocol? = nil
     
     let paperSizeList = ["Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "4x6 in.", "3x5 in.", "5x7 in.(2L)", "3.5x5 in.(L)", "Hagaki", "10 Envelope", "DL Envelope", "C5 Envelope"]
     
