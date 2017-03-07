@@ -48,6 +48,7 @@
 		107B37B81E5FDF08007CA90C /* PrintReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37B11E5FDF08007CA90C /* PrintReport.swift */; };
 		107B37B91E5FDF08007CA90C /* RestoreFactoryDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37B21E5FDF08007CA90C /* RestoreFactoryDefault.swift */; };
 		107B37BB1E5FDF1D007CA90C /* SoftwareUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37BA1E5FDF1D007CA90C /* SoftwareUpdate.swift */; };
+		107DE2A51E6EB9B10094FA0B /* PopUpDirectConnectTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107DE2A41E6EB9B10094FA0B /* PopUpDirectConnectTime.swift */; };
 		10A4E08C1E603FBB007724EF /* TextFieldMaxLengths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4E08B1E603FBB007724EF /* TextFieldMaxLengths.swift */; };
 		10A4E08F1E604010007724EF /* DirectConnectTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4E08D1E604010007724EF /* DirectConnectTime.swift */; };
 		10A4E0901E604010007724EF /* FriendlyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4E08E1E604010007724EF /* FriendlyName.swift */; };
@@ -157,6 +158,7 @@
 		107B37B11E5FDF08007CA90C /* PrintReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintReport.swift; sourceTree = "<group>"; };
 		107B37B21E5FDF08007CA90C /* RestoreFactoryDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreFactoryDefault.swift; sourceTree = "<group>"; };
 		107B37BA1E5FDF1D007CA90C /* SoftwareUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareUpdate.swift; sourceTree = "<group>"; };
+		107DE2A41E6EB9B10094FA0B /* PopUpDirectConnectTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpDirectConnectTime.swift; sourceTree = "<group>"; };
 		10A4E08B1E603FBB007724EF /* TextFieldMaxLengths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMaxLengths.swift; sourceTree = "<group>"; };
 		10A4E08D1E604010007724EF /* DirectConnectTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectConnectTime.swift; sourceTree = "<group>"; };
 		10A4E08E1E604010007724EF /* FriendlyName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendlyName.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 		103303391E52AD8800E7D24C /* WiFiSetupStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				107DE2A41E6EB9B10094FA0B /* PopUpDirectConnectTime.swift */,
 				10A4E08D1E604010007724EF /* DirectConnectTime.swift */,
 				10A4E08E1E604010007724EF /* FriendlyName.swift */,
 				10CD817E1E567A22001815A1 /* HostName.swift */,
@@ -710,6 +713,7 @@
 				11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */,
 				10D36C681E5FE0F500D79664 /* StandardCopyViewController.swift in Sources */,
 				114B30DA1DF92D78008A57F1 /* QuickDetailSelector.swift in Sources */,
+				107DE2A51E6EB9B10094FA0B /* PopUpDirectConnectTime.swift in Sources */,
 				11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */,
 				1156AAF31E1E2EFC009C2493 /* TableViewCell1.swift in Sources */,
 				11715AA41E5AC3FE005367B9 /* ImageCollectionVC.swift in Sources */,

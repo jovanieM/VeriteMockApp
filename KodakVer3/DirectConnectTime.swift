@@ -8,13 +8,22 @@
 
 import UIKit
 
-class DirectConnectTime: UIViewController{
+class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
 
     @IBOutlet weak var saveSettingButton: UIButton!
     
     var alert: UIAlertController!
     var alert2: UIAlertController!
     var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var directTimeLabel: UIButton!
+    var directConnectTimeData: String?
+    
+    @IBOutlet weak var directLabel: UILabel!
+    
+    func setTableRowData(dataRow: String) {
+        //directTimeLabel.titleLabel?.text = dataRow
+        directLabel.text = dataRow
+    }
     
     //navigation bar
     override func viewWillAppear(_ animated: Bool) {
@@ -90,4 +99,17 @@ class DirectConnectTime: UIViewController{
         self.alert2?.dismiss(animated: true, completion: nil)
         _ = navigationController?.popViewController(animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "popUpDirectConnect"{
+            let vc: PopUpDirectConnectTime = segue.destination as! PopUpDirectConnectTime
+            vc.delegate = self
+        }
+    }
+    
+    func setDataFromDisplay(dataSent: String){
+        self.directConnectTimeData = dataSent
+    }
+    
+    
 }

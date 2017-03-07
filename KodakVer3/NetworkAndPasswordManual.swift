@@ -8,11 +8,13 @@
 
 import UIKit
 
-class NetworkAndPasswordManual: UIViewController{
+class NetworkAndPasswordManual: UIViewController, SecurityTypeProtocol{
     
     @IBOutlet weak var ssidTextField: UITextField!
     @IBOutlet weak var viewPassword: UIView!
     @IBOutlet weak var securityLabel: UILabel!
+    
+    var securityData: String?
     
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
@@ -31,6 +33,37 @@ class NetworkAndPasswordManual: UIViewController{
         
         viewPassword.isHidden = true
         
+        //if  self.securityLabel.text == "Open"{
+        //    viewPassword.isHidden = true
+        //}else if self.securityLabel.text == "WEP"{
+        //    viewPassword.isHidden = false
+        //}
+    }
+    
+    func setDataFromDisplay(datasent: String){
+        self.securityData = datasent
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "security"{
+            let vc: SecurityType = segue.destination as! SecurityType
+            vc.delegate = self
+        }
+    }
+    
+    func setSecurityRowData(dataRow: String){
+        securityLabel.text = dataRow
+        
+        if dataRow == "Open"{
+            viewPassword.isHidden = true
+        }else if dataRow == "WEP"{
+            viewPassword.isHidden = false
+        }else if dataRow == "WPA/WPA2-PSK MIX"{
+            viewPassword.isHidden = false
+            securityLabel.adjustsFontSizeToFitWidth = true
+        }else if dataRow == "WPA2-PSK AES"{
+            viewPassword.isHidden = false
+        }
     }
     
 }
