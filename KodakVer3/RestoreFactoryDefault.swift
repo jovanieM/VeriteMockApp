@@ -11,6 +11,7 @@ import UIKit
 class RestoreFactoryDefault: UIViewController {
     
     @IBOutlet weak var saveSettingButton: UIButton!
+    var alert: UIAlertController!
     
     // navigation bar
     override func viewWillAppear(_ animated: Bool) {
@@ -31,4 +32,15 @@ class RestoreFactoryDefault: UIViewController {
         saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
     }
     
+    func loadAlert(){
+        alert = UIAlertController(title: "", message: "Are you sure you want to \n restore factory default?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Restore", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func restoreAction(_ sender: UIButton) {
+        loadAlert()
+    }
 }

@@ -442,6 +442,9 @@
                                 <state key="normal" title="Restore to factory default">
                                     <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="restoreAction:" destination="obq-k3-VCf" eventType="touchUpInside" id="AEP-hh-fjo"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restore Factory Default" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGX-Nj-g5Y">
                                 <rect key="frame" x="37" y="20" width="246" height="25"/>
