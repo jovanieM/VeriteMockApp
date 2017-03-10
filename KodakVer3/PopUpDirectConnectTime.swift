@@ -17,10 +17,12 @@ class PopUpDirectConnectTime: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var directConnectTable: UITableView!
     
+    var userDefaults = UserDefaults.standard
+    
     var data:String?
     var delegate:DirectConnectTimeProtocol? = nil
     
-    let directTimeList = ["5 min", "10 min", "60min", "Unlimited"]
+    let directTimeList: [String] = ["5 min", "10 min", "60min", "Unlimited"]
     let textCellIdIdentifier = "cell"
 
     override func viewDidLoad() {
@@ -31,6 +33,10 @@ class PopUpDirectConnectTime: UIViewController, UITableViewDelegate, UITableView
         
         directConnectTable.delegate = self
         directConnectTable.dataSource = self
+    }
+    
+    func setDefault(value: Int){
+        //userDefaults.set(value, forKey: )
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

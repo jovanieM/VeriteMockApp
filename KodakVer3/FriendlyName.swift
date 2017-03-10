@@ -11,6 +11,7 @@ import UIKit
 class FriendlyName: UIViewController{
     
     @IBOutlet weak var saveSettingButton: UIButton!
+    @IBOutlet weak var friendlyNameTxt: UITextField!
     
     var alert: UIAlertController!
     var alert2: UIAlertController!
@@ -26,6 +27,14 @@ class FriendlyName: UIViewController{
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
     
+    /* override func viewDidAppear(_ animated: Bool) {
+        let name: String? = UserDefaults.standard.object(forKey: "friendlyName") as? String
+        
+        if let nameToDisplay = name{
+            friendlyNameTxt.text = nameToDisplay
+        }
+    }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +48,12 @@ class FriendlyName: UIViewController{
         // dismiss soft keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(FriendlyName.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        let name: String? = UserDefaults.standard.object(forKey: "friendlyName") as? String
+        
+        if let nameToDisplay = name{
+            friendlyNameTxt.text = nameToDisplay
+        }
     }
     
     func loadAlerts(){
@@ -70,6 +85,10 @@ class FriendlyName: UIViewController{
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
+        friendlyNameTxt.resignFirstResponder()
+        let myText = friendlyNameTxt.text
+        UserDefaults.standard.set(myText, forKey: "friendlyName")
+        
         alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
         
         indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))

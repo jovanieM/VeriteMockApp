@@ -49,6 +49,8 @@
 		107B37B91E5FDF08007CA90C /* RestoreFactoryDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37B21E5FDF08007CA90C /* RestoreFactoryDefault.swift */; };
 		107B37BB1E5FDF1D007CA90C /* SoftwareUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37BA1E5FDF1D007CA90C /* SoftwareUpdate.swift */; };
 		107DE2A51E6EB9B10094FA0B /* PopUpDirectConnectTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107DE2A41E6EB9B10094FA0B /* PopUpDirectConnectTime.swift */; };
+		109A952F1E729575004D28FD /* NetworkAndPasswordHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109A952D1E729575004D28FD /* NetworkAndPasswordHelp.swift */; };
+		109A95301E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109A952E1E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift */; };
 		10A4E08C1E603FBB007724EF /* TextFieldMaxLengths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4E08B1E603FBB007724EF /* TextFieldMaxLengths.swift */; };
 		10A4E08F1E604010007724EF /* DirectConnectTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4E08D1E604010007724EF /* DirectConnectTime.swift */; };
 		10A4E0901E604010007724EF /* FriendlyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4E08E1E604010007724EF /* FriendlyName.swift */; };
@@ -160,6 +162,8 @@
 		107B37B21E5FDF08007CA90C /* RestoreFactoryDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreFactoryDefault.swift; sourceTree = "<group>"; };
 		107B37BA1E5FDF1D007CA90C /* SoftwareUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareUpdate.swift; sourceTree = "<group>"; };
 		107DE2A41E6EB9B10094FA0B /* PopUpDirectConnectTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpDirectConnectTime.swift; sourceTree = "<group>"; };
+		109A952D1E729575004D28FD /* NetworkAndPasswordHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordHelp.swift; sourceTree = "<group>"; };
+		109A952E1E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSelectedNetworkVC.swift; sourceTree = "<group>"; };
 		10A4E08B1E603FBB007724EF /* TextFieldMaxLengths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMaxLengths.swift; sourceTree = "<group>"; };
 		10A4E08D1E604010007724EF /* DirectConnectTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectConnectTime.swift; sourceTree = "<group>"; };
 		10A4E08E1E604010007724EF /* FriendlyName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendlyName.swift; sourceTree = "<group>"; };
@@ -356,6 +360,8 @@
 		103303391E52AD8800E7D24C /* WiFiSetupStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				109A952D1E729575004D28FD /* NetworkAndPasswordHelp.swift */,
+				109A952E1E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift */,
 				10DC00D91E70D5DA0027DF46 /* NetworkAndPasswordSwitchNetwork.swift */,
 				107DE2A41E6EB9B10094FA0B /* PopUpDirectConnectTime.swift */,
 				10A4E08D1E604010007724EF /* DirectConnectTime.swift */,
@@ -705,7 +711,9 @@
 				105FAB181E55794000A180E8 /* SecurityType.swift in Sources */,
 				10A4E08F1E604010007724EF /* DirectConnectTime.swift in Sources */,
 				1073B5791E669801000C60EB /* CartridgeSetupHelp.swift in Sources */,
+				109A952F1E729575004D28FD /* NetworkAndPasswordHelp.swift in Sources */,
 				105965E51E531B95003B7CD6 /* NetworkStatus.swift in Sources */,
+				109A95301E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift in Sources */,
 				10CD81831E567A22001815A1 /* Proxy.swift in Sources */,
 				105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */,
 				114B30AA1DF90A57008A57F1 /* FirstViewController.swift in Sources */,

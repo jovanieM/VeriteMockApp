@@ -12,15 +12,13 @@ import UIKit
 class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var listOfNetworks: UITableView!
-    
     @IBOutlet weak var btnManual: UIButton!
     
-    var cell: SettingsTableViewCell!
+    //var cell: SettingsTableViewCell!
+    var cellIdentifier = "TextCell"
     
     let defaultSelection = UserDefaults.standard
-    
     private let selectedCellKey = "choice"
-    
     private let kSeparatorID = 123
     private let kSeparatorHeight: CGFloat = 1.5
     
@@ -68,13 +66,17 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        cell = SettingsTableViewCell(style: .default, reuseIdentifier: "cellId2")
-        cell.backgroundColor = UIColor.gray
-        cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = networks[indexPath.row]
-        if indexPath.row == getDefault(){
-            cell.isSelected = true
-        }
+        //cell = SettingsTableViewCell(style: .default, reuseIdentifier: "cellId2")
+        //cell.backgroundColor = UIColor.gray
+        //cell.textLabel?.textColor = UIColor.white
+        //cell.textLabel?.text = networks[indexPath.row]
+        //if indexPath.row == getDefault(){
+        //    cell.isSelected = true
+        //}
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let row = indexPath.row
+        
+        cell.textLabel?.text = networks[row]
         
         return cell
     }
@@ -89,18 +91,21 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        setDefault(value: indexPath.row)
-        tableView.deselectRow(at: indexPath, animated: false)
+        //setDefault(value: indexPath.row)
+        //tableView.deselectRow(at: indexPath, animated: false)
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SelectedNetwork") as! NetworkAndPasswordSelectedNetworkVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    /* func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         for index in 0..<networks.count{
             cell = tableView.cellForRow(at: IndexPath(item: index, section: 0)) as! SettingsTableViewCell!
             cell.accessoryView = .none
         }
         
         return indexPath
-    }
+    }*/
     
     func backAction(){
         let vc: [UIViewController] = self.navigationController!.viewControllers

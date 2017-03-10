@@ -11,6 +11,7 @@ import UIKit
 class HostName: UIViewController {
 
     @IBOutlet weak var saveSettingButton: UIButton!
+    @IBOutlet weak var hostNameText: UITextField!
     
     var alert: UIAlertController!
     var alert2: UIAlertController!
@@ -39,6 +40,12 @@ class HostName: UIViewController {
         saveSettingButton.layer.cornerRadius = 15
         saveSettingButton.layer.borderWidth = 2
         saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        
+        let name: String? = UserDefaults.standard.object(forKey: "hostName") as? String
+        
+        if let nameToDisplay = name{
+            hostNameText.text = nameToDisplay
+        }
     }
     
     func loadAlerts(){
@@ -70,6 +77,10 @@ class HostName: UIViewController {
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
+        hostNameText.resignFirstResponder()
+        let myText = hostNameText.text
+        UserDefaults.standard.set(myText, forKey: "hostName")
+        
         alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
         
         indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
