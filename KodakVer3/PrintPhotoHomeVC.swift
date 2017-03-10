@@ -20,7 +20,6 @@ class PrintPhotoHomeVC: UIViewController {
             switch status{
             case .authorized:
                 print("Authorized")
-                
             case .denied:
                 print("denied")
             case .notDetermined:
@@ -32,5 +31,14 @@ class PrintPhotoHomeVC: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        let navTransition = CATransition()
+        navTransition.duration = 1
+        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        navTransition.type = kCATransitionPush
+        navTransition.subtype = kCATransitionPush
+        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+    }
+    
 
 }

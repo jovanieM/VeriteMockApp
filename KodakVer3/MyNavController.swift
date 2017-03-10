@@ -8,8 +8,11 @@
 
 import UIKit
 
-class MyNavController: UINavigationController, UINavigationControllerDelegate{
 
+
+class MyNavController: UINavigationController, UINavigationControllerDelegate{
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,27 +35,31 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
         viewController.navigationController?.navigationBar.backIndicatorImage = UIImage()
         viewController.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
         let item: UIBarButtonItem = UIBarButtonItem(title: "< back", style: .plain, target: self, action: #selector(self.pop))
-    
+       
         viewController.navigationItem.leftBarButtonItem = item
+        
         super.pushViewController(viewController, animated: animated)
-//        let button:UIButton = UIButton(type: .custom)
-//        button.frame = CGRect(x: 0, y: 0, width: 50, height: 30)
-//        button.setTitle("<back", for: .normal)
-//        let buttonItem = UIBarButtonItem(customView: button)
-//        
-//        //viewController.navigationItem.hidesBackButton = true
-//        //let back = UIBarButtonItem(title: "<hello", style: .plain, target: self, action: #selector(self.back))
-//        
-//        viewController.navigationController?.navigationBar.topItem?.leftBarButtonItem = buttonItem
-        //viewController.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "apptop"))
-        //viewController.navigationController?.navigationBar.topItem?.setHidesBackButton(true, animated: true)
-//        let bck = UIBarButtonItem(title: "<back", style: .plain, target: self, action: nil)
-//        viewController.navigationController?.navigationBar.topItem?.leftBarButtonItem = bck
+
         
     }
     
     func pop(){
-        popViewController(animated: true)
+        
+        
+      
+        if (viewControllers.last?.description.contains("AdjustmentViewController"))!{
+            popViewController(animated: false)
+
+        }else{
+            popViewController(animated: true)
+
+        }
+        
+        //popViewController(animated: true)
+        
+    
+        
+
     }
     
 

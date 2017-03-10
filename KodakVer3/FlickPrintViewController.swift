@@ -92,16 +92,22 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     func pan(pan: UIPanGestureRecognizer){
         
         if pan.state == .began{
-            print("began")
             
         }else if pan.state == .changed{
-            let newY = pan.translation(in: container).y
-            imageView.center.y = container.bounds.midY + newY
-
-            print(pan.translation(in: container).y)
+            
+            if cont > 0.0{
+                let newcCenter = pan.translation(in: container)
+                imageView.center.x = container.bounds.midX + newcCenter.x
+                imageView.center.y = container.bounds.midY + newcCenter.y
+            }else{
+                let newY = pan.translation(in: container).y
+                imageView.center.y = container.bounds.midY + newY
+            }
+            
         }else if pan.state == .ended{
-            print("ended")
-            if pan.translation(in: container).y > 0.0{
+           
+            if pan.translation(in: container).y > 0.0 {
+                imageView.center.x = container.bounds.midX
                 imageView.center.y = container.bounds.midY
             }
         
@@ -142,16 +148,27 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
                 imageView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 cont = 0.0
             }
-            
-//            let sca = sender.scale
-//            scale = sca - initial
-//            
-           
         }
     }
+    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! AdjustmentViewController
+        vc.image = self.image
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        let navTransition = CATransition()
+        navTransition.duration = 1
+        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        navTransition.type = kCATransitionPush
+        navTransition.subtype = kCATransitionPush
+        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+    }
+    
 
    
     

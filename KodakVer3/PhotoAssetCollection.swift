@@ -108,7 +108,9 @@ class PhotoAssetCollection: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let img = cell.viewWithTag(2) as! UIImageView
+        let img = cell.contentView.viewWithTag(2) as! UIImageView
+        img.contentMode = .scaleAspectFill
+        
         // Configure the cell...
 //        img.image = il.imageData[indexPath.row][0]
         img.image = folderInfoArray.image[indexPath.row]
@@ -120,6 +122,7 @@ class PhotoAssetCollection: UITableViewController {
         return cell
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ImageCollectionVC
         vc.name = folderInfoArray.name[(tableView.indexPathForSelectedRow?.row)!]
@@ -127,6 +130,15 @@ class PhotoAssetCollection: UITableViewController {
         vc.collections = phAssetCollections[(tableView.indexPathForSelectedRow?.row)!]
         //(tableView.indexPathForSelectedRow?.row)!
     }
+    override func viewWillAppear(_ animated: Bool) {
+        let navTransition = CATransition()
+        navTransition.duration = 1
+        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        navTransition.type = kCATransitionPush
+        navTransition.subtype = kCATransitionPush
+        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+    }
+    
     
     
     

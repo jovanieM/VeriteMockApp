@@ -68,6 +68,8 @@
 		10DC00DA1E70D5DA0027DF46 /* NetworkAndPasswordSwitchNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC00D91E70D5DA0027DF46 /* NetworkAndPasswordSwitchNetwork.swift */; };
 		10F4969A1E6D350800E10DA1 /* PopUpPaperTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */; };
 		11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */; };
+		11072BBA1E72756600F7CF99 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11072BB91E72756600F7CF99 /* CustomCollectionViewCell.swift */; };
+		1113B2DE1E66649300CC4BA2 /* SizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1113B2DD1E66649300CC4BA2 /* SizeHelper.swift */; };
 		1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */; };
 		1116A3291E30A92B0038F2E5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */; };
 		1116A32B1E30BC430038F2E5 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A32A1E30BC430038F2E5 /* SettingsTableViewCell.swift */; };
@@ -95,10 +97,13 @@
 		11715AA41E5AC3FE005367B9 /* ImageCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11715AA31E5AC3FE005367B9 /* ImageCollectionVC.swift */; };
 		11715AA61E5AC413005367B9 /* PhotoAssetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */; };
 		118186E71E249FFA00B40A5F /* MyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */; };
+		118A67E91E6565BE00B0107C /* BoxBackGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A67E81E6565BE00B0107C /* BoxBackGround.swift */; };
 		11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */; };
 		11B56EB91E5D69180031108D /* FlickPrintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B56EB81E5D69180031108D /* FlickPrintViewController.swift */; };
 		11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */; };
+		11DB094D1E6028E000B6F317 /* AdjustmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB094C1E6028E000B6F317 /* AdjustmentViewController.swift */; };
 		11DF48201E36E46A0012AD60 /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF481F1E36E46A0012AD60 /* FirstCell.swift */; };
+		11DFF0081E63AE2300C53EB7 /* BoxForeground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DFF0071E63AE2300C53EB7 /* BoxForeground.swift */; };
 		11F865961E530B1D00326907 /* PrintPhotoHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F865951E530B1D00326907 /* PrintPhotoHomeVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -181,6 +186,8 @@
 		10DC00D91E70D5DA0027DF46 /* NetworkAndPasswordSwitchNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSwitchNetwork.swift; sourceTree = "<group>"; };
 		10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpPaperTypeVC.swift; sourceTree = "<group>"; };
 		11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSelectPopUp.swift; sourceTree = "<group>"; };
+		11072BB91E72756600F7CF99 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		1113B2DD1E66649300CC4BA2 /* SizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeHelper.swift; sourceTree = "<group>"; };
 		1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUITableViewController.swift; sourceTree = "<group>"; };
 		1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		1116A32A1E30BC430038F2E5 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -214,10 +221,13 @@
 		11715AA31E5AC3FE005367B9 /* ImageCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionVC.swift; sourceTree = "<group>"; };
 		11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAssetCollection.swift; sourceTree = "<group>"; };
 		118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewDelegate.swift; sourceTree = "<group>"; };
+		118A67E81E6565BE00B0107C /* BoxBackGround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxBackGround.swift; sourceTree = "<group>"; };
 		11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavBar.swift; sourceTree = "<group>"; };
 		11B56EB81E5D69180031108D /* FlickPrintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickPrintViewController.swift; sourceTree = "<group>"; };
 		11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintSettingsModel.swift; sourceTree = "<group>"; };
+		11DB094C1E6028E000B6F317 /* AdjustmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustmentViewController.swift; sourceTree = "<group>"; };
 		11DF481F1E36E46A0012AD60 /* FirstCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCell.swift; sourceTree = "<group>"; };
+		11DFF0071E63AE2300C53EB7 /* BoxForeground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxForeground.swift; sourceTree = "<group>"; };
 		11F865951E530B1D00326907 /* PrintPhotoHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintPhotoHomeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -290,6 +300,11 @@
 				11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */,
 				11715AA31E5AC3FE005367B9 /* ImageCollectionVC.swift */,
 				11B56EB81E5D69180031108D /* FlickPrintViewController.swift */,
+				11DB094C1E6028E000B6F317 /* AdjustmentViewController.swift */,
+				11DFF0071E63AE2300C53EB7 /* BoxForeground.swift */,
+				118A67E81E6565BE00B0107C /* BoxBackGround.swift */,
+				1113B2DD1E66649300CC4BA2 /* SizeHelper.swift */,
+				11072BB91E72756600F7CF99 /* CustomCollectionViewCell.swift */,
 			);
 			name = PrintPhotoStoryboard;
 			sourceTree = "<group>";
@@ -692,12 +707,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1116A3291E30A92B0038F2E5 /* DetailTableViewCell.swift in Sources */,
+				118A67E91E6565BE00B0107C /* BoxBackGround.swift in Sources */,
+				11072BBA1E72756600F7CF99 /* CustomCollectionViewCell.swift in Sources */,
+				1113B2DE1E66649300CC4BA2 /* SizeHelper.swift in Sources */,
 				107B37B71E5FDF08007CA90C /* PrinterUtitlityHome.swift in Sources */,
 				1158B74F1DFA8655008F081F /* QuickViewController.swift in Sources */,
 				107B37AB1E5FDE4E007CA90C /* AirPrint.swift in Sources */,
 				10CD81811E567A22001815A1 /* HostName.swift in Sources */,
 				104F1D3A1E6575AC00532AC3 /* CartridgeSetupStartScan.swift in Sources */,
 				113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */,
+				11DB094D1E6028E000B6F317 /* AdjustmentViewController.swift in Sources */,
 				107B37B91E5FDF08007CA90C /* RestoreFactoryDefault.swift in Sources */,
 				1073B57A1E669801000C60EB /* CartridgeSetupScanning.swift in Sources */,
 				106C69351E6420D700CDA7B6 /* PopUpPaperSizeVC.swift in Sources */,
@@ -727,6 +746,7 @@
 				114B30DA1DF92D78008A57F1 /* QuickDetailSelector.swift in Sources */,
 				107DE2A51E6EB9B10094FA0B /* PopUpDirectConnectTime.swift in Sources */,
 				11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */,
+				11DFF0081E63AE2300C53EB7 /* BoxForeground.swift in Sources */,
 				1156AAF31E1E2EFC009C2493 /* TableViewCell1.swift in Sources */,
 				11715AA41E5AC3FE005367B9 /* ImageCollectionVC.swift in Sources */,
 				107B37B31E5FDF08007CA90C /* CartridgeSetup.swift in Sources */,
