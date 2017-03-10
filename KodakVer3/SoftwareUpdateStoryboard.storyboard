@@ -92,6 +92,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="saveSettingButton" destination="m8o-39-eHc" id="bli-FV-9Fm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cs9-we-9JW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
