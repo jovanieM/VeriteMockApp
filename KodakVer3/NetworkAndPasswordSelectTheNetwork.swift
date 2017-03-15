@@ -9,18 +9,22 @@
 
 import UIKit
 
+protocol SelectNetworkProtocol{
+   func setSelectNetworkData(dataRow: String)
+}
+
 class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    @IBOutlet weak var listOfNetworks: UITableView!
+    @IBOutlet weak var tableNetworkView: UITableView!
     @IBOutlet weak var btnManual: UIButton!
+    @IBOutlet weak var tableViewCell: UITableViewCell!
     
-    //var cell: SettingsTableViewCell!
-    var cellIdentifier = "TextCell"
+    var cellIdentifier = "Cell"
+    var networks = ["Router 1", "Router 2", "Router 3", "Printer 1", "Printer 2", "Printer 3"]
+    var data: String?
+    var delegate: SelectNetworkProtocol?
     
-    let defaultSelection = UserDefaults.standard
-    private let selectedCellKey = "choice"
-    private let kSeparatorID = 123
-    private let kSeparatorHeight: CGFloat = 1.5
+    //let defaultSelection = UserDefaults.standard
     
     // navigation bar
     override func viewWillAppear(_ animated: Bool) {
@@ -32,18 +36,16 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
     
-    var networks = ["Router 1", "Router 2", "Router 3", "Printer 1", "Printer 2", "Printer 3"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //table
-        listOfNetworks.dataSource = self
-        listOfNetworks.delegate = self
-        listOfNetworks.backgroundColor = .lightGray
-        listOfNetworks.tableFooterView = UIView(frame: .zero)
-        listOfNetworks.tableHeaderView = UIView(frame: .zero)
-        listOfNetworks.tableHeaderView?.backgroundColor = .lightGray
+        tableNetworkView.dataSource = self
+        tableNetworkView.delegate = self
+        //tableView.backgroundColor = .lightGray
+        //tableView.tableFooterView = UIView(frame: .zero)
+        //tableView.tableHeaderView = UIView(frame: .zero)
+        //tableView.tableHeaderView?.backgroundColor = .lightGray
         
         //button
         btnManual.layer.cornerRadius = 25
@@ -53,58 +55,47 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< back", style: .plain, target: self, action: #selector(backAction))
     }
     
-    func setDefault(value: Int){
-        defaultSelection.set(value, forKey: selectedCellKey)
-    }
-    
-    func getDefault()->Int{
-        return defaultSelection.integer(forKey: selectedCellKey)
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return networks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //cell = SettingsTableViewCell(style: .default, reuseIdentifier: "cellId2")
-        //cell.backgroundColor = UIColor.gray
-        //cell.textLabel?.textColor = UIColor.white
-        //cell.textLabel?.text = networks[indexPath.row]
-        //if indexPath.row == getDefault(){
-        //    cell.isSelected = true
-        //}
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        let row = indexPath.row
-        
-        cell.textLabel?.text = networks[row]
+        let cell = tableNetworkView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        cell.textLabel?.text = networks[indexPath.row]
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if cell.viewWithTag(kSeparatorID) == nil{
-            let separatorView = UIView(frame: CGRect(x:0, y: cell.frame.height - kSeparatorHeight, width: cell.frame.width, height: kSeparatorHeight))
-            separatorView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            separatorView.backgroundColor = .lightGray
-            cell.addSubview(separatorView)
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //setDefault(value: indexPath.row)
-        //tableView.deselectRow(at: indexPath, animated: false)
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SelectedNetwork") as! NetworkAndPasswordSelectedNetworkVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        let indexPath = tableView.indexPathForSelectedRow!
+        let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
+        
+        //if delegate != nil{
+            data = currentCell.textLabel?.text
+            delegate?.setSelectNetworkData(dataRow: data!)
+        //}
+        
+        //let viewController: NetworkAndPasswordSelectedNetworkVC = storyboard?.instantiateViewController(withIdentifier: "SelectedNetwork") as! NetworkAndPasswordSelectedNetworkVC
+        //viewController.ssidLabel.text = data
+        
+        //self.navigationController?.pushViewController(viewController, animated: true)
+        
+                
+        //if delegate != nil{
+        //}
+        print("\(data)")
+        //data = currentCell.textLabel?.text
+        //performSegue(withIdentifier: "toSelectedNetwork", sender: self)
+        
     }
     
-    /* func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        for index in 0..<networks.count{
-            cell = tableView.cellForRow(at: IndexPath(item: index, section: 0)) as! SettingsTableViewCell!
-            cell.accessoryView = .none
+    /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSelectedNetwork"{
+            let vc = segue.destination as! NetworkAndPasswordSelectedNetworkVC
+            //delegate?.setSelectNetworkData(dataRow: data!)
+            vc.ssidLabel.text = data
         }
-        
-        return indexPath
     }*/
     
     func backAction(){

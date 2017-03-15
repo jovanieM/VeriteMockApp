@@ -8,11 +8,17 @@
 
 import UIKit
 
-class NetworkAndPasswordSelectedNetworkVC: UIViewController {
+class NetworkAndPasswordSelectedNetworkVC: UIViewController, UITextFieldDelegate, SelectNetworkProtocol{
 
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var otherButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var ssidLabel: UILabel!
+    
+    var networkData: String?
+    
+    let vc = UIStoryboard(name: "WiFiSetupStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SelectedNetwork") as! NetworkAndPasswordSelectTheNetwork
+    
     
     // navigation bar
     override func viewWillAppear(_ animated: Bool) {
@@ -40,38 +46,37 @@ class NetworkAndPasswordSelectedNetworkVC: UIViewController {
         otherButton.layer.cornerRadius = 15
         otherButton.layer.borderWidth = 2
         otherButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
-    }
-
-    @IBAction func otherBtnPressed(_ sender: UIButton) {
-        //let vc = self.storyboard?.instantiateViewController(withIdentifier: "SelectTheNetwork") as! NetworkAndPasswordSelectTheNetwork
-        //self.navigationController!.popToViewController(vc, animated: true)
         
+        vc.delegate = self
+    }
+    
+    func setDataFromDisplay(dataSent: String){
+        self.networkData = dataSent
+    }
+    
+    /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSelectedNetwork"{
+            let vc: NetworkAndPasswordSelectTheNetwork = segue.destination as! NetworkAndPasswordSelectTheNetwork
+            vc.delegate = self
+        }
+    }*/
+    
+    func setSelectNetworkData(dataRow: String) {
+        ssidLabel.text = dataRow
+    }
+   
+    @IBAction func otherBtnPressed(_ sender: UIButton) {
         _ = navigationController?.popViewController(animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if textField == passwordTextField{
-        passwordTextField.resignFirstResponder()
+            passwordTextField.resignFirstResponder()
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "SwitchNetwork") as! NetworkAndPasswordSwitchNetwork
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-        //let vc = UIStoryboard(name: "WiFiSetupStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SwitchNetwork") as! NetworkAndPasswordSelectTheNetwork
-        //self.navigationController?.pushViewController(vc, animated: true)
+            let vc = UIStoryboard(name: "WiFiSetupStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SwitchNetwork") as! NetworkAndPasswordSwitchNetwork
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         return true
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

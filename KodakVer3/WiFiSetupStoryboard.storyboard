@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="am9-F1-DKG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="am9-F1-DKG">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1035,12 +1035,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gf6-dd-yin" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1530" y="1030.9859154929577"/>
+            <point key="canvasLocation" x="1530" y="1073"/>
         </scene>
         <!--Network and Password - Select network-->
         <scene sceneID="ntT-gy-0SW">
             <objects>
-                <viewController storyboardIdentifier="SelectTheNetwork" title="Network and Password - Select network" id="Zxz-xG-eGD" customClass="NetworkAndPasswordSelectTheNetwork" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectedNetwork" title="Network and Password - Select network" id="Zxz-xG-eGD" customClass="NetworkAndPasswordSelectTheNetwork" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Umu-bZ-1gs"/>
                         <viewControllerLayoutGuide type="bottom" id="6Gn-jB-dJh"/>
@@ -1068,7 +1068,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextCell" textLabel="rJP-2U-HFP" style="IBUITableViewCellStyleDefault" id="mdf-S1-FcS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="rJP-2U-HFP" style="IBUITableViewCellStyleDefault" id="mdf-S1-FcS">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mdf-S1-FcS" id="5eg-9S-b2i">
@@ -1085,9 +1085,16 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="8dV-cW-pz3" kind="show" identifier="toSelectedNetwork" id="DPH-wz-dJc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zxz-xG-eGD" id="rw6-zq-HOw"/>
+                                    <outlet property="delegate" destination="Zxz-xG-eGD" id="Lu0-jP-jCB"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRr-xX-crI">
                                 <rect key="frame" x="85" y="457" width="150" height="50"/>
@@ -1104,7 +1111,7 @@
                     </view>
                     <connections>
                         <outlet property="btnManual" destination="WRr-xX-crI" id="VW9-b4-YfM"/>
-                        <outlet property="listOfNetworks" destination="XCc-XY-bGm" id="zH6-ei-mNV"/>
+                        <outlet property="tableNetworkView" destination="XCc-XY-bGm" id="1fT-mC-O4U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Q3-zB-Sgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1114,7 +1121,7 @@
         <!--Network And Password Selected NetworkVC-->
         <scene sceneID="c0a-yK-spe">
             <objects>
-                <viewController storyboardIdentifier="SelectedNetwork" id="8dV-cW-pz3" customClass="NetworkAndPasswordSelectedNetworkVC" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8dV-cW-pz3" customClass="NetworkAndPasswordSelectedNetworkVC" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Sq7-ka-k0c"/>
                         <viewControllerLayoutGuide type="bottom" id="tgp-Sq-GVT"/>
@@ -1124,7 +1131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Network and Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSP-z5-a2u">
-                                <rect key="frame" x="45" y="20" width="246" height="25"/>
+                                <rect key="frame" x="70" y="10" width="206" height="25"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1139,17 +1146,17 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SSID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zae-41-g4V">
-                                        <rect key="frame" x="8" y="14" width="42" height="21"/>
+                                        <rect key="frame" x="8" y="16" width="42" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFg-pu-8mz">
-                                        <rect key="frame" x="202" y="15" width="110" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFg-pu-8mz">
+                                        <rect key="frame" x="129" y="15" width="183" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1183,8 +1190,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="transitionToSwitchNetwork2:" destination="I0n-Qw-ZRX" eventType="primaryActionTriggered" id="c2J-aA-KqF"/>
-                                            <outlet property="delegate" destination="I0n-Qw-ZRX" id="8Wg-X4-vk5"/>
+                                            <outlet property="delegate" destination="8dV-cW-pz3" id="93a-2G-j39"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -1207,7 +1213,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cl4-Wo-mqw">
                                 <rect key="frame" x="45" y="277" width="100" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <state key="normal" title="Help">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
@@ -1232,11 +1238,12 @@
                         <outlet property="helpButton" destination="cl4-Wo-mqw" id="dnJ-3m-Pha"/>
                         <outlet property="otherButton" destination="YbH-ha-xG5" id="LIU-pa-0DU"/>
                         <outlet property="passwordTextField" destination="0cc-ip-wGf" id="Fx6-fc-csa"/>
+                        <outlet property="ssidLabel" destination="TFg-pu-8mz" id="tKb-7a-AAE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmh-5f-fBt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1530" y="340.14084507042253"/>
+            <point key="canvasLocation" x="1530" y="382.3943661971831"/>
         </scene>
         <!--Network And Password Switch Network-->
         <scene sceneID="zVH-e3-W7a">
@@ -1250,39 +1257,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Network and Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEB-OM-EMh">
-                                <rect key="frame" x="37" y="10" width="246" height="29"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network and Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEB-OM-EMh">
+                                <rect key="frame" x="10" y="10" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8JD-Nf-7yS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your connection will be switched to the new network." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbR-NJ-H9K">
-                                <rect key="frame" x="16" y="90" width="288" height="41"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your connection will be switched to the new network." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VbR-NJ-H9K">
+                                <rect key="frame" x="10" y="90" width="300" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="ceq-6g-tic"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="routerconnection" translatesAutoresizingMaskIntoConstraints="NO" id="xr9-R4-faZ">
-                                <rect key="frame" x="16" y="150" width="288" height="160"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="28K-zm-fYJ">
-                                <rect key="frame" x="142" y="212" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="1" green="0.71764705882352942" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khX-tc-Jwg">
+                                <rect key="frame" x="10" y="157" width="300" height="200"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="routerconnection" translatesAutoresizingMaskIntoConstraints="NO" id="xr9-R4-faZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                                    </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="28K-zm-fYJ">
+                                        <rect key="frame" x="130" y="80" width="37" height="37"/>
+                                        <color key="color" red="1" green="0.71764705882352942" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="xr9-R4-faZ" firstAttribute="top" secondItem="khX-tc-Jwg" secondAttribute="top" id="1kb-fk-Aaw"/>
+                                    <constraint firstItem="xr9-R4-faZ" firstAttribute="leading" secondItem="khX-tc-Jwg" secondAttribute="leading" id="8BQ-i5-EYR"/>
+                                    <constraint firstAttribute="trailing" secondItem="xr9-R4-faZ" secondAttribute="trailing" id="FES-my-DTK"/>
+                                    <constraint firstAttribute="height" constant="200" id="Ila-y5-Jeo"/>
+                                    <constraint firstItem="28K-zm-fYJ" firstAttribute="centerX" secondItem="khX-tc-Jwg" secondAttribute="centerX" constant="-1.5" id="RgX-1z-TD5"/>
+                                    <constraint firstAttribute="bottom" secondItem="xr9-R4-faZ" secondAttribute="bottom" id="uA9-o7-i2z"/>
+                                    <constraint firstItem="28K-zm-fYJ" firstAttribute="centerY" secondItem="khX-tc-Jwg" secondAttribute="centerY" constant="-1.5" id="x7g-FG-ZEp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="khX-tc-Jwg" firstAttribute="top" secondItem="VbR-NJ-H9K" secondAttribute="bottom" constant="15" id="3LE-hf-in8"/>
+                            <constraint firstAttribute="trailing" secondItem="VbR-NJ-H9K" secondAttribute="trailing" constant="10" id="3oS-rr-Yn6"/>
+                            <constraint firstAttribute="trailing" secondItem="khX-tc-Jwg" secondAttribute="trailing" constant="10" id="5fU-b1-XeX"/>
+                            <constraint firstAttribute="trailing" secondItem="fEB-OM-EMh" secondAttribute="trailing" constant="10" id="Dqo-W3-HLs"/>
+                            <constraint firstItem="VbR-NJ-H9K" firstAttribute="top" secondItem="fEB-OM-EMh" secondAttribute="bottom" constant="50" id="VBm-Ah-WOH"/>
+                            <constraint firstItem="fEB-OM-EMh" firstAttribute="top" secondItem="Z0e-K2-hPF" secondAttribute="top" constant="10" id="nHV-Zg-VSq"/>
+                            <constraint firstItem="VbR-NJ-H9K" firstAttribute="leading" secondItem="Z0e-K2-hPF" secondAttribute="leading" constant="10" id="pVW-rq-R74"/>
+                            <constraint firstItem="khX-tc-Jwg" firstAttribute="leading" secondItem="Z0e-K2-hPF" secondAttribute="leading" constant="10" id="vQh-Y6-ji2"/>
+                            <constraint firstItem="fEB-OM-EMh" firstAttribute="leading" secondItem="Z0e-K2-hPF" secondAttribute="leading" constant="10" id="xfa-Al-elW"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="indicator" destination="28K-zm-fYJ" id="6Da-8n-nDA"/>
+                        <outlet property="indicator" destination="28K-zm-fYJ" id="Oc3-em-CqC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CiP-qP-nPt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421" y="341"/>
+            <point key="canvasLocation" x="2418.75" y="340.14084507042253"/>
         </scene>
         <!--Network And Password Manual-->
         <scene sceneID="Rv0-WI-S5a">

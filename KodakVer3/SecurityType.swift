@@ -37,11 +37,7 @@ class SecurityType: UIViewController, UITableViewDataSource, UITableViewDelegate
         
         tableView.delegate = self
         tableView.dataSource = self
-    }
-    
-    //func numberOfSections(in tableView: UITableView) -> Int {
-    //    return 1
-    //}
+    }   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return securityType.count
@@ -57,8 +53,6 @@ class SecurityType: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //tableView.deselectRow(at: indexPath, animated: true)
-        
         let indexPath = tableView.indexPathForSelectedRow!
         let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
         
@@ -66,17 +60,9 @@ class SecurityType: UIViewController, UITableViewDataSource, UITableViewDelegate
             data = currentCell.textLabel?.text
             delegate?.setSecurityRowData(dataRow: data!)
         }
-        
-        //let row = indexPath.row
         print("\(data)")
         
-        //let indexPath = tableView.indexPathForSelectedRow
-        //let currentCell = tableView.cellForRow(at: indexPath!)! as UITableViewCell
-        //let sb = UIStoryboard(name: "WiFiSetupStoryboard", bundle: nil)
-        //let vc = sb.instantiateViewController(withIdentifier: "manual") as! NetworkAndPasswordManual
-        //vc.securityLabel?.text = currentCell.textLabel?.text
         _ = self.navigationController?.popViewController(animated: true)
-        //self.dismiss(animated: true, completion: nil)
     }
     
 }
