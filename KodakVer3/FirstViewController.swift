@@ -41,6 +41,7 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
         super.viewDidLoad()
         
         name.text = printer
+        name.layer.borderColor = UIColor.black.cgColor
         selectedPrinter.text = "Selected printer"
         checkmark.isHidden = false
         activityIndicator.stopAnimating()
@@ -114,23 +115,23 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
         self.show(vc, sender: self)
     }
     
-    @IBAction func ScanDoc(_ sender: Any) {
-        let ScanDocSB = UIStoryboard(name: "ScanDocumentStoryboard", bundle: nil)
-        let vc = ScanDocSB.instantiateInitialViewController()!
-        self.show(vc, sender: self)
-    }
-    
-    @IBAction func AddressPrint(_ sender: Any) {
-        let AddressPrintSB = UIStoryboard(name: "AddressPrintStoryboard", bundle: nil)
-        let vc = AddressPrintSB.instantiateInitialViewController()!
-        self.show(vc, sender: self)
-    }
-
-    @IBAction func ScanPhoto(_ sender: Any) {
-        let ScanPhotoSB = UIStoryboard(name: "ScanPhotoStoryboard", bundle: nil)
-        let vc = ScanPhotoSB.instantiateInitialViewController()!
-        self.show(vc, sender: self)
-    }
+//    @IBAction func ScanDoc(_ sender: Any) {
+//        let ScanDocSB = UIStoryboard(name: "ScanDocumentStoryboard", bundle: nil)
+//        let vc = ScanDocSB.instantiateInitialViewController()!
+//        self.show(vc, sender: self)
+//    }
+//    
+//    @IBAction func AddressPrint(_ sender: Any) {
+//        let AddressPrintSB = UIStoryboard(name: "AddressPrintStoryboard", bundle: nil)
+//        let vc = AddressPrintSB.instantiateInitialViewController()!
+//        self.show(vc, sender: self)
+//    }
+//
+//    @IBAction func ScanPhoto(_ sender: Any) {
+//        let ScanPhotoSB = UIStoryboard(name: "ScanPhotoStoryboard", bundle: nil)
+//        let vc = ScanPhotoSB.instantiateInitialViewController()!
+//        self.show(vc, sender: self)
+//    }
     
     @IBAction func Print(_ sender: Any) {
         let PrintSB = UIStoryboard(name: "PrintPhotoStoryboard", bundle: nil)

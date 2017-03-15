@@ -47,6 +47,22 @@ class PrinterSelectPopUp: UIView, UITableViewDelegate, UITableViewDataSource{
         
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        title.frame = CGRect(x: container.frame.minX, y: container.frame.minY, width: width, height: 44.0)
+        line.frame = CGRect(x: container.frame.minX, y: title.frame.maxY, width: width, height: 3.0)
+        tableView.frame = CGRect(x: container.frame.minX, y: line.frame.maxY, width: width, height: height)
+        
+        cancel.frame = CGRect(x: container.frame.minX, y: tableView.frame.maxY, width: width, height: 44.0)
+        
+        
+        container.frame = CGRect(x: 0, y: 0, width: width, height: title.frame.height + line.frame.height + tableView.frame.height + cancel.frame.height)
+        container.center = convert(center, from: self)
+        container.layer.cornerRadius = 10
+        
+    }
+
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -62,14 +78,15 @@ class PrinterSelectPopUp: UIView, UITableViewDelegate, UITableViewDataSource{
         title = UILabel(frame: .zero)
         title.textAlignment = .center
         title.text = "Select Printer"
-        title.textColor = UIColor(red: 57/255, green: 63/255, blue: 203/255, alpha: 1.0)
-        
+   //     title.textColor = UIColor(red: 57/255, green: 63/255, blue: 203/255, alpha: 1.0)
+        title.textColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 1.0)
+
         
         title.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(title)
         
         line = UIView(frame: .zero)
-        line.backgroundColor = UIColor(red: 57/255, green: 63/255, blue: 203/255, alpha: 1.0)
+        line.backgroundColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 1.0)
         line.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(line)
         
@@ -79,31 +96,16 @@ class PrinterSelectPopUp: UIView, UITableViewDelegate, UITableViewDataSource{
         
         cancel = UIButton(frame: .zero)
         
-        cancel.setTitleColor(UIColor(red: 57/255, green: 63/255, blue: 203/255, alpha: 1.0), for: .normal)
+        cancel.setTitleColor(UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 1.0), for: .normal)
         cancel.setTitle("Cancel", for: .normal)
         cancel.translatesAutoresizingMaskIntoConstraints = false
         cancel.addTarget(self, action: #selector(dismissView(_ :)), for: .touchUpInside)
         container.addSubview(cancel)
-    
+        
     }
     
     func dismissView(_ sender: UIButton){
         self.removeFromSuperview()
-    }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        title.frame = CGRect(x: container.frame.minX, y: container.frame.minY, width: width, height: 44.0)
-        line.frame = CGRect(x: container.frame.minX, y: title.frame.maxY, width: width, height: 3.0)
-        tableView.frame = CGRect(x: container.frame.minX, y: line.frame.maxY, width: width, height: height)
-        
-        cancel.frame = CGRect(x: container.frame.minX, y: tableView.frame.maxY, width: width, height: 44.0)
-        
-        
-        container.frame = CGRect(x: 0, y: 0, width: width, height: title.frame.height + line.frame.height + tableView.frame.height + cancel.frame.height)
-        container.center = convert(center, from: self)
-        container.layer.cornerRadius = 10
-       
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -8,13 +8,17 @@
 
 import UIKit
 
-class CustomCopyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingViewDelegate {
+class CustomCopyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingViewDelegate, PagesPerSideDelegate {
 
     @IBOutlet weak var customcopybutton: UIButton!
     
-    var arrayofMainLbl = ["Color :", "Paper Size :",  "Paper Type :", "Print Quality :"]
+    var arrayofMainLbl = ["Color :", "Paper Size :",  "Paper Type :", "Print Quality :", "Copy Resize :", "Pages per Side :", "Brightness :"]
     
-    var collections: [[String]] = [["Color", "Black and White"], ["4x6 in.", "3x5 in", "5x7 in.", "3.5x5 in.(L)", "Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "Hagaki", "10 Envelope", "DL envelope", "C5 Envelope"],   ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"], ["Automatic", "Normal", "Best", "Draft"]]
+    var collections: [[String]] = [["Color", "Black and White"], ["4x6 in.", "3x5 in", "5x7 in.", "3.5x5 in.(L)", "Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "Hagaki", "10 Envelope", "DL envelope", "C5 Envelope"],   ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"], ["Automatic", "Normal", "Best", "Draft"], ["100% Default", "130% Letter->Legal", "104% Executive->Letter", "97% Letter->A4", "93% A4->Letter", "85% Letter->Executive", "Custom"], ["One", "2 in 1 Portrait", "2 in 1 Landscape", "4 in 1 Portrait", "4 in 1 Landscape"], ["dummybrightness"]]
+
+    
+    
+    var perSideArrays: [(String, String)] = [("One", "one.png"), ("2 in 1 Portrait", "two_portrait.png"), ("2 in 1 Landscape", "two_landscape.png"), ("4 in 1 Portrait", "four_portrait.png"), ("4 in 1 Landscape", "four_landscape.png")]
     
     
     @IBOutlet weak var customTable: UITableView!
@@ -27,15 +31,19 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     private let colorOutKey: String = "color"
     private let typeKey: String = "type"
     private let qualityKey: String = "quality"
+    private let resizeKey: String = "resize"
+    private let pagespersideKey: String = "pagesperside"
     
     
     var table:SettingsViewer!
-    
+    var table2:PagesPerSideViewer!
+        
     let defaultSize = UserDefaults.standard
     let defaultColor = UserDefaults.standard
     let defaultType = UserDefaults.standard
     let defaultQuality = UserDefaults.standard
-    
+    let defaultResize = UserDefaults.standard
+    let defaultPerSide = UserDefaults.standard
        
     @IBOutlet weak var customcopyTableview: UITableView!
     
@@ -62,23 +70,35 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBAction func customcopybuttonPressed(_ sender: Any) {
         
-        let alert: UIAlertView = UIAlertView(title: nil, message: "Copying...", delegate: self, cancelButtonTitle: "Cancel");
-        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame:CGRect(x:95, y:90, width:40, height:40)) as UIActivityIndicatorView
-        loadingIndicator.center = self.view.center;
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        loadingIndicator.startAnimating();
-        alert.setValue(loadingIndicator, forKey: "accessoryView");
-        alert.show();
+      		
+        
+        let alert = UIAlertController(title: nil, message: "Copying... \n", preferredStyle: .alert)
+        
+        let indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 60, width: 40, height:40))
+        indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        indicator.activityIndicatorViewStyle = .gray
+        
+        alert.view.addSubview(indicator)
+        indicator.startAnimating()
         
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
+            
+            let alert2 = UIAlertController(title: nil, message: "Copy canceled", preferredStyle: .alert)
+            let OKAction2 = UIAlertAction(title: "OK", style: .default, handler: nil)
+            
+            alert2.addAction(OKAction2)
+            self.present(alert2, animated: true, completion: nil)
+        }
         
+        alert.addAction(cancelAction)
         
-        //     let alertnext: UIAlertView = UIAlertView(title: nil, message: "Copy Canceled.", delegate: self, cancelButtonTitle: "OK");
+        self.present(alert, animated: true, completion: nil)
         
-        let when = DispatchTime.now() + 3
+        let when = DispatchTime.now() + 4.0
         DispatchQueue.main.asyncAfter(deadline: when) {
-            alert.dismiss(withClickedButtonIndex:-1, animated: true)
+            alert.dismiss(animated: true, completion: nil)
         }
 
     }
@@ -97,30 +117,24 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
+        return 7
         
-//        if indexPath.row == 0 {
-//            
-//            //
-//            
-//            let cell = Bundle.main.loadNibNamed("CustomCopyFirstCell", owner: self, options: nil)?.first as! CustomCopyFirstCell
-//            
-////            
-////            cell.numberOfCopies.text = Int(cell.copiesStepper.value).description
-////            cell.selectionStyle = .none
-//            
-//            return cell
-//            
-//            //            let cell = FirstCell()
-//            //            cell.numberOfCopies.text = Int(cell.copySetter.value).description
-//            //            cell.selectionStyle = .none
-//            //            return cell
-//            
-//            
-//        }else{
+    }
+    
+    // display the corresponding custom copy settings table
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+       if indexPath.row == 6 {
+        
+            let cell = Bundle.main.loadNibNamed("BrightnessTableViewCell", owner: self, options: nil)?.first as! BrightnessTableViewCell
+        //cell.brightnessbar.isContinuous = true
+        cell.brightnessbar.setThumbImage(UIImage(named: "seekbar_thumb"), for: .normal)
+        
+        cell.selectionStyle = .none
+            return cell
+          }
+            
+        else{
         
             let cell2 = Bundle.main.loadNibNamed("CustomCopySecondCell", owner: self, options: nil)?.first as! CustomCopySecondCell
             cell2.settingname.adjustsFontSizeToFitWidth = true
@@ -128,7 +142,7 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
             cell2.selectedsetting.text = collections[indexPath.row][getSavedData(receiver: indexPath.row)]
             
             return cell2
-//        }
+        }
         
     }
     
@@ -137,22 +151,15 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        
-   //     if tableView.tag != 99{
-            
-   //         if indexPath.row == 0{
-   //             return UIScreen.main.bounds.height * 0.11111
-   //         }else{
-                return UIScreen.main.bounds.height * 0.0778
-            }
-   //     }
-   //     return 44
-  //  }
+        return 44
+    }
+    
+    //display the corresponding tableview based on the selected custom copy settings
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
        
-   //     if indexPath.row != 0{
+        if indexPath.row <= 4{
             
             
             table  = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
@@ -164,8 +171,21 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
             table.sendDataDelegate = self
             tableView.deselectRow(at: indexPath, animated: false)
             
-   //     }
-        
+        } else if indexPath.row == 5{
+            
+            
+            table2  = PagesPerSideViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
+            
+            table2.propertyIndex = indexPath
+            table2.data = perSideArrays
+            
+            self.view.window?.addSubview(table2)
+            table2.sendDataDelegate = self
+            tableView.deselectRow(at: indexPath, animated: false)
+            
+
+        }
+
         
     }
     
@@ -189,6 +209,10 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
             return defaultType.integer(forKey: typeKey)
         case 4:
             return defaultQuality.integer(forKey: qualityKey)
+        case 5:
+            return defaultResize.integer(forKey: resizeKey)
+        case 6:
+            return defaultPerSide.integer(forKey: pagespersideKey)
         default:
             return 0
         }
@@ -204,6 +228,10 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
             defaultType.set(value, forKey: typeKey)
         case 4:
             defaultQuality.set(value, forKey: qualityKey)
+        case 5:
+            defaultResize.set(value, forKey: resizeKey)
+        case 5:
+            defaultPerSide.set(value, forKey: pagespersideKey)
         default:
             break
         }

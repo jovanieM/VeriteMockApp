@@ -46,8 +46,6 @@ class QuickViewController: UIViewController, UITableViewDelegate, UITableViewDat
         quickSettings.tableFooterView = UIView(frame: .zero)
         quickSettings.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: quickSettings.frame.width, height: kSeparatorHeight))
         quickSettings.tableHeaderView?.backgroundColor = .lightGray
-       
-
     
     }
     
