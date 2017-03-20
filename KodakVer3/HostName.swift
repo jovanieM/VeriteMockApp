@@ -12,6 +12,8 @@ class HostName: UIViewController {
 
     @IBOutlet weak var saveSettingButton: UIButton!
     @IBOutlet weak var hostNameText: UITextField!
+    @IBOutlet weak var desc: UILabel!
+    @IBOutlet weak var viewHostname: UIView!
     
     var alert: UIAlertController!
     var alert2: UIAlertController!
@@ -49,6 +51,10 @@ class HostName: UIViewController {
     }
     
     func loadAlerts(){
+        desc.isHidden = true
+        viewHostname.isHidden = true
+        saveSettingButton.isHidden = true
+        
         alert = UIAlertController(title: "Getting Network \n information... \n", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             self.alert.dismiss(animated: true, completion: nil)
@@ -68,8 +74,12 @@ class HostName: UIViewController {
     }
     
     func dismissAlert(){
-        indicator.stopAnimating()
+        //indicator.stopAnimating()
         alert.dismiss(animated: true, completion: nil)
+        
+        desc.isHidden = false
+        viewHostname.isHidden = false
+        saveSettingButton.isHidden = false
     }
     
     func dismissKeyboard(){

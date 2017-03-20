@@ -29,6 +29,7 @@ class SettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource{
             let tableView:UITableView = UITableView()
             tableView.frame = CGRect(x: 0, y: 0, width: width, height: CGFloat(computeHeight(numberOfItems: data.count)) * 44.0)
             let detail: DetailViewController = DetailViewController()
+            //let detail: CustomCopyViewController = CustomCopyViewController()
             
             let index: Int = detail.getSavedData(receiver: propertyIndex!.row) ?? 0
             

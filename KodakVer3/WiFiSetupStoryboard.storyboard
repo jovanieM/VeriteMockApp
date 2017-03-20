@@ -646,8 +646,11 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="desc" destination="9q0-6X-ABK" id="gMd-ie-s3Q"/>
                         <outlet property="hostNameText" destination="jlZ-VX-18f" id="CbB-OM-xHc"/>
                         <outlet property="saveSettingButton" destination="RTt-bA-DYe" id="20W-aF-380"/>
+                        <outlet property="view" destination="N9Q-ES-HZq" id="vAW-B8-Gu4"/>
+                        <outlet property="viewHostname" destination="N9Q-ES-HZq" id="Y7B-AB-Fgy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Dn-by-bd9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1072,11 +1075,11 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mdf-S1-FcS" id="5eg-9S-b2i">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rJP-2U-HFP">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

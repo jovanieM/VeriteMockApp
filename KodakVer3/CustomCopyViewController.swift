@@ -14,12 +14,9 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     
     var arrayofMainLbl = ["Color :", "Paper Size :",  "Paper Type :", "Quality :", "Copy Resize :", "Pages per Side :", "Brightness :"]
     
-    var collections: [[String]] = [["Color", "Black and White"], ["4x6 in.", "3x5 in", "5x7 in.", "3.5x5 in.(L)", "Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "Hagaki", "10 Envelope", "DL envelope", "C5 Envelope"],   ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"], ["Text", "Text/Photo", "Photo", "Draft"], ["100% Default", "130% Letter->Legal", "104% Executive->Letter", "97% Letter->A4", "93% A4->Letter", "85% Letter->Executive", "Custom"], ["One", "2 in 1 Portrait", "2 in 1 Landscape", "4 in 1 Portrait", "4 in 1 Landscape"], ["dummybrightness"]]
+    var collections: [[String]] = [["Color", "Black and White"], ["4x6 in.", "3x5 in", "5x7 in.", "3.5x5 in.(L)", "Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "Hagaki", "10 Envelope", "DL envelope", "C5 Envelope"], ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"], ["Text", "Text/Photo", "Photo", "Draft"], ["100% Default", "130% Letter->Legal", "104% Executive->Letter", "97% Letter->A4", "93% A4->Letter", "85% Letter->Executive", "Custom"], ["One", "2 in 1 Portrait", "2 in 1 Landscape", "4 in 1 Portrait", "4 in 1 Landscape"], ["dummybrightness"]]
     
     var perSideArrays: [(String, String)] = [("One", "one.png"), ("2 in 1 Portrait", "two_portrait.png"), ("2 in 1 Landscape", "two_landscape.png"), ("4 in 1 Portrait", "four_portrait.png"), ("4 in 1 Landscape", "four_landscape.png")]
-    
-    var copyTitle: [String] = ["Copy", "Copy Pages per Side"]
-    var copyMessage: [String] = ["1st page Scanning...", "2nd page Scanning...", "#rd page Scanning...", "4th page Scanning", "Would you like to include another page?"]
     
     @IBOutlet weak var customTable: UITableView!
     
@@ -50,6 +47,7 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     var cancel: UIAlertAction!
     var no: UIAlertAction!
     var include: UIAlertAction!
+    var ok: UIAlertAction!
     var indicator: UIActivityIndicatorView!
     var time: DispatchTime!
     
@@ -369,6 +367,13 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
             table2.sendDataDelegate = self
             tableView.deselectRow(at: indexPath, animated: false)
         }
+        
+        let value: Int = getSavedData(receiver: 4)
+        let value2: Int = getSavedData(receiver: 5)
+        
+        if value == 1 && value2 == 2{
+            print("sample")
+        }
     }
     
     func computeHeight(numberOfItems: Int) ->Int{
@@ -459,13 +464,6 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         alert.view.addSubview(indicator)
         indicator.startAnimating()
         present(alert, animated: true, completion: nil)
-        
-        /* let time = DispatchTime.now() + 4.0
-        DispatchQueue.main.asyncAfter(deadline: time){
-            self.alert.dismiss(animated: true, completion: {
-                self.alertIncludePage()
-            })
-        }*/
     }
     
     func alertSecondScanning(){
@@ -488,22 +486,9 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    /* func alertIncludePage(){
-        let alert = UIAlertController(title: "Copy Pages per Side", message: "Would you like to include another\n page?\n", preferredStyle: .alert)
-        let no = UIAlertAction(title: "NO", style: .default, handler: {(action: UIAlertAction) in
-            self.alertCopying()
-        })
-        alert.addAction(no)
-        let include = UIAlertAction(title: "Include", style: .default, handler: {(action: UIAlertAction) in
-            self.alertSecondScanning()
-        })
-        alert.addAction(include)
-        present(alert, animated: true, completion: nil)
-    }*/
-    
     func alertIncludePage2(){
-        let alert = UIAlertController(title: "Copy Pages per Side", message: "Would you like to include another\n page?\n", preferredStyle: .alert)
-        let no = UIAlertAction(title: "NO", style: .default, handler: {(action: UIAlertAction) in
+        alert = UIAlertController(title: "Copy Pages per Side", message: "Would you like to include another\n page?\n", preferredStyle: .alert)
+        no = UIAlertAction(title: "NO", style: .default, handler: {(action: UIAlertAction) in
             self.alertCopying()
         })
         alert.addAction(no)
@@ -515,8 +500,8 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func copyCancel(){
-        let alert = UIAlertController(title: "Canceling...\n\n", message: "", preferredStyle: .alert)
-        let indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 70, width: 40, height:40))
+        alert = UIAlertController(title: "Canceling...\n\n", message: "", preferredStyle: .alert)
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 70, width: 40, height:40))
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         indicator.activityIndicatorViewStyle = .whiteLarge
         indicator.color = .black
@@ -526,16 +511,16 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         
         let time = DispatchTime.now() + 4.0
         DispatchQueue.main.asyncAfter(deadline: time){
-            alert.dismiss(animated: true, completion: {
+            self.alert.dismiss(animated: true, completion: {
                 self.copyCancelComplete()
             })
         }
     }
     
     func copyCancelComplete(){
-        let alert = UIAlertController(title: "Copy Canceled.", message: "", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .default, handler: {(action: UIAlertAction) in
-            alert.dismiss(animated: true, completion: nil)
+        alert = UIAlertController(title: "Copy Canceled.", message: "", preferredStyle: .alert)
+        ok = UIAlertAction(title: "OK", style: .default, handler: {(action: UIAlertAction) in
+            self.alert.dismiss(animated: true, completion: nil)
         })
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)

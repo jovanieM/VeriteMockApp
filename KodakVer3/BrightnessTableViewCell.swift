@@ -13,4 +13,9 @@ class BrightnessTableViewCell: UITableViewCell {
     @IBOutlet weak var brightness: UILabel!
         
     @IBOutlet weak var brightnessbar: UISlider!
+    
+    @IBAction func cheangeTip(_ sender: UISlider) {
+        brightnessbar.value = roundf(brightnessbar.value)
+    }
+    
 }
