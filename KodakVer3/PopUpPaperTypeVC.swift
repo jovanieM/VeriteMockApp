@@ -66,6 +66,9 @@ class PopUpPaperTypeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func dismissButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

@@ -12,6 +12,8 @@ class FriendlyName: UIViewController{
     
     @IBOutlet weak var saveSettingButton: UIButton!
     @IBOutlet weak var friendlyNameTxt: UITextField!
+    @IBOutlet weak var desc: UILabel!
+    @IBOutlet weak var viewFriendlyName: UIView!
     
     var alert: UIAlertController!
     var alert2: UIAlertController!
@@ -26,14 +28,6 @@ class FriendlyName: UIViewController{
         navTransition.subtype = kCATransitionPush
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
-    
-    /* override func viewDidAppear(_ animated: Bool) {
-        let name: String? = UserDefaults.standard.object(forKey: "friendlyName") as? String
-        
-        if let nameToDisplay = name{
-            friendlyNameTxt.text = nameToDisplay
-        }
-    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +51,10 @@ class FriendlyName: UIViewController{
     }
     
     func loadAlerts(){
+        desc.isHidden = true
+        viewFriendlyName.isHidden = true
+        saveSettingButton.isHidden = true
+        
         alert = UIAlertController(title: "Getting Network \n information... \n", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             self.dismiss(animated: true, completion: nil)
@@ -76,8 +74,11 @@ class FriendlyName: UIViewController{
     }
     
     func dismissAlert(){
-        indicator.stopAnimating()
-        self.dismiss(animated: true, completion: nil)
+        alert.dismiss(animated: true, completion: nil)
+    
+        desc.isHidden = false
+        viewFriendlyName.isHidden = false
+        saveSettingButton.isHidden = false
     }
     
     func dismissKeyboard(){

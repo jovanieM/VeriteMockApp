@@ -11,6 +11,8 @@ import UIKit
 class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
 
     @IBOutlet weak var saveSettingButton: UIButton!
+    @IBOutlet weak var desc: UILabel!
+    @IBOutlet weak var viewDirectConnect: UIView!
     
     var alert: UIAlertController!
     var alert2: UIAlertController!
@@ -22,7 +24,10 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
     
     func setTableRowData(dataRow: String) {
         //directTimeLabel.titleLabel?.text = dataRow
-        directLabel.text = dataRow
+        let vc: PopUpDirectConnectTime = PopUpDirectConnectTime()
+        
+        directLabel.text = vc.data
+        //directLabel.text = dataRow
     }
     
     //navigation bar
@@ -47,6 +52,10 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
     }
     
     func loadAlerts(){
+        desc.isHidden = true
+        viewDirectConnect.isHidden = true
+        saveSettingButton.isHidden = true
+        
         alert = UIAlertController(title: "Getting Network \n information... \n", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             self.dismiss(animated: true, completion: nil)
@@ -66,7 +75,11 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
     }
     
     func dismissAlert(){
-        self.dismiss(animated: true, completion: nil)
+        alert.dismiss(animated: true, completion: nil)
+        
+        desc.isHidden = false
+        viewDirectConnect.isHidden = false
+        saveSettingButton.isHidden = false
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {

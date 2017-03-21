@@ -17,13 +17,15 @@ class PopUpDirectConnectTime: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var directConnectTable: UITableView!
     
-    var userDefaults = UserDefaults.standard
+    let directTimeDefault = UserDefaults.standard
+    private let selectedKey = "choice"
     
     var data:String?
     var delegate:DirectConnectTimeProtocol? = nil
     
     let directTimeList: [String] = ["5 min", "10 min", "60min", "Unlimited"]
     let textCellIdIdentifier = "cell"
+    var cell: SettingsTableViewCell!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +34,8 @@ class PopUpDirectConnectTime: UIViewController, UITableViewDelegate, UITableView
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         
         directConnectTable.delegate = self
-        directConnectTable.dataSource = self
-    }
-    
-    func setDefault(value: Int){
-        //userDefaults.set(value, forKey: )
+        directConnectTable.dataSource = self       
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,9 +43,15 @@ class PopUpDirectConnectTime: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let cell = directConnectTable.dequeueReusableCell(withIdentifier: textCellIdIdentifier, for: indexPath)
+        //cell.textLabel?.text = directTimeList[indexPath.row]
+        //return cell
         
-        let cell = directConnectTable.dequeueReusableCell(withIdentifier: textCellIdIdentifier, for: indexPath)
+        cell = SettingsTableViewCell(style: .default, reuseIdentifier: textCellIdIdentifier)
         cell.textLabel?.text = directTimeList[indexPath.row]
+        if indexPath.row == getDefault(){
+            cell.isSelected = true
+        }
         return cell
     }
 
@@ -58,22 +63,22 @@ class PopUpDirectConnectTime: UIViewController, UITableViewDelegate, UITableView
             data = currentCell.textLabel?.text
             delegate?.setTableRowData(dataRow: data!)
         }
+        
+        setDefault(value: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: false)
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func setDefault(value: Int){
+        directTimeDefault.set(value, forKey: selectedKey)
+    }
+    
+    func getDefault()->Int{
+        return directTimeDefault.integer(forKey: selectedKey)
+    }
+    
     
     @IBAction func popUpDismiss(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -649,7 +649,6 @@
                         <outlet property="desc" destination="9q0-6X-ABK" id="gMd-ie-s3Q"/>
                         <outlet property="hostNameText" destination="jlZ-VX-18f" id="CbB-OM-xHc"/>
                         <outlet property="saveSettingButton" destination="RTt-bA-DYe" id="20W-aF-380"/>
-                        <outlet property="view" destination="N9Q-ES-HZq" id="vAW-B8-Gu4"/>
                         <outlet property="viewHostname" destination="N9Q-ES-HZq" id="Y7B-AB-Fgy"/>
                     </connections>
                 </viewController>
@@ -726,9 +725,11 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="desc" destination="XYU-SP-kco" id="L42-lp-96t"/>
                         <outlet property="directLabel" destination="gcc-hF-HOc" id="es0-F4-nnh"/>
                         <outlet property="directTimeLabel" destination="ixz-TO-sTR" id="cTi-jY-bbq"/>
                         <outlet property="saveSettingButton" destination="CXC-Cv-Y4y" id="71G-aD-ilN"/>
+                        <outlet property="viewDirectConnect" destination="08w-fL-J3E" id="D06-Tk-Vkn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SsR-9e-mcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -856,8 +857,10 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="desc" destination="a3x-iS-bVQ" id="Cwu-W6-9CO"/>
                         <outlet property="friendlyNameTxt" destination="zda-vz-ulg" id="6sc-el-JPH"/>
                         <outlet property="saveSettingButton" destination="AAR-4U-gX1" id="BA5-Ga-sDh"/>
+                        <outlet property="viewFriendlyName" destination="JkQ-Q6-Iwe" id="zEj-mF-1GG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qyZ-qq-58a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1075,11 +1078,11 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mdf-S1-FcS" id="5eg-9S-b2i">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rJP-2U-HFP">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
