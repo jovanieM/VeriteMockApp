@@ -23,6 +23,7 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     var networks = ["Router 1", "Router 2", "Router 3", "Printer 1", "Printer 2", "Printer 3"]
     var data: String?
     var delegate: SelectNetworkProtocol?
+    var cell: UITableViewCell!
     
     //let defaultSelection = UserDefaults.standard
     
@@ -56,13 +57,25 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableNetworkView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        cell.textLabel?.text = networks[indexPath.row]
+        cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
+        cell.detailTextLabel?.text = "Connected"
+//        cell.detailTextLabel?.isHidden = true
+        cell.textLabel?.text = networks[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)! as UITableViewCell
+//        cell.detailTextLabel?.text = "Connected"
+//        cell.detailTextLabel?.isHidden = false
+        
+        for cell in tableView.visibleCells{
+            cell.detailTextLabel?.isHidden = true
+        }
+        let cell1 = tableView.cellForRow(at: indexPath)
+        cell1?.detailTextLabel?.isHidden = false
+        
         performSegue(withIdentifier: "toSelectedNetwork", sender: networks[indexPath.row])
     }
     

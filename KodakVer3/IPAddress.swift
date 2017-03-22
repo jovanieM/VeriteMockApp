@@ -22,6 +22,18 @@ class IPAddress: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var ipAdd2: UITextField!
     @IBOutlet weak var ipAdd3: UITextField!
     @IBOutlet weak var ipAdd4: UITextField!
+    @IBOutlet weak var subnet1: UITextField!
+    @IBOutlet weak var subnet2: UITextField!
+    @IBOutlet weak var subnet3: UITextField!
+    @IBOutlet weak var subnet4: UITextField!
+    @IBOutlet weak var defaultGate1: UITextField!
+    @IBOutlet weak var defaultGate2: UITextField!
+    @IBOutlet weak var defaultGate3: UITextField!
+    @IBOutlet weak var defaultGate4: UITextField!
+    @IBOutlet weak var dns1: UITextField!
+    @IBOutlet weak var dns2: UITextField!
+    @IBOutlet weak var dns3: UITextField!
+    @IBOutlet weak var dns4: UITextField!
     
     var alert: UIAlertController!
     var indicator: UIActivityIndicatorView!
@@ -52,17 +64,26 @@ class IPAddress: UIViewController, UITextFieldDelegate{
         saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
         
        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(IPAddress.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        
-        ipAdd1.tintColor = UIColor(red: 255, green: 153, blue: 0, alpha: 1)
-        ipAdd2.tintColor = UIColor(red: 255, green: 153, blue: 0, alpha: 1)
-        ipAdd3.tintColor = UIColor(red: 255, green: 153, blue: 0, alpha: 1)
-        ipAdd4.tintColor = UIColor(red: 255, green: 153, blue: 0, alpha: 1)
+        view.addGestureRecognizer(tap)        
     }
     
     func initTextFields(){
         ipAdd1.delegate = self
         ipAdd2.delegate = self
+        ipAdd3.delegate = self
+        ipAdd4.delegate = self
+        subnet1.delegate = self
+        subnet2.delegate = self
+        subnet3.delegate = self
+        subnet4.delegate = self
+        defaultGate1.delegate = self
+        defaultGate2.delegate = self
+        defaultGate3.delegate = self
+        defaultGate4.delegate = self
+        dns1.delegate = self
+        dns2.delegate = self
+        dns3.delegate = self
+        dns4.delegate = self
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
@@ -167,14 +188,10 @@ class IPAddress: UIViewController, UITextFieldDelegate{
         print("ipAdd1: \(ipAdd1.text)")
         
 //        let ipadd1: Int = Int(ipAdd1.text!)!
-        
-//        if validateTextField(text: ipAdd1.text!){
-//        
-//        }
-        
-        if ipAdd1.text == ""{
-            ipAdd1.text = "0"
-        }
+       
+//        if ipadd1 <= 0{
+//            ipAdd1.text = "0"
+//        } else
 //        if ipadd1 >= 256 {
 //            ipAdd1.text = "255"
 //        }
