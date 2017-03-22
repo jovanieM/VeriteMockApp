@@ -38,6 +38,8 @@ class IPAddress: UIViewController, UITextFieldDelegate{
     var alert: UIAlertController!
     var indicator: UIActivityIndicatorView!
     
+    let defaults = UserDefaults.standard
+    
     //navigation bar
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
@@ -48,6 +50,16 @@ class IPAddress: UIViewController, UITextFieldDelegate{
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        
+//        switchController.isOn = UserDefaults.standard.bool(forKey: "switchState")
+//        
+//        if let label = UserDefaults.standard.object(forKey: "autoManual") as? String
+//        {
+//            autoManualLabel.text = label
+//        }
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +68,11 @@ class IPAddress: UIViewController, UITextFieldDelegate{
         // hide views
         hideViews()
         
+        // initialize textfields
         initTextFields()
+        
+        
+//        autoManualLabel.text = UserDefaults.standard.string(forKey: "autoManual")
         
         //button
         saveSettingButton.layer.cornerRadius = 15
@@ -87,6 +103,11 @@ class IPAddress: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
+        
+//        UserDefaults.standard.set(switchController.isOn, forKey: "switchState")
+//        UserDefaults.standard.set(autoManualLabel, forKey: "autoManual")
+//        UserDefaults.standard.synchronize()
+        
         alert = UIAlertController(title: "If [OK] is touched, IP Address\n setting is modified, and this\n app is closed.", message: "", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
@@ -183,19 +204,123 @@ class IPAddress: UIViewController, UITextFieldDelegate{
         return string == numberFiltered
     }
     
-    
     @IBAction func ipAdd1DidChanged(_ sender: Any) {
-        print("ipAdd1: \(ipAdd1.text)")
+        print("ip address 1: \(ipAdd1.text!)")
         
-//        let ipadd1: Int = Int(ipAdd1.text!)!
-       
-//        if ipadd1 <= 0{
-//            ipAdd1.text = "0"
-//        } else
-//        if ipadd1 >= 256 {
-//            ipAdd1.text = "255"
-//        }
+        var val = Int(ipAdd1.text!)
+
+        if val == nil{
+            val = 0
+            ipAdd1.text = "0"
+        }else if val! >= 256{
+            val = 255
+            ipAdd1.text = "255"
+        }
     }
     
+    @IBAction func ipAdd2DidChanged(_ sender: Any) {
+        print("ip address 2: \(ipAdd2.text)")
+        if ipAdd2.text == "" {
+            ipAdd2.text = "0"
+        }
+    }
+    
+    @IBAction func ipAdd3DidChanged(_ sender: Any) {
+        print("ip address 3: \(ipAdd3.text)")
+        if ipAdd3.text == "" {
+            ipAdd3.text = "0"
+        }
+    }
+    
+    @IBAction func ipAdd4DidChanged(_ sender: Any) {
+        print("ip address 4: \(ipAdd4.text)")
+        if ipAdd4.text == "" {
+            ipAdd4.text = "0"
+        }
+    }
+    
+    @IBAction func subnet1DidChanged(_ sender: Any) {
+        print("subnet mask 1: \(subnet1.text)")
+        if subnet1.text == "" {
+            subnet1.text = "0"
+        }
+    }
+    
+    @IBAction func subnet2DidChanged(_ sender: Any) {
+        print("subnet mask 2: \(subnet2.text)")
+        if subnet2.text == "" {
+            subnet2.text = "0"
+        }
+    }
+    
+    @IBAction func subnet3DidChanged(_ sender: Any) {
+        print("subnet mask 3: \(subnet3.text)")
+        if subnet3.text == "" {
+            subnet3.text = "0"
+        }
+    }
+    
+    @IBAction func subnet4DidChanged(_ sender: Any) {
+        print("subnet mask 4: \(subnet4.text)")
+        if subnet4.text == "" {
+            subnet4.text = "0"
+        }
+    }
+    
+    @IBAction func default1DidChanged(_ sender: Any) {
+        print("default gateway 1: \(defaultGate1.text)")
+        if defaultGate1.text == "" {
+            defaultGate1.text = "0"
+        }
+    }
+    
+    @IBAction func default2DidChanged(_ sender: Any) {
+        print("default gateway 2: \(defaultGate2.text)")
+        if defaultGate2.text == "" {
+            defaultGate2.text = "0"
+        }
+    }
+    
+    @IBAction func default3DidChanged(_ sender: Any) {
+        print("default gateway 3: \(defaultGate3.text)")
+        if defaultGate3.text == "" {
+            defaultGate3.text = "0"
+        }
+    }
+    
+    @IBAction func default4DidChanged(_ sender: Any) {
+        print("default gateway 4: \(defaultGate4.text)")
+        if defaultGate4.text == "" {
+            defaultGate4.text = "0"
+        }
+    }
+    
+    @IBAction func dns1DidChanged(_ sender: Any) {
+        print("dns address 1: \(dns1.text)")
+        if dns1.text == "" {
+            dns1.text = "0"
+        }
+    }
+    
+    @IBAction func dns2DidChanged(_ sender: Any) {
+        print("dns address 2: \(dns2.text)")
+        if dns2.text == "" {
+            dns2.text = "0"
+        }
+    }
+    
+    @IBAction func dns3DidChanged(_ sender: Any) {
+        print("dns address 3: \(dns3.text)")
+        if dns3.text == "" {
+            dns3.text = "0"
+        }
+    }
+    
+    @IBAction func dns4DidChanged(_ sender: Any) {
+        print("dns address 4: \(dns4.text)")
+        if dns4.text == "" {
+            dns4.text = "0"
+        }
+    }
     
 }
