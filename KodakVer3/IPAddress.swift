@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IPAddress: UIViewController{
+class IPAddress: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var switchController: UISwitch!
     @IBOutlet weak var autoManualLabel: UILabel!
@@ -18,6 +18,10 @@ class IPAddress: UIViewController{
     @IBOutlet weak var viewDnsAddress: UIView!
     @IBOutlet weak var saveSettingButton: UIButton!
     @IBOutlet weak var ipaddressTopView: UIView!
+    @IBOutlet weak var ipAdd1: UITextField!
+    @IBOutlet weak var ipAdd2: UITextField!
+    @IBOutlet weak var ipAdd3: UITextField!
+    @IBOutlet weak var ipAdd4: UITextField!
     
     var alert: UIAlertController!
     var indicator: UIActivityIndicatorView!
@@ -40,14 +44,25 @@ class IPAddress: UIViewController{
         // hide views
         hideViews()
         
+        initTextFields()
+        
         //button
         saveSettingButton.layer.cornerRadius = 15
         saveSettingButton.layer.borderWidth = 2
         saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
         
-        
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(IPAddress.dismissKeyboard))
+       let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(IPAddress.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        ipAdd1.tintColor = UIColor(red: 255, green: 153, blue: 0, alpha: 1)
+        ipAdd2.tintColor = UIColor(red: 255, green: 153, blue: 0, alpha: 1)
+        ipAdd3.tintColor = UIColor(red: 255, green: 153, blue: 0, alpha: 1)
+        ipAdd4.tintColor = UIColor(red: 255, green: 153, blue: 0, alpha: 1)
+    }
+    
+    func initTextFields(){
+        ipAdd1.delegate = self
+        ipAdd2.delegate = self
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
@@ -139,4 +154,31 @@ class IPAddress: UIViewController{
         ipaddressTopView.isHidden = false
         saveSettingButton.isHidden = false
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let aSet = CharacterSet.decimalDigits.inverted
+        let compSepByCharInSet = string.components(separatedBy: aSet)
+        let numberFiltered = compSepByCharInSet.joined(separator: "")
+        return string == numberFiltered
+    }
+    
+    
+    @IBAction func ipAdd1DidChanged(_ sender: Any) {
+        print("ipAdd1: \(ipAdd1.text)")
+        
+//        let ipadd1: Int = Int(ipAdd1.text!)!
+        
+//        if validateTextField(text: ipAdd1.text!){
+//        
+//        }
+        
+        if ipAdd1.text == ""{
+            ipAdd1.text = "0"
+        }
+//        if ipadd1 >= 256 {
+//            ipAdd1.text = "255"
+//        }
+    }
+    
+    
 }

@@ -17,7 +17,7 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     
     @IBOutlet weak var tableNetworkView: UITableView!
     @IBOutlet weak var btnManual: UIButton!
-    @IBOutlet weak var tableViewCell: UITableViewCell!
+   
     
     var cellIdentifier = "Cell"
     var networks = ["Router 1", "Router 2", "Router 3", "Printer 1", "Printer 2", "Printer 3"]
@@ -42,10 +42,6 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
         //table
         tableNetworkView.dataSource = self
         tableNetworkView.delegate = self
-        //tableView.backgroundColor = .lightGray
-        //tableView.tableFooterView = UIView(frame: .zero)
-        //tableView.tableHeaderView = UIView(frame: .zero)
-        //tableView.tableHeaderView?.backgroundColor = .lightGray
         
         //button
         btnManual.layer.cornerRadius = 25
@@ -67,36 +63,22 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let indexPath = tableView.indexPathForSelectedRow!
-        let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
-        
-        //if delegate != nil{
-            data = currentCell.textLabel?.text
-            delegate?.setSelectNetworkData(dataRow: data!)
-        //}
-        
-        //let viewController: NetworkAndPasswordSelectedNetworkVC = storyboard?.instantiateViewController(withIdentifier: "SelectedNetwork") as! NetworkAndPasswordSelectedNetworkVC
-        //viewController.ssidLabel.text = data
-        
-        //self.navigationController?.pushViewController(viewController, animated: true)
-        
-                
-        //if delegate != nil{
-        //}
-        print("\(data)")
-        //data = currentCell.textLabel?.text
-        //performSegue(withIdentifier: "toSelectedNetwork", sender: self)
-        
+        performSegue(withIdentifier: "toSelectedNetwork", sender: networks[indexPath.row])
     }
     
-    /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSelectedNetwork"{
             let vc = segue.destination as! NetworkAndPasswordSelectedNetworkVC
-            //delegate?.setSelectNetworkData(dataRow: data!)
-            vc.ssidLabel.text = data
+            vc.networkData = sender as? String
         }
-    }*/
+    }
+    
+    @IBAction func manualButton(_ sender: UIButton) {
+        
+        let sb: UIStoryboard = UIStoryboard(name: "WiFiSetupStoryboard", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "manual") as! NetworkAndPasswordManual
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     func backAction(){
         let vc: [UIViewController] = self.navigationController!.viewControllers

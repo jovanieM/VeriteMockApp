@@ -316,6 +316,14 @@
                                         <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ipAdd1DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="YE4-F3-uGv"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="192" borderStyle="bezel" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Dju-ZN-FOq">
                                         <rect key="frame" x="170" y="5" width="40" height="30"/>
@@ -566,6 +574,10 @@
                     </view>
                     <connections>
                         <outlet property="autoManualLabel" destination="XLM-eI-zcW" id="2xb-t7-Qxx"/>
+                        <outlet property="ipAdd1" destination="9Ep-k0-emd" id="dDS-aG-avH"/>
+                        <outlet property="ipAdd2" destination="Dju-ZN-FOq" id="GSG-E5-bHc"/>
+                        <outlet property="ipAdd3" destination="U9i-Ec-y11" id="Zol-34-FAT"/>
+                        <outlet property="ipAdd4" destination="csL-OJ-8p3" id="qIX-za-rlC"/>
                         <outlet property="ipaddressTopView" destination="r7i-I9-04e" id="5bl-EZ-Kx6"/>
                         <outlet property="saveSettingButton" destination="zk7-wU-P0a" id="3y9-cY-p5k"/>
                         <outlet property="switchController" destination="BEO-Sh-bgc" id="uuI-2r-wUl"/>
@@ -1074,26 +1086,23 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="rJP-2U-HFP" style="IBUITableViewCellStyleDefault" id="mdf-S1-FcS">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="tVU-zf-puD" rowHeight="60" style="IBUITableViewCellStyleDefault" id="mdf-S1-FcS">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mdf-S1-FcS" id="5eg-9S-b2i">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rJP-2U-HFP">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tVU-zf-puD">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="59"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="8dV-cW-pz3" kind="show" identifier="toSelectedNetwork" id="DPH-wz-dJc"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -1109,7 +1118,7 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="I0n-Qw-ZRX" kind="show" identifier="toManual" id="yIQ-0T-mj1"/>
+                                    <action selector="manualButton:" destination="Zxz-xG-eGD" eventType="touchUpInside" id="mGR-mM-4t5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1118,16 +1127,17 @@
                     <connections>
                         <outlet property="btnManual" destination="WRr-xX-crI" id="VW9-b4-YfM"/>
                         <outlet property="tableNetworkView" destination="XCc-XY-bGm" id="1fT-mC-O4U"/>
+                        <segue destination="8dV-cW-pz3" kind="show" identifier="toSelectedNetwork" id="9Zf-3e-g9U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Q3-zB-Sgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1530" y="-319"/>
+            <point key="canvasLocation" x="1530" y="-319.01408450704224"/>
         </scene>
         <!--Network And Password Selected NetworkVC-->
         <scene sceneID="c0a-yK-spe">
             <objects>
-                <viewController id="8dV-cW-pz3" customClass="NetworkAndPasswordSelectedNetworkVC" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="toSelectedNetwork" id="8dV-cW-pz3" customClass="NetworkAndPasswordSelectedNetworkVC" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Sq7-ka-k0c"/>
                         <viewControllerLayoutGuide type="bottom" id="tgp-Sq-GVT"/>
@@ -1158,7 +1168,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFg-pu-8mz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFg-pu-8mz">
                                         <rect key="frame" x="129" y="15" width="183" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1184,12 +1194,12 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Input Password" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="0cc-ip-wGf">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="bezel" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="0cc-ip-wGf">
                                         <rect key="frame" x="97" y="10" width="215" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="join" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="join" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                 <color key="value" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1203,22 +1213,23 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIG-NL-TBj">
-                                <rect key="frame" x="160" y="230" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="170" y="230" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="check_box_off"/>
                                 <connections>
+                                    <action selector="checkBox:" destination="8dV-cW-pz3" eventType="touchUpInside" id="enT-vT-ih5"/>
                                     <action selector="checkBoxAction:" destination="I0n-Qw-ZRX" eventType="touchUpInside" id="LKP-7y-ryy"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jS-8q-E3Y">
-                                <rect key="frame" x="189" y="232" width="102" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="190" y="232" width="102" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cl4-Wo-mqw">
-                                <rect key="frame" x="45" y="277" width="100" height="30"/>
+                                <rect key="frame" x="45" y="255" width="100" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <state key="normal" title="Help">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1228,8 +1239,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbH-ha-xG5">
-                                <rect key="frame" x="171" y="277" width="100" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="171" y="255" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <state key="normal" title="Other">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
@@ -1241,6 +1252,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="checkbox" destination="fIG-NL-TBj" id="v8y-g9-TyZ"/>
                         <outlet property="helpButton" destination="cl4-Wo-mqw" id="dnJ-3m-Pha"/>
                         <outlet property="otherButton" destination="YbH-ha-xG5" id="LIU-pa-0DU"/>
                         <outlet property="passwordTextField" destination="0cc-ip-wGf" id="Fx6-fc-csa"/>
@@ -1328,7 +1340,7 @@
         <!--Network And Password Manual-->
         <scene sceneID="Rv0-WI-S5a">
             <objects>
-                <viewController id="I0n-Qw-ZRX" customClass="NetworkAndPasswordManual" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="manual" id="I0n-Qw-ZRX" customClass="NetworkAndPasswordManual" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ATr-fC-95K"/>
                         <viewControllerLayoutGuide type="bottom" id="Ibu-YF-UgT"/>
@@ -1475,7 +1487,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O93-d5-6O0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2420.625" y="-319.01408450704224"/>
+            <point key="canvasLocation" x="2419" y="-318"/>
         </scene>
         <!--Security Type-->
         <scene sceneID="EHM-hg-PcN">

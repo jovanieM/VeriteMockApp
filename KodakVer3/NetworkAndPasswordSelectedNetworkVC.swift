@@ -14,10 +14,12 @@ class NetworkAndPasswordSelectedNetworkVC: UIViewController, UITextFieldDelegate
     @IBOutlet weak var otherButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var ssidLabel: UILabel!
+    @IBOutlet weak var checkbox: UIButton!
     
     var networkData: String?
+    var unchecked = true
     
-    let vc = UIStoryboard(name: "WiFiSetupStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SelectedNetwork") as! NetworkAndPasswordSelectTheNetwork
+    var vc = UIStoryboard(name: "WiFiSetupStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SelectedNetwork") as! NetworkAndPasswordSelectTheNetwork
     
     
     // navigation bar
@@ -31,6 +33,8 @@ class NetworkAndPasswordSelectedNetworkVC: UIViewController, UITextFieldDelegate
         
         self.navigationItem.leftBarButtonItem?.title = ""
         self.navigationItem.leftBarButtonItem?.isEnabled = false
+        
+        
     }
     
     override func viewDidLoad() {
@@ -47,6 +51,10 @@ class NetworkAndPasswordSelectedNetworkVC: UIViewController, UITextFieldDelegate
         otherButton.layer.borderWidth = 2
         otherButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
         
+        ssidLabel.text = networkData
+        passwordTextField.becomeFirstResponder()
+        passwordTextField.tintColor = UIColor(red: 255, green: 153, blue: 0, alpha: 1)
+        
         vc.delegate = self
     }
     
@@ -54,19 +62,24 @@ class NetworkAndPasswordSelectedNetworkVC: UIViewController, UITextFieldDelegate
         self.networkData = dataSent
     }
     
-    /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSelectedNetwork"{
-            let vc: NetworkAndPasswordSelectTheNetwork = segue.destination as! NetworkAndPasswordSelectTheNetwork
-            vc.delegate = self
-        }
-    }*/
-    
     func setSelectNetworkData(dataRow: String) {
         ssidLabel.text = dataRow
     }
    
     @IBAction func otherBtnPressed(_ sender: UIButton) {
         _ = navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func checkBox(_ sender: UIButton) {
+        if unchecked{
+            checkbox.setImage(UIImage(named: "check_box_on"), for: .normal)
+            passwordTextField.isSecureTextEntry = false
+            unchecked = false
+        } else {
+            checkbox.setImage(UIImage(named: "check_box_off"), for: .normal)
+            passwordTextField.isSecureTextEntry = true
+            unchecked = true
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
