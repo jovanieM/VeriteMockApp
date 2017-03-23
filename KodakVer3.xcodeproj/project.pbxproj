@@ -35,11 +35,6 @@
 		1073B5791E669801000C60EB /* CartridgeSetupHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073B5771E669801000C60EB /* CartridgeSetupHelp.swift */; };
 		1073B57A1E669801000C60EB /* CartridgeSetupScanning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073B5781E669801000C60EB /* CartridgeSetupScanning.swift */; };
 		10759B2E1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */; };
-		1077C3E91E7909D500135818 /* four_landscape.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 1077C3E41E7909D500135818 /* four_landscape.imageset */; };
-		1077C3EA1E7909D500135818 /* four_portrait.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 1077C3E51E7909D500135818 /* four_portrait.imageset */; };
-		1077C3EB1E7909D500135818 /* one.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 1077C3E61E7909D500135818 /* one.imageset */; };
-		1077C3EC1E7909D500135818 /* two_landscape.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 1077C3E71E7909D500135818 /* two_landscape.imageset */; };
-		1077C3ED1E7909D500135818 /* two_portrait.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 1077C3E81E7909D500135818 /* two_portrait.imageset */; };
 		107B37A61E5FDE30007CA90C /* GCPEnableDisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37A21E5FDE30007CA90C /* GCPEnableDisable.swift */; };
 		107B37A71E5FDE30007CA90C /* GCPHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37A31E5FDE30007CA90C /* GCPHome.swift */; };
 		107B37A81E5FDE30007CA90C /* GCPRegisterUnregister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37A41E5FDE30007CA90C /* GCPRegisterUnregister.swift */; };
@@ -170,11 +165,6 @@
 		1073B5771E669801000C60EB /* CartridgeSetupHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupHelp.swift; sourceTree = "<group>"; };
 		1073B5781E669801000C60EB /* CartridgeSetupScanning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupScanning.swift; sourceTree = "<group>"; };
 		10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSelectTheNetwork.swift; sourceTree = "<group>"; };
-		1077C3E41E7909D500135818 /* four_landscape.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = four_landscape.imageset; path = Assets.xcassets/four_landscape.imageset; sourceTree = "<group>"; };
-		1077C3E51E7909D500135818 /* four_portrait.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = four_portrait.imageset; path = Assets.xcassets/four_portrait.imageset; sourceTree = "<group>"; };
-		1077C3E61E7909D500135818 /* one.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = one.imageset; path = Assets.xcassets/one.imageset; sourceTree = "<group>"; };
-		1077C3E71E7909D500135818 /* two_landscape.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = two_landscape.imageset; path = Assets.xcassets/two_landscape.imageset; sourceTree = "<group>"; };
-		1077C3E81E7909D500135818 /* two_portrait.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = two_portrait.imageset; path = Assets.xcassets/two_portrait.imageset; sourceTree = "<group>"; };
 		107B37A21E5FDE30007CA90C /* GCPEnableDisable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCPEnableDisable.swift; sourceTree = "<group>"; };
 		107B37A31E5FDE30007CA90C /* GCPHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCPHome.swift; sourceTree = "<group>"; };
 		107B37A41E5FDE30007CA90C /* GCPRegisterUnregister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCPRegisterUnregister.swift; sourceTree = "<group>"; };
@@ -561,11 +551,6 @@
 				1156AAF51E1E2F24009C2493 /* TableViewCell2.swift */,
 				1156AAF61E1E2F24009C2493 /* TableViewCell2.xib */,
 				114B30AE1DF90A57008A57F1 /* Assets.xcassets */,
-				1077C3E41E7909D500135818 /* four_landscape.imageset */,
-				1077C3E51E7909D500135818 /* four_portrait.imageset */,
-				1077C3E61E7909D500135818 /* one.imageset */,
-				1077C3E71E7909D500135818 /* two_landscape.imageset */,
-				1077C3E81E7909D500135818 /* two_portrait.imageset */,
 				114B30B01DF90A57008A57F1 /* LaunchScreen.storyboard */,
 				114B30B31DF90A57008A57F1 /* Info.plist */,
 				114B30D91DF92D78008A57F1 /* QuickDetailSelector.swift */,
@@ -710,12 +695,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				103303351E52AD2A00E7D24C /* ScanSettingsStoryboard.storyboard in Resources */,
-				1077C3ED1E7909D500135818 /* two_portrait.imageset in Resources */,
 				103303411E52ADE900E7D24C /* AirPrintStoryboard.storyboard in Resources */,
 				103303261E52AC6D00E7D24C /* CopyStoryboard.storyboard in Resources */,
 				103303321E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard in Resources */,
 				1033032C1E52ACB300E7D24C /* ScanPhotoStoryboard.storyboard in Resources */,
-				1077C3EA1E7909D500135818 /* four_portrait.imageset in Resources */,
 				103303291E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard in Resources */,
 				103303471E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard in Resources */,
 				113123A51E51AC8D0079CEAB /* SettingsStoryboard.storyboard in Resources */,
@@ -723,7 +706,6 @@
 				113123A71E51AF400079CEAB /* PhotoPrintSettingsStoryboard.storyboard in Resources */,
 				114B30B21DF90A57008A57F1 /* LaunchScreen.storyboard in Resources */,
 				10D36C621E5FE0C400D79664 /* CustomCopySecondCell.xib in Resources */,
-				1077C3E91E7909D500135818 /* four_landscape.imageset in Resources */,
 				10DE83021E72A873001F6FDA /* BrightnessTableViewCell.xib in Resources */,
 				103303231E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard in Resources */,
 				103303381E52AD8400E7D24C /* NetworkStatusStoryboard.storyboard in Resources */,
@@ -733,13 +715,11 @@
 				1033033B1E52AD9F00E7D24C /* WiFiSetupStoryboard.storyboard in Resources */,
 				10DE83061E72A8AE001F6FDA /* HeaderTableViewCell.xib in Resources */,
 				114B30AF1DF90A57008A57F1 /* Assets.xcassets in Resources */,
-				1077C3EC1E7909D500135818 /* two_landscape.imageset in Resources */,
 				114B30AD1DF90A57008A57F1 /* Main.storyboard in Resources */,
 				103303201E52AC2500E7D24C /* InkLevelStoryboard.storyboard in Resources */,
 				1156AAF41E1E2EFC009C2493 /* TableViewCell1.xib in Resources */,
 				10DE830A1E72A935001F6FDA /* ItemsTableViewCell.xib in Resources */,
 				1033033E1E52ADC100E7D24C /* GCPStoryboard.storyboard in Resources */,
-				1077C3EB1E7909D500135818 /* one.imageset in Resources */,
 				1033031D1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard in Resources */,
 				103303441E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard in Resources */,
 			);
@@ -940,7 +920,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -984,7 +964,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
