@@ -11,22 +11,16 @@ import UIKit
 class SettingsTableViewCell: UITableViewCell {
     
     var settingName: UILabel!
-    private var accesoryHeight : CGFloat!
-    private var accessoryWidth : CGFloat!
-    
   
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
       
-        settingName = UILabel(frame: CGRect(x: self.frame.height / 4, y: 0, width: self.frame.width * 0.75, height: self.frame.height))
+        settingName = UILabel(frame: CGRect(x: self.frame.height / 4, y: 0, width: self.frame.width / 2, height: self.frame.height))
         settingName.textAlignment = .left
-        accesoryHeight = self.frame.height * 0.9
-        accessoryWidth = accesoryHeight * 0.467
-        
         self.addSubview(settingName)
-        
+
         
     }
     
@@ -39,13 +33,8 @@ class SettingsTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected{
-            let iv = UIImageView(frame: CGRect(x: 0, y: 0, width: accessoryWidth, height: accesoryHeight))
-            iv.contentMode = .scaleAspectFill
-            iv.image = #imageLiteral(resourceName: "checkmark_list")
-            self.accessoryView = iv
+            self.accessoryView = UIImageView(image: #imageLiteral(resourceName: "checkmark_list"))
           
-        }else{
-            self.accessoryView = .none
         }
         
      

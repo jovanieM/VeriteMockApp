@@ -28,8 +28,8 @@ class SettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource{
         didSet{
             let tableView:UITableView = UITableView()
             tableView.frame = CGRect(x: 0, y: 0, width: width, height: CGFloat(computeHeight(numberOfItems: data.count)) * 44.0)
-            
-            let detail: PrintPhotoVC = PrintPhotoVC()
+            let detail: DetailViewController = DetailViewController()
+            //let detail: CustomCopyViewController = CustomCopyViewController()
             
             let index: Int = detail.getSavedData(receiver: propertyIndex!.row) ?? 0
             
@@ -38,7 +38,7 @@ class SettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource{
             tableView.dataSource = self
             tableView.selectRow(at: IndexPath.init(row: index, section: 0), animated: false, scrollPosition: .middle)
             self.addSubview(tableView)
-
+            
             
         }
     }
@@ -48,14 +48,12 @@ class SettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource{
     override init(frame: CGRect){
         super.init(frame: frame)
         width = frame.width
-        self.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7)
-        
     
     }
     
     func computeHeight(numberOfItems: Int) ->Int{
         if numberOfItems > 5 {
-            let height = UIScreen.main.bounds.height * 0.7
+            let height = UIScreen.main.bounds.height * 0.8
             return Int(height / 44.0)
         }else{
             return numberOfItems
@@ -87,9 +85,6 @@ class SettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = SettingsTableViewCell(style: .default, reuseIdentifier: "cellId")
-        cell.preservesSuperviewLayoutMargins = false
-        cell.separatorInset = UIEdgeInsets.zero
-        cell.layoutMargins = UIEdgeInsets.zero
         
 //        if indexPath.row == 0{
 //            cell.setSelected(true, animated: false)
@@ -97,11 +92,9 @@ class SettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource{
 //            cell.setSelected(false, animated: false)
 //        }
         cell.settingName.text = data[indexPath.row]
-        
-        
+               
         return cell
     }
-
     
    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

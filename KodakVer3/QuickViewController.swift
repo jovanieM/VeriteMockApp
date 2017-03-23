@@ -8,23 +8,16 @@
 
 import UIKit
 
-protocol QuickViewControllerDelegate: class {
-    func quickToDetail()
-}
-
 class QuickViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var quickSettings: UITableView!
     
-    //private let selectedCellKey = "choice"
-    //let defaultSelection = UserDefaults.standard
-    weak var quickDelegate : QuickViewControllerDelegate?
-    
+    private let selectedCellKey = "choice"
+    let defaultSelection = UserDefaults.standard
+      
     var sizes = ["Photo 4x6 in. borderless", "Photo Letter borderless", "Document Letter"]
     
     var cell: SettingsTableViewCell!
-    
-    var onSelect: (() -> Void)? = nil
     
     private let kSeparatorID = 123
     private let kSeparatorHeight: CGFloat = 1.5
@@ -34,13 +27,13 @@ class QuickViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return button
     }()
     
-//    func setDefault(value : Int){
-//        defaultSelection.set(value, forKey: selectedCellKey)
-//    
-//    }
-//    func getDefault()->Int{
-//        return defaultSelection.integer(forKey: selectedCellKey)
-//    }
+    func setDefault(value : Int){
+        defaultSelection.set(value, forKey: selectedCellKey)
+    
+    }
+    func getDefault()->Int{
+        return defaultSelection.integer(forKey: selectedCellKey)
+    }
     
     
     
@@ -65,9 +58,9 @@ class QuickViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.backgroundColor = .black
         cell.textLabel?.textColor = .lightGray
         cell.textLabel?.text = sizes[indexPath.row]
-//        if indexPath.row == getDefault(){
-//            cell.isSelected = true
-//        }
+        if indexPath.row == getDefault(){
+            cell.isSelected = true
+        }
       
         //cell.isSelected = true
         
@@ -75,7 +68,6 @@ class QuickViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
         if cell.viewWithTag(kSeparatorID) == nil
         {
             let separatorView = UIView(frame: CGRect(x: 0, y: cell.frame.height - kSeparatorHeight , width: cell.frame.width, height: kSeparatorHeight))
@@ -88,11 +80,9 @@ class QuickViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
     
-       // setDefault(value: indexPath.row)
+        setDefault(value: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: false)
-        self.quickDelegate?.quickToDetail()
-        self.onSelect!()
- 
+
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {

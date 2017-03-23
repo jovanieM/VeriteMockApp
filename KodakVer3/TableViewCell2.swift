@@ -10,12 +10,6 @@ import UIKit
 
 class TableViewCell2: UITableViewCell {
     
-//    var setting : SettingsObject?{
-//        didSet{
-//            selectionLabel.text = setting?.setting
-//        }
-//    }
-//    
     
     @IBOutlet weak var mainLabel: UILabel!
    
