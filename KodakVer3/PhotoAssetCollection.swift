@@ -29,6 +29,9 @@ class PhotoAssetCollection: UITableViewController {
      
         
     }
+    @IBAction func unwindAfterPrintingDone(segue: UIStoryboardSegue){
+        
+    }
   
     
     func grabPhoto(){
@@ -128,6 +131,7 @@ class PhotoAssetCollection: UITableViewController {
         vc.name = folderInfoArray.name[(tableView.indexPathForSelectedRow?.row)!]
 //        vc.imageArray = il.imageData[(tableView.indexPathForSelectedRow?.row)!]
         vc.collections = phAssetCollections[(tableView.indexPathForSelectedRow?.row)!]
+        tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: false)
         //(tableView.indexPathForSelectedRow?.row)!
     }
     override func viewWillAppear(_ animated: Bool) {
