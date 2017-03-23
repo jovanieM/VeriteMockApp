@@ -495,7 +495,7 @@
                                             <constraint firstItem="eHY-1L-IE7" firstAttribute="centerY" secondItem="Zuv-ic-Ksw" secondAttribute="centerY" id="y16-78-rCm"/>
                                         </constraints>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="zdz-w6-Q4y" appends="YES" id="tYi-vX-1uH"/>
+                                            <outletCollection property="gestureRecognizers" destination="Ppy-C9-OTJ" appends="YES" id="BZs-XG-tzB"/>
                                         </connections>
                                     </view>
                                 </subviews>
@@ -544,9 +544,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2U-oL-bOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="zdz-w6-Q4y">
+                <tapGestureRecognizer id="Ppy-C9-OTJ">
                     <connections>
-                        <segue destination="SHr-Fx-UxA" kind="show" id="nfT-GX-xDb"/>
+                        <segue destination="SHr-Fx-UxA" kind="show" id="XHy-dl-BJR"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

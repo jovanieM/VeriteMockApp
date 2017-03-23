@@ -335,7 +335,6 @@
 		103303211E52AC2900E7D24C /* PrintPhotoStoryboard */ = {
 			isa = PBXGroup;
 			children = (
-				114159311E83CC3B007276CA /* PrintMultiViewController.swift */,
 				103303221E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard */,
 				11F865951E530B1D00326907 /* PrintPhotoHomeVC.swift */,
 				11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */,
@@ -346,6 +345,7 @@
 				118A67E81E6565BE00B0107C /* BoxBackGround.swift */,
 				1113B2DD1E66649300CC4BA2 /* SizeHelper.swift */,
 				11072BB91E72756600F7CF99 /* CustomCollectionViewCell.swift */,
+				114159311E83CC3B007276CA /* PrintMultiViewController.swift */,
 			);
 			name = PrintPhotoStoryboard;
 			sourceTree = "<group>";

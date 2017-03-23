@@ -12,9 +12,11 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     
+    @IBOutlet weak var curtainView: UIView!
+    
     var portrait : Bool!
     var extendedWidth : CGFloat!
- 
+    
     var imageView : UIImageView!
     
     var imageAspect : CGFloat!
@@ -24,6 +26,10 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
     var originalRectOfImage : CGRect!
     var sizeHelperRect : CGRect!
     
+    @IBOutlet weak var adjustImageLabel: UILabel!
+    @IBOutlet weak var swipePinchLabel: UILabel!
+    @IBOutlet weak var adjustHintIV: UIImageView!
+    
     @IBAction func reset(_ sender: Any) {
         
         prevTranslateX = 0.0
@@ -31,14 +37,21 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
         lastScale = 0.0
         updateUI()
     }
-   
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        curtainView.removeFromSuperview()
+        adjustHintIV.removeFromSuperview()
+        swipePinchLabel.removeFromSuperview()
+        adjustImageLabel.removeFromSuperview()
+    }
     
     @IBAction func rotateView(_ sender: Any) {
         
         portrait = !portrait
         cont.portrait = portrait
         gest.portrait = portrait
-
+        
         updateUI()
         
     }
@@ -52,7 +65,7 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
         
         imageView.center = cont.center
         sizeHelperRect = imageFrame.getRect(portrait: portrait)
-     
+        
         
         
         self.view.setNeedsLayout()
@@ -65,19 +78,19 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var origin : CGPoint!
     var imageFrame: SizeHelper!
- 
+    
     @IBOutlet weak var gest: BoxForeground!{
         didSet{
             gest.portrait = portrait
         }
     }
-      
+    
     @IBOutlet weak var cont: BoxBackGround!{
         didSet{
             cont.portrait = portrait
         }
     }
-       
+    
     
     var image : UIImage!{
         didSet{
@@ -85,14 +98,14 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
             portrait = image.size.height > image.size.width ? true : false
             imageAspect = min(image.size.width, image.size.height) / max(image.size.width, image.size.height)
             print("image aspect = \(min(image.size.width, image.size.height) / max(image.size.width, image.size.height))")
-
+            
         }
     }
-   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-               print("viewDidLoad \(cont.frame)")
+        print("viewDidLoad \(cont.frame)")
         let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(pan:)))
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(pinchHandler(sender:)))
         pinch.delegate = self
@@ -107,26 +120,26 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
         gest.addGestureRecognizer(pan)
         gest.addGestureRecognizer(pinch)
         
-      
+        
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return false
     }
-   
+    
     override func viewDidLayoutSubviews() {
         updateUI()
-
+        
         print(imageView.frame.size)
         print(image.size)
-     
+        
         print("didLayout \(imageView.frame.midY)")
         print("didLayout \(gest.bounds.midY)")
         print("didLayout \(imageFrame.origin)")
         print("didLayout \(imageView.frame.origin)")
-       
+        
         print("imageViewImageSize \(imageView.frameForImageInImageViewAspectfill().size.width)")
-         print("imageViewSize \(imageView.frame.size.width)")
+        print("imageViewSize \(imageView.frame.size.width)")
         
         
     }
@@ -141,7 +154,7 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
     var prevTranslateY : CGFloat = 0.0
     var lastTranslate : CGFloat!
     var counter = 0
-   
+    
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: false, completion: nil)
     }
@@ -151,16 +164,16 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
         let dis = pan.translation(in: gest)
         //print(pan.setTranslation(.init(x: 10.0, y: 10.0), in: gest))
         
-      
+        
         if pan.state == .began{
-           
+            
             
         }else if pan.state == .changed{
             
             if dis.x + 2.0 < 0.0 && abs(dis.x + prevTranslateX) < (imageView.frame.size.width * 0.5) + (imageFrame.size.width * 0.5) + 2.0
             {
                 imageView.center.x = gest.bounds.midX +  dis.x
-               
+                
             }
             
             if dis.x + 2.0 > 0.0 && abs(dis.x + prevTranslateX) < (imageView.frame.size.width * 0.5) + (imageFrame.size.width * 0.5) + 2.0
@@ -180,35 +193,35 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }else if pan.state == .ended{
             pan.setTranslation(dis, in: gest)
-
             
             
-//            if abs(lastTranslateX) < (imageView.frame.size.width * 0.5) + (imageFrame.size.width * 0.5) + 2.0{
-//                prevTranslateX =  lastTranslateX
-//            }else{
-//                prevTranslateX = 0.0
-//            }
-//            if abs(lastTranslateY) < (imageView.frame.size.height * 0.5) + (imageFrame.size.height * 0.5) + 2.0{
-//                prevTranslateY = lastTranslateY
-//            }else{
-//                prevTranslateY = 0.0
-//            }
-
-//            imageView.center.x = gest.bounds.midX + dis.x
-//            imageView.center.y = gest.bounds.midY + dis.y
+            
+            //            if abs(lastTranslateX) < (imageView.frame.size.width * 0.5) + (imageFrame.size.width * 0.5) + 2.0{
+            //                prevTranslateX =  lastTranslateX
+            //            }else{
+            //                prevTranslateX = 0.0
+            //            }
+            //            if abs(lastTranslateY) < (imageView.frame.size.height * 0.5) + (imageFrame.size.height * 0.5) + 2.0{
+            //                prevTranslateY = lastTranslateY
+            //            }else{
+            //                prevTranslateY = 0.0
+            //            }
+            
+            //            imageView.center.x = gest.bounds.midX + dis.x
+            //            imageView.center.y = gest.bounds.midY + dis.y
             //savePointX = round(pan.translation(in: gest).x) + savePointX
             
             
-//            if pan.translation(in: gest).y > 0.0 {
-//                imageView.center.x = gest.bounds.midX
-//                imageView.center.y = gest.bounds.midY
-//            }
+            //            if pan.translation(in: gest).y > 0.0 {
+            //                imageView.center.x = gest.bounds.midX
+            //                imageView.center.y = gest.bounds.midY
+            //            }
             
         }
         else if pan.state == .failed{
-        
+            
         }
-    
+        
     }
     var lastScale: CGFloat = 0.0
     
@@ -218,7 +231,7 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
         let initial : CGFloat!
         let rect = CGRect(x: 70, y: 70, width: 300, height: 400)
         if sender.state == .began{
-           
+            
             initial = sender.scale
             if lastScale != 0.0{
                 lastScale = lastScale - initial
@@ -229,15 +242,15 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
             if newScale >= 0.28 && newScale <= 7.0 {
                 if !imageView.frame.intersects(rect){
                     print("not intersect")
-                   imageView.center.x = gest.bounds.midX + (imageFrame.size.width / 2) + (imageView.frame.size.width / 2)
-
+                    imageView.center.x = gest.bounds.midX + (imageFrame.size.width / 2) + (imageView.frame.size.width / 2)
+                    
                 }
-                 imageView.transform = CGAffineTransform(scaleX: newScale, y: newScale)
+                imageView.transform = CGAffineTransform(scaleX: newScale, y: newScale)
                 
             }
             
         }else if sender.state == .ended{
-           
+            
             
             let s = sender.scale + lastScale
             
@@ -248,7 +261,7 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-
+    
     
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
@@ -259,9 +272,9 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
     
- 
-
-
+    
+    
+    
 }
 extension UIImageView{
     
