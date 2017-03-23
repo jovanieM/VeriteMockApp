@@ -134,8 +134,8 @@ class PrintPhotoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
         self.quickTableView.delegate = self
         self.quickTableView.dataSource = self
-        let set = Settings(rawValue: 0)
-        print("quickdefault \(set)")
+        
+        
         self.detailTableView.delegate = self
         self.detailTableView.dataSource = self
         
