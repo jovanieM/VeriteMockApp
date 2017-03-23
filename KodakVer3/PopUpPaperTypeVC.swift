@@ -17,13 +17,12 @@ class PopUpPaperTypeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var paperTypeTable: UITableView!
     
     var data:String?
+    
     var delegate: PaperTypeProtocol? = nil
-    let textCellIdentifier = "cell"
-    let defaultPaperType = UserDefaults.standard
-    private let selectedKey = "choice"
     
     let paperTypeList = ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"]
     
+    let textCellIdentifier = "cell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,13 +48,8 @@ class PopUpPaperTypeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = paperTypeTable.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
-//        cell.textLabel?.text = paperTypeList[indexPath.row]
-        let cell = SettingsTableViewCell(style: .default, reuseIdentifier: textCellIdentifier)
+        let cell = paperTypeTable.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         cell.textLabel?.text = paperTypeList[indexPath.row]
-        if indexPath.row == getDefault(){
-         cell.isSelected = true
-        }
         
         return cell
     }
@@ -69,21 +63,21 @@ class PopUpPaperTypeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             delegate?.setTableRow(dataRow: data!)
         }
         
-        setDefault(value: indexPath.row)
-        tableView.deselectRow(at: indexPath, animated: false)
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func dismissButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    func setDefault(value: Int){
-        defaultPaperType.set(value, forKey: selectedKey)
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
-    
-    func getDefault()->Int{
-        return defaultPaperType.integer(forKey: selectedKey)
-    }
+    */
 
 }

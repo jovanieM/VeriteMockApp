@@ -60,7 +60,7 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
         cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
         cell.detailTextLabel?.text = "Connected"
-        cell.detailTextLabel?.isHidden = true
+//        cell.detailTextLabel?.isHidden = true
         cell.textLabel?.text = networks[indexPath.row]
         return cell
     }

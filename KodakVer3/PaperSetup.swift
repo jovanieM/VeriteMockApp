@@ -61,8 +61,8 @@ class PaperSetup: UIViewController, PaperSizeProtocol, PaperTypeProtocol{
         
         loadAlerts()
         
-//        paperSizeButton.setTitle("Letter               ", for: .normal)
-//        paperTypeButton.setTitle("Plain                ", for: .normal)        
+        paperSizeButton.setTitle("Letter               ", for: .normal)
+        paperTypeButton.setTitle("Plain                ", for: .normal)        
         
         // button
         saveSettingButton.layer.cornerRadius = 15
