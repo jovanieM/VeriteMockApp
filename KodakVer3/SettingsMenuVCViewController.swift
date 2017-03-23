@@ -18,13 +18,13 @@ class SettingsMenuVCViewController: UIViewController {
     }
     
     // to scan settings storyboard
-   /*
+   
      @IBAction func toScanSettings(_ sender: UIButton) {
         let scanSettingsSB = UIStoryboard(name: "ScanSettingsStoryboard", bundle: nil)
         let scanSettingsVC = scanSettingsSB.instantiateInitialViewController()!
         self.show(scanSettingsVC, sender: self)
     }
-    */
+   
     // to device settings storyboard
     @IBAction func toDeviceSettings(_ sender: UIButton) {
         let deviceSettingsSB = UIStoryboard(name: "DeviceSettingsStoryboard", bundle: nil)

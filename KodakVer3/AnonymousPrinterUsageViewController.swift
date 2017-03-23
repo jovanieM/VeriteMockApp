@@ -10,12 +10,19 @@ import UIKit
 
 class AnonymousPrinterUsageViewController: UIViewController {
 
-    @IBOutlet weak var agreeButton: UIButton!
+    @IBOutlet weak var checkboxImage: UIImageView!
     
     @IBOutlet weak var savesettingButton: UIButton!
     
+    @IBOutlet weak var checkboxButton: UIButton!
+   
+    var isboxClicked: Bool!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
 
         savesettingButton.layer.cornerRadius = 15;
         savesettingButton.layer.borderWidth = 1;
@@ -44,21 +51,19 @@ class AnonymousPrinterUsageViewController: UIViewController {
 
     
     }
+    
+    @IBAction func acceptButton(_ sender: UIButton) {
+        
+        if(checkboxImage.image == UIImage(named: "check_box_small_off")){
+            checkboxImage.image = UIImage(named: "check_box_on_orange")
+        } else {
+            checkboxImage.image = UIImage(named: "check_box_small_off")
+        }
+        
+        
+    }
 
     
-    @IBAction func acceptButton(_ sender: Any) {
-        
-        if (agreeButton.isSelected == true)
-        {
-            agreeButton.setImage(#imageLiteral(resourceName: "checkmark_large"), for: .normal)
-            agreeButton.isSelected = false;
-        }
-        else{
-            agreeButton.setImage(#imageLiteral(resourceName: "checkmark_list_none"), for: .normal)
-            agreeButton.isSelected = true;
-        }
-
-    }
     
     @IBAction func savebuttonPressed(_ sender: Any) {
         

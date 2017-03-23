@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vCZ-3U-THC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vCZ-3U-THC">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,8 +41,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KODAK VERITE 55" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHE-TZ-9k1">
-                                        <rect key="frame" x="84" y="156" width="152" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KODAK VERITE 55 PLUS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHE-TZ-9k1">
+                                        <rect key="frame" x="28" y="156" width="259" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,7 +62,7 @@
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="pcO-0E-wax" kind="show" id="sX7-YR-F4M"/>
+                                            <segue destination="96q-E2-aF9" kind="show" id="Cfo-rh-lYp"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Terms of Use" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ci-ov-dcg">
@@ -139,43 +139,123 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uzR-vp-KNq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2532" y="-645.42728635682158"/>
+            <point key="canvasLocation" x="6521.25" y="-646.47887323943667"/>
         </scene>
-        <!--TermsOfUse View Controller-->
-        <scene sceneID="F9d-pZ-Rde">
+        <!--AnonymousPrinter View Controller-->
+        <scene sceneID="Gmp-cL-daa">
             <objects>
-                <viewController id="pcO-0E-wax" userLabel="TermsOfUse View Controller" customClass="SettingsMenuVCViewController" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WzU-TW-Hur" userLabel="AnonymousPrinter View Controller" customClass="AnonymousPrinterUsageViewController" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IgA-8C-GPu"/>
-                        <viewControllerLayoutGuide type="bottom" id="3sR-cG-brI"/>
+                        <viewControllerLayoutGuide type="top" id="UBw-md-Yx2"/>
+                        <viewControllerLayoutGuide type="bottom" id="5TO-Uv-qPZ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6tN-Oc-xKJ">
+                    <view key="view" contentMode="scaleToFill" id="qsz-xR-t9v">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1Q-NV-WaO" userLabel="ViewTermsOfUse">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sln-Cy-PAD" userLabel="ViewAnonymousPrinter">
+                                <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ar8-6F-HUF">
+                                <rect key="frame" x="27" y="275" width="54" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Terms of Use" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3J-v1-YtI">
-                                        <rect key="frame" x="0.0" y="15" width="320" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check_box_small_off" translatesAutoresizingMaskIntoConstraints="NO" id="bL0-BB-qA1">
+                                        <rect key="frame" x="8" y="8" width="24" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxV-hn-T3T">
+                                        <rect key="frame" x="-13" y="-7" width="67" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="acceptButton:" destination="WzU-TW-Hur" eventType="touchUpInside" id="FxM-EA-hr6"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1N-M0-bJl">
-                                <rect key="frame" x="0.0" y="61" width="320" height="487"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSd-8W-Oah">
+                                <rect key="frame" x="40" y="362" width="252" height="34"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="0.59821109480000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Save Setting">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="savebuttonPressed:" destination="WzU-TW-Hur" eventType="touchUpInside" id="gEf-oS-0Zz"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I have reviewed and accept the agreements and settings." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xa-U1-Zk0">
+                                <rect key="frame" x="80" y="275" width="212" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Anonymous Printer Usage Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhL-kM-LRd">
+                                <rect key="frame" x="0.0" y="28" width="320" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upu-UH-hMB">
+                                <rect key="frame" x="27" y="99" width="265" height="134"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <string key="text">To improve future versions of Kodak printers, allow printer to periodically send anonymous usage data to Funai.  In addition, Funai use the collected data from the printer to activate your warranty, and allow printer to check for firmware updates.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="checkboxButton" destination="hxV-hn-T3T" id="NbC-uA-pyw"/>
+                        <outlet property="checkboxImage" destination="bL0-BB-qA1" id="KJx-IV-gKd"/>
+                        <outlet property="savesettingButton" destination="jSd-8W-Oah" id="oRR-qH-Kd3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JUE-FE-OAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3528.75" y="116.19718309859155"/>
+        </scene>
+        <!--TermsOfUse View Controller-->
+        <scene sceneID="Vs2-Km-xnK">
+            <objects>
+                <viewController id="96q-E2-aF9" userLabel="TermsOfUse View Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PKE-Ud-cOG"/>
+                        <viewControllerLayoutGuide type="bottom" id="XpW-ZR-gWo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r21-Ud-lTR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Use" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJh-YX-XzO">
+                                <rect key="frame" x="0.0" y="20" width="316" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="6nf-Un-H6O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Zi-UE-E1s">
+                                <rect key="frame" x="0.0" y="62" width="320" height="506"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WG9-G9-R7E">
-                                        <rect key="frame" x="0.0" y="0.0" width="312" height="446"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIA-3l-6Xi">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="6200"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PgO-OC-SJP">
-                                                <rect key="frame" x="16" y="0.0" width="303" height="485"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s1-qb-md6">
+                                                <rect key="frame" x="12" y="8" width="294" height="5830"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                <string key="text">FUNAI SOFTWARE LIMITED WARRANTY AND LICENSE AGREEMENT
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5830" id="Bj9-MR-0dy"/>
+                                                </constraints>
+                                                <mutableString key="text">FUNAI SOFTWARE LIMITED WARRANTY AND LICENSE AGREEMENT
 
 This License Agreement is a separate legal agreement between you (either an individual or a single entity) and Funai Electric Co., Ltd. ("Funai") that, to the extent your Funai product or Software Program is not otherwise subject to a written software license agreement between you and Funai or its suppliers, governs your use of any Software Program installed on or provided by Funai for use in connection with your Funai product. The term "Software Program" includes machine-readable instructions, audio/visual content (such as images and recordings), and associated media, printed materials and electronic documentation, whether incorporated into, distributed with or for use with your Funai product. 
 
@@ -223,146 +303,51 @@ d. 	OTHER SOFTWARE.  Notwithstanding the terms and conditions of this License Ag
 
 18. 	THIRD PARTY BENEFICIARY. Except as expressly provided herein, this License Agreement shall not benefit or create any right or cause of action in or on behalf of any person other than the parties hereto; provided that, the terms of this License Agreement may be varied in any way or waived, or this License Agreement may be terminated without the consent of any such third party beneficiary.
 
-19.	ENTIRE AGREEMENT.  This License Agreement (including any addendum or amendment to this License Agreement that is included with the Software Program) is the entire agreement between you and Funai relating to the Software Program and any other subject matter hereof.  Except as otherwise expressly provided for herein, these terms and conditions supersede all prior or contemporaneous oral or written communications, proposals and representations with respect to the Software Program or any other subject matter covered by this License Agreement (except to the extent such extraneous terms do not conflict with the terms of this License Agreement, any other written agreement signed by you and Funai relating to your Use of the Software Program).  To the extent any Funai policies or programs for support services conflict with the terms of this License Agreement, the terms of this License Agreement shall control.
-
-</string>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+19.	ENTIRE AGREEMENT.  This License Agreement (including any addendum or amendment to this License Agreement that is included with the Software Program) is the entire agreement between you and Funai relating to the Software Program and any other subject matter hereof.  Except as otherwise expressly provided for herein, these terms and conditions supersede all prior or contemporaneous oral or written communications, proposals and representations with respect to the Software Program or any other subject matter covered by this License Agreement (except to the extent such extraneous terms do not conflict with the terms of this License Agreement, any other written agreement signed by you and Funai relating to your Use of the Software Program).  To the extent any Funai policies or programs for support services conflict with the terms of this License Agreement, the terms of this License Agreement shall control.</mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="PgO-OC-SJP" firstAttribute="top" secondItem="WG9-G9-R7E" secondAttribute="top" id="OkS-RR-Ure"/>
-                                            <constraint firstItem="PgO-OC-SJP" firstAttribute="leading" secondItem="WG9-G9-R7E" secondAttribute="leading" constant="16" id="R5e-Q2-0yl"/>
-                                            <constraint firstAttribute="trailing" secondItem="PgO-OC-SJP" secondAttribute="trailing" constant="-7" id="W6g-4G-jF1"/>
-                                            <constraint firstAttribute="bottom" secondItem="PgO-OC-SJP" secondAttribute="bottom" constant="-39" id="aqi-Gm-T2v"/>
-                                            <constraint firstAttribute="width" constant="312" id="kPA-Ki-MO0"/>
+                                            <constraint firstItem="5s1-qb-md6" firstAttribute="leading" secondItem="AIA-3l-6Xi" secondAttribute="leading" constant="12" id="5Bg-dh-uUV"/>
+                                            <constraint firstAttribute="height" constant="6200" id="JFa-W7-uze"/>
+                                            <constraint firstAttribute="trailing" secondItem="5s1-qb-md6" secondAttribute="trailing" constant="14" id="ecj-0V-h4X"/>
+                                            <constraint firstItem="5s1-qb-md6" firstAttribute="top" secondItem="AIA-3l-6Xi" secondAttribute="top" constant="8" id="jiA-I8-YNh"/>
+                                            <constraint firstAttribute="width" constant="320" id="oOP-Ud-vjg"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="WG9-G9-R7E" firstAttribute="centerY" secondItem="j1N-M0-bJl" secondAttribute="centerY" constant="-20.5" id="8Q9-U6-Oy0"/>
-                                    <constraint firstAttribute="trailing" secondItem="WG9-G9-R7E" secondAttribute="trailing" constant="8" id="KBA-Je-DXc"/>
-                                    <constraint firstItem="WG9-G9-R7E" firstAttribute="leading" secondItem="j1N-M0-bJl" secondAttribute="leading" id="LgW-Lk-8es"/>
-                                    <constraint firstAttribute="bottom" secondItem="WG9-G9-R7E" secondAttribute="bottom" constant="41" id="YKX-bf-xae"/>
-                                    <constraint firstItem="WG9-G9-R7E" firstAttribute="top" secondItem="j1N-M0-bJl" secondAttribute="top" id="bao-iJ-bmz"/>
+                                    <constraint firstAttribute="trailing" secondItem="AIA-3l-6Xi" secondAttribute="trailing" id="S3j-Uf-gzT"/>
+                                    <constraint firstAttribute="width" constant="320" id="XSC-iS-Kv4"/>
+                                    <constraint firstItem="AIA-3l-6Xi" firstAttribute="top" secondItem="4Zi-UE-E1s" secondAttribute="top" id="ZtY-rx-hJA"/>
+                                    <constraint firstItem="AIA-3l-6Xi" firstAttribute="leading" secondItem="4Zi-UE-E1s" secondAttribute="leading" id="bRU-XU-o2j"/>
+                                    <constraint firstAttribute="bottom" secondItem="AIA-3l-6Xi" secondAttribute="bottom" id="wgy-Oi-bLc"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="j1N-M0-bJl" firstAttribute="centerX" secondItem="6tN-Oc-xKJ" secondAttribute="centerX" id="3GG-M4-4N7"/>
-                            <constraint firstItem="j1N-M0-bJl" firstAttribute="top" secondItem="K1Q-NV-WaO" secondAttribute="bottom" constant="11" id="6tt-en-uOM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="j1N-M0-bJl" secondAttribute="trailing" constant="-16" id="DCb-pb-orb"/>
-                            <constraint firstItem="K1Q-NV-WaO" firstAttribute="trailing" secondItem="j1N-M0-bJl" secondAttribute="trailing" id="HLh-gQ-U57"/>
-                            <constraint firstItem="K1Q-NV-WaO" firstAttribute="leading" secondItem="6tN-Oc-xKJ" secondAttribute="leadingMargin" constant="-16" id="Mxg-gD-Uyf"/>
-                            <constraint firstItem="j1N-M0-bJl" firstAttribute="leading" secondItem="6tN-Oc-xKJ" secondAttribute="leadingMargin" constant="-16" id="Wf3-ob-Rj3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="K1Q-NV-WaO" secondAttribute="trailing" constant="-16" id="dXv-H5-ZR3"/>
-                            <constraint firstItem="K1Q-NV-WaO" firstAttribute="top" secondItem="IgA-8C-GPu" secondAttribute="bottom" constant="-20" id="gC2-dz-ya8"/>
-                            <constraint firstItem="j1N-M0-bJl" firstAttribute="top" secondItem="6tN-Oc-xKJ" secondAttribute="top" constant="61" id="kXL-bz-OOo"/>
-                            <constraint firstItem="K1Q-NV-WaO" firstAttribute="centerX" secondItem="6tN-Oc-xKJ" secondAttribute="centerX" id="rSu-St-ote"/>
-                            <constraint firstItem="K1Q-NV-WaO" firstAttribute="leading" secondItem="j1N-M0-bJl" secondAttribute="leading" id="upU-m7-m9Q"/>
-                            <constraint firstItem="j1N-M0-bJl" firstAttribute="bottom" secondItem="3sR-cG-brI" secondAttribute="top" constant="-20" id="xDH-ei-B5d"/>
+                            <constraint firstItem="PJh-YX-XzO" firstAttribute="top" secondItem="PKE-Ud-cOG" secondAttribute="bottom" id="A3X-zm-ilZ"/>
+                            <constraint firstItem="PJh-YX-XzO" firstAttribute="leading" secondItem="4Zi-UE-E1s" secondAttribute="leading" id="OvC-X3-oB7"/>
+                            <constraint firstItem="4Zi-UE-E1s" firstAttribute="top" secondItem="PJh-YX-XzO" secondAttribute="bottom" constant="16" id="Tr3-aN-T1r"/>
+                            <constraint firstItem="XpW-ZR-gWo" firstAttribute="top" secondItem="4Zi-UE-E1s" secondAttribute="bottom" id="UYX-bw-y3U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PJh-YX-XzO" secondAttribute="trailing" constant="-12" id="aZz-wN-Web"/>
+                            <constraint firstAttribute="trailing" secondItem="4Zi-UE-E1s" secondAttribute="trailing" id="gjj-q5-wl0"/>
+                            <constraint firstItem="4Zi-UE-E1s" firstAttribute="leading" secondItem="r21-Ud-lTR" secondAttribute="leading" id="yp6-8H-P1V"/>
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FXm-PW-ueR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7w7-he-rfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3406.875" y="-646.47887323943667"/>
-        </scene>
-        <!--AnonymousPrinter View Controller-->
-        <scene sceneID="Gmp-cL-daa">
-            <objects>
-                <viewController id="WzU-TW-Hur" userLabel="AnonymousPrinter View Controller" customClass="AnonymousPrinterUsageViewController" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UBw-md-Yx2"/>
-                        <viewControllerLayoutGuide type="bottom" id="5TO-Uv-qPZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qsz-xR-t9v">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sln-Cy-PAD" userLabel="ViewAnonymousPrinter">
-                                <rect key="frame" x="0.0" y="64" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Anonymous Printer Usage Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhL-kM-LRd">
-                                        <rect key="frame" x="0.0" y="15" width="320" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oK6-i0-s4z" userLabel="Agreement Text View">
-                                <rect key="frame" x="27" y="121" width="265" height="99"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">To improve future versions of Kodak printers, allow printer to periodically send anonymous usage data to Funai.  In addition, Funai use the collected data from the printer to activate your warranty, and allow printer to check for firmware updates.</string>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ar8-6F-HUF">
-                                <rect key="frame" x="27" y="275" width="54" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check_box_off" translatesAutoresizingMaskIntoConstraints="NO" id="ahO-D7-6ga">
-                                        <rect key="frame" x="5" y="8" width="41" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxV-hn-T3T">
-                                        <rect key="frame" x="9" y="11" width="33" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <state key="normal" image="checkmark_list_none"/>
-                                        <connections>
-                                            <action selector="acceptButton:" destination="WzU-TW-Hur" eventType="touchUpInside" id="FxM-EA-hr6"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="I have reviewed and accept the agreements and settings." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0wd-v8-4mF" userLabel="Ihavereviewed Text View">
-                                <rect key="frame" x="80" y="275" width="224" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSd-8W-Oah">
-                                <rect key="frame" x="16" y="362" width="288" height="29"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="1" green="0.59821109480000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Save Setting">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="savebuttonPressed:" destination="WzU-TW-Hur" eventType="touchUpInside" id="gEf-oS-0Zz"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <connections>
-                        <outlet property="agreeButton" destination="hxV-hn-T3T" id="tUg-0L-Cvf"/>
-                        <outlet property="savesettingButton" destination="jSd-8W-Oah" id="oRR-qH-Kd3"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JUE-FE-OAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3405" y="61.267605633802816"/>
+            <point key="canvasLocation" x="7288.125" y="-646.47887323943667"/>
         </scene>
     </scenes>
     <resources>
         <image name="allow_next" width="20" height="20"/>
-        <image name="check_box_off" width="53" height="47"/>
-        <image name="checkmark_list_none" width="28" height="60"/>
+        <image name="check_box_small_off" width="23" height="20"/>
         <image name="home_printer_back" width="640" height="360"/>
         <image name="printer_icon_large" width="238" height="81"/>
         <image name="selectmenu" width="640" height="208"/>

@@ -1,5 +1,5 @@
 //
-//  ScandocSettingViewController.swift
+//  ScanPhotoSettingViewController.swift
 //  KodakVer3
 //
 //  Created by SQA on 08/03/2017.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-class ScandocSettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ScanPhotoSettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var ScandocTableView: UITableView!
+//    @IBOutlet weak var ScandocTableView: UITableView!
 
+    @IBOutlet weak var ScanPhotoTableView: UITableView!
     var expandedSections : NSMutableSet = []
     
-    var sectionData : [String] = ["Quality", "Color", "Document", "Save as type"]
-    var row1 = ["Normal", "Low(Fast)", "High"]
-    var row2 = ["Color", "Gray Scale", "Black & White"]
-    var row3 = ["Text/Graphics", "Text"]
-    var row4 = ["JPEG", "PDF"]
+    var sectionData : [String] = ["Quality", "Color", "Document"]
+    var rowQuality = ["Normal", "Low(Fast)", "High"]
+    var rowColor = ["Color", "Gray Scale", "Black & White"]
+    var row3 = ["Photo"]
     
     private let kSeparatorID = 123
     
@@ -27,41 +27,36 @@ class ScandocSettingViewController: UIViewController, UITableViewDelegate, UITab
     var expandedItemList = [Int]()
     var selectedIndexPathSection:Int = -1
     
-    private let qualityKey: String = "Quality"
-    private let colorKey: String = "Color"
+    private let qualityKeyPhoto: String = "QualityPhoto"
+    private let colorKeyPhoto: String = "ColorPhoto"
     private let documentKey: String = "Document"
-    private let saveasKey: String = "Save as type"
     
-    let defaultQuality = UserDefaults.standard
-    let defaultColor = UserDefaults.standard
+    
+    let defaultQualityPhoto = UserDefaults.standard
+    let defaultColorPhoto = UserDefaults.standard
     let defaultDocument = UserDefaults.standard
-    let defaultSaveas = UserDefaults.standard
     
-    func setData (valueRow : Int, valueSection : Int) {
-        switch valueSection {
+    func setDataPhoto (valueRowPhoto : Int, valueSectionPhoto : Int) {
+        switch valueSectionPhoto {
         case 0:
-            defaultQuality.set(valueRow, forKey: qualityKey)
+            defaultQualityPhoto.set(valueRowPhoto, forKey: qualityKeyPhoto)
         case 1:
-            defaultColor.set(valueRow, forKey: colorKey)
+            defaultColorPhoto.set(valueRowPhoto, forKey: colorKeyPhoto)
         case 2:
-            defaultDocument.set(valueRow, forKey: documentKey)
-        case 3:
-            defaultSaveas.set(valueRow, forKey: saveasKey)
+            defaultDocument.set(valueRowPhoto, forKey: documentKey)
         default:
             break
         }
     }
     
-    func getSavedData (valueRow: Int) -> Int {
-        switch valueRow {
+    func getSavedDataPhoto (valueRowPhoto: Int) -> Int {
+        switch valueRowPhoto {
         case 0:
-            return defaultQuality.integer(forKey: qualityKey)
+            return defaultQualityPhoto.integer(forKey: qualityKeyPhoto)
         case 1:
-            return defaultColor.integer(forKey: colorKey)
+            return defaultColorPhoto.integer(forKey: colorKeyPhoto)
         case 2:
             return defaultDocument.integer(forKey: documentKey)
-        case 3:
-            return defaultSaveas.integer(forKey: saveasKey)
         default:
             return 0
         }
@@ -71,13 +66,12 @@ class ScandocSettingViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ScandocTableView.delegate = self
-        ScandocTableView.dataSource = self
+        ScanPhotoTableView.delegate = self
+        ScanPhotoTableView.dataSource = self
         
-        ScandocTableView.backgroundColor = .black
-        ScandocTableView.tableFooterView = UIView(frame: .zero)
-        ScandocTableView.tableFooterView?.backgroundColor = .black
-        
+        ScanPhotoTableView.backgroundColor = .black
+        ScanPhotoTableView.tableFooterView = UIView(frame: .zero)
+        ScanPhotoTableView.tableFooterView?.backgroundColor = .black
         
         
     }
@@ -94,7 +88,7 @@ class ScandocSettingViewController: UIViewController, UITableViewDelegate, UITab
         } else {
             expandedSections.removeAllObjects()
         }
-        ScandocTableView.reloadData()
+        ScanPhotoTableView.reloadData()
     }
 
     
@@ -105,26 +99,26 @@ class ScandocSettingViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
  
-        let headerCell = Bundle.main.loadNibNamed("HeaderTableViewCell", owner: self, options: nil)?.first as! HeaderTableViewCell
+        let headerCellPhoto = Bundle.main.loadNibNamed("HeaderTableViewCell", owner: self, options: nil)?.first as! HeaderTableViewCell
         
-        headerCell.mainLabel.text = sectionData[section]
-        headerCell.headerCellButton.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
-        headerCell.headerCellButton.tag = section
+        headerCellPhoto.mainLabel.text = sectionData[section]
+        headerCellPhoto.headerCellButton.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
+        headerCellPhoto.headerCellButton.tag = section
         
             switch section {
             case 0:
-                headerCell.selectedLabel.text = row1[(getSavedData(valueRow: 0))]
+                headerCellPhoto.selectedLabel.text = rowQuality[(getSavedDataPhoto(valueRowPhoto: 0))]
             case 1:
-                headerCell.selectedLabel.text = row2[(getSavedData(valueRow: 1))]
+                headerCellPhoto.selectedLabel.text = rowColor[(getSavedDataPhoto(valueRowPhoto: 1))]
             case 2:
-                headerCell.selectedLabel.text = row3[(getSavedData(valueRow: 2))]
-            case 3:
-                headerCell.selectedLabel.text = row4[(getSavedData(valueRow: 3))]
+            //    headerCell.selectedLabel.text = row3[(getSavedDataPhoto(valueRowPhoto: 2))]
+                
+                headerCellPhoto.selectedLabel.text = "Photo"
             default:
                 break
             }
         
-        return headerCell
+        return headerCellPhoto
     }
     
     
@@ -138,14 +132,11 @@ class ScandocSettingViewController: UIViewController, UITableViewDelegate, UITab
         if(expandedSections.contains(section)){
             switch section {
             case 0:
-                return row1.count
+                return rowQuality.count
             case 1:
-                return row2.count
+                return rowColor.count
             case 2:
                 return row3.count
-            case 3:
-                return row4.count
-            
             default:
                 return 0
             }}
@@ -162,48 +153,41 @@ class ScandocSettingViewController: UIViewController, UITableViewDelegate, UITab
         
         switch indexPath.section {
         case 0:
-            cell.itemCell?.text = row1[indexPath.row]
-            if(indexPath.row == getSavedData(valueRow: 0) ){
+            cell.itemCell?.text = rowQuality[indexPath.row]
+            
+            if(indexPath.row == getSavedDataPhoto(valueRowPhoto: 0)){
                 cell.checkmark.isHidden = false
             } else {
                 cell.checkmark.isHidden = true
             }
-
-
+            
         case 1:
-            cell.itemCell?.text = row2[indexPath.row]
+            cell.itemCell?.text = rowColor[indexPath.row]
             
-            if(indexPath.row == getSavedData(valueRow: 1) ){
+            if(indexPath.row == getSavedDataPhoto(valueRowPhoto: 1)){
                 cell.checkmark.isHidden = false
             } else {
                 cell.checkmark.isHidden = true
             }
-            
+
         case 2:
             cell.itemCell?.text = row3[indexPath.row]
             
-            if(indexPath.row == getSavedData(valueRow: 2) ){
+            if(indexPath.row == getSavedDataPhoto(valueRowPhoto: 2)){
                 cell.checkmark.isHidden = false
             } else {
                 cell.checkmark.isHidden = true
             }
-            
-        case 3:
-            cell.itemCell?.text = row4[indexPath.row]
-            
-            if(indexPath.row == getSavedData(valueRow: 3) ){
-                cell.checkmark.isHidden = false
-            } else {
-                cell.checkmark.isHidden = true
-            }
+
         default:
             return cell
         }
+        
+        return cell
+    
+    
+}
 
-       return cell
-    }
-    
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let cell = tableView.cellForRow(at: indexPath) as! ItemsTableViewCell
@@ -213,15 +197,15 @@ class ScandocSettingViewController: UIViewController, UITableViewDelegate, UITab
         NSLog("You selected cell #\(indexPath.section)!")
         NSLog("You selected cell #\(indexPath.row)!")
         
-        setData(valueRow: indexPath.row, valueSection: indexPath.section)
+        setDataPhoto(valueRowPhoto: indexPath.row, valueSectionPhoto: indexPath.section)
         
         
         
         expandedSections.removeAllObjects()
         
-        ScandocTableView.reloadData()
+        ScanPhotoTableView.reloadData()
+
         
     }
         
-
 }

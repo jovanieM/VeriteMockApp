@@ -33,7 +33,7 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
     @IBOutlet weak var name: UILabel!
     var previousPrinter: Int = 0
 
-    var printer: String? = "KODAK VERITE 65 PLUS"
+    var printer: String? = "KODAK VERITE 55 PLUS"
     let listOfPrinters : [String] = ["Kodak 1", "Kodak 2", "Kodak 3", "Kodak 4", "Kodak 5", "Kodak 6", "Kodak 7"]
     var printers : PrinterSelectPopUp!
     
@@ -120,13 +120,14 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
 //        let vc = ScanDocSB.instantiateInitialViewController()!
 //        self.show(vc, sender: self)
 //    }
-//    
-//    @IBAction func AddressPrint(_ sender: Any) {
-//        let AddressPrintSB = UIStoryboard(name: "AddressPrintStoryboard", bundle: nil)
-//        let vc = AddressPrintSB.instantiateInitialViewController()!
-//        self.show(vc, sender: self)
-//    }
-//
+    
+    @IBAction func AddressPrint(_ sender: Any) {
+    
+        let AddressPrintSB = UIStoryboard(name: "AddressPrintStoryboard", bundle: nil)
+        let vc = AddressPrintSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
+
 //    @IBAction func ScanPhoto(_ sender: Any) {
 //        let ScanPhotoSB = UIStoryboard(name: "ScanPhotoStoryboard", bundle: nil)
 //        let vc = ScanPhotoSB.instantiateInitialViewController()!
