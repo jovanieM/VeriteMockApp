@@ -11,8 +11,9 @@ import UIKit
 
 
 
-class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SettingViewDelegate{
+class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SettingViewDelegate, QuickViewControllerDelegate{
     
+  
     var arrayofMainLbl = ["dummy", "Paper Size :", "Color Output :", "Paper Type :", "Print Quality :"]
 
     var collections: [[String]] = [["dummy"],["4x6 in.", "4x6 in. Borderless", "3x5 in", "5x7 in.", "5x7 in. Borderless", "3.5x5 in.(L)", "3.5x5 in.(L) Borderless", "Letter", "Letter Borderless", "Legal", "Executive", "Statement", "A4", "A4 Borderless", "JIS B5", "A5", "A5 Borderless", "A6", "A6 Borderless", "Hagaki", "Hagaki BorderLess", "10 Envelope", "DL envelope", "C5 Envelope"],  ["Color"], ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"], ["Automatic", "Normal", "Best", "Draft"]]
@@ -29,7 +30,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private let qualityKey: String = "quality"
 
     
-    var table:SettingsViewer!
+    var table: SettingsViewer!
+    
+    var quick: QuickViewController?{
+        didSet{
+            quick?.quickDelegate = self
+        }
+    }
     
     let defaultSize = UserDefaults.standard
     let defaultColor = UserDefaults.standard
@@ -38,6 +45,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var detailSettings: UITableView!
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         detailSettings.delegate = self
@@ -48,7 +56,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         detailSettings.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: detailSettings.frame.width, height: kSeparatorHeight))
         detailSettings.tableHeaderView?.backgroundColor = .lightGray
 //      detailSettings.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
-
+        print("detailDidload")
     }
     
     
@@ -63,17 +71,16 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         
         if indexPath.row == 0 {
-           
-//          
-            
+      
             let cell = Bundle.main.loadNibNamed("TableViewCell1", owner: self, options: nil)?.first as! TableViewCell1
             
             
@@ -81,11 +88,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.selectionStyle = .none
             
             return cell
-            
-//            let cell = FirstCell()
-//            cell.numberOfCopies.text = Int(cell.copySetter.value).description
-//            cell.selectionStyle = .none
-//            return cell
             
             
         }else{
@@ -103,8 +105,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
 
-  
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -124,17 +124,15 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
 //        indxpath = tableView.indexPathForSelectedRow!
         if indexPath.row != 0{
-        
-            
+  
             table  = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
             
             table.propertyIndex = indexPath
             table.data = collections[indexPath.row]
             
-            
-            //setData(value: 0, receiverIndex: indexPath.row - 1)
-            
             table.sendDataDelegate = self
+            //setData(value: 0, receiverIndex: indexPath.row - 1)
+           
             tableView.deselectRow(at: indexPath, animated: false)
             self.view.window?.addSubview(table)
             
@@ -195,6 +193,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
      
         cell.selectionLabel.text = collections[receiver.row][getSavedData(receiver: receiver.row) ?? 0]
     }
+    
+    func quickToDetail(){
+
+        print("called back in detail")
+    }
+    
+    
     
     
     

@@ -35,11 +35,6 @@
 		1073B5791E669801000C60EB /* CartridgeSetupHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073B5771E669801000C60EB /* CartridgeSetupHelp.swift */; };
 		1073B57A1E669801000C60EB /* CartridgeSetupScanning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073B5781E669801000C60EB /* CartridgeSetupScanning.swift */; };
 		10759B2E1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */; };
-		1077C3E91E7909D500135818 /* four_landscape.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 1077C3E41E7909D500135818 /* four_landscape.imageset */; };
-		1077C3EA1E7909D500135818 /* four_portrait.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 1077C3E51E7909D500135818 /* four_portrait.imageset */; };
-		1077C3EB1E7909D500135818 /* one.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 1077C3E61E7909D500135818 /* one.imageset */; };
-		1077C3EC1E7909D500135818 /* two_landscape.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 1077C3E71E7909D500135818 /* two_landscape.imageset */; };
-		1077C3ED1E7909D500135818 /* two_portrait.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 1077C3E81E7909D500135818 /* two_portrait.imageset */; };
 		107B37A61E5FDE30007CA90C /* GCPEnableDisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37A21E5FDE30007CA90C /* GCPEnableDisable.swift */; };
 		107B37A71E5FDE30007CA90C /* GCPHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37A31E5FDE30007CA90C /* GCPHome.swift */; };
 		107B37A81E5FDE30007CA90C /* GCPRegisterUnregister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37A41E5FDE30007CA90C /* GCPRegisterUnregister.swift */; };
@@ -71,19 +66,6 @@
 		10D36C661E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C651E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift */; };
 		10D36C681E5FE0F500D79664 /* StandardCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C671E5FE0F500D79664 /* StandardCopyViewController.swift */; };
 		10DC00DA1E70D5DA0027DF46 /* NetworkAndPasswordSwitchNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC00D91E70D5DA0027DF46 /* NetworkAndPasswordSwitchNetwork.swift */; };
-		10DE82F61E72A7D9001F6FDA /* PagesPerSideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE82F31E72A7D9001F6FDA /* PagesPerSideTableViewCell.swift */; };
-		10DE82F71E72A7D9001F6FDA /* PagesPerSideTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10DE82F41E72A7D9001F6FDA /* PagesPerSideTableViewCell.xib */; };
-		10DE82F81E72A7D9001F6FDA /* PagesPerSideViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE82F51E72A7D9001F6FDA /* PagesPerSideViewer.swift */; };
-		10DE82FA1E72A7F8001F6FDA /* PhotoGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE82F91E72A7F8001F6FDA /* PhotoGallery.swift */; };
-		10DE82FC1E72A813001F6FDA /* MyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE82FB1E72A813001F6FDA /* MyTableView.swift */; };
-		10DE82FE1E72A82F001F6FDA /* ScandocSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE82FD1E72A82F001F6FDA /* ScandocSettingViewController.swift */; };
-		10DE83011E72A873001F6FDA /* BrightnessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE82FF1E72A873001F6FDA /* BrightnessTableViewCell.swift */; };
-		10DE83021E72A873001F6FDA /* BrightnessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10DE83001E72A873001F6FDA /* BrightnessTableViewCell.xib */; };
-		10DE83051E72A8AE001F6FDA /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE83031E72A8AE001F6FDA /* HeaderTableViewCell.swift */; };
-		10DE83061E72A8AE001F6FDA /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10DE83041E72A8AE001F6FDA /* HeaderTableViewCell.xib */; };
-		10DE83091E72A935001F6FDA /* ItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE83071E72A935001F6FDA /* ItemsTableViewCell.swift */; };
-		10DE830A1E72A935001F6FDA /* ItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10DE83081E72A935001F6FDA /* ItemsTableViewCell.xib */; };
-		10DE830C1E72B294001F6FDA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE830B1E72B294001F6FDA /* FirstViewController.swift */; };
 		10F4969A1E6D350800E10DA1 /* PopUpPaperTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */; };
 		11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */; };
 		11072BBA1E72756600F7CF99 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11072BB91E72756600F7CF99 /* CustomCollectionViewCell.swift */; };
@@ -91,10 +73,12 @@
 		1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */; };
 		1116A3291E30A92B0038F2E5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */; };
 		1116A32B1E30BC430038F2E5 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A32A1E30BC430038F2E5 /* SettingsTableViewCell.swift */; };
+		112251081E8358C700B752D6 /* SettingsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112251071E8358C700B752D6 /* SettingsObject.swift */; };
 		113123A51E51AC8D0079CEAB /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 113123A41E51AC8D0079CEAB /* SettingsStoryboard.storyboard */; };
 		113123A71E51AF400079CEAB /* PhotoPrintSettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 113123A61E51AF400079CEAB /* PhotoPrintSettingsStoryboard.storyboard */; };
 		113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113255961E28AC3500A66A9A /* SettingsViewer.swift */; };
 		114B30A81DF90A57008A57F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B30A71DF90A57008A57F1 /* AppDelegate.swift */; };
+		114B30AA1DF90A57008A57F1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B30A91DF90A57008A57F1 /* FirstViewController.swift */; };
 		114B30AD1DF90A57008A57F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114B30AB1DF90A57008A57F1 /* Main.storyboard */; };
 		114B30AF1DF90A57008A57F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 114B30AE1DF90A57008A57F1 /* Assets.xcassets */; };
 		114B30B21DF90A57008A57F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114B30B01DF90A57008A57F1 /* LaunchScreen.storyboard */; };
@@ -115,8 +99,14 @@
 		11715AA61E5AC413005367B9 /* PhotoAssetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */; };
 		118186E71E249FFA00B40A5F /* MyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */; };
 		118A67E91E6565BE00B0107C /* BoxBackGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A67E81E6565BE00B0107C /* BoxBackGround.swift */; };
+		1194FB371E78DC730097C25A /* PrintQueueStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1194FB361E78DC730097C25A /* PrintQueueStoryboard.storyboard */; };
+		1194FB3B1E78DE100097C25A /* PrintQueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194FB3A1E78DE100097C25A /* PrintQueueViewController.swift */; };
+		1194FB3D1E78FBF80097C25A /* PrintMultiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194FB3C1E78FBF80097C25A /* PrintMultiViewController.swift */; };
 		11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */; };
 		11B56EB91E5D69180031108D /* FlickPrintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B56EB81E5D69180031108D /* FlickPrintViewController.swift */; };
+		11BFEA1D1E82146B00CEC01E /* PrintSettingsPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BFEA1C1E82146B00CEC01E /* PrintSettingsPreview.xib */; };
+		11BFEA1F1E821C1600CEC01E /* PrintSettingsPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFEA1E1E821C1600CEC01E /* PrintSettingsPreview.swift */; };
+		11BFEA211E825E4C00CEC01E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFEA201E825E4C00CEC01E /* Settings.swift */; };
 		11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */; };
 		11DB094D1E6028E000B6F317 /* AdjustmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB094C1E6028E000B6F317 /* AdjustmentViewController.swift */; };
 		11DF48201E36E46A0012AD60 /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF481F1E36E46A0012AD60 /* FirstCell.swift */; };
@@ -170,11 +160,6 @@
 		1073B5771E669801000C60EB /* CartridgeSetupHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupHelp.swift; sourceTree = "<group>"; };
 		1073B5781E669801000C60EB /* CartridgeSetupScanning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupScanning.swift; sourceTree = "<group>"; };
 		10759B2D1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSelectTheNetwork.swift; sourceTree = "<group>"; };
-		1077C3E41E7909D500135818 /* four_landscape.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = four_landscape.imageset; path = Assets.xcassets/four_landscape.imageset; sourceTree = "<group>"; };
-		1077C3E51E7909D500135818 /* four_portrait.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = four_portrait.imageset; path = Assets.xcassets/four_portrait.imageset; sourceTree = "<group>"; };
-		1077C3E61E7909D500135818 /* one.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = one.imageset; path = Assets.xcassets/one.imageset; sourceTree = "<group>"; };
-		1077C3E71E7909D500135818 /* two_landscape.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = two_landscape.imageset; path = Assets.xcassets/two_landscape.imageset; sourceTree = "<group>"; };
-		1077C3E81E7909D500135818 /* two_portrait.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = two_portrait.imageset; path = Assets.xcassets/two_portrait.imageset; sourceTree = "<group>"; };
 		107B37A21E5FDE30007CA90C /* GCPEnableDisable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCPEnableDisable.swift; sourceTree = "<group>"; };
 		107B37A31E5FDE30007CA90C /* GCPHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCPHome.swift; sourceTree = "<group>"; };
 		107B37A41E5FDE30007CA90C /* GCPRegisterUnregister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCPRegisterUnregister.swift; sourceTree = "<group>"; };
@@ -206,19 +191,6 @@
 		10D36C651E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnonymousPrinterUsageViewController.swift; sourceTree = "<group>"; };
 		10D36C671E5FE0F500D79664 /* StandardCopyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardCopyViewController.swift; sourceTree = "<group>"; };
 		10DC00D91E70D5DA0027DF46 /* NetworkAndPasswordSwitchNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSwitchNetwork.swift; sourceTree = "<group>"; };
-		10DE82F31E72A7D9001F6FDA /* PagesPerSideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesPerSideTableViewCell.swift; sourceTree = "<group>"; };
-		10DE82F41E72A7D9001F6FDA /* PagesPerSideTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagesPerSideTableViewCell.xib; sourceTree = "<group>"; };
-		10DE82F51E72A7D9001F6FDA /* PagesPerSideViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesPerSideViewer.swift; sourceTree = "<group>"; };
-		10DE82F91E72A7F8001F6FDA /* PhotoGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGallery.swift; sourceTree = "<group>"; };
-		10DE82FB1E72A813001F6FDA /* MyTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableView.swift; sourceTree = "<group>"; };
-		10DE82FD1E72A82F001F6FDA /* ScandocSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScandocSettingViewController.swift; sourceTree = "<group>"; };
-		10DE82FF1E72A873001F6FDA /* BrightnessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightnessTableViewCell.swift; sourceTree = "<group>"; };
-		10DE83001E72A873001F6FDA /* BrightnessTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrightnessTableViewCell.xib; sourceTree = "<group>"; };
-		10DE83031E72A8AE001F6FDA /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
-		10DE83041E72A8AE001F6FDA /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
-		10DE83071E72A935001F6FDA /* ItemsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTableViewCell.swift; sourceTree = "<group>"; };
-		10DE83081E72A935001F6FDA /* ItemsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemsTableViewCell.xib; sourceTree = "<group>"; };
-		10DE830B1E72B294001F6FDA /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpPaperTypeVC.swift; sourceTree = "<group>"; };
 		11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSelectPopUp.swift; sourceTree = "<group>"; };
 		11072BB91E72756600F7CF99 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -226,11 +198,13 @@
 		1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUITableViewController.swift; sourceTree = "<group>"; };
 		1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		1116A32A1E30BC430038F2E5 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		112251071E8358C700B752D6 /* SettingsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsObject.swift; sourceTree = "<group>"; };
 		113123A41E51AC8D0079CEAB /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		113123A61E51AF400079CEAB /* PhotoPrintSettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoPrintSettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		113255961E28AC3500A66A9A /* SettingsViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewer.swift; sourceTree = "<group>"; };
 		114B30A41DF90A57008A57F1 /* KodakVer3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KodakVer3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		114B30A71DF90A57008A57F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		114B30A91DF90A57008A57F1 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		114B30AC1DF90A57008A57F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		114B30AE1DF90A57008A57F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		114B30B11DF90A57008A57F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -256,8 +230,14 @@
 		11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAssetCollection.swift; sourceTree = "<group>"; };
 		118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewDelegate.swift; sourceTree = "<group>"; };
 		118A67E81E6565BE00B0107C /* BoxBackGround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxBackGround.swift; sourceTree = "<group>"; };
+		1194FB361E78DC730097C25A /* PrintQueueStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PrintQueueStoryboard.storyboard; sourceTree = "<group>"; };
+		1194FB3A1E78DE100097C25A /* PrintQueueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintQueueViewController.swift; sourceTree = "<group>"; };
+		1194FB3C1E78FBF80097C25A /* PrintMultiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintMultiViewController.swift; sourceTree = "<group>"; };
 		11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavBar.swift; sourceTree = "<group>"; };
 		11B56EB81E5D69180031108D /* FlickPrintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickPrintViewController.swift; sourceTree = "<group>"; };
+		11BFEA1C1E82146B00CEC01E /* PrintSettingsPreview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrintSettingsPreview.xib; sourceTree = "<group>"; };
+		11BFEA1E1E821C1600CEC01E /* PrintSettingsPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintSettingsPreview.swift; sourceTree = "<group>"; };
+		11BFEA201E825E4C00CEC01E /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintSettingsModel.swift; sourceTree = "<group>"; };
 		11DB094C1E6028E000B6F317 /* AdjustmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustmentViewController.swift; sourceTree = "<group>"; };
 		11DF481F1E36E46A0012AD60 /* FirstCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCell.swift; sourceTree = "<group>"; };
@@ -293,7 +273,7 @@
 		103303171E52AACC00E7D24C /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				10DE830B1E72B294001F6FDA /* FirstViewController.swift */,
+				114B30A91DF90A57008A57F1 /* FirstViewController.swift */,
 				114B30AB1DF90A57008A57F1 /* Main.storyboard */,
 			);
 			name = HomeScreen;
@@ -339,6 +319,7 @@
 				118A67E81E6565BE00B0107C /* BoxBackGround.swift */,
 				1113B2DD1E66649300CC4BA2 /* SizeHelper.swift */,
 				11072BB91E72756600F7CF99 /* CustomCollectionViewCell.swift */,
+				1194FB3C1E78FBF80097C25A /* PrintMultiViewController.swift */,
 			);
 			name = PrintPhotoStoryboard;
 			sourceTree = "<group>";
@@ -346,11 +327,6 @@
 		103303241E52AC5A00E7D24C /* CopyStoryboard */ = {
 			isa = PBXGroup;
 			children = (
-				10DE83001E72A873001F6FDA /* BrightnessTableViewCell.xib */,
-				10DE82FF1E72A873001F6FDA /* BrightnessTableViewCell.swift */,
-				10DE82F51E72A7D9001F6FDA /* PagesPerSideViewer.swift */,
-				10DE82F41E72A7D9001F6FDA /* PagesPerSideTableViewCell.xib */,
-				10DE82F31E72A7D9001F6FDA /* PagesPerSideTableViewCell.swift */,
 				10D36C671E5FE0F500D79664 /* StandardCopyViewController.swift */,
 				103303251E52AC6D00E7D24C /* CopyStoryboard.storyboard */,
 				10D36C5B1E5FE0C400D79664 /* CopyViewController.swift */,
@@ -398,11 +374,6 @@
 			isa = PBXGroup;
 			children = (
 				103303341E52AD2A00E7D24C /* ScanSettingsStoryboard.storyboard */,
-				10DE83031E72A8AE001F6FDA /* HeaderTableViewCell.swift */,
-				10DE83041E72A8AE001F6FDA /* HeaderTableViewCell.xib */,
-				10DE83081E72A935001F6FDA /* ItemsTableViewCell.xib */,
-				10DE83071E72A935001F6FDA /* ItemsTableViewCell.swift */,
-				10DE82FD1E72A82F001F6FDA /* ScandocSettingViewController.swift */,
 			);
 			name = ScanSettingsStoryboard;
 			sourceTree = "<group>";
@@ -532,9 +503,7 @@
 		114B30A61DF90A57008A57F1 /* KodakVer3 */ = {
 			isa = PBXGroup;
 			children = (
-				10DE82FB1E72A813001F6FDA /* MyTableView.swift */,
-				10DE82F91E72A7F8001F6FDA /* PhotoGallery.swift */,
-				10A4E08B1E603FBB007724EF /* TextFieldMaxLengths.swift */,
+				1194FB351E78DBFC0097C25A /* PrintQueueStoryboard */,
 				103303451E52AE1200E7D24C /* SoftwareUpdate */,
 				103303421E52ADEE00E7D24C /* PrinterUtilityStoryboard */,
 				1033033F1E52ADC500E7D24C /* AirPrintStoryboard */,
@@ -561,16 +530,12 @@
 				1156AAF51E1E2F24009C2493 /* TableViewCell2.swift */,
 				1156AAF61E1E2F24009C2493 /* TableViewCell2.xib */,
 				114B30AE1DF90A57008A57F1 /* Assets.xcassets */,
-				1077C3E41E7909D500135818 /* four_landscape.imageset */,
-				1077C3E51E7909D500135818 /* four_portrait.imageset */,
-				1077C3E61E7909D500135818 /* one.imageset */,
-				1077C3E71E7909D500135818 /* two_landscape.imageset */,
-				1077C3E81E7909D500135818 /* two_portrait.imageset */,
 				114B30B01DF90A57008A57F1 /* LaunchScreen.storyboard */,
 				114B30B31DF90A57008A57F1 /* Info.plist */,
 				114B30D91DF92D78008A57F1 /* QuickDetailSelector.swift */,
 				1158B74C1DFA4A5B008F081F /* MyNavController.swift */,
 				11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */,
+				10A4E08B1E603FBB007724EF /* TextFieldMaxLengths.swift */,
 				116CE2671E1F445F005687E9 /* MyTableViewDataSource.swift */,
 				118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */,
 				113255961E28AC3500A66A9A /* SettingsViewer.swift */,
@@ -579,6 +544,10 @@
 				1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */,
 				1116A32A1E30BC430038F2E5 /* SettingsTableViewCell.swift */,
 				11DF481F1E36E46A0012AD60 /* FirstCell.swift */,
+				11BFEA1C1E82146B00CEC01E /* PrintSettingsPreview.xib */,
+				11BFEA1E1E821C1600CEC01E /* PrintSettingsPreview.swift */,
+				11BFEA201E825E4C00CEC01E /* Settings.swift */,
+				112251071E8358C700B752D6 /* SettingsObject.swift */,
 			);
 			path = KodakVer3;
 			sourceTree = "<group>";
@@ -599,6 +568,15 @@
 				114B30C91DF90A57008A57F1 /* Info.plist */,
 			);
 			path = KodakVer3UITests;
+			sourceTree = "<group>";
+		};
+		1194FB351E78DBFC0097C25A /* PrintQueueStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				1194FB361E78DC730097C25A /* PrintQueueStoryboard.storyboard */,
+				1194FB3A1E78DE100097C25A /* PrintQueueViewController.swift */,
+			);
+			name = PrintQueueStoryboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -664,7 +642,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = jmolas;
 				TargetAttributes = {
 					114B30A31DF90A57008A57F1 = {
@@ -710,12 +688,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				103303351E52AD2A00E7D24C /* ScanSettingsStoryboard.storyboard in Resources */,
-				1077C3ED1E7909D500135818 /* two_portrait.imageset in Resources */,
 				103303411E52ADE900E7D24C /* AirPrintStoryboard.storyboard in Resources */,
 				103303261E52AC6D00E7D24C /* CopyStoryboard.storyboard in Resources */,
+				11BFEA1D1E82146B00CEC01E /* PrintSettingsPreview.xib in Resources */,
 				103303321E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard in Resources */,
 				1033032C1E52ACB300E7D24C /* ScanPhotoStoryboard.storyboard in Resources */,
-				1077C3EA1E7909D500135818 /* four_portrait.imageset in Resources */,
 				103303291E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard in Resources */,
 				103303471E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard in Resources */,
 				113123A51E51AC8D0079CEAB /* SettingsStoryboard.storyboard in Resources */,
@@ -723,23 +700,17 @@
 				113123A71E51AF400079CEAB /* PhotoPrintSettingsStoryboard.storyboard in Resources */,
 				114B30B21DF90A57008A57F1 /* LaunchScreen.storyboard in Resources */,
 				10D36C621E5FE0C400D79664 /* CustomCopySecondCell.xib in Resources */,
-				1077C3E91E7909D500135818 /* four_landscape.imageset in Resources */,
-				10DE83021E72A873001F6FDA /* BrightnessTableViewCell.xib in Resources */,
 				103303231E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard in Resources */,
 				103303381E52AD8400E7D24C /* NetworkStatusStoryboard.storyboard in Resources */,
-				10DE82F71E72A7D9001F6FDA /* PagesPerSideTableViewCell.xib in Resources */,
 				1033031A1E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard in Resources */,
 				1033032F1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard in Resources */,
 				1033033B1E52AD9F00E7D24C /* WiFiSetupStoryboard.storyboard in Resources */,
-				10DE83061E72A8AE001F6FDA /* HeaderTableViewCell.xib in Resources */,
 				114B30AF1DF90A57008A57F1 /* Assets.xcassets in Resources */,
-				1077C3EC1E7909D500135818 /* two_landscape.imageset in Resources */,
 				114B30AD1DF90A57008A57F1 /* Main.storyboard in Resources */,
 				103303201E52AC2500E7D24C /* InkLevelStoryboard.storyboard in Resources */,
 				1156AAF41E1E2EFC009C2493 /* TableViewCell1.xib in Resources */,
-				10DE830A1E72A935001F6FDA /* ItemsTableViewCell.xib in Resources */,
+				1194FB371E78DC730097C25A /* PrintQueueStoryboard.storyboard in Resources */,
 				1033033E1E52ADC100E7D24C /* GCPStoryboard.storyboard in Resources */,
-				1077C3EB1E7909D500135818 /* one.imageset in Resources */,
 				1033031D1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard in Resources */,
 				103303441E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard in Resources */,
 			);
@@ -771,20 +742,20 @@
 				11072BBA1E72756600F7CF99 /* CustomCollectionViewCell.swift in Sources */,
 				1113B2DE1E66649300CC4BA2 /* SizeHelper.swift in Sources */,
 				107B37B71E5FDF08007CA90C /* PrinterUtitlityHome.swift in Sources */,
-				10DE82FC1E72A813001F6FDA /* MyTableView.swift in Sources */,
 				1158B74F1DFA8655008F081F /* QuickViewController.swift in Sources */,
-				10DE82FE1E72A82F001F6FDA /* ScandocSettingViewController.swift in Sources */,
 				107B37AB1E5FDE4E007CA90C /* AirPrint.swift in Sources */,
-				10DE82F81E72A7D9001F6FDA /* PagesPerSideViewer.swift in Sources */,
 				10CD81811E567A22001815A1 /* HostName.swift in Sources */,
 				104F1D3A1E6575AC00532AC3 /* CartridgeSetupStartScan.swift in Sources */,
 				113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */,
+				1194FB3B1E78DE100097C25A /* PrintQueueViewController.swift in Sources */,
 				11DB094D1E6028E000B6F317 /* AdjustmentViewController.swift in Sources */,
-				10DE83051E72A8AE001F6FDA /* HeaderTableViewCell.swift in Sources */,
 				107B37B91E5FDF08007CA90C /* RestoreFactoryDefault.swift in Sources */,
 				1073B57A1E669801000C60EB /* CartridgeSetupScanning.swift in Sources */,
+				1194FB3D1E78FBF80097C25A /* PrintMultiViewController.swift in Sources */,
 				106C69351E6420D700CDA7B6 /* PopUpPaperSizeVC.swift in Sources */,
 				10F4969A1E6D350800E10DA1 /* PopUpPaperTypeVC.swift in Sources */,
+				11BFEA1F1E821C1600CEC01E /* PrintSettingsPreview.swift in Sources */,
+				11BFEA211E825E4C00CEC01E /* Settings.swift in Sources */,
 				10CD81821E567A22001815A1 /* IPAddress.swift in Sources */,
 				11715AA61E5AC413005367B9 /* PhotoAssetCollection.swift in Sources */,
 				107B37B41E5FDF08007CA90C /* CleanPrinthead.swift in Sources */,
@@ -799,26 +770,23 @@
 				109A95301E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift in Sources */,
 				10CD81831E567A22001815A1 /* Proxy.swift in Sources */,
 				105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */,
+				114B30AA1DF90A57008A57F1 /* FirstViewController.swift in Sources */,
 				104F1D391E6575AC00532AC3 /* CartridgeSetupPrinting.swift in Sources */,
 				114B30D81DF92C44008A57F1 /* PrintPhotoVC.swift in Sources */,
 				10D36C641E5FE0C400D79664 /* CustomViewController.swift in Sources */,
 				11B56EB91E5D69180031108D /* FlickPrintViewController.swift in Sources */,
 				10DC00DA1E70D5DA0027DF46 /* NetworkAndPasswordSwitchNetwork.swift in Sources */,
 				11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */,
-				10DE83091E72A935001F6FDA /* ItemsTableViewCell.swift in Sources */,
 				10D36C681E5FE0F500D79664 /* StandardCopyViewController.swift in Sources */,
 				114B30DA1DF92D78008A57F1 /* QuickDetailSelector.swift in Sources */,
 				107DE2A51E6EB9B10094FA0B /* PopUpDirectConnectTime.swift in Sources */,
 				11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */,
-				10DE82F61E72A7D9001F6FDA /* PagesPerSideTableViewCell.swift in Sources */,
 				11DFF0081E63AE2300C53EB7 /* BoxForeground.swift in Sources */,
 				1156AAF31E1E2EFC009C2493 /* TableViewCell1.swift in Sources */,
 				11715AA41E5AC3FE005367B9 /* ImageCollectionVC.swift in Sources */,
 				107B37B31E5FDF08007CA90C /* CartridgeSetup.swift in Sources */,
-				10DE83011E72A873001F6FDA /* BrightnessTableViewCell.swift in Sources */,
 				114B30D61DF92BEF008A57F1 /* SettingsMenuVCViewController.swift in Sources */,
 				114B30A81DF90A57008A57F1 /* AppDelegate.swift in Sources */,
-				10DE82FA1E72A7F8001F6FDA /* PhotoGallery.swift in Sources */,
 				107B37B81E5FDF08007CA90C /* PrintReport.swift in Sources */,
 				107B37BB1E5FDF1D007CA90C /* SoftwareUpdate.swift in Sources */,
 				1158B74D1DFA4A5B008F081F /* MyNavController.swift in Sources */,
@@ -839,9 +807,9 @@
 				10759B2E1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift in Sources */,
 				1156AAF71E1E2F24009C2493 /* TableViewCell2.swift in Sources */,
 				10D36C611E5FE0C400D79664 /* CustomCopySecondCell.swift in Sources */,
+				112251081E8358C700B752D6 /* SettingsObject.swift in Sources */,
 				11F865961E530B1D00326907 /* PrintPhotoHomeVC.swift in Sources */,
 				10D36C661E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift in Sources */,
-				10DE830C1E72B294001F6FDA /* FirstViewController.swift in Sources */,
 				1158B7511DFA86C1008F081F /* DetailViewController.swift in Sources */,
 				118186E71E249FFA00B40A5F /* MyTableViewDelegate.swift in Sources */,
 				10A4E0901E604010007724EF /* FriendlyName.swift in Sources */,
@@ -918,6 +886,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -968,6 +937,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

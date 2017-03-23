@@ -8,48 +8,37 @@
 
 import UIKit
 
-class CustomCopyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingViewDelegate, PagesPerSideDelegate {
+class CustomCopyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingViewDelegate {
 
     @IBOutlet weak var customcopybutton: UIButton!
     
-    var arrayofMainLbl = ["Color :", "Paper Size :",  "Paper Type :", "Quality :", "Copy Resize :", "Pages per Side :", "Brightness :"]
+    var arrayofMainLbl = ["Color :", "Paper Size :",  "Paper Type :", "Print Quality :"]
     
-    var collections: [[String]] = [["Color", "Black and White"], ["4x6 in.", "3x5 in", "5x7 in.", "3.5x5 in.(L)", "Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "Hagaki", "10 Envelope", "DL envelope", "C5 Envelope"], ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"], ["Text", "Text/Photo", "Photo", "Draft"], ["100% Default", "130% Letter->Legal", "104% Executive->Letter", "97% Letter->A4", "93% A4->Letter", "85% Letter->Executive", "Custom"], ["One", "2 in 1 Portrait", "2 in 1 Landscape", "4 in 1 Portrait", "4 in 1 Landscape"], ["dummybrightness"]]
+    var collections: [[String]] = [["Color", "Black and White"], ["4x6 in.", "3x5 in", "5x7 in.", "3.5x5 in.(L)", "Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "Hagaki", "10 Envelope", "DL envelope", "C5 Envelope"],   ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"], ["Automatic", "Normal", "Best", "Draft"]]
     
-    var perSideArrays: [(String, String)] = [("One", "one.png"), ("2 in 1 Portrait", "two_portrait.png"), ("2 in 1 Landscape", "two_landscape.png"), ("4 in 1 Portrait", "four_portrait.png"), ("4 in 1 Landscape", "four_landscape.png")]
     
     @IBOutlet weak var customTable: UITableView!
+    
     
     private let kSeparatorID = 123
     
     private let kSeparatorHeight: CGFloat = 1.0
-    private let paperSizeKey: String = "size"
-    private let colorOutKey: String = "color"
-    private let typeKey: String = "type"
-    private let qualityKey: String = "quality"
-    private let resizeKey: String = "resize"
-    private let pagespersideKey: String = "pagesperside"
+    
+    private let paperSizeKey2: String = "size2"
+    private let colorOutKey2: String = "color2"
+    private let typeKey2: String = "type2"
+    private let qualityKey2: String = "quality2"
     
     
     var table:SettingsViewer!
-    var table2:PagesPerSideViewer!
-        
-    let defaultSize = UserDefaults.standard
-    let defaultColor = UserDefaults.standard
-    let defaultType = UserDefaults.standard
-    let defaultQuality = UserDefaults.standard
-    let defaultResize = UserDefaults.standard
-    let defaultPerSide = UserDefaults.standard
+    
+    let defaultSize2 = UserDefaults.standard
+    let defaultColor2 = UserDefaults.standard
+    let defaultType2 = UserDefaults.standard
+    let defaultQuality2 = UserDefaults.standard
+    
        
     @IBOutlet weak var customcopyTableview: UITableView!
-    
-    var alert: UIAlertController!
-    var cancel: UIAlertAction!
-    var no: UIAlertAction!
-    var include: UIAlertAction!
-    var ok: UIAlertAction!
-    var indicator: UIActivityIndicatorView!
-    var time: DispatchTime!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +48,7 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         customcopybutton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
         customcopybutton.layer.masksToBounds = true;
         
+        
         customTable.delegate = self
         customTable.dataSource = self
         
@@ -67,244 +57,33 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         customTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: customTable.frame.width, height: kSeparatorHeight))
         customTable.tableHeaderView?.backgroundColor = .lightGray
         
+        
+        
     }
 
     @IBAction func customcopybuttonPressed(_ sender: Any) {
         
-        let value: Int = getSavedData(receiver: 5)
+        let alert: UIAlertView = UIAlertView(title: nil, message: "Copying...", delegate: self, cancelButtonTitle: "Cancel");
+        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame:CGRect(x:95, y:90, width:40, height:40)) as UIActivityIndicatorView
+        loadingIndicator.center = self.view.center;
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        loadingIndicator.startAnimating();
+        alert.setValue(loadingIndicator, forKey: "accessoryView");
+        alert.show();
         
-        switch value
-        {
-        case 0:
-            alertCopying()
-            break
-        case 1:
-            alertFirstScanning()
-            time = DispatchTime.now() + 4.0
-            DispatchQueue.main.asyncAfter(deadline: time){
-                self.alert.dismiss(animated: true, completion: {
-                    //self.alertIncludePage()
-                    self.alert = UIAlertController(title: "Copy Pages per Side", message: "Would you like to include another\n page?\n", preferredStyle: .alert)
-                    self.no = UIAlertAction(title: "NO", style: .default, handler: {(action: UIAlertAction) in
-                        self.alertCopying()
-                    })
-                    self.alert.addAction(self.no)
-                    let include = UIAlertAction(title: "Include", style: .default, handler: {(action: UIAlertAction) in
-                        self.alertSecondScanning()
-                    })
-                    self.alert.addAction(include)
-                    self.present(self.alert, animated: true, completion: nil)
-                })
-            }
-            break
-            
-        case 2:
-            alertFirstScanning()
-            time = DispatchTime.now() + 4.0
-            DispatchQueue.main.asyncAfter(deadline: time){
-                self.alert.dismiss(animated: true, completion: {
-                    //self.alertIncludePage()
-                    self.alert = UIAlertController(title: "Copy Pages per Side", message: "Would you like to include another\n page?\n", preferredStyle: .alert)
-                    self.no = UIAlertAction(title: "NO", style: .default, handler: {(action: UIAlertAction) in
-                        self.alertCopying()
-                    })
-                    self.alert.addAction(self.no)
-                    let include = UIAlertAction(title: "Include", style: .default, handler: {(action: UIAlertAction) in
-                        self.alertSecondScanning()
-                    })
-                    self.alert.addAction(include)
-                    self.present(self.alert, animated: true, completion: nil)
-                })
-            }
-            break
-            
-        case 3:
-            alertFirstScanning()
-            time = DispatchTime.now() + 4.0
-            DispatchQueue.main.asyncAfter(deadline: time){
-                self.alert.dismiss(animated: true, completion: {
-                    //self.alertIncludePage()
-                    self.alert = UIAlertController(title: "Copy Pages per Side", message: "Would you like to include another\n page?\n", preferredStyle: .alert)
-                    self.no = UIAlertAction(title: "NO", style: .default, handler: {(action: UIAlertAction) in
-                        self.alertCopying()
-                    })
-                    self.alert.addAction(self.no)
-                    self.include = UIAlertAction(title: "Include", style: .default, handler: {(action: UIAlertAction) in
-                        self.alert = UIAlertController(title: "Copy Pages per Side", message: "2nd page Scanning...\n\n", preferredStyle: .alert)
-                        self.cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction) in
-                            self.copyCancel()
-                        })
-                        self.alert.addAction(self.cancel)
-                        self.indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 80, width: 40, height:40))
-                        self.indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                        self.indicator.activityIndicatorViewStyle = .whiteLarge
-                        self.indicator.color = .black
-                        self.alert.view.addSubview(self.indicator)
-                        self.indicator.startAnimating()
-                        self.present(self.alert, animated: true, completion: nil)
-                        
-                        self.time = DispatchTime.now() + 4.0
-                        DispatchQueue.main.asyncAfter(deadline: self.time){
-                            self.alert.dismiss(animated: true, completion: {
-                                self.alert = UIAlertController(title: "Copy Pages per Side", message: "Would you like to include another\n page?\n", preferredStyle: .alert)
-                                self.no = UIAlertAction(title: "NO", style: .default, handler: {(action: UIAlertAction) in
-                                    self.alertCopying()
-                                })
-                                self.alert.addAction(self.no)
-                                self.include = UIAlertAction(title: "Include", style: .default, handler: {(action: UIAlertAction) in
-                                    self.alert = UIAlertController(title: "Copy Pages per Side", message: "3rd page Scanning...\n\n", preferredStyle: .alert)
-                                    self.cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction) in
-                                        self.copyCancel()
-                                    })
-                                    self.alert.addAction(self.cancel)
-                                    self.indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 80, width: 40, height:40))
-                                    self.indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                                    self.indicator.activityIndicatorViewStyle = .whiteLarge
-                                    self.indicator.color = .black
-                                    self.alert.view.addSubview(self.indicator)
-                                    self.indicator.startAnimating()
-                                    self.present(self.alert, animated: true, completion: nil)
-                                    
-                                    self.time = DispatchTime.now() + 4.0
-                                    DispatchQueue.main.asyncAfter(deadline: self.time){
-                                        self.alert.dismiss(animated: true, completion: {
-                                            self.alert = UIAlertController(title: "Copy Pages per Side", message: "Would you like to include another\n page?\n", preferredStyle: .alert)
-                                            self.no = UIAlertAction(title: "NO", style: .default, handler: {(action: UIAlertAction) in
-                                                self.alertCopying()
-                                            })
-                                            self.alert.addAction(self.no)
-                                            self.include = UIAlertAction(title: "Include", style: .default, handler: {(action: UIAlertAction) in
-                                                self.alert = UIAlertController(title: "Copy Pages per Side", message: "4th page Scanning...\n\n", preferredStyle: .alert)
-                                                self.cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction) in
-                                                    self.copyCancel()
-                                                })
-                                                self.alert.addAction(self.cancel)
-                                                self.indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 80, width: 40, height:40))
-                                                self.indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                                                self.indicator.activityIndicatorViewStyle = .whiteLarge
-                                                self.indicator.color = .black
-                                                self.alert.view.addSubview(self.indicator)
-                                                self.indicator.startAnimating()
-                                                self.present(self.alert, animated: true, completion: nil)
-                                                
-                                                self.time = DispatchTime.now() + 4.0
-                                                DispatchQueue.main.asyncAfter(deadline: self.time){
-                                                    self.alert.dismiss(animated: true, completion: nil)
-                                                }
-                                            })
-                                            self.alert.addAction(self.include)
-                                            self.present(self.alert, animated: true, completion: nil)
-                                            
-                                        })
-                                    }
-                                })
-                                self.alert.addAction(self.include)
-                                self.present(self.alert, animated: true, completion: nil)
-                                
-                            })
-                        }
-                    })
-                    self.alert.addAction(self.include)
-                    self.present(self.alert, animated: true, completion: nil)
-                })
-            }
-            break
-            
-        case 4:
-            alertFirstScanning()
-            time = DispatchTime.now() + 4.0
-            DispatchQueue.main.asyncAfter(deadline: time){
-                self.alert.dismiss(animated: true, completion: {
-                    //self.alertIncludePage()
-                    self.alert = UIAlertController(title: "Copy Pages per Side", message: "Would you like to include another\n page?\n", preferredStyle: .alert)
-                    self.no = UIAlertAction(title: "NO", style: .default, handler: {(action: UIAlertAction) in
-                        self.alertCopying()
-                    })
-                    self.alert.addAction(self.no)
-                    self.include = UIAlertAction(title: "Include", style: .default, handler: {(action: UIAlertAction) in
-                        self.alert = UIAlertController(title: "Copy Pages per Side", message: "2nd page Scanning...\n\n", preferredStyle: .alert)
-                        self.cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction) in
-                            self.copyCancel()
-                        })
-                        self.alert.addAction(self.cancel)
-                        self.indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 80, width: 40, height:40))
-                        self.indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                        self.indicator.activityIndicatorViewStyle = .whiteLarge
-                        self.indicator.color = .black
-                        self.alert.view.addSubview(self.indicator)
-                        self.indicator.startAnimating()
-                        self.present(self.alert, animated: true, completion: nil)
-                        
-                        self.time = DispatchTime.now() + 4.0
-                        DispatchQueue.main.asyncAfter(deadline: self.time){
-                            self.alert.dismiss(animated: true, completion: {
-                                self.alert = UIAlertController(title: "Copy Pages per Side", message: "Would you like to include another\n page?\n", preferredStyle: .alert)
-                                self.no = UIAlertAction(title: "NO", style: .default, handler: {(action: UIAlertAction) in
-                                    self.alertCopying()
-                                })
-                                self.alert.addAction(self.no)
-                                self.include = UIAlertAction(title: "Include", style: .default, handler: {(action: UIAlertAction) in
-                                    self.alert = UIAlertController(title: "Copy Pages per Side", message: "3rd page Scanning...\n\n", preferredStyle: .alert)
-                                    self.cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction) in
-                                        self.copyCancel()
-                                    })
-                                    self.alert.addAction(self.cancel)
-                                    self.indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 80, width: 40, height:40))
-                                    self.indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                                    self.indicator.activityIndicatorViewStyle = .whiteLarge
-                                    self.indicator.color = .black
-                                    self.alert.view.addSubview(self.indicator)
-                                    self.indicator.startAnimating()
-                                    self.present(self.alert, animated: true, completion: nil)
-                                    
-                                    self.time = DispatchTime.now() + 4.0
-                                    DispatchQueue.main.asyncAfter(deadline: self.time){
-                                        self.alert.dismiss(animated: true, completion: {
-                                            self.alert = UIAlertController(title: "Copy Pages per Side", message: "Would you like to include another\n page?\n", preferredStyle: .alert)
-                                            self.no = UIAlertAction(title: "NO", style: .default, handler: {(action: UIAlertAction) in
-                                                self.alertCopying()
-                                            })
-                                            self.alert.addAction(self.no)
-                                            self.include = UIAlertAction(title: "Include", style: .default, handler: {(action: UIAlertAction) in
-                                                self.alert = UIAlertController(title: "Copy Pages per Side", message: "4th page Scanning...\n\n", preferredStyle: .alert)
-                                                self.cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction) in
-                                                    self.copyCancel()
-                                                })
-                                                self.alert.addAction(self.cancel)
-                                                self.indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 80, width: 40, height:40))
-                                                self.indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                                                self.indicator.activityIndicatorViewStyle = .whiteLarge
-                                                self.indicator.color = .black
-                                                self.alert.view.addSubview(self.indicator)
-                                                self.indicator.startAnimating()
-                                                self.present(self.alert, animated: true, completion: nil)
-                                                
-                                                self.time = DispatchTime.now() + 4.0
-                                                DispatchQueue.main.asyncAfter(deadline: self.time){
-                                                    self.alert.dismiss(animated: true, completion: nil)
-                                                }
-                                            })
-                                            self.alert.addAction(self.include)
-                                            self.present(self.alert, animated: true, completion: nil)
-                                            
-                                        })
-                                    }
-                                })
-                                self.alert.addAction(self.include)
-                                self.present(self.alert, animated: true, completion: nil)
-                                
-                            })
-                        }
-                    })
-                    self.alert.addAction(self.include)
-                    self.present(self.alert, animated: true, completion: nil)
-                })
-            }
-            break
-        default:
-            break
+        
+        
+        
+        //     let alertnext: UIAlertView = UIAlertView(title: nil, message: "Copy Canceled.", delegate: self, cancelButtonTitle: "OK");
+        
+        let when = DispatchTime.now() + 3
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            alert.dismiss(withClickedButtonIndex:-1, animated: true)
         }
+
     }
+    
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if cell.viewWithTag(kSeparatorID) == nil
@@ -313,68 +92,84 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
             separatorView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             separatorView.backgroundColor = .lightGray
             cell.addSubview(separatorView)
+            
         }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 4
     }
-    
-    // display the corresponding custom copy settings table
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         
-       if indexPath.row == 6 {
-            let cell = Bundle.main.loadNibNamed("BrightnessTableViewCell", owner: self, options: nil)?.first as! BrightnessTableViewCell
-            //cell.brightnessbar.isContinuous = true
-            cell.brightnessbar.setThumbImage(UIImage(named: "seekbar_thumb"), for: .normal)
-            cell.selectionStyle = .none
-            return cell
-       }else{
+//        if indexPath.row == 0 {
+//            
+//            //
+//            
+//            let cell = Bundle.main.loadNibNamed("CustomCopyFirstCell", owner: self, options: nil)?.first as! CustomCopyFirstCell
+//            
+////            
+////            cell.numberOfCopies.text = Int(cell.copiesStepper.value).description
+////            cell.selectionStyle = .none
+//            
+//            return cell
+//            
+//            //            let cell = FirstCell()
+//            //            cell.numberOfCopies.text = Int(cell.copySetter.value).description
+//            //            cell.selectionStyle = .none
+//            //            return cell
+//            
+//            
+//        }else{
+        
             let cell2 = Bundle.main.loadNibNamed("CustomCopySecondCell", owner: self, options: nil)?.first as! CustomCopySecondCell
             cell2.settingname.adjustsFontSizeToFitWidth = true
             cell2.settingname.text = arrayofMainLbl[indexPath.row]
-            cell2.selectedsetting.text = collections[indexPath.row][getSavedData(receiver: indexPath.row)]
-        
+            cell2.selectedsetting.text = collections[indexPath.row][getSavedData2(receiver: indexPath.row)]
+            
             return cell2
-        }
+//        }
         
     }
+    
+    
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
-    }
-    
-    //display the corresponding tableview based on the selected custom copy settings
+        
+        
+   //     if tableView.tag != 99{
+            
+   //         if indexPath.row == 0{
+   //             return UIScreen.main.bounds.height * 0.11111
+   //         }else{
+                return UIScreen.main.bounds.height * 0.0778
+            }
+   //     }
+   //     return 44
+  //  }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
        
-        if indexPath.row <= 4{
+   //     if indexPath.row != 0{
+            
+            
             table  = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
             table.propertyIndex = indexPath
             table.data = collections[indexPath.row]
+            
             
             self.view.window?.addSubview(table)
             table.sendDataDelegate = self
             tableView.deselectRow(at: indexPath, animated: false)
             
-            
-        } else if indexPath.row == 5{
-            table2  = PagesPerSideViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
-            table2.propertyIndex = indexPath
-            table2.data = perSideArrays
-            self.view.window?.addSubview(table2)
-            
-            table2.sendDataDelegate = self
-            tableView.deselectRow(at: indexPath, animated: false)
-        }
+   //     }
         
-        let value: Int = getSavedData(receiver: 4)
-        let value2: Int = getSavedData(receiver: 5)
         
-        if value == 1 && value2 == 2{
-            print("sample")
-        }
     }
+    
     
     func computeHeight(numberOfItems: Int) ->Int{
         if numberOfItems > 5 {
@@ -385,144 +180,52 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    func getSavedData(receiver: Int) -> Int{
+    func getSavedData2(receiver: Int) -> Int{
         
         switch receiver {
         case 1:
-            return defaultSize.integer(forKey: paperSizeKey)
+            return defaultSize2.integer(forKey: paperSizeKey2)
         case 2:
-            return defaultColor.integer(forKey: colorOutKey)
+            return defaultColor2.integer(forKey: colorOutKey2)
         case 3:
-            return defaultType.integer(forKey: typeKey)
+            return defaultType2.integer(forKey: typeKey2)
         case 4:
-            return defaultQuality.integer(forKey: qualityKey)
-        case 5:
-            return defaultResize.integer(forKey: resizeKey)
-        case 6:
-            return defaultPerSide.integer(forKey: pagespersideKey)
+            return defaultQuality2.integer(forKey: qualityKey2)
         default:
             return 0
         }
         
     }
-    
-    func setData(value: Int, receiverIndex: Int){
+    func setData2(value: Int, receiverIndex: Int){
         switch receiverIndex {
         case 1:
-            defaultSize.set(value, forKey: paperSizeKey)
+            defaultSize2.set(value, forKey: paperSizeKey2)
         case 2:
-            defaultColor.set(value, forKey: colorOutKey)
+            defaultColor2.set(value, forKey: colorOutKey2)
         case 3:
-            defaultType.set(value, forKey: typeKey)
+            defaultType2.set(value, forKey: typeKey2)
         case 4:
-            defaultQuality.set(value, forKey: qualityKey)
-        case 5:
-            defaultResize.set(value, forKey: resizeKey)
-        case 6:
-            defaultPerSide.set(value, forKey: pagespersideKey)
+            defaultQuality2.set(value, forKey: qualityKey2)
         default:
             break
         }
     }
     
     func sendData(index: Int, receiver: IndexPath) {
-        setData(value: index, receiverIndex: receiver.row)
+        
+        setData2(value: index, receiverIndex: receiver.row)
+        
+        
         let cell = self.customTable.cellForRow(at: receiver) as! CustomCopySecondCell
-        cell.selectedsetting.text = collections[receiver.row][getSavedData(receiver: receiver.row)]
-    }
-    
-    func alertCopying(){
-        alert = UIAlertController(title: "Copying...\n\n", message: "", preferredStyle: .alert)
-        cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction) in
-            self.copyCancel()
-        })
-        alert.addAction(cancel)
-            indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 70, width: 40, height:40))
-            indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            indicator.activityIndicatorViewStyle = .whiteLarge
-            indicator.color = .black
-            alert.view.addSubview(indicator)
-            indicator.startAnimating()
-        present(alert, animated: true, completion: nil)
         
-        let time = DispatchTime.now() + 4.0
-        DispatchQueue.main.asyncAfter(deadline: time){
-            self.alert.dismiss(animated: true, completion: nil)
-        }
+        cell.selectedsetting.text = collections[receiver.row][getSavedData2(receiver: receiver.row)]
     }
+
     
-    func alertFirstScanning(){
-        alert = UIAlertController(title: "Copy Pages per Side", message: "1st page Scanning...\n\n", preferredStyle: .alert)
-        cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction) in
-            self.copyCancel()
-        })
-        alert.addAction(cancel)
-        indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 80, width: 40, height:40))
-        indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        indicator.activityIndicatorViewStyle = .whiteLarge
-        indicator.color = .black
-        alert.view.addSubview(indicator)
-        indicator.startAnimating()
-        present(alert, animated: true, completion: nil)
-    }
     
-    func alertSecondScanning(){
-        alert = UIAlertController(title: "Copy Pages per Side", message: "2nd page Scanning...\n\n", preferredStyle: .alert)
-        cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction) in
-            self.copyCancel()
-        })
-        alert.addAction(cancel)
-            indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 80, width: 40, height:40))
-            indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            indicator.activityIndicatorViewStyle = .whiteLarge
-            indicator.color = .black
-            alert.view.addSubview(indicator)
-            indicator.startAnimating()
-        self.present(alert, animated: true, completion: nil)
-        
-        time = DispatchTime.now() + 4.0
-        DispatchQueue.main.asyncAfter(deadline: time){
-            self.alert.dismiss(animated: true, completion: nil)
-        }
-    }
     
-    func alertIncludePage2(){
-        alert = UIAlertController(title: "Copy Pages per Side", message: "Would you like to include another\n page?\n", preferredStyle: .alert)
-        no = UIAlertAction(title: "NO", style: .default, handler: {(action: UIAlertAction) in
-            self.alertCopying()
-        })
-        alert.addAction(no)
-        let include = UIAlertAction(title: "Include", style: .default, handler: {(action: UIAlertAction) in
-            self.alertSecondScanning()
-        })
-        alert.addAction(include)
-        present(alert, animated: true, completion: nil)
-    }
     
-    func copyCancel(){
-        alert = UIAlertController(title: "Canceling...\n\n", message: "", preferredStyle: .alert)
-        indicator = UIActivityIndicatorView(frame: CGRect(x: 140,y: 70, width: 40, height:40))
-        indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        indicator.activityIndicatorViewStyle = .whiteLarge
-        indicator.color = .black
-        alert.view.addSubview(indicator)
-        indicator.startAnimating()
-        present(alert, animated: true, completion: nil)
-        
-        let time = DispatchTime.now() + 4.0
-        DispatchQueue.main.asyncAfter(deadline: time){
-            self.alert.dismiss(animated: true, completion: {
-                self.copyCancelComplete()
-            })
-        }
-    }
     
-    func copyCancelComplete(){
-        alert = UIAlertController(title: "Copy Canceled.", message: "", preferredStyle: .alert)
-        ok = UIAlertAction(title: "OK", style: .default, handler: {(action: UIAlertAction) in
-            self.alert.dismiss(animated: true, completion: nil)
-        })
-        alert.addAction(ok)
-        present(alert, animated: true, completion: nil)
-    }
+    
+   
 }

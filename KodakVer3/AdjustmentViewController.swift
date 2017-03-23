@@ -12,6 +12,8 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     
+    @IBOutlet weak var curtainView: UIView!
+    
     var portrait : Bool!
     var extendedWidth : CGFloat!
  
@@ -24,6 +26,10 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
     var originalRectOfImage : CGRect!
     var sizeHelperRect : CGRect!
     
+    @IBOutlet weak var adjustImageLabel: UILabel!
+    @IBOutlet weak var swipePinchLabel: UILabel!
+    @IBOutlet weak var adjustHintIV: UIImageView!
+    
     @IBAction func reset(_ sender: Any) {
         
         prevTranslateX = 0.0
@@ -31,7 +37,14 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
         lastScale = 0.0
         updateUI()
     }
-   
+  
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        curtainView.removeFromSuperview()
+        adjustHintIV.removeFromSuperview()
+        swipePinchLabel.removeFromSuperview()
+        adjustImageLabel.removeFromSuperview()
+    }
     
     @IBAction func rotateView(_ sender: Any) {
         
