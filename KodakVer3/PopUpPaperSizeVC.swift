@@ -17,26 +17,23 @@ class PopUpPaperSizeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var tablePaperSizes: UITableView!
     
     var data:String?
-    
     var delegate: PaperSizeProtocol? = nil
+    var cell: SettingsTableViewCell!
     
     let paperSizeList = ["Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "4x6 in.", "3x5 in.", "5x7 in.(2L)", "3.5x5 in.(L)", "Hagaki", "10 Envelope", "DL Envelope", "C5 Envelope"]
     
     let textCellIdentifier  = "cell"
+    let paperSizeDefault = UserDefaults.standard
+    private let selectedKey = "choice"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         
         tablePaperSizes.delegate = self
         tablePaperSizes.dataSource = self
     }
-    
-    //func numberOfSections(in tableView: UITableView) -> Int {
-    //    return 1
-    //}
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.1
@@ -50,18 +47,13 @@ class PopUpPaperSizeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         return (paperSizeList.count)
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tablePaperSizes.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
-        //let row = indexPath.row
+        cell = SettingsTableViewCell(style: .default, reuseIdentifier: textCellIdentifier)
         cell.textLabel?.text = paperSizeList[indexPath.row]
-        
+        if indexPath.row == getDefault(){
+            cell.isSelected = true
+        }
         return cell
-        
-        /* let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = paperSizeList[indexPath.row]
-        
-        return(cell) */
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -74,31 +66,22 @@ class PopUpPaperSizeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             data = currentCell.textLabel?.text
             delegate?.setTableRowData(dataRow: data!)
         }
-        
-        
-        //let sb: UIStoryboard = UIStoryboard(name: "PrinterUtilityStoryboard", bundle: nil)
-        //let sizeVC = sb.instantiateViewController(withIdentifier: "PaperSize") as! PaperSetup
-        
-        //sizeVC.paperSizeButton.titleLabel?.text = data
         print("\(data)")
-        //self.navigationController?.popToViewController(sizeVC, animated: true)
+
+        setDefault(value: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: false)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func setDefault(value: Int){
+        paperSizeDefault.set(value, forKey: selectedKey)
+    }
+    
+    func getDefault()->Int{
+        return paperSizeDefault.integer(forKey: selectedKey)
     }
     
     @IBAction func dismissButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-        
-        //self.view.removeFromSuperview()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

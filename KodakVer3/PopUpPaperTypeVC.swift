@@ -17,12 +17,13 @@ class PopUpPaperTypeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var paperTypeTable: UITableView!
     
     var data:String?
-    
     var delegate: PaperTypeProtocol? = nil
+    var cell: SettingsTableViewCell!
     
     let paperTypeList = ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"]
-    
     let textCellIdentifier = "cell"
+    let paperTypeDefault = UserDefaults.standard
+    private let selectedKey = "choice"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +49,11 @@ class PopUpPaperTypeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = paperTypeTable.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
+        cell = SettingsTableViewCell(style: .default, reuseIdentifier: textCellIdentifier)
+        if indexPath.row == getDefault(){
+            cell.isSelected = true
+        }
         cell.textLabel?.text = paperTypeList[indexPath.row]
-        
         return cell
     }
    
@@ -63,21 +66,20 @@ class PopUpPaperTypeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             delegate?.setTableRow(dataRow: data!)
         }
         
+        setDefault(value: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: false)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func setDefault(value: Int){
+        paperTypeDefault.set(value, forKey: selectedKey)
+    }
+    
+    func getDefault()->Int{
+        return paperTypeDefault.integer(forKey: selectedKey)
     }
     
     @IBAction func dismissButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
