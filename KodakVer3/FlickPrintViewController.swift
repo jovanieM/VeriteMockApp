@@ -153,7 +153,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
                 imageView.center.y = container.bounds.midY + newY
             }
             if newcCenter.y < (-150.0){
-                print("triggered")
+                printPhoto()
             }
             
         }else if pan.state == .ended{
@@ -162,9 +162,22 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
                 imageView.center.x = container.bounds.midX
                 imageView.center.y = container.bounds.midY
             }
+            if pan.translation(in: container).y > (-150.0){
+                imageView.center.x = container.bounds.midX
+                imageView.center.y = container.bounds.midY
+            
+            }
         
         }
        
+    }
+    
+    func printPhoto(){
+        let sb = UIStoryboard(name: "PrintQueueStoryboard", bundle: nil)
+        let vc = sb.instantiateInitialViewController() as! PrintQueueViewController
+        vc.images2 = [self.image]
+        self.show(vc, sender: self)
+    
     }
     
     var cont : CGFloat = 0.0

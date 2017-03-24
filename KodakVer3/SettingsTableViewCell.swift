@@ -17,7 +17,7 @@ class SettingsTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
       
-        settingName = UILabel(frame: CGRect(x: self.frame.height / 4, y: 0, width: self.frame.width / 2, height: self.frame.height))
+        settingName = UILabel(frame: CGRect(x: self.frame.height / 4, y: 0, width: self.frame.width * 0.75, height: self.frame.height))
         settingName.textAlignment = .left
         self.addSubview(settingName)
 

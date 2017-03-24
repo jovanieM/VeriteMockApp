@@ -291,6 +291,8 @@ class PrintPhotoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 
                 table  = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
                 
+                table.preselect = getSavedData(receiver: indexPath.row)
+                
                 table.propertyIndex = indexPath
                 table.data = collections[indexPath.row]
                 

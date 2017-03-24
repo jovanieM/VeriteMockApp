@@ -9,7 +9,7 @@
 import UIKit
 
 //provides the newly selected index to the DetailviewController
-protocol SettingViewDelegate {
+protocol SettingViewDelegate: class {
     func sendData(index: Int, receiver: IndexPath)
 }
 
@@ -17,9 +17,16 @@ class SettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource{
     
     
     
-    var sendDataDelegate: SettingViewDelegate?
+    weak var sendDataDelegate: SettingViewDelegate?
     var width: CGFloat!
-    var preselect:IndexPath?
+    
+    var preselect:Int?
+    
+    var klass : UIViewController?{
+        didSet{
+            print(klass?.description ?? "sany")
+        }
+    }
     
     
     
@@ -28,15 +35,16 @@ class SettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource{
         didSet{
             let tableView:UITableView = UITableView()
             tableView.frame = CGRect(x: 0, y: 0, width: width, height: CGFloat(computeHeight(numberOfItems: data.count)) * 44.0)
+          
             
-            let detail: PrintPhotoVC = PrintPhotoVC()
-            
-            let index: Int = detail.getSavedData(receiver: propertyIndex!.row) ?? 0
+//            let detail: PrintPhotoVC = PrintPhotoVC()
+//            
+//            let index: Int = detail.getSavedData(receiver: propertyIndex!.row) ?? 0
             
             tableView.center = convert(center, from: self)
             tableView.delegate = self
             tableView.dataSource = self
-            tableView.selectRow(at: IndexPath.init(row: index, section: 0), animated: false, scrollPosition: .middle)
+            tableView.selectRow(at: IndexPath.init(row: preselect ?? 0, section: 0), animated: false, scrollPosition: .middle)
             self.addSubview(tableView)
 
             
@@ -71,7 +79,7 @@ class SettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource{
         
         
         sendDataDelegate?.sendData(index: indexPath.row, receiver: propertyIndex!)
-        preselect = indexPath
+        //preselect = indexPath
         
         self.removeFromSuperview()
       //  settingDelegate?.settingSelector(sender: self, indexpath: path, setting: indexPath.row)
