@@ -27,7 +27,7 @@ class PagesPerSideViewer: UIView, UITableViewDelegate, UITableViewDataSource {
             
             let detail: CustomCopyViewController = CustomCopyViewController()
             
-            let index: Int = detail.getSavedData2(receiver: propertyIndex!.row)
+            let index: Int = detail.getSavedData(receiver: propertyIndex!.row)
             
             tableView.center = convert(center, from: self)
             tableView.delegate = self
