@@ -24,10 +24,10 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
     
     func setTableRowData(dataRow: String) {
         //directTimeLabel.titleLabel?.text = dataRow
-        let vc: PopUpDirectConnectTime = PopUpDirectConnectTime()
+        //let vc: PopUpDirectConnectTime = PopUpDirectConnectTime()
         
-        directLabel.text = vc.data
-        //directLabel.text = dataRow
+        //directLabel.text = vc.data
+        directLabel.text = dataRow
     }
     
     //navigation bar
