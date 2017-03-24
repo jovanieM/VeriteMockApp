@@ -10,12 +10,14 @@ import UIKit
 
 class PaperSetup: UIViewController, PaperSizeProtocol, PaperTypeProtocol{
     
-    internal func setTableRow(dataRow: String) {
+    func setPaperTypeData(dataRow: String) {
         paperTypeButton.titleLabel!.text = dataRow
+        UserDefaults.standard.set(dataRow, forKey: "paperType")
     }
     
-    func setTableRowData(dataRow: String) {
+    func setPaperSizeData(dataRow: String) {
         paperSizeButton.titleLabel?.text = dataRow
+        UserDefaults.standard.set(dataRow, forKey: "paperSize")
     }
     
     @IBOutlet weak var paperSizeButton: UIButton!
@@ -56,13 +58,23 @@ class PaperSetup: UIViewController, PaperSizeProtocol, PaperTypeProtocol{
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let size: String? = UserDefaults.standard.object(forKey: "paperSize") as? String
+        let type: String? = UserDefaults.standard.object(forKey: "paperType") as? String
+        
+        if let sizeToDisplay = size {
+            paperSizeButton.titleLabel?.text = sizeToDisplay
+        }
+        
+        if let typeToDisplay = type {
+            paperTypeButton.titleLabel?.text = typeToDisplay
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadAlerts()
-        
-        //paperSizeButton.setTitle("Letter               ", for: .normal)
-        //paperTypeButton.setTitle("Plain                ", for: .normal)
         
         // button
         saveSettingButton.layer.cornerRadius = 15

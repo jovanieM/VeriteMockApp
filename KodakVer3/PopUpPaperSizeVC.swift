@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PaperSizeProtocol{
-    func setTableRowData(dataRow: String)
+    func setPaperSizeData(dataRow: String)
 }
 
 class PopUpPaperSizeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -64,7 +64,7 @@ class PopUpPaperSizeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         if delegate != nil{
             data = currentCell.textLabel?.text
-            delegate?.setTableRowData(dataRow: data!)
+            delegate?.setPaperSizeData(dataRow: data!)
         }
         print("\(data)")
 

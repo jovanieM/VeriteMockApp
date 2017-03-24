@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PaperTypeProtocol{
-    func setTableRow(dataRow: String)
+    func setPaperTypeData(dataRow: String)
 }
 
 class PopUpPaperTypeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -63,7 +63,7 @@ class PopUpPaperTypeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         if delegate != nil{
             data = currentCell.textLabel?.text
-            delegate?.setTableRow(dataRow: data!)
+            delegate?.setPaperTypeData(dataRow: data!)
         }
         
         setDefault(value: indexPath.row)

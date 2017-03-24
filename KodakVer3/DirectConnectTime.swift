@@ -22,16 +22,9 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
     
     @IBOutlet weak var directLabel: UILabel!
     
-    
-    
     func setTableRowData(dataRow: String) {
-        //directTimeLabel.titleLabel?.text = dataRow
-        //let vc: PopUpDirectConnectTime = PopUpDirectConnectTime()
-        
-        //directLabel.text = vc.data
         directLabel.text = dataRow
-        
-        //directConnectTimeData = dataRow
+        UserDefaults.standard.set(dataRow, forKey: "directLabel")
     }
     
     //navigation bar
@@ -44,13 +37,17 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let name: String? = UserDefaults.standard.object(forKey: "directLabel") as? String
+        if let toDisplay = name{
+            directLabel.text = toDisplay
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadAlerts()
-        
-        //let vc: PopUpDirectConnectTime = PopUpDirectConnectTime()
-        directLabel.text = directConnectTimeData
         
         //button
         saveSettingButton.layer.cornerRadius = 15
@@ -90,6 +87,7 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
+        
         alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
         
         indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
