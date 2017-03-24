@@ -338,6 +338,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ipAdd2DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="zxP-ue-sWv"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="2" borderStyle="bezel" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="U9i-Ec-y11">
                                         <rect key="frame" x="220" y="5" width="40" height="30"/>
@@ -351,6 +354,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ipAdd3DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="ENW-Bq-Nb2"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="bezel" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="csL-OJ-8p3">
                                         <rect key="frame" x="270" y="5" width="40" height="30"/>
@@ -364,6 +370,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ipAdd4DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="VLV-RN-hkD"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nn9-ys-Peu">
                                         <rect key="frame" x="160" y="0.0" width="10" height="40"/>
@@ -412,6 +421,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="subnet1DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="JTp-w0-tBY"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="255" borderStyle="bezel" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="snh-K9-cuz">
                                         <rect key="frame" x="170" y="5" width="40" height="30"/>
@@ -425,6 +437,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="subnet2DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="QdI-bv-H6p"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="255" borderStyle="bezel" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="qzc-z2-Wu9">
                                         <rect key="frame" x="220" y="5" width="40" height="30"/>
@@ -438,6 +453,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="subnet3DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="XFf-zn-Pcn"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="bezel" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Jho-Bl-xyK">
                                         <rect key="frame" x="270" y="5" width="40" height="30"/>
@@ -451,6 +469,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="subnet4DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="iqF-kv-pcf"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-Xz-I0A">
                                         <rect key="frame" x="160" y="0.0" width="10" height="40"/>
@@ -499,6 +520,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="default1DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="G2u-jJ-ZEs"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2y-qv-eWn">
                                         <rect key="frame" x="160" y="0.0" width="10" height="40"/>
@@ -533,6 +557,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="default2DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="i51-Ti-I3Q"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="bezel" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="wzo-rH-Axg">
                                         <rect key="frame" x="220" y="5" width="40" height="30"/>
@@ -546,6 +573,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="default3DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="MR3-3t-eYx"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="bezel" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="04V-G9-P8z">
                                         <rect key="frame" x="270" y="5" width="40" height="30"/>
@@ -559,6 +589,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="default4DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="ND7-Le-vYR"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -607,6 +640,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="dns1DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="Iua-Se-Yw4"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="168" borderStyle="bezel" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="1Iv-QE-zZx">
                                         <rect key="frame" x="170" y="5" width="40" height="30"/>
@@ -620,6 +656,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="dns2DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="cI6-pz-Drt"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="bezel" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="No9-WL-ekL">
                                         <rect key="frame" x="220" y="5" width="40" height="30"/>
@@ -633,6 +672,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="dns3DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="V4A-lV-nSI"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="bezel" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="R1w-eX-6Ev">
                                         <rect key="frame" x="270" y="5" width="40" height="30"/>
@@ -646,6 +688,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="dns4DidChanged:" destination="bqI-vu-wr3" eventType="editingChanged" id="g2U-tL-Vg5"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

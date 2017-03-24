@@ -22,12 +22,16 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
     
     @IBOutlet weak var directLabel: UILabel!
     
+    
+    
     func setTableRowData(dataRow: String) {
         //directTimeLabel.titleLabel?.text = dataRow
         //let vc: PopUpDirectConnectTime = PopUpDirectConnectTime()
         
         //directLabel.text = vc.data
         directLabel.text = dataRow
+        
+        //directConnectTimeData = dataRow
     }
     
     //navigation bar
@@ -44,6 +48,9 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
         super.viewDidLoad()
         
         loadAlerts()
+        
+        //let vc: PopUpDirectConnectTime = PopUpDirectConnectTime()
+        directLabel.text = directConnectTimeData
         
         //button
         saveSettingButton.layer.cornerRadius = 15
