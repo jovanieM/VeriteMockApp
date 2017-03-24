@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomCopyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CopySettingViewDelegate, PagesPerSideDelegate {
+class CustomCopyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingViewDelegate, PagesPerSideDelegate {
 
     @IBOutlet weak var customcopybutton: UIButton!
     
@@ -34,7 +34,7 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     private let pagespersideKey: String = "pagesperside"
     
     
-    var table:CopySettingsViewer!
+    var table:SettingsViewer!
     var table2:PagesPerSideViewer!
         
     let defaultCopySize = UserDefaults.standard
@@ -145,9 +145,10 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
         if indexPath.row < 5{
-            table  = CopySettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
+            table  = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
             table.propertyIndex = indexPath
             table.data = collections[indexPath.row]
+            table.preselect = indexPath.row
             
             table.sendDataDelegate = self
             tableView.deselectRow(at: indexPath, animated: false)
