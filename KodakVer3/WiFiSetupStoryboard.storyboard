@@ -1124,7 +1124,7 @@
                                                 <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                <integer key="value" value="0"/>
+                                                <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
