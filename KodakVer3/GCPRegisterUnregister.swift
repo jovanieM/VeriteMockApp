@@ -80,11 +80,11 @@ class GCPRegisterUnregister: UIViewController {
     
     func dismissAlert_2(){
         self.alert?.dismiss(animated: true, completion: nil)
+//        exit(0)
         
         let mainSB = UIStoryboard(name: "Main", bundle: nil)
         let mainVC = mainSB.instantiateViewController(withIdentifier: "mainID") as! MyNavController
         self.present(mainVC, animated: true, completion: nil)
-        
     }
     
 }
