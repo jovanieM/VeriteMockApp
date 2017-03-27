@@ -19,7 +19,8 @@ class LoadInstructionsViewController: UIViewController {
     @IBOutlet weak var envelopeName: UILabel!
     @IBOutlet weak var envelopeDescription: UILabel!
     
-    
+    var dataNameReceived: String = ""
+    var dataDescReceived: String = ""
     
     let animationImages1:[UIImage] = [UIImage(named: "ap_setenvelope04")!,
                                        UIImage(named: "ap_setenvelope04")!,
@@ -68,11 +69,20 @@ class LoadInstructionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        envelopeName.text = dataNameReceived
+        envelopeDescription.text = dataDescReceived
         OKbutton.layer.cornerRadius = 15;
         OKbutton.layer.borderWidth = 1;
         OKbutton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
         OKbutton.layer.masksToBounds = true;
-        loadingImageView.animationImages = animationImages1
+        
+        if dataNameReceived == "6x9" {
+            loadingImageView.animationImages = animationImages2
+            
+        } else {
+            loadingImageView.animationImages = animationImages1
+            
+        }
         loadingImageView.animationDuration = 15.0
         loadingImageView.animationRepeatCount = 0
         loadingImageView.startAnimating()

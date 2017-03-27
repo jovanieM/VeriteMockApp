@@ -37,6 +37,9 @@
                                         <rect key="frame" x="148" y="0.0" width="137" height="135"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="main_button"/>
+                                        <connections>
+                                            <action selector="No6:" destination="riE-Ei-U6X" eventType="touchUpInside" id="V5O-6L-oXc"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No. 6 3/4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wY3-By-ndx">
                                         <rect key="frame" x="164" y="96" width="107" height="21"/>
@@ -60,6 +63,9 @@
                                         <rect key="frame" x="0.0" y="143" width="137" height="135"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <state key="normal" backgroundImage="main_button"/>
+                                        <connections>
+                                            <action selector="No10:" destination="riE-Ei-U6X" eventType="touchUpInside" id="KAk-P2-YR8"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No. 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gns-ad-nhS">
                                         <rect key="frame" x="13" y="237" width="107" height="21"/>
@@ -79,6 +85,9 @@
                                         <rect key="frame" x="148" y="143" width="137" height="135"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <state key="normal" backgroundImage="main_button"/>
+                                        <connections>
+                                            <action selector="SixByNine:" destination="riE-Ei-U6X" eventType="touchUpInside" id="pWx-IG-uOD"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6x9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m10-jw-LRe">
                                         <rect key="frame" x="163" y="240" width="107" height="21"/>
