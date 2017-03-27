@@ -14,6 +14,8 @@ class AddressPrintHomeViewController: UIViewController {
     
     @IBOutlet weak var doNotShowInstructionsCheckbox: UIImageView!
     
+    var dataToPass = ""
+    
     let checked = UIImage(named: "check_box_off")
     let unchecked = UIImage(named: "check_box_on_orange")
     
@@ -40,6 +42,15 @@ class AddressPrintHomeViewController: UIViewController {
         } else {
             doNotShowInstructionsCheckbox.image = checked
         }
+    }
+    @IBAction func Photo(_ sender: Any) {
+        
+        let NextViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoadInstructionsViewController") as? LoadInstructionsViewController
+       
+//        NextViewController!.envelopeName.text = "Photo"
+//        NextViewController!.envelopeDescription.text = "4 3/4\" x 6 1/2\""
+        self.navigationController?.pushViewController(NextViewController!, animated: true)
+        
     }
     
 }
