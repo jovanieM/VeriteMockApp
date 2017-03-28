@@ -310,7 +310,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="10" borderStyle="bezel" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Ep-k0-emd">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="10" borderStyle="bezel" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Ep-k0-emd" customClass="AcceptNumberOnly" customModule="KodakVer3" customModuleProvider="target">
                                         <rect key="frame" x="120" y="5" width="40" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="1" green="0.71764705882352942" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
