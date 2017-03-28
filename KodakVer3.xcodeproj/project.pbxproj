@@ -25,6 +25,7 @@
 		103303441E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303431E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard */; };
 		103303471E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */; };
 		103A0DA31E8A56710062E730 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103A0DA21E8A56710062E730 /* TermsOfUseViewController.swift */; };
+		103A0DA51E8A5A080062E730 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 103A0DA41E8A5A080062E730 /* Images.xcassets */; };
 		104D37E41E83CA9700654166 /* ScanPhotoSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D37E31E83CA9700654166 /* ScanPhotoSettingViewController.swift */; };
 		104F1D391E6575AC00532AC3 /* CartridgeSetupPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F1D371E6575AC00532AC3 /* CartridgeSetupPrinting.swift */; };
 		104F1D3A1E6575AC00532AC3 /* CartridgeSetupStartScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F1D381E6575AC00532AC3 /* CartridgeSetupStartScan.swift */; };
@@ -168,6 +169,7 @@
 		103303431E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PrinterUtilityStoryboard.storyboard; sourceTree = "<group>"; };
 		103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SoftwareUpdateStoryboard.storyboard; sourceTree = "<group>"; };
 		103A0DA21E8A56710062E730 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
+		103A0DA41E8A5A080062E730 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		104D37E31E83CA9700654166 /* ScanPhotoSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanPhotoSettingViewController.swift; sourceTree = "<group>"; };
 		104F1D371E6575AC00532AC3 /* CartridgeSetupPrinting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupPrinting.swift; sourceTree = "<group>"; };
 		104F1D381E6575AC00532AC3 /* CartridgeSetupStartScan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupStartScan.swift; sourceTree = "<group>"; };
@@ -565,6 +567,7 @@
 		114B30A61DF90A57008A57F1 /* KodakVer3 */ = {
 			isa = PBXGroup;
 			children = (
+				103A0DA41E8A5A080062E730 /* Images.xcassets */,
 				114159301E83C652007276CA /* PrintQueueStoryboard */,
 				10DE82FB1E72A813001F6FDA /* MyTableView.swift */,
 				10DE82F91E72A7F8001F6FDA /* PhotoGallery.swift */,
@@ -742,6 +745,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				103303351E52AD2A00E7D24C /* ScanSettingsStoryboard.storyboard in Resources */,
+				103A0DA51E8A5A080062E730 /* Images.xcassets in Resources */,
 				103303411E52ADE900E7D24C /* AirPrintStoryboard.storyboard in Resources */,
 				103303261E52AC6D00E7D24C /* CopyStoryboard.storyboard in Resources */,
 				103303321E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard in Resources */,
@@ -1038,7 +1042,7 @@
 		114B30CD1DF90A57008A57F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 5GFTBY65QD;
 				INFOPLIST_FILE = KodakVer3/Info.plist;
@@ -1053,7 +1057,7 @@
 		114B30CE1DF90A57008A57F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 5GFTBY65QD;
 				INFOPLIST_FILE = KodakVer3/Info.plist;
