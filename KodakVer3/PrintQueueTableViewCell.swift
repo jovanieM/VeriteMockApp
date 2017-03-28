@@ -18,9 +18,12 @@ class PrintQueueTableViewCell: UITableViewCell {
     @IBOutlet weak var statusNPages: UILabel!
 
     @IBOutlet weak var progressView: UIProgressView!
+    
+    
 
    
     @IBOutlet weak var buttonId: UIButton!
+    
     var pq = PrintQueueViewController()
     
     @IBAction func cancel(_ sender: UIButton) {

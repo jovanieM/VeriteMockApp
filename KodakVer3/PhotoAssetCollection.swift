@@ -135,12 +135,7 @@ class PhotoAssetCollection: UITableViewController {
         //(tableView.indexPathForSelectedRow?.row)!
     }
     override func viewWillAppear(_ animated: Bool) {
-        let navTransition = CATransition()
-        navTransition.duration = 0.4
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        navTransition.type = kCATransitionPush
-        navTransition.subtype = kCATransitionPush
-        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+       self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
     }
     
     

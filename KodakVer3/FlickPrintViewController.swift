@@ -226,15 +226,10 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         let vc = segue.destination as! AdjustmentViewController
         vc.image = self.image
         
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        let navTransition = CATransition()
-        navTransition.duration = 0.4
         
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        navTransition.type = kCATransitionPush
-        navTransition.subtype = kCATransitionPush
-        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+    }
+    override func viewWillAppear(_ animated: Bool){
+        self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
         
         updateUI()
     }

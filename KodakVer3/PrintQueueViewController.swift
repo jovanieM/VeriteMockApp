@@ -30,9 +30,9 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
             
         }
     }
-        
     
-    
+    var cancelButtonId: [String]?
+
     
     var target : Int!
     var step : Int!
@@ -98,12 +98,23 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("PrintQueueTableViewCell", owner: self, options: nil)?.first as! PrintQueueTableViewCell
+        let button = UIButton(type: .custom)
+        button.setTitle(String(indexPath.row), for: .normal)
+        button.isUserInteractionEnabled = true
+        
+        button.addTarget(self, action: #selector(self.cancelPrint(sender:)), for: .touchUpInside)
+        cell.buttonId = button
         
         cell.imageThumbNail.image = printData[indexPath.row].thumbNail
-        cell.buttonId.setTitle(String(indexPath.row), for: .normal)
+        //cell.buttonId.setTitle(String(indexPath.row), for: .normal)
     
         return cell
         
+    }
+    
+    func cancelPrint(sender: UIButton!){
+        print("")
+    
     }
     func removeCell(sender: UITableViewCell){
         
@@ -129,6 +140,6 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+  
 }
 
