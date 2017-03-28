@@ -24,8 +24,6 @@
 		103303411E52ADE900E7D24C /* AirPrintStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303401E52ADE900E7D24C /* AirPrintStoryboard.storyboard */; };
 		103303441E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303431E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard */; };
 		103303471E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */; };
-		103A0DA31E8A56710062E730 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103A0DA21E8A56710062E730 /* TermsOfUseViewController.swift */; };
-		103A0DA51E8A5A080062E730 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 103A0DA41E8A5A080062E730 /* Images.xcassets */; };
 		104D37E41E83CA9700654166 /* ScanPhotoSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D37E31E83CA9700654166 /* ScanPhotoSettingViewController.swift */; };
 		104F1D391E6575AC00532AC3 /* CartridgeSetupPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F1D371E6575AC00532AC3 /* CartridgeSetupPrinting.swift */; };
 		104F1D3A1E6575AC00532AC3 /* CartridgeSetupStartScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F1D381E6575AC00532AC3 /* CartridgeSetupStartScan.swift */; };
@@ -52,6 +50,7 @@
 		107B37B91E5FDF08007CA90C /* RestoreFactoryDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37B21E5FDF08007CA90C /* RestoreFactoryDefault.swift */; };
 		107B37BB1E5FDF1D007CA90C /* SoftwareUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37BA1E5FDF1D007CA90C /* SoftwareUpdate.swift */; };
 		107DE2A51E6EB9B10094FA0B /* PopUpDirectConnectTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107DE2A41E6EB9B10094FA0B /* PopUpDirectConnectTime.swift */; };
+		1093B8241E8A58C5000E8670 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1093B8231E8A58C5000E8670 /* Images-2.xcassets */; };
 		109A952F1E729575004D28FD /* NetworkAndPasswordHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109A952D1E729575004D28FD /* NetworkAndPasswordHelp.swift */; };
 		109A95301E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109A952E1E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift */; };
 		10A4E08C1E603FBB007724EF /* TextFieldMaxLengths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4E08B1E603FBB007724EF /* TextFieldMaxLengths.swift */; };
@@ -168,8 +167,6 @@
 		103303401E52ADE900E7D24C /* AirPrintStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AirPrintStoryboard.storyboard; sourceTree = "<group>"; };
 		103303431E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PrinterUtilityStoryboard.storyboard; sourceTree = "<group>"; };
 		103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SoftwareUpdateStoryboard.storyboard; sourceTree = "<group>"; };
-		103A0DA21E8A56710062E730 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
-		103A0DA41E8A5A080062E730 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		104D37E31E83CA9700654166 /* ScanPhotoSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanPhotoSettingViewController.swift; sourceTree = "<group>"; };
 		104F1D371E6575AC00532AC3 /* CartridgeSetupPrinting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupPrinting.swift; sourceTree = "<group>"; };
 		104F1D381E6575AC00532AC3 /* CartridgeSetupStartScan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupStartScan.swift; sourceTree = "<group>"; };
@@ -196,6 +193,7 @@
 		107B37B21E5FDF08007CA90C /* RestoreFactoryDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreFactoryDefault.swift; sourceTree = "<group>"; };
 		107B37BA1E5FDF1D007CA90C /* SoftwareUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareUpdate.swift; sourceTree = "<group>"; };
 		107DE2A41E6EB9B10094FA0B /* PopUpDirectConnectTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpDirectConnectTime.swift; sourceTree = "<group>"; };
+		1093B8231E8A58C5000E8670 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		109A952D1E729575004D28FD /* NetworkAndPasswordHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordHelp.swift; sourceTree = "<group>"; };
 		109A952E1E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSelectedNetworkVC.swift; sourceTree = "<group>"; };
 		10A4E08B1E603FBB007724EF /* TextFieldMaxLengths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMaxLengths.swift; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 		1033031B1E52AB5D00E7D24C /* TermsConditionsStoryboard */ = {
 			isa = PBXGroup;
 			children = (
-				103A0DA21E8A56710062E730 /* TermsOfUseViewController.swift */,
 				10D36C651E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift */,
 				1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */,
 			);
@@ -567,7 +564,6 @@
 		114B30A61DF90A57008A57F1 /* KodakVer3 */ = {
 			isa = PBXGroup;
 			children = (
-				103A0DA41E8A5A080062E730 /* Images.xcassets */,
 				114159301E83C652007276CA /* PrintQueueStoryboard */,
 				10DE82FB1E72A813001F6FDA /* MyTableView.swift */,
 				10DE82F91E72A7F8001F6FDA /* PhotoGallery.swift */,
@@ -614,6 +610,7 @@
 				114159281E83C33F007276CA /* PrintSettingsPreview.xib */,
 				114159291E83C33F007276CA /* SettingsObject.swift */,
 				11DF481F1E36E46A0012AD60 /* FirstCell.swift */,
+				1093B8231E8A58C5000E8670 /* Images-2.xcassets */,
 			);
 			path = KodakVer3;
 			sourceTree = "<group>";
@@ -745,8 +742,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				103303351E52AD2A00E7D24C /* ScanSettingsStoryboard.storyboard in Resources */,
-				103A0DA51E8A5A080062E730 /* Images.xcassets in Resources */,
 				103303411E52ADE900E7D24C /* AirPrintStoryboard.storyboard in Resources */,
+				1093B8241E8A58C5000E8670 /* Images-2.xcassets in Resources */,
 				103303261E52AC6D00E7D24C /* CopyStoryboard.storyboard in Resources */,
 				103303321E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard in Resources */,
 				1141592B1E83C33F007276CA /* PrintQueueStoryboard.storyboard in Resources */,
@@ -875,7 +872,6 @@
 				1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */,
 				1141592D1E83C33F007276CA /* PrintSettingsPreview.swift in Sources */,
 				10D36C601E5FE0C400D79664 /* CopyViewController.swift in Sources */,
-				103A0DA31E8A56710062E730 /* TermsOfUseViewController.swift in Sources */,
 				10A630731E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift in Sources */,
 				105965E41E531B95003B7CD6 /* DeviceSettings.swift in Sources */,
 				11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */,
@@ -1042,7 +1038,8 @@
 		114B30CD1DF90A57008A57F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 5GFTBY65QD;
 				INFOPLIST_FILE = KodakVer3/Info.plist;
@@ -1057,7 +1054,8 @@
 		114B30CE1DF90A57008A57F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 5GFTBY65QD;
 				INFOPLIST_FILE = KodakVer3/Info.plist;
