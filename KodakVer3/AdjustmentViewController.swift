@@ -46,7 +46,7 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        curtainView.removeFromSuperview()
+        curtainView.isHidden = true
     }
     
    
