@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,54 +31,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MBx-SC-zm9">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="printJobCell" editingAccessoryType="checkmark" rowHeight="85" id="MCI-ae-s3N">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="85"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MCI-ae-s3N" id="37V-zR-bhg">
-                                            <rect key="frame" x="0.0" y="0.0" width="336" height="85"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="123" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h4m-Ad-sa2">
-                                                    <rect key="frame" x="8" y="8" width="68" height="68"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="h4m-Ad-sa2" secondAttribute="height" multiplier="1:1" id="HCo-Ok-a9X"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mcj-Gs-gDh">
-                                                    <rect key="frame" x="84" y="8" width="244" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydT-JK-cED">
-                                                    <rect key="frame" x="84" y="37" width="244" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <progressView opaque="NO" tag="4" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lfp-Uz-2AO">
-                                                    <rect key="frame" x="84" y="65" width="244" height="2"/>
-                                                    <color key="progressTintColor" red="1" green="0.59821109480000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </progressView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ydT-JK-cED" firstAttribute="top" secondItem="Mcj-Gs-gDh" secondAttribute="bottom" constant="9" id="29i-io-QGl"/>
-                                                <constraint firstItem="h4m-Ad-sa2" firstAttribute="bottom" secondItem="37V-zR-bhg" secondAttribute="bottomMargin" id="7Jg-tE-d5g"/>
-                                                <constraint firstItem="h4m-Ad-sa2" firstAttribute="leading" secondItem="37V-zR-bhg" secondAttribute="leadingMargin" id="9hb-8O-8QP"/>
-                                                <constraint firstItem="ydT-JK-cED" firstAttribute="leading" secondItem="h4m-Ad-sa2" secondAttribute="trailing" constant="8" id="DR3-15-bk8"/>
-                                                <constraint firstItem="Lfp-Uz-2AO" firstAttribute="leading" secondItem="h4m-Ad-sa2" secondAttribute="trailing" constant="8" id="OJZ-AV-PDR"/>
-                                                <constraint firstItem="Mcj-Gs-gDh" firstAttribute="top" secondItem="37V-zR-bhg" secondAttribute="topMargin" id="PRt-Hb-Wxa"/>
-                                                <constraint firstItem="Mcj-Gs-gDh" firstAttribute="trailing" secondItem="37V-zR-bhg" secondAttribute="trailingMargin" id="bOA-Fs-u26"/>
-                                                <constraint firstItem="Mcj-Gs-gDh" firstAttribute="leading" secondItem="h4m-Ad-sa2" secondAttribute="trailing" constant="8" id="bob-vF-suW"/>
-                                                <constraint firstItem="Lfp-Uz-2AO" firstAttribute="width" secondItem="ydT-JK-cED" secondAttribute="width" id="cuF-mq-Wko"/>
-                                                <constraint firstItem="ydT-JK-cED" firstAttribute="trailing" secondItem="37V-zR-bhg" secondAttribute="trailingMargin" id="ihQ-4h-GAK"/>
-                                                <constraint firstItem="h4m-Ad-sa2" firstAttribute="top" secondItem="37V-zR-bhg" secondAttribute="topMargin" id="oox-pz-xGC"/>
-                                                <constraint firstItem="Lfp-Uz-2AO" firstAttribute="top" secondItem="ydT-JK-cED" secondAttribute="bottom" constant="10" id="pKA-e9-BG5"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -19,6 +19,19 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
     //
     //    }()
     var images2 = [UIImage]()
+      
+    private var isDoneLoadingData: Bool = false
+    
+    var printData = [PrintData](){
+        didSet{
+            if isDoneLoadingData{
+                printJobs.reloadData()
+            }
+            
+        }
+    }
+        
+    
     
     
     var target : Int!
@@ -30,6 +43,8 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
         printJobs.delegate = self
         printJobs.dataSource = self
         printJobs.allowsSelection = false
+        
+        isDoneLoadingData = true
         print("viewDidload_PQ")
         
     }
@@ -82,23 +97,10 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "printJobCell", for: indexPath)
+        let cell = Bundle.main.loadNibNamed("PrintQueueTableViewCell", owner: self, options: nil)?.first as! PrintQueueTableViewCell
         
-        let iv = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: 30, height: 30)))
-        iv.contentMode = .scaleAspectFill
-        iv.image = #imageLiteral(resourceName: "job_cancel")
-        iv.tag = indexPath.row
-
-        iv.isUserInteractionEnabled = true
-        
-        //iv.addGestureRecognizer()
-        let imgView = cell.contentView.viewWithTag(123) as! UIImageView
-        imgView.image = images2[indexPath.row]
-        print("cellforrowat_PQ \(iv.tag)")
-        cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeCell(sender:))))
-        
-        cell.accessoryView = iv
-    
+        cell.imageThumbNail.image = printData[indexPath.row].thumbNail
+        cell.buttonId.setTitle(String(indexPath.row), for: .normal)
     
         return cell
         
@@ -121,7 +123,7 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return images2.count
+        return printData.count
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

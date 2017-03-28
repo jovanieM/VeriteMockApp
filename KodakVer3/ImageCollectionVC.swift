@@ -285,10 +285,25 @@ class ImageCollectionVC: UIViewController, UICollectionViewDataSource, UICollect
                 self.dimmerView.alpha = 0.0
                 let sb = UIStoryboard(name: "PrintQueueStoryboard", bundle: nil)
                 let vc = sb.instantiateInitialViewController() as! PrintQueueViewController
-                vc.images2 = images
+                
+                for i in 0..<images.count{
+                    let pd = PrintData()
+                    pd.thumbNail = images[i]
+                    vc.printData.append(pd)
+                }
+                
                 self.show(vc, sender: self)
                 
             }
+            vc2.onSettings = {
+                
+                self.dimmerView.alpha = 0.0
+                let sb = UIStoryboard(name: "PhotoPrintSettingsStoryboard", bundle: nil)
+                let vc = sb.instantiateInitialViewController() as! PrintPhotoVC
+                self.show(vc, sender: self)
+            
+            }
+            
         }
         
         
@@ -297,9 +312,9 @@ class ImageCollectionVC: UIViewController, UICollectionViewDataSource, UICollect
         
         let navTransition = CATransition()
         
-        navTransition.duration = 1
+        navTransition.duration = 0.4
         
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
         
         navTransition.type = kCATransitionPush
         

@@ -26,35 +26,30 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
     var originalRectOfImage : CGRect!
     var sizeHelperRect : CGRect!
     
-    @IBOutlet weak var adjustImageLabel: UILabel!
-    @IBOutlet weak var swipePinchLabel: UILabel!
-    @IBOutlet weak var adjustHintIV: UIImageView!
-    
-    @IBAction func reset(_ sender: Any) {
-        
+
+    @IBAction func cancel(_ sender: UIButton) {
         prevTranslateX = 0.0
         prevTranslateY = 0.0
         lastScale = 0.0
         updateUI()
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        curtainView.removeFromSuperview()
-        adjustHintIV.removeFromSuperview()
-        swipePinchLabel.removeFromSuperview()
-        adjustImageLabel.removeFromSuperview()
-    }
-    
-    @IBAction func rotateView(_ sender: Any) {
+  
+    @IBAction func rotate(_ sender: UIButton) {
         
         portrait = !portrait
         cont.portrait = portrait
         gest.portrait = portrait
         
         updateUI()
-        
     }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        curtainView.removeFromSuperview()
+    }
+    
+   
     // MARK: - UpdateUI()
     func updateUI(){
         imageFrame = SizeHelper(frame: cont.bounds, orientation: portrait)
@@ -119,6 +114,8 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
         cont.addSubview(imageView)
         gest.addGestureRecognizer(pan)
         gest.addGestureRecognizer(pinch)
+        
+        curtainView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         
         
     }
@@ -265,8 +262,9 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
-        navTransition.duration = 1
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        navTransition.duration = 0.4
+        
+        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
         navTransition.type = kCATransitionPush
         navTransition.subtype = kCATransitionPush
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)

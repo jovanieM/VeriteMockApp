@@ -10,9 +10,23 @@ import UIKit
 
 class PrintSettingsPreview: UIView {
     
-    var size: SettingsObject?{ didSet { paperSize.text = size?.paperSize } }
-    var type : SettingsObject?{ didSet { paperType.text = type?.paperType } }
-    var quality: SettingsObject?{ didSet { printQuality.text = quality?.printQuality } }
+    var size: SettingsObject?{
+        didSet {
+        paperSize.text = size?.paperSize
+        
+        }
+    }
+    var type : SettingsObject?{
+        didSet {
+        paperType.text = type?.paperType
+        }
+    }
+    var quality: SettingsObject?{
+        didSet {
+        printQuality.text = quality?.printQuality
+        
+        }
+    }
     
     @IBOutlet var containerView: UIView!{
         didSet{

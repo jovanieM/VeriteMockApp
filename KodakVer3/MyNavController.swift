@@ -20,8 +20,11 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
         
         self.navigationBar.isTranslucent = false
         //visibleViewController?.navigationController?.navigationItem.title = "Home"
-        visibleViewController?.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1.0)
+        
+        
         visibleViewController?.navigationController?.delegate = self
+      
+        
        
         //visibleViewController?.navigationController?.navigationBar.topItem?.title = "hello"
        
@@ -32,7 +35,7 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
        //navigationController?.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "apptop"))
         
-        
+        visibleViewController?.navigationController?.navigationBar.tintColor = UIColor.gold
         viewController.navigationController?.navigationBar.backIndicatorImage = UIImage()
         viewController.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
         let item: UIBarButtonItem = UIBarButtonItem(title: "< back", style: .plain, target: self, action: #selector(self.pop))
@@ -68,6 +71,8 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
 
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        
+       
         let height: CGFloat = (viewController.navigationController?.navigationBar.frame.height)!
         let imageView = UIImageView(image: #imageLiteral(resourceName: "apptop"))
         imageView.frame = CGRect(x: 0, y: 0, width: height * 1.47, height: height)
@@ -82,6 +87,8 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
 
     }
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        
+        
         //let item: UIBarButtonItem = UIBarButtonItem(title: "<hello", style: .plain, target: self, action: nil)
         //item.backButtonTitlePositionAdjustment(for: .compact)
     }

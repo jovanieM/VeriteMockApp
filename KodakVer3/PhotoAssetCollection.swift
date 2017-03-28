@@ -136,8 +136,8 @@ class PhotoAssetCollection: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
-        navTransition.duration = 1
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        navTransition.duration = 0.4
+        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
         navTransition.type = kCATransitionPush
         navTransition.subtype = kCATransitionPush
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)

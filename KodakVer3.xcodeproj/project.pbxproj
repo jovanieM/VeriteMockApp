@@ -113,11 +113,15 @@
 		1158B74D1DFA4A5B008F081F /* MyNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158B74C1DFA4A5B008F081F /* MyNavController.swift */; };
 		1158B74F1DFA8655008F081F /* QuickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158B74E1DFA8655008F081F /* QuickViewController.swift */; };
 		1158B7511DFA86C1008F081F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158B7501DFA86C1008F081F /* DetailViewController.swift */; };
+		11699E591E8A209000F56A3E /* PrintQueueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11699E571E8A209000F56A3E /* PrintQueueTableViewCell.swift */; };
+		11699E5A1E8A209000F56A3E /* PrintQueueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11699E581E8A209000F56A3E /* PrintQueueTableViewCell.xib */; };
+		11699E5C1E8A31CB00F56A3E /* PrintData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11699E5B1E8A31CB00F56A3E /* PrintData.swift */; };
 		116CE2681E1F445F005687E9 /* MyTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116CE2671E1F445F005687E9 /* MyTableViewDataSource.swift */; };
 		11715AA41E5AC3FE005367B9 /* ImageCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11715AA31E5AC3FE005367B9 /* ImageCollectionVC.swift */; };
 		11715AA61E5AC413005367B9 /* PhotoAssetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */; };
 		118186E71E249FFA00B40A5F /* MyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */; };
 		118A67E91E6565BE00B0107C /* BoxBackGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A67E81E6565BE00B0107C /* BoxBackGround.swift */; };
+		118B91891E88FFA300B46CBF /* LoadInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B91881E88FFA300B46CBF /* LoadInstructionsViewController.swift */; };
 		11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */; };
 		11B56EB91E5D69180031108D /* FlickPrintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B56EB81E5D69180031108D /* FlickPrintViewController.swift */; };
 		11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */; };
@@ -257,11 +261,15 @@
 		1158B74C1DFA4A5B008F081F /* MyNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavController.swift; sourceTree = "<group>"; };
 		1158B74E1DFA8655008F081F /* QuickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickViewController.swift; sourceTree = "<group>"; };
 		1158B7501DFA86C1008F081F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		11699E571E8A209000F56A3E /* PrintQueueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintQueueTableViewCell.swift; sourceTree = "<group>"; };
+		11699E581E8A209000F56A3E /* PrintQueueTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrintQueueTableViewCell.xib; sourceTree = "<group>"; };
+		11699E5B1E8A31CB00F56A3E /* PrintData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintData.swift; sourceTree = "<group>"; };
 		116CE2671E1F445F005687E9 /* MyTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewDataSource.swift; sourceTree = "<group>"; };
 		11715AA31E5AC3FE005367B9 /* ImageCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionVC.swift; sourceTree = "<group>"; };
 		11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAssetCollection.swift; sourceTree = "<group>"; };
 		118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewDelegate.swift; sourceTree = "<group>"; };
 		118A67E81E6565BE00B0107C /* BoxBackGround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxBackGround.swift; sourceTree = "<group>"; };
+		118B91881E88FFA300B46CBF /* LoadInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadInstructionsViewController.swift; sourceTree = "<group>"; };
 		11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavBar.swift; sourceTree = "<group>"; };
 		11B56EB81E5D69180031108D /* FlickPrintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickPrintViewController.swift; sourceTree = "<group>"; };
 		11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintSettingsModel.swift; sourceTree = "<group>"; };
@@ -388,6 +396,7 @@
 		1033032D1E52ACB900E7D24C /* AddressPrintStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				118B91881E88FFA300B46CBF /* LoadInstructionsViewController.swift */,
 				114159241E83C33F007276CA /* AddressPrintHomeViewController.swift */,
 				1033032E1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard */,
 			);
@@ -523,6 +532,9 @@
 			children = (
 				114159261E83C33F007276CA /* PrintQueueViewController.swift */,
 				114159251E83C33F007276CA /* PrintQueueStoryboard.storyboard */,
+				11699E571E8A209000F56A3E /* PrintQueueTableViewCell.swift */,
+				11699E581E8A209000F56A3E /* PrintQueueTableViewCell.xib */,
+				11699E5B1E8A31CB00F56A3E /* PrintData.swift */,
 			);
 			name = PrintQueueStoryboard;
 			sourceTree = "<group>";
@@ -752,6 +764,7 @@
 				114B30AD1DF90A57008A57F1 /* Main.storyboard in Resources */,
 				103303201E52AC2500E7D24C /* InkLevelStoryboard.storyboard in Resources */,
 				1156AAF41E1E2EFC009C2493 /* TableViewCell1.xib in Resources */,
+				11699E5A1E8A209000F56A3E /* PrintQueueTableViewCell.xib in Resources */,
 				10DE830A1E72A935001F6FDA /* ItemsTableViewCell.xib in Resources */,
 				1033033E1E52ADC100E7D24C /* GCPStoryboard.storyboard in Resources */,
 				1033031D1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard in Resources */,
@@ -791,6 +804,7 @@
 				107B37AB1E5FDE4E007CA90C /* AirPrint.swift in Sources */,
 				10DE82F81E72A7D9001F6FDA /* PagesPerSideViewer.swift in Sources */,
 				10CD81811E567A22001815A1 /* HostName.swift in Sources */,
+				118B91891E88FFA300B46CBF /* LoadInstructionsViewController.swift in Sources */,
 				104F1D3A1E6575AC00532AC3 /* CartridgeSetupStartScan.swift in Sources */,
 				113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */,
 				11DB094D1E6028E000B6F317 /* AdjustmentViewController.swift in Sources */,
@@ -824,6 +838,7 @@
 				11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */,
 				10DE83091E72A935001F6FDA /* ItemsTableViewCell.swift in Sources */,
 				10D36C681E5FE0F500D79664 /* StandardCopyViewController.swift in Sources */,
+				11699E591E8A209000F56A3E /* PrintQueueTableViewCell.swift in Sources */,
 				114B30DA1DF92D78008A57F1 /* QuickDetailSelector.swift in Sources */,
 				107DE2A51E6EB9B10094FA0B /* PopUpDirectConnectTime.swift in Sources */,
 				11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */,
@@ -847,6 +862,7 @@
 				10D36C631E5FE0C400D79664 /* CustomCopyViewController.swift in Sources */,
 				116CE2681E1F445F005687E9 /* MyTableViewDataSource.swift in Sources */,
 				1141592C1E83C33F007276CA /* PrintQueueViewController.swift in Sources */,
+				11699E5C1E8A31CB00F56A3E /* PrintData.swift in Sources */,
 				107B37B61E5FDF08007CA90C /* PaperSetup.swift in Sources */,
 				11DF48201E36E46A0012AD60 /* FirstCell.swift in Sources */,
 				1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */,
