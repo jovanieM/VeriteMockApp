@@ -16,13 +16,13 @@ class ScandocSettingViewController: UIViewController, UITableViewDelegate, UITab
     
     var sectionData : [String] = ["Quality", "Color", "Document", "Save as type"]
     var row1 = ["Normal", "Low(Fast)", "High"]
-    var row2 = ["Color", "Gray Scale", "Black & White"]
+    var row2 = ["Color", "Gray Scale", "Black and White"]
     var row3 = ["Text/Graphics", "Text"]
     var row4 = ["JPEG", "PDF"]
     
     private let kSeparatorID = 123
     
-    private let kSeparatorHeight: CGFloat = 8
+    private let kSeparatorHeight: CGFloat = 3
     
     var expandedItemList = [Int]()
     var selectedIndexPathSection:Int = -1
@@ -36,6 +36,15 @@ class ScandocSettingViewController: UIViewController, UITableViewDelegate, UITab
     let defaultColor = UserDefaults.standard
     let defaultDocument = UserDefaults.standard
     let defaultSaveas = UserDefaults.standard
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let navTransition = CATransition()
+        navTransition.duration = 1
+        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        navTransition.type = kCATransitionPush
+        navTransition.subtype = kCATransitionPush
+        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+    }
     
     func setData (valueRow : Int, valueSection : Int) {
         switch valueSection {

@@ -17,12 +17,12 @@ class ScanPhotoSettingViewController: UIViewController, UITableViewDelegate, UIT
     
     var sectionData : [String] = ["Quality", "Color", "Document"]
     var rowQuality = ["Normal", "Low(Fast)", "High"]
-    var rowColor = ["Color", "Gray Scale", "Black & White"]
+    var rowColor = ["Color", "Gray Scale", "Black and White"]
     var row3 = ["Photo"]
     
     private let kSeparatorID = 123
     
-    private let kSeparatorHeight: CGFloat = 8
+    private let kSeparatorHeight: CGFloat = 3
     
     var expandedItemList = [Int]()
     var selectedIndexPathSection:Int = -1
@@ -35,6 +35,15 @@ class ScanPhotoSettingViewController: UIViewController, UITableViewDelegate, UIT
     let defaultQualityPhoto = UserDefaults.standard
     let defaultColorPhoto = UserDefaults.standard
     let defaultDocument = UserDefaults.standard
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let navTransition = CATransition()
+        navTransition.duration = 1
+        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        navTransition.type = kCATransitionPush
+        navTransition.subtype = kCATransitionPush
+        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+    }
     
     func setDataPhoto (valueRowPhoto : Int, valueSectionPhoto : Int) {
         switch valueSectionPhoto {
