@@ -148,10 +148,10 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
         if ecoLed1.image == UIImage(named: "ecoled_off") && ecoLed2.image == UIImage(named: "ecoled_off"){
             
             ecomodeLabel.text = "Eco Mode 1"
-            ecoLed1.image = UIImage(named: "ecoled_on")
-            ecoLed2.image = UIImage(named: "ecoled_off")
+            ecoLed2.image = UIImage(named: "ecoled_on")
+            ecoLed1.image = UIImage(named: "ecoled_off")
         }
-        else if ecoLed1.image == UIImage(named: "ecoled_on") && ecoLed2.image == UIImage(named: "ecoled_off"){
+        else if ecoLed2.image == UIImage(named: "ecoled_on") && ecoLed1.image == UIImage(named: "ecoled_off"){
             ecomodeLabel.text = "Eco Mode 2"
             ecoLed1.image = UIImage(named: "ecoled_on")
             ecoLed2.image = UIImage(named: "ecoled_on")
@@ -217,7 +217,8 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
         let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame:CGRect(x:95, y:90, width:40, height:40)) as UIActivityIndicatorView
         loadingIndicator.center = self.view.center;
         loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        loadingIndicator.color = UIColor.gray
         loadingIndicator.startAnimating();
         alert.setValue(loadingIndicator, forKey: "accessoryView");
         alert.show();

@@ -21,6 +21,7 @@ class LoadInstructionsViewController: UIViewController {
     
     var dataNameReceived: String = ""
     var dataDescReceived: String = ""
+    var dataImage: UIImage!
     
     let animationImages1:[UIImage] = [UIImage(named: "ap_setenvelope04")!,
                                        UIImage(named: "ap_setenvelope04")!,
@@ -66,11 +67,23 @@ class LoadInstructionsViewController: UIViewController {
                                       UIImage(named: "ap_setenvelope69-18")!,
                                       UIImage(named: "ap_setenvelope69-18")!]
     
+    override func viewWillAppear(_ animated: Bool) {
+        let navTransition = CATransition()
+        navTransition.duration = 1
+        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        navTransition.type = kCATransitionPush
+        navTransition.subtype = kCATransitionPush
+        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+    }
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         envelopeName.text = dataNameReceived
         envelopeDescription.text = dataDescReceived
+        envelopeImage.image = dataImage
         OKbutton.layer.cornerRadius = 15;
         OKbutton.layer.borderWidth = 1;
         OKbutton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
