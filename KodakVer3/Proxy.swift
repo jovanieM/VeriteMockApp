@@ -19,6 +19,7 @@ class Proxy: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var onOffLabel: UILabel!
     @IBOutlet weak var portTextField: UITextField!
     @IBOutlet weak var proxyTopView: UIView!
+    @IBOutlet weak var addressTextField: UITextField!
     
     var alert: UIAlertController!
     var alert2: UIAlertController!
@@ -89,28 +90,62 @@ class Proxy: UIViewController, UITextFieldDelegate{
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
         
-        //if proxySwitch.isOn == true{
+        if defaults.value(forKey: switchKey) != nil {
+            let val: Bool = defaults.value(forKey: switchKey) as! Bool
+            if val == proxySwitch.isOn
+            {
+                //exit to screen and not saved
+                _ = self.navigationController?.popViewController(animated: true)
+                
+                //dismiss softkeyboard if activated
+                addressTextField.resignFirstResponder()
+                portTextField.resignFirstResponder()
+                
+                print ("dont save and out")
+                
+            }else{
+                print ("save settings")
+    
+                //save state of uiswitch
+                defaults.set(proxySwitch.isOn, forKey: switchKey)
+                
+                //dismiss softkeyboard if activated
+                addressTextField.resignFirstResponder()
+                portTextField.resignFirstResponder()
+                
+                alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
+    
+                indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
+                indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                indicator.activityIndicatorViewStyle = .whiteLarge
+                indicator.color = UIColor.black
+    
+                alert.view.addSubview(indicator)
+                indicator.isUserInteractionEnabled = false
+                indicator.startAnimating()
+    
+                self.present(alert, animated: true, completion: nil)
+                _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert_2), userInfo: nil, repeats: false)
+            }
+        }
         
-        //} else {
-            //saving state
-            defaults.set(onOffLabel.text, forKey: textFieldKey)
-            defaults.set(proxySwitch.isOn, forKey: switchKey)
-            
-            alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
-            
-            indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
-            indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            indicator.activityIndicatorViewStyle = .whiteLarge
-            indicator.color = UIColor.black
-            
-            alert.view.addSubview(indicator)
-            indicator.isUserInteractionEnabled = false
-            indicator.startAnimating()
-            
-            self.present(alert, animated: true, completion: nil)
-            _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert_2), userInfo: nil, repeats: false)
-       // }
-    }
+//            defaults.set(onOffLabel.text, forKey: textFieldKey)
+//            defaults.set(proxySwitch.isOn, forKey: switchKey)
+//            
+//            alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
+//            
+//            indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
+//            indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//            indicator.activityIndicatorViewStyle = .whiteLarge
+//            indicator.color = UIColor.black
+//            
+//            alert.view.addSubview(indicator)
+//            indicator.isUserInteractionEnabled = false
+//            indicator.startAnimating()
+//            
+//            self.present(alert, animated: true, completion: nil)
+//            _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert_2), userInfo: nil, repeats: false)
+           }
     
     func loadAlerts(){
         proxyTopView.isHidden = true
