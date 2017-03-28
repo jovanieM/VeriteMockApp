@@ -10,16 +10,6 @@ import UIKit
 
 class PaperSetup: UIViewController, PaperSizeProtocol, PaperTypeProtocol{
     
-    func setPaperTypeData(dataRow: String) {
-        paperTypeButton.titleLabel!.text = dataRow
-        UserDefaults.standard.set(dataRow, forKey: "paperType")
-    }
-    
-    func setPaperSizeData(dataRow: String) {
-        paperSizeButton.titleLabel?.text = dataRow
-        UserDefaults.standard.set(dataRow, forKey: "paperSize")
-    }
-    
     @IBOutlet weak var paperSizeButton: UIButton!
     @IBOutlet weak var paperTypeButton: UIButton!
     @IBOutlet weak var saveSettingButton: UIButton!
@@ -34,7 +24,11 @@ class PaperSetup: UIViewController, PaperSizeProtocol, PaperTypeProtocol{
     
     var paperSizeData: String?
     var paperTypeData: String?
+    var typeData: String?
     
+    let defaults = UserDefaults.standard
+    let sizeKey = "paperSize"
+    let typeKey = "paperType"
     
     // navigation bar
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +38,17 @@ class PaperSetup: UIViewController, PaperSizeProtocol, PaperTypeProtocol{
         navTransition.type = kCATransitionPush
         navTransition.subtype = kCATransitionPush
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+    }
+    
+    func setPaperTypeData(dataRow: String) {
+        paperTypeButton.titleLabel!.text = dataRow
+        //typeData = dataRow
+        defaults.set(dataRow, forKey: typeKey)
+    }
+    
+    func setPaperSizeData(dataRow: String) {
+        paperSizeButton.titleLabel?.text = dataRow
+        defaults.set(dataRow, forKey: sizeKey)
     }
     
     
@@ -59,8 +64,8 @@ class PaperSetup: UIViewController, PaperSizeProtocol, PaperTypeProtocol{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let size: String? = UserDefaults.standard.object(forKey: "paperSize") as? String
-        let type: String? = UserDefaults.standard.object(forKey: "paperType") as? String
+        let size: String? = defaults.object(forKey: sizeKey) as? String
+        let type: String? = defaults.object(forKey: typeKey) as? String
         
         if let sizeToDisplay = size {
             paperSizeButton.titleLabel?.text = sizeToDisplay
@@ -84,6 +89,14 @@ class PaperSetup: UIViewController, PaperSizeProtocol, PaperTypeProtocol{
         //paperSizeButton.contentHorizontalAlignment = .right
         paperSizeButton.titleEdgeInsets.right = 10
         paperTypeButton.titleEdgeInsets.right = 10
+        
+        if let sizeValue = defaults.string(forKey: sizeKey){
+            paperSizeButton.titleLabel?.text = sizeValue
+        }
+        
+        if let typeValue = defaults.string(forKey: typeKey){
+            paperTypeButton.titleLabel?.text = typeValue
+        }
     }
     
     func loadAlerts(){
@@ -127,6 +140,9 @@ class PaperSetup: UIViewController, PaperSizeProtocol, PaperTypeProtocol{
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
+        
+        //defaults.set(paperTypeData, forKey: typeKey)
+        
         alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
         
         indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
