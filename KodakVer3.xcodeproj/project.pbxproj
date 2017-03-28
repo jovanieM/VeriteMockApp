@@ -24,6 +24,7 @@
 		103303411E52ADE900E7D24C /* AirPrintStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303401E52ADE900E7D24C /* AirPrintStoryboard.storyboard */; };
 		103303441E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303431E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard */; };
 		103303471E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */; };
+		103A0DA71E8A5EA10062E730 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103A0DA61E8A5EA10062E730 /* TermsOfUseViewController.swift */; };
 		104D37E41E83CA9700654166 /* ScanPhotoSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D37E31E83CA9700654166 /* ScanPhotoSettingViewController.swift */; };
 		104F1D391E6575AC00532AC3 /* CartridgeSetupPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F1D371E6575AC00532AC3 /* CartridgeSetupPrinting.swift */; };
 		104F1D3A1E6575AC00532AC3 /* CartridgeSetupStartScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F1D381E6575AC00532AC3 /* CartridgeSetupStartScan.swift */; };
@@ -168,6 +169,7 @@
 		103303401E52ADE900E7D24C /* AirPrintStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AirPrintStoryboard.storyboard; sourceTree = "<group>"; };
 		103303431E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PrinterUtilityStoryboard.storyboard; sourceTree = "<group>"; };
 		103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SoftwareUpdateStoryboard.storyboard; sourceTree = "<group>"; };
+		103A0DA61E8A5EA10062E730 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
 		104D37E31E83CA9700654166 /* ScanPhotoSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanPhotoSettingViewController.swift; sourceTree = "<group>"; };
 		104F1D371E6575AC00532AC3 /* CartridgeSetupPrinting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupPrinting.swift; sourceTree = "<group>"; };
 		104F1D381E6575AC00532AC3 /* CartridgeSetupStartScan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupStartScan.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 		1033031B1E52AB5D00E7D24C /* TermsConditionsStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				103A0DA61E8A5EA10062E730 /* TermsOfUseViewController.swift */,
 				10D36C651E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift */,
 				1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */,
 			);
@@ -876,6 +879,7 @@
 				1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */,
 				1141592D1E83C33F007276CA /* PrintSettingsPreview.swift in Sources */,
 				10D36C601E5FE0C400D79664 /* CopyViewController.swift in Sources */,
+				103A0DA71E8A5EA10062E730 /* TermsOfUseViewController.swift in Sources */,
 				10A630731E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift in Sources */,
 				105965E41E531B95003B7CD6 /* DeviceSettings.swift in Sources */,
 				11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */,
