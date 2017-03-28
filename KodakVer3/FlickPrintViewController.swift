@@ -175,7 +175,9 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     func printPhoto(){
         let sb = UIStoryboard(name: "PrintQueueStoryboard", bundle: nil)
         let vc = sb.instantiateInitialViewController() as! PrintQueueViewController
-        vc.images2 = [self.image]
+        let pd = PrintData()
+        pd.thumbNail = image
+        vc.printData = [pd]
         self.show(vc, sender: self)
     
     }
