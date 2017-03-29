@@ -13,13 +13,9 @@ class NetworkAndPasswordSwitchNetwork: UIViewController {
     var alert:UIAlertController!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
+    //navigation controller
     override func viewWillAppear(_ animated: Bool) {
-        let navTransition = CATransition()
-        navTransition.duration = 1
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        navTransition.type = kCATransitionPush
-        navTransition.subtype = kCATransitionPush
-        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+        self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
         
         self.navigationItem.leftBarButtonItem?.title = ""
         self.navigationItem.leftBarButtonItem?.isEnabled = false

@@ -25,16 +25,13 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     var delegate: SelectNetworkProtocol?
     var cell: UITableViewCell!
     
-    //let defaultSelection = UserDefaults.standard
     
-    // navigation bar
+    let defaultSelection = UserDefaults.standard
+    let connected = "connected"
+    
+    // navigation controller
     override func viewWillAppear(_ animated: Bool) {
-        let navTransition = CATransition()
-        navTransition.duration = 1
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        navTransition.type = kCATransitionPush
-        navTransition.subtype = kCATransitionPush
-        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+        self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
     }
     
     override func viewDidLoad() {
@@ -59,21 +56,27 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
-        cell.detailTextLabel?.text = "Connected"
+        
         cell.detailTextLabel?.isHidden = true
         cell.textLabel?.text = networks[indexPath.row]
+        if indexPath.row == getDefault(){
+            cell.isSelected = true
+            cell.detailTextLabel?.text = "Connected"
+            cell.detailTextLabel?.isHidden = false
+        }
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)! as UITableViewCell
-//        cell.detailTextLabel?.text = "Connected"
-//        cell.detailTextLabel?.isHidden = false
-        
-        for cell in tableView.visibleCells{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        for cell in tableView.visibleCells
+        {
             cell.detailTextLabel?.isHidden = true
         }
+        
+        setDefault(value: indexPath.row)
         let cell1 = tableView.cellForRow(at: indexPath)
+        cell1?.detailTextLabel?.text = "Connected"
         cell1?.detailTextLabel?.isHidden = false
         
         performSegue(withIdentifier: "toSelectedNetwork", sender: networks[indexPath.row])
@@ -101,5 +104,14 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
             }
         }
     }
+    
+    func setDefault(value: Int){
+        defaultSelection.set(value, forKey: connected)
+    }
+    
+    func getDefault() -> Int{
+        return defaultSelection.integer(forKey: connected)
+    }
+    
 }
 
