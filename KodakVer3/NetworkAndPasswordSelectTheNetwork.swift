@@ -17,14 +17,12 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     
     @IBOutlet weak var tableNetworkView: UITableView!
     @IBOutlet weak var btnManual: UIButton!
-   
     
     var cellIdentifier = "Cell"
     var networks = ["Router 1", "Router 2", "Router 3", "Printer 1", "Printer 2", "Printer 3"]
     var data: String?
     var delegate: SelectNetworkProtocol?
     var cell: UITableViewCell!
-    
     
     let defaultSelection = UserDefaults.standard
     let connected = "connected"
@@ -55,7 +53,6 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        
         
         cell.detailTextLabel?.isHidden = true
         cell.textLabel?.text = networks[indexPath.row]
@@ -90,7 +87,6 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     }
     
     @IBAction func manualButton(_ sender: UIButton) {
-        
         let sb: UIStoryboard = UIStoryboard(name: "WiFiSetupStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "manual") as! NetworkAndPasswordManual
         self.navigationController?.pushViewController(vc, animated: true)
@@ -112,6 +108,4 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     func getDefault() -> Int{
         return defaultSelection.integer(forKey: connected)
     }
-    
 }
-

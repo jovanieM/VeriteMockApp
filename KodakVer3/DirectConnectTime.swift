@@ -13,19 +13,17 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
     @IBOutlet weak var saveSettingButton: UIButton!
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var viewDirectConnect: UIView!
+    @IBOutlet weak var directTimeLabel: UIButton!
+    @IBOutlet weak var directLabel: UILabel!
     
     var alert: UIAlertController!
     var alert2: UIAlertController!
     var indicator: UIActivityIndicatorView!
-    @IBOutlet weak var directTimeLabel: UIButton!
     var directConnectTimeData: String?
+    var directValue: String?
     
-    @IBOutlet weak var directLabel: UILabel!
+    let directDefaults = UserDefaults.standard
     
-    func setTableRowData(dataRow: String) {
-        directLabel.text = dataRow
-        UserDefaults.standard.set(dataRow, forKey: "directLabel")
-    }
     
     //navigation controller
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +31,8 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let name: String? = UserDefaults.standard.object(forKey: "directLabel") as? String
+        let name: String? = directDefaults.object(forKey: "directLabel") as? String
+        
         if let toDisplay = name{
             directLabel.text = toDisplay
         }
@@ -81,7 +80,15 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
         saveSettingButton.isHidden = false
     }
     
+    func setTableRowData(dataRow: String) {
+        directLabel.text = dataRow
+        //directValue = dataRow
+        //directDefaults.set(dataRow, forKey: "directLabel")
+    }
+    
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
+        
+        directDefaults.set(directLabel.text, forKey: "directLabel")
         
         alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
         
@@ -123,6 +130,4 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol{
     func setDataFromDisplay(dataSent: String){
         self.directConnectTimeData = dataSent
     }
-    
-    
 }
