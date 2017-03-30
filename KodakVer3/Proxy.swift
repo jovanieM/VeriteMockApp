@@ -41,7 +41,6 @@ class Proxy: UIViewController, UITextFieldDelegate{
     override func viewDidAppear(_ animated: Bool) {
         let switcherValue: String? = proxyDefaults.object(forKey: textFieldKey) as? String
         
-        
         if let onOffValue = switcherValue{
             onOffLabel.text = onOffValue
         }
@@ -60,6 +59,7 @@ class Proxy: UIViewController, UITextFieldDelegate{
         
         loadAlerts()
         
+        // initial value for Userdefault
         UserDefaults.standard.register(defaults: [switchKey:false])
         
         
@@ -71,9 +71,9 @@ class Proxy: UIViewController, UITextFieldDelegate{
         view.addGestureRecognizer(tap)
         
         //button border
-        saveSettingButton.layer.cornerRadius = 15
+        saveSettingButton.layer.cornerRadius = 25
         saveSettingButton.layer.borderWidth = 2
-        saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        saveSettingButton.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
     }
     
     // uiswitch action
@@ -106,9 +106,10 @@ class Proxy: UIViewController, UITextFieldDelegate{
             let val: Bool = proxyDefaults.value(forKey: switchKey) as! Bool
             if val == proxySwitch.isOn
             {
-                if proxyDefaults.value(forKey: addressKey) != nil {
-                    let val1: String
-                }
+//                if proxyDefaults.value(forKey: addressKey) != nil {
+//                    let val1: String
+//                }
+                
                 //exit to screen and not saved
                 _ = self.navigationController?.popViewController(animated: true)
                 

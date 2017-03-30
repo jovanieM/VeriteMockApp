@@ -18,13 +18,22 @@ class AirPrint: UIViewController {
     var alert2: UIAlertController!
     var indicator: UIActivityIndicatorView!
     
+    let airprintDefaults = UserDefaults.standard
+    let switchKey = "switcher"
+    let airprintLabelKey = "enableDisable"
+    
     override func viewWillAppear(_ animated: Bool) {
-        let navTransition = CATransition()
-        navTransition.duration = 1
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        navTransition.type = kCATransitionPush
-        navTransition.subtype = kCATransitionPush
-        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+        self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
+        
+        if(airprintDefaults.bool(forKey: switchKey)){
+            airprintSwitcher.isOn = true
+        }else{
+            airprintSwitcher.isOn = false
+        }
+        
+        if let enableDisable = airprintDefaults.object(forKey: airprintLabelKey) as? String{
+            enableDisableLabel.text = enableDisable
+        }
     }
     
     override func viewDidLoad() {
@@ -33,13 +42,14 @@ class AirPrint: UIViewController {
         loadAlerts()
         
         //button oval border
-        saveSettingButton.layer.cornerRadius = 15
+        saveSettingButton.layer.cornerRadius = 20
         saveSettingButton.layer.borderWidth = 2
-        saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        saveSettingButton.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
+        
+        UserDefaults.standard.register(defaults: [switchKey: false])
     }
     
     @IBAction func airprintActionSwitcher(_ sender: UISwitch) {
-        
         if airprintSwitcher.isOn == true{
             enableDisableLabel.text = "Enable"
         } else {
@@ -48,20 +58,31 @@ class AirPrint: UIViewController {
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
+        if airprintDefaults.value(forKey: switchKey) != nil{
+            let val: Bool = airprintDefaults.value(forKey: switchKey) as! Bool
+            if val == airprintSwitcher.isOn{
+            
+            }else{
+                airprintDefaults.set(airprintSwitcher.isOn, forKey: switchKey)
+                airprintDefaults.set(enableDisableLabel.text, forKey: airprintLabelKey)
+                
+                alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
+                
+                indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
+                indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                indicator.activityIndicatorViewStyle = .whiteLarge
+                indicator.color = .black
+                
+                alert.view.addSubview(indicator)
+                indicator.isUserInteractionEnabled = false
+                indicator.startAnimating()
+                
+                self.present(alert, animated: true, completion: nil)
+                _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert_2), userInfo: nil, repeats: false)
+            }
+        }
         
-        alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
         
-        indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
-        indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        indicator.activityIndicatorViewStyle = .whiteLarge
-        indicator.color = .black
-        
-        alert.view.addSubview(indicator)
-        indicator.isUserInteractionEnabled = false
-        indicator.startAnimating()
-        
-        self.present(alert, animated: true, completion: nil)
-        _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert_2), userInfo: nil, repeats: false)
     }
     
     func loadAlerts(){       

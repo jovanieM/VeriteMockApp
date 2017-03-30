@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol EnableDisableProtocol{
+    func sendValue(data: String)
+}
+
 class GCPEnableDisable: UIViewController {
     
     @IBOutlet weak var saveSettingButton: UIButton!
@@ -17,15 +21,25 @@ class GCPEnableDisable: UIViewController {
     var alert: UIAlertController!
     var alert2: UIAlertController!
     var indicator: UIActivityIndicatorView!
+    var delegate: EnableDisableProtocol? = nil
+    
+    let gcpDefaults = UserDefaults.standard
+    let switchKey = "switcher"
+    let switchLabelKey = "textfield"
     
     // navigation bar
     override func viewWillAppear(_ animated: Bool) {
-        let navTransition = CATransition()
-        navTransition.duration = 1
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        navTransition.type = kCATransitionPush
-        navTransition.subtype = kCATransitionPush
-        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+        self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
+        
+        if (gcpDefaults.bool(forKey: switchKey)){
+            gcpSwitcher.isOn = true
+        }else{
+            gcpSwitcher.isOn = false
+        }
+        
+        if let enableDisable = gcpDefaults.object(forKey: switchLabelKey) as? String{
+            gcpEnableDisableLabel.text = enableDisable
+        }
     }
     
     override func viewDidLoad() {
@@ -34,19 +48,22 @@ class GCPEnableDisable: UIViewController {
         loadAlerts()
         
         //button oval border
-        saveSettingButton.layer.cornerRadius = 15
+        saveSettingButton.layer.cornerRadius = 20
         saveSettingButton.layer.borderWidth = 2
         saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        
+        //initial value for Userdefault
+        UserDefaults.standard.register(defaults: [switchKey: false])
     }
     
     func loadAlerts(){
-        alert = UIAlertController(title: "Status Loading...\n", message: "", preferredStyle: .alert)
+        alert = UIAlertController(title: "Status Loading...\n\n", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             self.dismiss(animated: true, completion: nil)
             _ = self.navigationController?.popViewController(animated: true)
         }))
         
-        indicator = UIActivityIndicatorView(frame: CGRect(x: 140, y: 70, width: 50, height:50))
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 140, y: 80, width: 50, height:50))
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         indicator.activityIndicatorViewStyle = .whiteLarge
         indicator.color = .black
@@ -60,11 +77,11 @@ class GCPEnableDisable: UIViewController {
     
     func dismissAlert(){
         self.alert?.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func gcpActionSwitcher(_ sender: UISwitch) {
-        
-        if gcpSwitcher.isOn == true{
+        if gcpSwitcher.isOn{
             gcpEnableDisableLabel.text = "Enable"
         } else {
             gcpEnableDisableLabel.text = "Disable"
@@ -72,19 +89,34 @@ class GCPEnableDisable: UIViewController {
     }
     
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
-        alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
-        
-        indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
-        indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        indicator.activityIndicatorViewStyle = .whiteLarge
-        indicator.color = .black
-        
-        alert.view.addSubview(indicator)
-        indicator.isUserInteractionEnabled = false
-        indicator.startAnimating()
-        
-        self.present(alert, animated: true, completion: nil)
-        _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert_2), userInfo: nil, repeats: false)
+        if gcpDefaults.value(forKey: switchKey) != nil{
+            let val: Bool = gcpDefaults.value(forKey: switchKey) as! Bool
+            if val == gcpSwitcher.isOn{
+              // no action
+                print("don't save")
+            }else{
+                print("save")
+                gcpDefaults.set(gcpSwitcher.isOn, forKey: switchKey)
+                gcpDefaults.set(gcpEnableDisableLabel.text, forKey: switchLabelKey)
+                
+                if delegate != nil{
+                    delegate?.sendValue(data: gcpDefaults.value(forKey: switchLabelKey) as! String)
+                }
+                
+                alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
+                
+                indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
+                indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                indicator.activityIndicatorViewStyle = .whiteLarge
+                indicator.color = .black
+                
+                alert.view.addSubview(indicator)
+                indicator.startAnimating()
+                
+                self.present(alert, animated: true, completion: nil)
+                _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert_2), userInfo: nil, repeats: false)
+            }
+        }
     }
     
     func dismissAlert_2(){

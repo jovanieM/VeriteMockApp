@@ -39,7 +39,7 @@ class IPAddress: UIViewController, UITextFieldDelegate{
     var indicator: UIActivityIndicatorView!
     
     let ipDefaults = UserDefaults.standard
-    let switchKey = "switcher"
+    let ipSwitchKey = "switcher"
     let autoManualDefault = "autoManual"
     
     //UserDefaults.standard.register(defaults: [switchKey:false])
@@ -55,7 +55,7 @@ class IPAddress: UIViewController, UITextFieldDelegate{
         
         loadAlerts()
         
-        UserDefaults.standard.register(defaults: [switchKey:false])
+        UserDefaults.standard.register(defaults: [ipSwitchKey:false])
         
         // hide views
         hideViews()
@@ -63,9 +63,9 @@ class IPAddress: UIViewController, UITextFieldDelegate{
         initTextFields()
         
         //button border
-        saveSettingButton.layer.cornerRadius = 15
+        saveSettingButton.layer.cornerRadius = 25
         saveSettingButton.layer.borderWidth = 2
-        saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        saveSettingButton.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
         
         //dismiss soft keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(IPAddress.dismissKeyboard))
@@ -159,8 +159,8 @@ class IPAddress: UIViewController, UITextFieldDelegate{
     // Save settings
     @IBAction func saveSettingActionButton(_ sender: UIButton) {
         
-        if ipDefaults.value(forKey: switchKey) != nil {
-            let val: Bool = ipDefaults.value(forKey: switchKey) as! Bool
+        if ipDefaults.value(forKey: ipSwitchKey) != nil {
+            let val: Bool = ipDefaults.value(forKey: ipSwitchKey) as! Bool
             if val == switchController.isOn{
                 
                 //exit to screen and not saved
@@ -177,7 +177,7 @@ class IPAddress: UIViewController, UITextFieldDelegate{
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
                 self.alert.dismiss(animated: true, completion: nil)
                 
-                    self.ipDefaults.set(self.switchController.isOn, forKey: self.switchKey)
+                    self.ipDefaults.set(self.switchController.isOn, forKey: self.ipSwitchKey)
                     self.ipDefaults.set(self.autoManualLabel.text, forKey: self.autoManualDefault)
                     self.ipDefaults.set(self.ipAdd1.text, forKey: "ipadd1")
                     self.ipDefaults.set(self.ipAdd2.text, forKey: "ipadd2")
@@ -277,7 +277,7 @@ class IPAddress: UIViewController, UITextFieldDelegate{
         ipaddressTopView.isHidden = false
         saveSettingButton.isHidden = false
         
-        if (ipDefaults.bool(forKey: switchKey)){
+        if (ipDefaults.bool(forKey: ipSwitchKey)){
             switchController.isOn = true
             viewIpAddress.isHidden = false
             viewSubnetMask.isHidden = false
@@ -298,6 +298,51 @@ class IPAddress: UIViewController, UITextFieldDelegate{
         let numberFiltered = compSepByCharInSet.joined(separator: "")
         return string == numberFiltered
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == ipAdd1{
+            ipAdd2.becomeFirstResponder()
+        } else if textField == ipAdd2{
+            ipAdd3.becomeFirstResponder()
+        }else if textField == ipAdd3{
+            ipAdd4.becomeFirstResponder()
+        }else if textField == ipAdd4{
+            view.endEditing(true)
+        }
+        
+        if textField == subnet1{
+            subnet2.becomeFirstResponder()
+        }else if textField == subnet2{
+            subnet3.becomeFirstResponder()
+        }else if textField == subnet3{
+            subnet4.becomeFirstResponder()
+        }else if textField == subnet4{
+            view.endEditing(true)
+        }
+        
+        if textField == defaultGate1{
+            defaultGate2.becomeFirstResponder()
+        }else if textField == defaultGate2{
+            defaultGate3.becomeFirstResponder()
+        }else if textField == defaultGate3{
+            defaultGate4.becomeFirstResponder()
+        }else if textField == defaultGate4{
+            view.endEditing(true)
+        }
+        
+        if textField == dns1{
+            dns2.becomeFirstResponder()
+        }else if textField == dns2{
+            dns3.becomeFirstResponder()
+        }else if textField == dns3{
+            dns4.becomeFirstResponder()
+        }else if textField == dns4{
+            view.endEditing(true)
+        }
+        
+        return true
+    }   
+    
     
     @IBAction func ipAdd1DidChanged(_ sender: Any) {
         print("ip add 1: \(ipAdd1.text)")
