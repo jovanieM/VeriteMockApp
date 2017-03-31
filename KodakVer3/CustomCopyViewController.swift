@@ -11,6 +11,7 @@ import UIKit
 class CustomCopyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingViewDelegate, PagesPerSideDelegate {
 
     @IBOutlet weak var customcopybutton: UIButton!
+    @IBOutlet weak var myScrollview: UIScrollView!
     
     var arrayofMainLbl: [String] = ["Color :", "Paper Size :", "Paper Type :", "Quality :", "Copy Resize :" ,"Pages per Side :", "Brightness :"]
     
@@ -55,9 +56,9 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        customcopybutton.layer.cornerRadius = 15;
-        customcopybutton.layer.borderWidth = 1;
-        customcopybutton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        customcopybutton.layer.cornerRadius = 25
+        customcopybutton.layer.borderWidth = 2
+        customcopybutton.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
         customcopybutton.layer.masksToBounds = true;
         
         customTable.delegate = self
@@ -68,6 +69,14 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         customTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: customTable.frame.width, height: kSeparatorHeight))
         customTable.tableHeaderView?.backgroundColor = .lightGray
         
+        animateView()
+    }
+    
+    func animateView(){
+        
+        UIView.animate(withDuration: 0.2, delay: 0.2, options: .curveLinear, animations: {
+            
+        }, completion: nil)
     }
 
     @IBAction func customcopybuttonPressed(_ sender: Any) {

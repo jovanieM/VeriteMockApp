@@ -15,28 +15,23 @@ class StandardCopyViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        copyButton.layer.cornerRadius = 20;
-        copyButton.layer.borderWidth = 1;
-        copyButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        copyButton.layer.cornerRadius = 35
+        copyButton.layer.borderWidth = 2
+        copyButton.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
         copyButton.layer.masksToBounds = true;
-
-        
     }
 
     @IBAction func copystandardButtonPressed(_ sender: Any) {
         
-        
         let alert: UIAlertView = UIAlertView(title: nil, message: "Copying...", delegate: self, cancelButtonTitle: "Cancel");
-        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame:CGRect(x:95, y:90, width:40, height:40)) as UIActivityIndicatorView
+        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame:CGRect(x:95, y:80, width:40, height:40)) as UIActivityIndicatorView
         loadingIndicator.center = self.view.center;
         loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        loadingIndicator.activityIndicatorViewStyle = .whiteLarge
+        loadingIndicator.color = UIColor.black
         loadingIndicator.startAnimating();
         alert.setValue(loadingIndicator, forKey: "accessoryView");
         alert.show();
-        
-       
-        
         
            //     let alertnext: UIAlertView = UIAlertView(title: nil, message: "Copy Canceled.", delegate: self, cancelButtonTitle: "OK");
         
