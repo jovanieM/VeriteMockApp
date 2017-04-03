@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ButtonCellDelegate{
     
     @IBOutlet weak var printJobs: UITableView!
     //    let cancelButton: UIButton = {
@@ -20,118 +20,147 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
     //    }()
     var images2 = [UIImage]()
       
-    private var isDoneLoadingData: Bool = false
     
-    var printData = [PrintData](){
-        didSet{
-            if isDoneLoadingData{
-                printJobs.reloadData()
-            }
-            
-        }
+    
+    var printData = [PrintData]()
+    var buttonId = [Int]()
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer.invalidate()
     }
+   
+    var cell : PrintQueueTableViewCell!
+    var separatorHeight: CGFloat = 1.5
     
-    var cancelButtonId: [String]?
-
     
-    var target : Int!
-    var step : Int!
+    var target : Float = 100
+    var step : Float = 0
     var currentCounter : Int!
+    private let separatorID = 124
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         printJobs.delegate = self
         printJobs.dataSource = self
         printJobs.allowsSelection = false
-        
-        isDoneLoadingData = true
-        print("viewDidload_PQ")
+        //printJobs.backgroundColor = .black
+        self.printJobs.backgroundColor = .black
+        self.printJobs.tableFooterView = UIView(frame: .zero)
+        self.printJobs.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: printJobs.frame.width, height: separatorHeight))
+        self.printJobs.tableHeaderView?.backgroundColor = .lightGray
+        self.printJobs.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: printJobs.frame.width, height: separatorHeight))
+        self.printJobs.tableFooterView?.backgroundColor = .lightGray
+       
         
     }
     var timer: Timer!
+    var timer2: Timer!
     override func viewDidAppear(_ animated: Bool) {
-        target = 20
-        step = 2
-        currentCounter = 0
-        
-//        DispatchQueue.global().sync(execute: {
-//            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(doWork), userInfo: nil, repeats: true)
-//            timer.fire()
-//        })
-        
-        //        DispatchQueue.global(qos: .default).async {
-        //            self.doWork()
-        //        }
-        
+        super.viewDidAppear(animated)
+        //runProgressOnFirstRow()
+        fireProgressBar()
+      
         
     }
     
-    func doWork(){
-        //let ip = IndexPath(item: 0, section: 0)
+    func fireProgressBar(){
         
-        if images2.count == 0{
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startProgress), userInfo: nil, repeats: true)
+        timer.fire()
+    }
+    
+    func startProgress(){
+        
+     
+        step += 10
+        if step <= target{
+           
+            if let ips = printJobs.indexPathsForVisibleRows{
+                for i in 0..<ips.count{
+                    if ips[i].row == 0{
+                        //
+                        let cell = printJobs.cellForRow(at: ips[i]) as! PrintQueueTableViewCell
+                        cell.progressView.progress = step / 100.0
+                    }
+                }
+            }
+            
+        }
+        if step > target{
+            //endProgress()
+            printComplete()
+            step = 0
+        }
+    }
+    
+
+    func printComplete(){
+        
+        printJobs.beginUpdates()
+        printData.remove(at: 0)
+        printJobs.deleteRows(at: [IndexPath.init(row: 0, section: 0)], with: .bottom)
+        printJobs.endUpdates()
+        
+        if printData.count == 0{
             timer.invalidate()
+            donePrinting()
         }
-        
-        if currentCounter < target{
-            
-            currentCounter =  currentCounter + step
-            print(currentCounter)
-            
-        }else{
-            
-            images2.remove(at: 0)
-            printJobs.reloadData()
-            currentCounter = 0
-            doWork()
-            
-            
-        }
-        
+       
+    
     }
     
-    func updateUI(){
-        
-    }
-    
+    var customButton : UIImageView!
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("PrintQueueTableViewCell", owner: self, options: nil)?.first as! PrintQueueTableViewCell
-        let button = UIButton(type: .custom)
-        button.setTitle(String(indexPath.row), for: .normal)
-        button.isUserInteractionEnabled = true
-        
-        button.addTarget(self, action: #selector(self.cancelPrint(sender:)), for: .touchUpInside)
-        cell.buttonId = button
-        
+
+        if cell.buttonDelegate == nil{
+            cell.buttonDelegate = self
+        }
         cell.imageThumbNail.image = printData[indexPath.row].thumbNail
-        //cell.buttonId.setTitle(String(indexPath.row), for: .normal)
-    
+            
         return cell
         
     }
     
-    func cancelPrint(sender: UIButton!){
-        print("")
+    func buttonTapped(cell: PrintQueueTableViewCell){
+       
+            if let ip = printJobs.indexPath(for: cell){
+                printJobs.beginUpdates()
+                
+                if ip.row == 0{
+                    printData.remove(at: ip.row)
+                    printJobs.deleteRows(at: [ip], with: .bottom)
+                    if printData.count == 0{
+                        timer.invalidate()
+                    }
+                    printJobs.endUpdates()
+                    step = 0.0
+                    
+                }else{
+                    printData.remove(at: ip.row)
+                    printJobs.deleteRows(at: [ip], with: .bottom)
+                    printJobs.endUpdates()
+                }
+                
+            }
+
+    }
+    func donePrinting(){
+        timer2 = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(close), userInfo: nil, repeats: false)
+        timer2.fire()
+    }
+    func close(){
+        let vc = self.navigationController as! MyNavController
+        vc.pop()
+    }
     
-    }
-    func removeCell(sender: UITableViewCell){
-        
-        print("any \(sender.accessibilityValue)")
-//        for i in 0..<images2.count{
-//            if sender.tag == i{
-//                print(sender.tag)
-//            }
-//        }
-//        if let i = printJobs.indexPathForSelectedRow?.row{
-//            images2.remove(at: i)
-//            printJobs.deleteRows(at: [IndexPath.init(row: i, section: 0)], with: .fade)
-//            printJobs.reloadData()
-//        }
-        
-        //print("called \(sender.de)")
-    }
+    
+    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return printData.count
@@ -140,6 +169,6 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-  
+    
 }
 

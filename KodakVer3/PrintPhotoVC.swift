@@ -31,6 +31,7 @@ class PrintPhotoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     private let kSeparatorID = 123
     
     private let kSeparatorHeight: CGFloat = 1.0
+    
     private let paperSizeKey: String = "size"
     private let colorOutKey: String = "color"
     private let typeKey: String = "type"
@@ -64,10 +65,7 @@ class PrintPhotoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var navbarHeight:CGFloat = UIScreen.main.bounds.height
     
-    
-   
-    
-   
+
     
     var sizes = ["Photo 4x6 in. Borderless", "Photo A4 Borderless", "Document A4"]
     
@@ -400,6 +398,9 @@ extension UIColor{
     
     static var gold: UIColor {
         return UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1.0)
+    }
+    static var aqua: UIColor{
+        return UIColor(red: 22/255, green: 106/255, blue: 214/255, alpha: 1.0)
     }
     
 }

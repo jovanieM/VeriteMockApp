@@ -257,15 +257,10 @@ class AdjustmentViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
-    
-    
-    
+
     override func viewWillAppear(_ animated: Bool) {
       self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
     }
-    
-    
-    
     
 }
 extension UIImageView{

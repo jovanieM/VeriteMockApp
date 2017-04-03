@@ -18,6 +18,7 @@ class SettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource{
     
     
     weak var sendDataDelegate: SettingViewDelegate?
+    
     var width: CGFloat!
     
     var preselect:Int?

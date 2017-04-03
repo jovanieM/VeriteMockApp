@@ -12,17 +12,15 @@ protocol PrinterSelectDelegate {
     func select(index: Int)
 }
 
+
+
 class PrinterSelectPopUp: UIView, UITableViewDelegate, UITableViewDataSource{
     
-    var container: UIView!
-    var line: UIView!
-    var title: UILabel!
-    var tableView: UITableView!
-    var cancel: UIButton!
+   
     
     private let margin: CGFloat = 10.0
-    var width: CGFloat!
-    var height: CGFloat!
+    private var width: CGFloat!
+    private var height: CGFloat!
     var currentPrinter: Int?
     
     var delegate: PrinterSelectDelegate?
@@ -30,12 +28,10 @@ class PrinterSelectPopUp: UIView, UITableViewDelegate, UITableViewDataSource{
     
     var printerList: [String] = []{
         didSet {
-          
-            height = CGFloat(computeHeight(numberOfItems: printerList.count) * 44)
-          
-            tableView.delegate = self
-            tableView.dataSource = self
             
+            height = CGFloat(computeHeight(numberOfItems: printerList.count)) * 44.0
+        
+            addViews()
         }
     
     }
@@ -43,23 +39,57 @@ class PrinterSelectPopUp: UIView, UITableViewDelegate, UITableViewDataSource{
     override init(frame: CGRect) {
         super.init(frame: frame)
         width = frame.width * 0.9
-        setupViews()
+     
         
     }
-    
+    func addViews(){
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height + 88.0))
+        self.addSubview(containerView)
+        
+        let title = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: 44.0))
+        title.text = "Select Printer"
+        title.numberOfLines = 1
+        title.minimumScaleFactor = 0.5
+        title.adjustsFontSizeToFitWidth = true
+        title.textColor = .aqua
+        title.backgroundColor = .white
+        title.textAlignment = .center
+        containerView.addSubview(title)
+        
+        let line = UIView(frame: CGRect(x: 0, y: title.frame.maxY, width: width, height: 1.5))
+        line.backgroundColor = .aqua
+        containerView.addSubview(line)
+        
+        let table = UITableView(frame: CGRect(x: 0, y: line.frame.maxY, width: width, height: height))
+        table.delegate = self
+        table.dataSource = self
+        containerView.addSubview(table)
+        
+        let cancel = UILabel(frame: CGRect(x: 0, y: table.frame.maxY, width: width, height: 44.0))
+        cancel.text = "Cancel"
+        cancel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancelSelect)))
+        cancel.isUserInteractionEnabled = true
+        cancel.numberOfLines = 1
+        cancel.minimumScaleFactor = 0.5
+        cancel.adjustsFontSizeToFitWidth = true
+        cancel.textColor = .aqua
+        cancel.textAlignment = .center
+        cancel.backgroundColor = .white
+        containerView.addSubview(cancel)
+        
+        
+        containerView.center = convert(center, from: self)
+        containerView.layer.cornerRadius = 10
+        containerView.layer.masksToBounds = true
+    }
+    func cancelSelect(){
+        self.removeFromSuperview()
+
+    }
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        title.frame = CGRect(x: container.frame.minX, y: container.frame.minY, width: width, height: 44.0)
-        line.frame = CGRect(x: container.frame.minX, y: title.frame.maxY, width: width, height: 3.0)
-        tableView.frame = CGRect(x: container.frame.minX, y: line.frame.maxY, width: width, height: height)
         
-        cancel.frame = CGRect(x: container.frame.minX, y: tableView.frame.maxY, width: width, height: 44.0)
-        
-        
-        container.frame = CGRect(x: 0, y: 0, width: width, height: title.frame.height + line.frame.height + tableView.frame.height + cancel.frame.height)
-        container.center = convert(center, from: self)
-        container.layer.cornerRadius = 10
         
     }
 
@@ -68,41 +98,7 @@ class PrinterSelectPopUp: UIView, UITableViewDelegate, UITableViewDataSource{
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupViews(){
-        
-        container = UIView(frame: .zero)
-        container.translatesAutoresizingMaskIntoConstraints = false
-        container.backgroundColor = .white
-        self.addSubview(container)
-        
-        title = UILabel(frame: .zero)
-        title.textAlignment = .center
-        title.text = "Select Printer"
-   //     title.textColor = UIColor(red: 57/255, green: 63/255, blue: 203/255, alpha: 1.0)
-        title.textColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 1.0)
 
-        
-        title.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(title)
-        
-        line = UIView(frame: .zero)
-        line.backgroundColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 1.0)
-        line.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(line)
-        
-        tableView = UITableView(frame: .zero)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(tableView)
-        
-        cancel = UIButton(frame: .zero)
-        
-        cancel.setTitleColor(UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 1.0), for: .normal)
-        cancel.setTitle("Cancel", for: .normal)
-        cancel.translatesAutoresizingMaskIntoConstraints = false
-        cancel.addTarget(self, action: #selector(dismissView(_ :)), for: .touchUpInside)
-        container.addSubview(cancel)
-        
-    }
     
     func dismissView(_ sender: UIButton){
         self.removeFromSuperview()
@@ -129,6 +125,9 @@ class PrinterSelectPopUp: UIView, UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
         
         if (currentPrinter == indexPath.row){
             let check = UIImageView(image: #imageLiteral(resourceName: "checkmark_list"))

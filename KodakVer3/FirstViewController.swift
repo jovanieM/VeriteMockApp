@@ -55,11 +55,7 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        name.text = printer
-        name.layer.borderColor = UIColor.black.cgColor
-        selectedPrinter.text = "Selected printer"
-        checkmark.isHidden = false
-        activityIndicator.stopAnimating()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +67,14 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
         let settingSB = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
         let vc = settingSB.instantiateInitialViewController()!
         self.show(vc, sender: self)
+    }
+    
+    func okPressed(){
+        name.text = printer
+        name.layer.borderColor = UIColor.black.cgColor
+        selectedPrinter.text = "Selected printer"
+        checkmark.isHidden = false
+        activityIndicator.stopAnimating()
     }
     
     
@@ -86,7 +90,9 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
             let OKAction = UIAlertAction(title: "OK", style: .default) {
                 UIAlertAction in
     //            self.InsteadOfEasySetup()
-                self.viewDidLoad()
+                
+                self.okPressed()
+                //self.viewDidLoad()
             }
             alertController.addAction(OKAction)
             self.present(alertController, animated: true, completion: nil)
@@ -101,8 +107,10 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
             printers.currentPrinter = previousPrinter
             self.view.window?.addSubview(printers)
             
+            if printers.delegate == nil{
+                printers.delegate = self
+            }
             
-            printers.delegate = self
         }
     
     }

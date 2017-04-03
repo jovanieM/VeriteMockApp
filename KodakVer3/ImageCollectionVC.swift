@@ -40,7 +40,7 @@ class ImageCollectionVC: UIViewController, UICollectionViewDataSource, UICollect
         
     }
     
-    
+    var images = [UIImage]()
     
     func multi(){
         print("tapped")
@@ -165,6 +165,7 @@ class ImageCollectionVC: UIViewController, UICollectionViewDataSource, UICollect
                     }
                     
                 }else{
+                    
                     let label = cell.contentView.viewWithTag(5) as! UILabel
                     
                     label.alpha = 0.0
@@ -196,6 +197,11 @@ class ImageCollectionVC: UIViewController, UICollectionViewDataSource, UICollect
             
             label.text = String(selectedItems.count)
             
+            
+            let imageView = cell?.contentView.viewWithTag(4) as! UIImageView
+            
+            images.append(imageView.image!)
+            
         }else{
             collectionView.deselectItem(at: indexPath, animated: false)
         }
@@ -203,9 +209,12 @@ class ImageCollectionVC: UIViewController, UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
         if isMulti {
             if selectedItems.count > 0 {
-                selectedItems.remove(at: selectedItems.index(of: indexPath)!)
+                let arrayIndex = selectedItems.index(of: indexPath)!
+                selectedItems.remove(at: arrayIndex)
+                images.remove(at: arrayIndex)
                 
                 let label = collectionView.cellForItem(at: indexPath)!.viewWithTag(5) as! UILabel
                 
@@ -214,8 +223,11 @@ class ImageCollectionVC: UIViewController, UICollectionViewDataSource, UICollect
                 
                 collectionView.cellForItem(at: indexPath)?.customHighlight()
                 
+                
                 for i in 0..<selectedItems.count {
                     let cell = collectionView.cellForItem(at: selectedItems[i])!
+ //                   let iv = cell.contentView.viewWithTag(4) as! UIImageView
+                   
                     
                     cell.customHighlight()
                     
@@ -265,16 +277,16 @@ class ImageCollectionVC: UIViewController, UICollectionViewDataSource, UICollect
             
             dimmerView.alpha = 0.5
             
-            var images = [UIImage]()
             
-            for index in 0..<selectedItems.count{
-                
-                let cell = collectionView.cellForItem(at: selectedItems[index])
-                
-                let imageView = cell?.contentView.viewWithTag(4) as! UIImageView
-                
-                images.append(imageView.image!)
-            }
+            
+//            for index in 0..<selectedItems.count{
+//                
+//                let cell = collectionView.cellForItem(at: selectedItems[index])
+//                
+//                let imageView = cell?.contentView.viewWithTag(4) as! UIImageView
+//                
+//                images.append(imageView.image!)
+//            }
             
             let vc2 = segue.destination as! PrintMultiViewController
             vc2.onDone = {
@@ -286,9 +298,9 @@ class ImageCollectionVC: UIViewController, UICollectionViewDataSource, UICollect
                 let sb = UIStoryboard(name: "PrintQueueStoryboard", bundle: nil)
                 let vc = sb.instantiateInitialViewController() as! PrintQueueViewController
                 
-                for i in 0..<images.count{
+                for i in 0..<self.images.count{
                     let pd = PrintData()
-                    pd.thumbNail = images[i]
+                    pd.thumbNail = self.images[i]
                     vc.printData.append(pd)
                 }
                 
