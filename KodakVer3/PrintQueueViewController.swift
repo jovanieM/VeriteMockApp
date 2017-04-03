@@ -10,6 +10,12 @@ import UIKit
 
 class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ButtonCellDelegate{
     
+    enum PrintStatus : String{
+        case Waiting = "Waiting..."
+        case Processing = "Processing... (Page 1/1)"
+    
+    }
+    
     @IBOutlet weak var printJobs: UITableView!
     //    let cancelButton: UIButton = {
     //        let button = UIButton(type: .custom)
@@ -28,6 +34,12 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         timer.invalidate()
+        if timer2 != nil{
+            timer2.invalidate()
+            print("invadidated")
+        }
+        
+        print("view didDisappear")
     }
    
     var cell : PrintQueueTableViewCell!
@@ -83,6 +95,9 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
                         //
                         let cell = printJobs.cellForRow(at: ips[i]) as! PrintQueueTableViewCell
                         cell.progressView.progress = step / 100.0
+                        if cell.statusNPages.text == PrintStatus.Waiting.rawValue{
+                            cell.statusNPages.text = PrintStatus.Processing.rawValue
+                        }
                     }
                 }
             }
@@ -121,6 +136,23 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.buttonDelegate = self
         }
         cell.imageThumbNail.image = printData[indexPath.row].thumbNail
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        let dateNTime = dateFormatter.date(from: "\(year)-\(month)-\(day) \(hour)-\(minutes)-\(seconds)")
+        //cell.dateNTime.text = "\(year)/\(month)/\(day) \(hour):\(minutes):\(seconds)"
+        let dateString = dateFormatter.string(from: dateNTime!)
+        cell.dateNTime.text = dateString
+        cell.statusNPages.text = PrintStatus.Waiting.rawValue
+   
+        
             
         return cell
         
@@ -150,8 +182,19 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
 
     }
     func donePrinting(){
-        timer2 = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(close), userInfo: nil, repeats: false)
+        timer2 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(donePrintingDelay), userInfo: nil, repeats: true)
         timer2.fire()
+    }
+    
+    var counter: Int = 0
+    func donePrintingDelay(){
+        counter += 1
+        if counter != 4{
+            return
+        }else{
+            timer2.invalidate()
+            close()
+        }
     }
     func close(){
         let vc = self.navigationController as! MyNavController
