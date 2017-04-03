@@ -8,19 +8,15 @@
 
 import UIKit
 
-class GCPStatus: UIViewController{
+class GCPStatus: UIViewController, EnableDisableProtocol{
     
     var alert: UIAlertController!
     var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var statusLabel: UILabel!
     
     // navigation bar
     override func viewWillAppear(_ animated: Bool) {
-        let navTransition = CATransition()
-        navTransition.duration = 1
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        navTransition.type = kCATransitionPush
-        navTransition.subtype = kCATransitionPush
-        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+        self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
     }
     
     override func viewDidLoad() {
@@ -30,13 +26,13 @@ class GCPStatus: UIViewController{
     }
     
     func loadAlerts(){
-        alert = UIAlertController(title: "Status Loading...\n", message: "", preferredStyle: .alert)
+        alert = UIAlertController(title: "Status Loading...\n\n", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             self.dismiss(animated: true, completion: nil)
             _ = self.navigationController?.popViewController(animated: true)
         }))
         
-        indicator = UIActivityIndicatorView(frame: CGRect(x: 140, y: 70, width: 50, height:50))
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 140, y: 80, width: 50, height:50))
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         indicator.activityIndicatorViewStyle = .whiteLarge
         indicator.color = .black
@@ -51,5 +47,9 @@ class GCPStatus: UIViewController{
     func dismissAlert(){
         self.alert?.dismiss(animated: true, completion: nil)
      }
+    
+    func sendValue(data: String) {
+        statusLabel.text = data
+    }
 
 }

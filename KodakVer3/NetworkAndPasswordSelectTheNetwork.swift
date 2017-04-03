@@ -17,7 +17,6 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     
     @IBOutlet weak var tableNetworkView: UITableView!
     @IBOutlet weak var btnManual: UIButton!
-   
     
     var cellIdentifier = "Cell"
     var networks = ["Router 1", "Router 2", "Router 3", "Printer 1", "Printer 2", "Printer 3"]
@@ -25,16 +24,12 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     var delegate: SelectNetworkProtocol?
     var cell: UITableViewCell!
     
-    //let defaultSelection = UserDefaults.standard
+    let defaultSelection = UserDefaults.standard
+    let connected = "connected"
     
-    // navigation bar
+    // navigation controller
     override func viewWillAppear(_ animated: Bool) {
-        let navTransition = CATransition()
-        navTransition.duration = 1
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        navTransition.type = kCATransitionPush
-        navTransition.subtype = kCATransitionPush
-        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+        self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
     }
     
     override func viewDidLoad() {
@@ -45,9 +40,9 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
         tableNetworkView.delegate = self
         
         //button
-        btnManual.layer.cornerRadius = 25
+        btnManual.layer.cornerRadius = 30
         btnManual.layer.borderWidth = 2
-        btnManual.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        btnManual.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< back", style: .plain, target: self, action: #selector(backAction))
     }
@@ -59,21 +54,26 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
-        cell.detailTextLabel?.text = "Connected"
         cell.detailTextLabel?.isHidden = true
         cell.textLabel?.text = networks[indexPath.row]
+        if indexPath.row == getDefault(){
+            cell.isSelected = true
+            cell.detailTextLabel?.text = "Connected"
+            cell.detailTextLabel?.isHidden = false
+        }
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)! as UITableViewCell
-//        cell.detailTextLabel?.text = "Connected"
-//        cell.detailTextLabel?.isHidden = false
-        
-        for cell in tableView.visibleCells{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        for cell in tableView.visibleCells
+        {
             cell.detailTextLabel?.isHidden = true
         }
+        
+        setDefault(value: indexPath.row)
         let cell1 = tableView.cellForRow(at: indexPath)
+        cell1?.detailTextLabel?.text = "Connected"
         cell1?.detailTextLabel?.isHidden = false
         
         performSegue(withIdentifier: "toSelectedNetwork", sender: networks[indexPath.row])
@@ -87,7 +87,6 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     }
     
     @IBAction func manualButton(_ sender: UIButton) {
-        
         let sb: UIStoryboard = UIStoryboard(name: "WiFiSetupStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "manual") as! NetworkAndPasswordManual
         self.navigationController?.pushViewController(vc, animated: true)
@@ -101,5 +100,12 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
             }
         }
     }
+    
+    func setDefault(value: Int){
+        defaultSelection.set(value, forKey: connected)
+    }
+    
+    func getDefault() -> Int{
+        return defaultSelection.integer(forKey: connected)
+    }
 }
-

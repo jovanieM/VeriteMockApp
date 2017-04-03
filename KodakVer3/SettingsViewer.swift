@@ -80,7 +80,7 @@ class SettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource{
         
         
         sendDataDelegate?.sendData(index: indexPath.row, receiver: propertyIndex!)
-        //preselect = indexPath
+        //preselect = indexPath.row
         
         self.removeFromSuperview()
       //  settingDelegate?.settingSelector(sender: self, indexpath: path, setting: indexPath.row)

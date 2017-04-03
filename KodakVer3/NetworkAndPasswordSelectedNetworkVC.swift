@@ -22,19 +22,12 @@ class NetworkAndPasswordSelectedNetworkVC: UIViewController, UITextFieldDelegate
     var vc = UIStoryboard(name: "WiFiSetupStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SelectedNetwork") as! NetworkAndPasswordSelectTheNetwork
     
     
-    // navigation bar
+    // navigation controller
     override func viewWillAppear(_ animated: Bool) {
-        let navTransition = CATransition()
-        navTransition.duration = 1
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        navTransition.type = kCATransitionPush
-        navTransition.subtype = kCATransitionPush
-        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+        self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
         
         self.navigationItem.leftBarButtonItem?.title = ""
         self.navigationItem.leftBarButtonItem?.isEnabled = false
-        
-        
     }
     
     override func viewDidLoad() {
@@ -42,18 +35,18 @@ class NetworkAndPasswordSelectedNetworkVC: UIViewController, UITextFieldDelegate
         // Do any additional setup after loading the view.
         
         // help button border
-        helpButton.layer.cornerRadius = 25
+        helpButton.layer.cornerRadius = 30
         helpButton.layer.borderWidth = 2
-        helpButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        helpButton.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
         
         // other button border
-        otherButton.layer.cornerRadius = 25
+        otherButton.layer.cornerRadius = 30
         otherButton.layer.borderWidth = 2
-        otherButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        otherButton.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
         
         ssidLabel.text = networkData
         passwordTextField.becomeFirstResponder()
-        passwordTextField.tintColor = UIColor(red: 255, green: 153, blue: 0, alpha: 1)
+        
         
         vc.delegate = self
     }

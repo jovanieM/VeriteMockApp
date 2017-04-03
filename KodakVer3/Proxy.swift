@@ -15,10 +15,10 @@ class Proxy: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var proxySwitch: UISwitch!
     @IBOutlet weak var proxyAddressView: UIView!
     @IBOutlet weak var portProxyView: UIView!
+    @IBOutlet weak var proxyTopView: UIView!
     @IBOutlet weak var saveSettingButton: UIButton!
     @IBOutlet weak var onOffLabel: UILabel!
     @IBOutlet weak var portTextField: UITextField!
-    @IBOutlet weak var proxyTopView: UIView!
     @IBOutlet weak var addressTextField: UITextField!
     
     var alert: UIAlertController!
@@ -26,19 +26,32 @@ class Proxy: UIViewController, UITextFieldDelegate{
     var indicator: UIActivityIndicatorView!
     var switchOn: Bool = false
     
-    let defaults = UserDefaults.standard
+    let proxyDefaults = UserDefaults.standard
     let switchKey = "switcher"
     let textFieldKey = "textfield"
+    let portKey = "portKey"
+    let addressKey = "addressKey"
     
     
     //navigation bar
     override func viewWillAppear(_ animated: Bool) {
-        let navTransition = CATransition()
-        navTransition.duration = 1
-        navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        navTransition.type = kCATransitionPush
-        navTransition.subtype = kCATransitionPush
-        self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+        self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let switcherValue: String? = proxyDefaults.object(forKey: textFieldKey) as? String
+        
+        if let onOffValue = switcherValue{
+            onOffLabel.text = onOffValue
+        }
+        
+        if let portTF = proxyDefaults.object(forKey: portKey) as? String{
+            portTextField.text = portTF
+        }
+        
+        if let addressTF = proxyDefaults.object(forKey: addressKey) as? String{
+            addressTextField.text = addressTF
+        }
     }
     
     override func viewDidLoad() {
@@ -46,21 +59,21 @@ class Proxy: UIViewController, UITextFieldDelegate{
         
         loadAlerts()
         
-        // uitextfield to accept number only
+        // initial value for Userdefault
+        UserDefaults.standard.register(defaults: [switchKey:false])
+        
+        
         portTextField.delegate = self
+        addressTextField.delegate = self
         
         // dismiss soft keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(Proxy.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-        //button
-        saveSettingButton.layer.cornerRadius = 15
+        //button border
+        saveSettingButton.layer.cornerRadius = 25
         saveSettingButton.layer.borderWidth = 2
-        saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
-        
-        if let textFieldValue = defaults.string(forKey: textFieldKey){
-            onOffLabel.text = textFieldValue
-        }
+        saveSettingButton.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
     }
     
     // uiswitch action
@@ -88,12 +101,15 @@ class Proxy: UIViewController, UITextFieldDelegate{
         view.endEditing(true)
     }
     
-    @IBAction func saveSettingActionButton(_ sender: UIButton)
-    {
-        if defaults.value(forKey: switchKey) != nil {
-            let val: Bool = defaults.value(forKey: switchKey) as! Bool
+    @IBAction func saveSettingActionButton(_ sender: UIButton){
+        if proxyDefaults.value(forKey: switchKey) != nil {
+            let val: Bool = proxyDefaults.value(forKey: switchKey) as! Bool
             if val == proxySwitch.isOn
             {
+//                if proxyDefaults.value(forKey: addressKey) != nil {
+//                    let val1: String
+//                }
+                
                 //exit to screen and not saved
                 _ = self.navigationController?.popViewController(animated: true)
                 
@@ -107,8 +123,10 @@ class Proxy: UIViewController, UITextFieldDelegate{
                 print ("save settings")
     
                 //save state
-                defaults.set(proxySwitch.isOn, forKey: switchKey)
-                defaults.set(onOffLabel.text, forKey: textFieldKey)
+                proxyDefaults.set(proxySwitch.isOn, forKey: switchKey)
+                proxyDefaults.set(onOffLabel.text, forKey: textFieldKey)
+                proxyDefaults.set(addressTextField.text, forKey: addressKey)
+                proxyDefaults.set(portTextField.text, forKey: portKey)
                 
                 //dismiss softkeyboard if activated
                 addressTextField.resignFirstResponder()
@@ -162,7 +180,7 @@ class Proxy: UIViewController, UITextFieldDelegate{
         proxyTopView.isHidden = false
         saveSettingButton.isHidden = false
         
-        if (defaults.bool(forKey: switchKey)){
+        if (proxyDefaults.bool(forKey: switchKey)){
             proxySwitch.isOn = true
             proxyAddressView.isHidden = false
             portProxyView.isHidden = false
@@ -189,9 +207,18 @@ class Proxy: UIViewController, UITextFieldDelegate{
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let aSet = CharacterSet.decimalDigits.inverted
-        let compSepByCharInSet = string.components(separatedBy: aSet)
-        let numberFiltered = compSepByCharInSet.joined(separator: "")
-        return string == numberFiltered
+        
+        if(textField == portTextField){
+            let aSet = CharacterSet.decimalDigits.inverted
+            let compSepByCharInSet = string.components(separatedBy: aSet)
+            let numberFiltered = compSepByCharInSet.joined(separator: "")
+            return string == numberFiltered
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

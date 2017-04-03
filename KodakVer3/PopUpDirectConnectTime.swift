@@ -61,20 +61,11 @@ class PopUpDirectConnectTime: UIViewController, UITableViewDelegate, UITableView
             delegate?.setTableRowData(dataRow: data!)
         }
         
-//        performSegue(withIdentifier: "popUpDirectConnect", sender: data)
-        
         setDefault(value: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: false)
         self.dismiss(animated: true, completion: nil)
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "popUpDirectConnect"{
-//            let vc = segue.destination as! DirectConnectTime
-//            vc.directConnectTimeData = data! as String
-//        }
-//    }
-    
+
     func setDefault(value: Int){
         directTimeDefault.set(value, forKey: selectedKey)
     }
@@ -82,7 +73,6 @@ class PopUpDirectConnectTime: UIViewController, UITableViewDelegate, UITableView
     func getDefault()->Int{
         return directTimeDefault.integer(forKey: selectedKey)
     }
-    
     
     @IBAction func popUpDismiss(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
