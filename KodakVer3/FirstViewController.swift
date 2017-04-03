@@ -46,6 +46,7 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
     let screenSize = UIScreen.main.bounds
     
     @IBOutlet weak var name: UILabel!
+    
     var previousPrinter: Int = 0
 
     var printer: String? = "KODAK VERITE 55 PLUS"
@@ -54,6 +55,7 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        name.text = printer
         
         
     }
