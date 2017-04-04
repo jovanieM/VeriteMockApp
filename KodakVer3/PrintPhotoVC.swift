@@ -129,7 +129,7 @@ class PrintPhotoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         self.quickTableView.delegate = self
         self.quickTableView.dataSource = self
         
@@ -395,6 +395,9 @@ class PrintPhotoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 }
 
 extension UIColor{
+    @IBInspectable var gold:UIColor {
+        return UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1.0)
+    }
     
     static var gold: UIColor {
         return UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1.0)

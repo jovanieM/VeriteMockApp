@@ -50,14 +50,14 @@ class ScanDocumentHomeVC: UIViewController {
         
         
         activityIndicator.startAnimating()
-        self.present(alertScanning, animated: false, completion: {
+        self.navigationController?.present(alertScanning, animated: true, completion: {
         
         })
         self.perform(#selector(self.scanningDone), with: nil, afterDelay: 4.0)
     
     }
     func scanningDone(){
-        alertScanning.dismiss(animated: false, completion: nil)
+        alertScanning.dismiss(animated: true, completion: nil)
     
     }
     
@@ -78,17 +78,17 @@ class ScanDocumentHomeVC: UIViewController {
         
         activityIndicator.startAnimating()
         
-        self.present(alertCanceling!, animated: false, completion: nil)
+        self.navigationController?.present(alertCanceling!, animated: true, completion: nil)
         self.perform(#selector(self.scanCanceled), with: nil, afterDelay: 4.0)
         //
         
     }
     func scanCanceled(){
-        alertCanceling?.dismiss(animated: false, completion: nil)
+        alertCanceling?.dismiss(animated: true, completion: nil)
         let alert = UIAlertController(title: "Scan Canceled", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
         
-        self.present(alert, animated: false, completion: nil)
+        self.navigationController?.present(alert, animated: true, completion: nil)
     }
     
     
