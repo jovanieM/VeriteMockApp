@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Scan Document HomeVC-->
         <scene sceneID="exI-43-XVZ">
             <objects>
-                <viewController id="agd-j2-gWx" sceneMemberID="viewController">
+                <viewController id="agd-j2-gWx" customClass="ScanDocumentHomeVC" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Uiu-hm-4Iu"/>
                         <viewControllerLayoutGuide type="bottom" id="tGi-A1-PKy"/>
@@ -27,18 +27,15 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHt-Ku-Ebr">
                                         <rect key="frame" x="131" y="0.0" width="112" height="47"/>
-                                        <color key="backgroundColor" red="1" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPr-cg-OVG">
                                         <rect key="frame" x="11" y="0.0" width="112" height="47"/>
-                                        <color key="backgroundColor" red="1" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k97-Q6-mwr">
                                         <rect key="frame" x="251" y="0.0" width="112" height="47"/>
-                                        <color key="backgroundColor" red="1" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.74819248319999998" blue="0.9437139926" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="k97-Q6-mwr" firstAttribute="height" secondItem="bPr-cg-OVG" secondAttribute="height" id="1mU-SG-eVg"/>
                                     <constraint firstAttribute="trailing" secondItem="k97-Q6-mwr" secondAttribute="trailing" constant="12" id="4zT-rs-S13"/>
@@ -58,13 +55,18 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ou7-rv-GNb" firstAttribute="leading" secondItem="DKj-S8-opD" secondAttribute="leading" id="78u-bs-3wb"/>
                             <constraint firstItem="tGi-A1-PKy" firstAttribute="top" secondItem="ou7-rv-GNb" secondAttribute="bottom" id="dcT-yd-dZ8"/>
                             <constraint firstAttribute="trailing" secondItem="ou7-rv-GNb" secondAttribute="trailing" id="w86-9F-MjC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="crop" destination="aHt-Ku-Ebr" id="KIn-Yh-CfI"/>
+                        <outlet property="scan" destination="bPr-cg-OVG" id="y8Q-hs-1Ce"/>
+                        <outlet property="send" destination="k97-Q6-mwr" id="vej-Pj-YeQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4oM-sp-Y0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
