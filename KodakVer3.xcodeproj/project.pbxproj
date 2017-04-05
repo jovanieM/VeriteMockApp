@@ -125,6 +125,7 @@
 		118186E71E249FFA00B40A5F /* MyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */; };
 		118A67E91E6565BE00B0107C /* BoxBackGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A67E81E6565BE00B0107C /* BoxBackGround.swift */; };
 		11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */; };
+		11A8C1AE1E92369300280569 /* ScanDocumentHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8C1AD1E92369300280569 /* ScanDocumentHomeVC.swift */; };
 		11B56EB91E5D69180031108D /* FlickPrintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B56EB81E5D69180031108D /* FlickPrintViewController.swift */; };
 		11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */; };
 		11DB094D1E6028E000B6F317 /* AdjustmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB094C1E6028E000B6F317 /* AdjustmentViewController.swift */; };
@@ -275,6 +276,7 @@
 		118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewDelegate.swift; sourceTree = "<group>"; };
 		118A67E81E6565BE00B0107C /* BoxBackGround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxBackGround.swift; sourceTree = "<group>"; };
 		11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavBar.swift; sourceTree = "<group>"; };
+		11A8C1AD1E92369300280569 /* ScanDocumentHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanDocumentHomeVC.swift; sourceTree = "<group>"; };
 		11B56EB81E5D69180031108D /* FlickPrintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickPrintViewController.swift; sourceTree = "<group>"; };
 		11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintSettingsModel.swift; sourceTree = "<group>"; };
 		11DB094C1E6028E000B6F317 /* AdjustmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustmentViewController.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				103303281E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard */,
+				11A8C1AD1E92369300280569 /* ScanDocumentHomeVC.swift */,
 			);
 			name = ScanDocument;
 			sourceTree = "<group>";
@@ -882,6 +885,7 @@
 				10759B2E1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift in Sources */,
 				1156AAF71E1E2F24009C2493 /* TableViewCell2.swift in Sources */,
 				10D36C611E5FE0C400D79664 /* CustomCopySecondCell.swift in Sources */,
+				11A8C1AE1E92369300280569 /* ScanDocumentHomeVC.swift in Sources */,
 				11F865961E530B1D00326907 /* PrintPhotoHomeVC.swift in Sources */,
 				10D36C661E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift in Sources */,
 				10DE830C1E72B294001F6FDA /* FirstViewController.swift in Sources */,

@@ -99,7 +99,6 @@ class SettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource{
         cell.preservesSuperviewLayoutMargins = false
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
-        
 //        if indexPath.row == 0{
 //            cell.setSelected(true, animated: false)
 //        }else{
