@@ -73,7 +73,7 @@ class Proxy: UIViewController, UITextFieldDelegate{
         //button border
         saveSettingButton.layer.cornerRadius = 25
         saveSettingButton.layer.borderWidth = 2
-        saveSettingButton.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
+        saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
     }
     
     // uiswitch action
