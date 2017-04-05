@@ -9,32 +9,33 @@
 import UIKit
 
 class CartridgeSetupPrinting: UIViewController{
+  
+  @IBOutlet weak var indicator: UIActivityIndicatorView!
+  
+  // navigation bar
+  override func viewWillAppear(_ animated: Bool) {
+    self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
     
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    self.navigationItem.leftBarButtonItem?.title = ""
+    self.navigationItem.leftBarButtonItem?.isEnabled = false
     
-    // navigation bar
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
-        
-        self.navigationItem.leftBarButtonItem?.title = ""
-        self.navigationItem.leftBarButtonItem?.isEnabled = false
-    }
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        indicatorAction()
-        
-         _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(toTransition), userInfo: nil, repeats: false)        
-        
-    }
+    indicatorAction()
     
-    func toTransition(){
-        self.performSegue(withIdentifier: "toStartScan", sender: self)
-    }
+    _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(toTransition), userInfo: nil, repeats: false)
     
-    func indicatorAction(){
-        indicator.startAnimating()
-    }
-    
+  }
+  
+  func toTransition(){
+    self.performSegue(withIdentifier: "toStartScan", sender: self)
+  }
+  
+  func indicatorAction(){
+    indicator.startAnimating()
+  }
+  
 }

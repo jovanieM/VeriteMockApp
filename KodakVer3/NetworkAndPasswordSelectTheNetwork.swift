@@ -46,7 +46,12 @@ class NetworkAndPasswordSelectTheNetwork: UIViewController, UITableViewDelegate,
     btnManual.layer.borderWidth = 2
     btnManual.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
     
-    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< back", style: .plain, target: self, action: #selector(backAction))
+    let attrs: [String: Any] = [NSForegroundColorAttributeName: UIColor.gold, NSFontAttributeName: UIFont(name: "Arial", size: 12)!]
+    
+    let item: UIBarButtonItem = UIBarButtonItem(title: "< back", style: .plain, target: self, action: #selector(backAction))
+    item.setTitleTextAttributes(attrs, for: .normal)
+    navigationItem.leftBarButtonItem = item
+
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
