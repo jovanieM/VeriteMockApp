@@ -50,35 +50,7 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol  {
     if let toDisplay = name{
       directLabel.text = toDisplay
     }
-
-
-//    tblDirectConnect.delegate = self
-//    tblDirectConnect.dataSource = self
-//    tblDirectConnect.backgroundColor = .black
-//    tblDirectConnect.tableFooterView = UIView(frame: .zero)
-//    tblDirectConnect.tableHeaderView = UIView(frame: .zero)
   }
-  
-//  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//    return directTimeItems.count
-//  }
-//  
-//  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//    let cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
-//    cell.mainLabel.text = "Direct Connect Time"
-//    cell.selectionLabel.text = directTimeItems[indexPath.row]
-//    
-//    return cell
-//  }
-//  
-//  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    table = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y: UIScreen.main.bounds.minY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-//    table.propertyIndex = indexPath
-//    table.data = directTimeItems[indexPath.row]
-//    
-//    tableView.deselectRow(at: indexPath, animated: false)
-//    self.view.window?.addSubview(table)
-//  }
   
   func loadAlerts(){
     desc.isHidden = true
@@ -158,12 +130,7 @@ class DirectConnectTime: UIViewController, DirectConnectTimeProtocol  {
   
   func setTableRowData(dataRow: String) {
     directLabel.text = dataRow
-    //directValue = dataRow
-    //directDefaults.set(, forKey: "directLabel")
   }
-  
-  
-  
 }
 
 
