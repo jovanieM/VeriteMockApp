@@ -83,18 +83,23 @@ class PhotoAssetCollection: UITableViewController {
     
         let imgManager = PHImageManager.default()
         
+        let phFetchOption = PHFetchOptions()
+        phFetchOption.sortDescriptors = [NSSortDescriptor(key: "localizedTitle", ascending: true)]
+        
         let requestOp = PHImageRequestOptions()
         requestOp.isSynchronous = true
         requestOp.deliveryMode = .highQualityFormat
+        
         let fetchOptions = PHFetchOptions()
         fetchOptions.predicate = NSPredicate(format: "mediaType = %d", argumentArray: [PHAssetMediaType.image.rawValue])
         
-        let res1 = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
+        let res1 = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: phFetchOption)
         if let cam = res1.firstObject{
             phAssetCollections.append(cam)
         }
 
-        let res4 = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .smartAlbumUserLibrary, options: nil)
+        let res4 = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .smartAlbumUserLibrary, options: phFetchOption)
+       
         for i in 0..<res4.count{
             
             if res4[i].estimatedAssetCount != 0{
