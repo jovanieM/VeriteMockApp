@@ -33,7 +33,6 @@ class PhotoAssetCollection: UITableViewController {
         if PHPhotoLibrary.authorizationStatus() == .authorized{
             grabPhoto()
         }
-
         
     }
     @IBAction func unwindAfterPrintingDone(segue: UIStoryboardSegue){

@@ -287,5 +287,29 @@ extension UIImageView{
         }
         return .zero
     }
+    func frameForImageInImageViewAspectFit() ->CGRect{
+        
+        if let img = self.image{
+            let imageRatio = img.size.width / img.size.height
+            let viewRatio = self.frame.size.width / self.frame.size.height
+            
+            if (viewRatio > imageRatio){
+                let scale = self.frame.size.height / img.size.height
+                let width = scale * img.size.width
+                let topLeft = (width - self.frame.size.width) * 0.5
+                return CGRect(x: topLeft, y: 0, width: width, height: self.frame.size.height)
+            }else{
+                let scale = self.frame.size.width / img.size.width
+                let height = scale * img.size.height
+                let top = (height - self.frame.size.width) * 0.5
+                return CGRect(x: 0, y: top, width: self.frame.size.width, height: height)
+            
+            }
+            
+        }
+    
+    
+        return .zero
+    }
     
 }

@@ -62,7 +62,12 @@ class ImageCollectionVC: UIViewController, UICollectionViewDataSource, UICollect
         
         isMulti = !isMulti
         if isMulti{
-            let item = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(self.multi))
+            let title = "cancel"
+            
+            let attrs: [String: Any] = [NSForegroundColorAttributeName : UIColor.gold, NSFontAttributeName : UIFont(name : "Arial", size : 12)!]
+            
+            let item = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(self.multi))
+            item.setTitleTextAttributes(attrs, for: .normal)
             self.navigationItem.rightBarButtonItem = item
             collectionView.allowsMultipleSelection = true
             

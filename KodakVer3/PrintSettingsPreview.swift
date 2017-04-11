@@ -70,7 +70,7 @@ class PrintSettingsPreview: UIView {
         self.quality = SettingsObject()
         self.size = SettingsObject()
         self.type = SettingsObject()
-        print("reuse view")
+        print("reuse view in coder")
     //Bundle.main.loadNibNamed("PrintSettingsPreview", owner: self, options: nil)
     }
     private func initSubviews(){
@@ -79,7 +79,7 @@ class PrintSettingsPreview: UIView {
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
         containerView.frame = bounds
-        
+        print("init subview in coder")
     
     }
    

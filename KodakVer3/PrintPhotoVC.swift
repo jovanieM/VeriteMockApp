@@ -41,6 +41,7 @@ class PrintPhotoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     let defaultColor = UserDefaults.standard
     let defaultType = UserDefaults.standard
     let defaultQuality = UserDefaults.standard
+    
     var table : SettingsViewer!
     
     private let selectedCellKey = "choice"
@@ -357,24 +358,22 @@ class PrintPhotoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
     }
     
-    var size : SettingsObject?
-    var type  : SettingsObject?
-    var quality : SettingsObject?
+    var settings : SettingsObject?
+
     
     func setData(value: Int, receiverIndex: Int){
         
         switch receiverIndex {
         case 1:
-            size?.paperSize = collections[1][value]
+            settings?.paperSize = collections[1][value]
             defaultSize.set(value, forKey: paperSizeKey)
         case 2:
             defaultColor.set(value, forKey: colorOutKey)
         case 3:
-        
-            type?.paperType = collections[3][value]
+            settings?.paperType = collections[3][value]
             defaultType.set(value, forKey: typeKey)
         case 4:
-            quality?.printQuality = collections[4][value]
+            settings?.printQuality = collections[4][value]
             defaultQuality.set(value, forKey: qualityKey)
         default:
             break

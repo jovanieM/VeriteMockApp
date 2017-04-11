@@ -168,7 +168,8 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
                     printJobs.deleteRows(at: [ip], with: .bottom)
                     if printData.count == 0{
                         timer.invalidate()
-                    }
+                        donePrinting()
+                                            }
                     printJobs.endUpdates()
                     step = 0.0
                     
@@ -181,21 +182,12 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
             }
 
     }
-    func donePrinting(){
-        timer2 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(donePrintingDelay), userInfo: nil, repeats: true)
-        timer2.fire()
-    }
     
-    var counter: Int = 0
-    func donePrintingDelay(){
-        counter += 1
-        if counter != 4{
-            return
-        }else{
-            timer2.invalidate()
-            close()
-        }
+    private func donePrinting(){
+        self.perform(#selector(close), with: nil, afterDelay: 4.0)
     }
+
+ 
     func close(){
         let vc = self.navigationController as! MyNavController
         vc.pop()

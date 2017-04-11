@@ -127,6 +127,8 @@
 		11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */; };
 		11A8C1AE1E92369300280569 /* ScanDocumentHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8C1AD1E92369300280569 /* ScanDocumentHomeVC.swift */; };
 		11B56EB91E5D69180031108D /* FlickPrintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B56EB81E5D69180031108D /* FlickPrintViewController.swift */; };
+		11CB551E1E95EB9E00EAC722 /* ScanSettingsPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11CB551D1E95EB9E00EAC722 /* ScanSettingsPreview.xib */; };
+		11CB55201E97145B00EAC722 /* ScanSettingsPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB551F1E97145B00EAC722 /* ScanSettingsPreview.swift */; };
 		11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */; };
 		11DB094D1E6028E000B6F317 /* AdjustmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB094C1E6028E000B6F317 /* AdjustmentViewController.swift */; };
 		11DF48201E36E46A0012AD60 /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF481F1E36E46A0012AD60 /* FirstCell.swift */; };
@@ -278,6 +280,8 @@
 		11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavBar.swift; sourceTree = "<group>"; };
 		11A8C1AD1E92369300280569 /* ScanDocumentHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanDocumentHomeVC.swift; sourceTree = "<group>"; };
 		11B56EB81E5D69180031108D /* FlickPrintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickPrintViewController.swift; sourceTree = "<group>"; };
+		11CB551D1E95EB9E00EAC722 /* ScanSettingsPreview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanSettingsPreview.xib; sourceTree = "<group>"; };
+		11CB551F1E97145B00EAC722 /* ScanSettingsPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanSettingsPreview.swift; sourceTree = "<group>"; };
 		11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintSettingsModel.swift; sourceTree = "<group>"; };
 		11DB094C1E6028E000B6F317 /* AdjustmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustmentViewController.swift; sourceTree = "<group>"; };
 		11DF481F1E36E46A0012AD60 /* FirstCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCell.swift; sourceTree = "<group>"; };
@@ -388,6 +392,8 @@
 			children = (
 				103303281E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard */,
 				11A8C1AD1E92369300280569 /* ScanDocumentHomeVC.swift */,
+				11CB551D1E95EB9E00EAC722 /* ScanSettingsPreview.xib */,
+				11CB551F1E97145B00EAC722 /* ScanSettingsPreview.swift */,
 			);
 			name = ScanDocument;
 			sourceTree = "<group>";
@@ -761,6 +767,7 @@
 				1156AAF81E1E2F24009C2493 /* TableViewCell2.xib in Resources */,
 				113123A71E51AF400079CEAB /* PhotoPrintSettingsStoryboard.storyboard in Resources */,
 				1141592E1E83C33F007276CA /* PrintSettingsPreview.xib in Resources */,
+				11CB551E1E95EB9E00EAC722 /* ScanSettingsPreview.xib in Resources */,
 				114B30B21DF90A57008A57F1 /* LaunchScreen.storyboard in Resources */,
 				10D36C621E5FE0C400D79664 /* CustomCopySecondCell.xib in Resources */,
 				10DE83021E72A873001F6FDA /* BrightnessTableViewCell.xib in Resources */,
@@ -852,6 +859,7 @@
 				11699E5E1E8A462700F56A3E /* PrintQueueTableViewCell.swift in Sources */,
 				114B30DA1DF92D78008A57F1 /* QuickDetailSelector.swift in Sources */,
 				107DE2A51E6EB9B10094FA0B /* PopUpDirectConnectTime.swift in Sources */,
+				11CB55201E97145B00EAC722 /* ScanSettingsPreview.swift in Sources */,
 				11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */,
 				10DE82F61E72A7D9001F6FDA /* PagesPerSideTableViewCell.swift in Sources */,
 				11DFF0081E63AE2300C53EB7 /* BoxForeground.swift in Sources */,
