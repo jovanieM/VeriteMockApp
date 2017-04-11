@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000F6001E52CDB700DE4B3C /* InkLevel.swift */; };
+		101B4FC11E9CCD7400018797 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 101B4FC01E9CCD7400018797 /* Images.xcassets */; };
 		1033031A1E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303191E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard */; };
 		1033031D1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */; };
 		103303201E52AC2500E7D24C /* InkLevelStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033031F1E52AC2500E7D24C /* InkLevelStoryboard.storyboard */; };
@@ -158,6 +159,7 @@
 
 /* Begin PBXFileReference section */
 		1000F6001E52CDB700DE4B3C /* InkLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InkLevel.swift; sourceTree = "<group>"; };
+		101B4FC01E9CCD7400018797 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		103303191E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeviceSettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsConditionsStoryboard.storyboard; sourceTree = "<group>"; };
 		1033031F1E52AC2500E7D24C /* InkLevelStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InkLevelStoryboard.storyboard; sourceTree = "<group>"; };
@@ -418,6 +420,8 @@
 		1033032D1E52ACB900E7D24C /* AddressPrintStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				10EFBE521E9CC0A800235DBF /* ReturnAddressViewController.swift */,
+				10EFBE511E9CC0A800235DBF /* PreviewViewController.swift */,
 				10B68ABD1E89004800182F0F /* LoadInstructionsViewController.swift */,
 				114159241E83C33F007276CA /* AddressPrintHomeViewController.swift */,
 				1033032E1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard */,
@@ -584,8 +588,7 @@
 		114B30A61DF90A57008A57F1 /* KodakVer3 */ = {
 			isa = PBXGroup;
 			children = (
-				10EFBE511E9CC0A800235DBF /* PreviewViewController.swift */,
-				10EFBE521E9CC0A800235DBF /* ReturnAddressViewController.swift */,
+				101B4FC01E9CCD7400018797 /* Images.xcassets */,
 				1093B8251E8A5C4E000E8670 /* Images-2.xcassets */,
 				114159301E83C652007276CA /* PrintQueueStoryboard */,
 				10DE82FB1E72A813001F6FDA /* MyTableView.swift */,
@@ -775,6 +778,7 @@
 				103303471E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard in Resources */,
 				113123A51E51AC8D0079CEAB /* SettingsStoryboard.storyboard in Resources */,
 				1156AAF81E1E2F24009C2493 /* TableViewCell2.xib in Resources */,
+				101B4FC11E9CCD7400018797 /* Images.xcassets in Resources */,
 				113123A71E51AF400079CEAB /* PhotoPrintSettingsStoryboard.storyboard in Resources */,
 				1141592E1E83C33F007276CA /* PrintSettingsPreview.xib in Resources */,
 				11CB551E1E95EB9E00EAC722 /* ScanSettingsPreview.xib in Resources */,
@@ -1068,7 +1072,7 @@
 		114B30CD1DF90A57008A57F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 5GFTBY65QD;
@@ -1084,7 +1088,7 @@
 		114B30CE1DF90A57008A57F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 5GFTBY65QD;

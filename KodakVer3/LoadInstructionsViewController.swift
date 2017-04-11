@@ -10,10 +10,6 @@ import UIKit
 import ContactsUI
 import Contacts
 
-//protocol MyDelegate: class {
-//    func changeValue()
-//}
-
 @available(iOS 9.0, *)
 class LoadInstructionsViewController: UIViewController, CNContactPickerDelegate {
 
@@ -29,8 +25,7 @@ class LoadInstructionsViewController: UIViewController, CNContactPickerDelegate 
     var dataNameReceived: String = ""
     var dataDescReceived: String = ""
     var dataImage: UIImage!
-//    var address = CNLabeledValue()
-//    var selectedAddress = CNPostalAddress
+
     var street: String = ""
     var city: String = ""
     var state: String = ""
@@ -132,12 +127,6 @@ class LoadInstructionsViewController: UIViewController, CNContactPickerDelegate 
     }
     
     
-//    func changeValue() {
-//        PreviewViewController.nameReceived = dataNameReceived
-//        
-//    }
-    
-    
     
     @available(iOS 9.0, *)
     @IBAction func OKbuttonpressed(_ sender: Any) {
@@ -158,24 +147,8 @@ class LoadInstructionsViewController: UIViewController, CNContactPickerDelegate 
     
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
         
-        
-//        if let address = contactProperty.value as? CNPostalAddress {
-//            
-//            street = address.street
-//            city = address.city
-//            state = address.state
-//            postalCode = address.postalCode
-//            country = address.country
-//            isoCountry = address.isoCountryCode
-//        }
-        
-            let postalAddress = contactProperty.value as? CNPostalAddress
+        let postalAddress = contactProperty.value as? CNPostalAddress
      
-      //      let selectedAddress = CNPostalAddressFormatter().string(from: postalAddress!)
-        
-       
-        
-        
         let contact = contactProperty.contact
         let contactName = CNContactFormatter.string(from: contact, style: .fullName)
         let contactAddress = CNPostalAddressFormatter.string(from: postalAddress!, style: .mailingAddress)

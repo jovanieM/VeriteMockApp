@@ -88,10 +88,7 @@ class AddressPrintHomeViewController: UIViewController, CNContactPickerDelegate 
         if doNotShowInstructionsCheckbox.image == checked {
          
             // this will display contacts
-            
-        //    func DisplayContacts(){
-                
-                
+                     
                 let cnPicker = CNContactPickerViewController()
                 cnPicker.delegate = self
                 
