@@ -20,17 +20,62 @@ class PhotoAssetCollection: UITableViewController {
     var phAsset : PHFetchResult<PHAsset>!
     var authStatus : Bool!
     //var il :ImageLoader!
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        grabPhoto()
-     
+      
+        if PHPhotoLibrary.authorizationStatus() == .denied{
+            popUpInstruction()
+        }
+        if PHPhotoLibrary.authorizationStatus() == .notDetermined{
+            requestAccess()
+        }
+        if PHPhotoLibrary.authorizationStatus() == .authorized{
+            grabPhoto()
+        }
         
     }
     @IBAction func unwindAfterPrintingDone(segue: UIStoryboardSegue){
         
+    }
+    func requestAccess(){
+        
+        
+        PHPhotoLibrary.requestAuthorization { (status : PHAuthorizationStatus) in
+            switch status{
+            case .authorized:
+                
+                DispatchQueue.main.async(execute: { 
+                    self.grabPhoto()
+
+                })
+                
+            case .denied:
+                return
+            case .notDetermined:
+                return
+            case .restricted:
+                return
+            }
+           
+        }
+        
+    }
+    
+    func popUpInstruction(){
+        
+        let alert = UIAlertController(title: "Cannot access to Photos", message: "Open the Settings > Privacy > Photos and Turn ON Kodak Verite", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) {(ok) in
+            self.perform(#selector(self.dismissVC))
+        }
+        alert.addAction(okAction)
+        self.navigationController?.present(alert, animated: true, completion: nil)
+    
+    }
+    func dismissVC(){
+        
+        let nav = self.navigationController as! MyNavController
+        nav.pop()
     }
   
     
@@ -48,34 +93,29 @@ class PhotoAssetCollection: UITableViewController {
         if let cam = res1.firstObject{
             phAssetCollections.append(cam)
         }
-        let res2 = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumCloudShared, options: nil)
-        if let cloud = res2.firstObject{
-            phAssetCollections.append(cloud)
+
+        let res4 = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .smartAlbumUserLibrary, options: nil)
+        for i in 0..<res4.count{
+            
+            if res4[i].estimatedAssetCount != 0{
+                phAssetCollections.append(res4[i])
+            
+            }
+      
         }
-        let res3 = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumMyPhotoStream, options: nil)
-        if let stream = res3.firstObject{
-            phAssetCollections.append(stream)
-        }
- 
+
         if phAssetCollections.count > 0{
-            print(phAssetCollections.count)
             
             
             for i in 0..<phAssetCollections.count{
-                
-                print(phAssetCollections.count)
-               
-                
+             
                 
                 let phAsset = PHAsset.fetchAssets(in: phAssetCollections[i], options: fetchOptions)
                 
                
                     imgManager.requestImage(for: phAsset.object(at: 0), targetSize: CGSize.init(width: 150, height: 150), contentMode: .aspectFill, options: requestOp, resultHandler: {
                         image, info in
-                        
-                        //self.imagesArray.append(image!)
-                        
-                        
+             
                         self.folderInfoArray.image.append(image)
                         
                         
@@ -90,7 +130,7 @@ class PhotoAssetCollection: UITableViewController {
         }else{
             print("no photo")
             
-            self.tableView.reloadData()
+            //self.tableView.reloadData()
         }
         
         
@@ -111,17 +151,20 @@ class PhotoAssetCollection: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+       
         let img = cell.contentView.viewWithTag(2) as! UIImageView
         img.contentMode = .scaleAspectFill
         
-        // Configure the cell...
-//        img.image = il.imageData[indexPath.row][0]
+
         img.image = folderInfoArray.image[indexPath.row]
         let title = cell.contentView.viewWithTag(1) as! UILabel
-        //title.text = phFetchResults[indexPath.row].firstObject!.localizedTitle
-        //title.text = "\(phFetchResults[indexPath.row].count)"
+    
         title.text = "\(folderInfoArray.name[indexPath.row]) (\(folderInfoArray.contents[indexPath.row]))"
-//        title.text = "\(il.folderInfoArray.name[indexPath.row]) (\(il.folderInfoArray.contents[indexPath.row]))"
+        
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsets.init(top: 0, left: title.frame.minX, bottom: 0, right: 0)
+        cell.layoutMargins = UIEdgeInsets.zero
         return cell
     }
     
@@ -129,10 +172,10 @@ class PhotoAssetCollection: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ImageCollectionVC
         vc.name = folderInfoArray.name[(tableView.indexPathForSelectedRow?.row)!]
-//        vc.imageArray = il.imageData[(tableView.indexPathForSelectedRow?.row)!]
+
         vc.collections = phAssetCollections[(tableView.indexPathForSelectedRow?.row)!]
         tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: false)
-        //(tableView.indexPathForSelectedRow?.row)!
+        
     }
     override func viewWillAppear(_ animated: Bool) {
        self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)

@@ -11,6 +11,7 @@ import UIKit
 class ScandocSettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var ScandocTableView: UITableView!
+    var settings : SettingsObject = SettingsObject()
 
     var expandedSections : NSMutableSet = []
     
@@ -49,12 +50,19 @@ class ScandocSettingViewController: UIViewController, UITableViewDelegate, UITab
     func setData (valueRow : Int, valueSection : Int) {
         switch valueSection {
         case 0:
+           
+            settings.docScanQual = ScanQuality(rawValue: valueRow)!.description()
+            
             defaultQuality.set(valueRow, forKey: qualityKey)
+            print("\(settings.docScanQual!)")
         case 1:
+            settings.docScanColor = ScanColor(rawValue: valueRow)?.description()
             defaultColor.set(valueRow, forKey: colorKey)
         case 2:
+            settings.docScanDocument = ScanDocumentType(rawValue: valueRow)?.description()
             defaultDocument.set(valueRow, forKey: documentKey)
         case 3:
+            settings.docScanSaveAsType = SaveAsType(rawValue: valueRow)?.description()
             defaultSaveas.set(valueRow, forKey: saveasKey)
         default:
             break

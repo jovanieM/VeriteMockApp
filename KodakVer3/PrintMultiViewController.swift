@@ -41,6 +41,8 @@ class PrintMultiViewController: UIViewController {
         printSettingsPreview.size = settings[0]
         printSettingsPreview.type = settings[1]
         printSettingsPreview.quality = settings[2]
+        
+    
        
         
     }
@@ -70,6 +72,7 @@ class PrintMultiViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         updateUI()
+        
     }
 
 }

@@ -31,14 +31,18 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
     }
     
     
+    let back = "< back "
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
        //navigationController?.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "apptop"))
+        let attrs: [String: Any] = [NSForegroundColorAttributeName : UIColor.gold, NSFontAttributeName : UIFont(name : "Arial", size : 12)!]
         
         visibleViewController?.navigationController?.navigationBar.tintColor = UIColor.gold
         viewController.navigationController?.navigationBar.backIndicatorImage = UIImage()
         viewController.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
-        let item: UIBarButtonItem = UIBarButtonItem(title: "< back", style: .plain, target: self, action: #selector(self.pop))
+       
+        let item: UIBarButtonItem = UIBarButtonItem(title: back, style: .plain, target: self, action: #selector(self.pop))
+        item.setTitleTextAttributes(attrs, for: .normal)
        
         viewController.navigationItem.leftBarButtonItem = item
         
@@ -54,6 +58,7 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
         if (viewControllers.last?.description.contains("AdjustmentViewController"))!{
             popViewController(animated: false)
         }else if (viewControllers.last?.description.contains("PrintQueueViewController"))!{
+            NSObject.cancelPreviousPerformRequests(withTarget: viewControllers.last as! PrintQueueViewController)
             viewControllers.last?.performSegue(withIdentifier: "backToImageFolders", sender: viewControllers.last)
  
 

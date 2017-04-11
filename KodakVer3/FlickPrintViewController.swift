@@ -38,7 +38,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     }
     
     
-     @IBOutlet weak var container: UIView!
+    @IBOutlet weak var container: UIView!
     
     var imageView: UIImageView!
     var image: UIImage!
@@ -134,7 +134,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     }
     override func viewDidLayoutSubviews() {
         updateUI()
-        print("reloaded")
+         print("viewdidlayoutSub  flick")
     }
     
   
@@ -230,7 +230,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     }
     override func viewWillAppear(_ animated: Bool){
         self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
-        
+        print("view will appear flick")
         updateUI()
     }
     

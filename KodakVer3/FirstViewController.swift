@@ -46,6 +46,7 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
     let screenSize = UIScreen.main.bounds
     
     @IBOutlet weak var name: UILabel!
+    
     var previousPrinter: Int = 0
 
     var printer: String? = "KODAK VERITE 55 PLUS"
@@ -54,6 +55,7 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        name.text = printer
         
         
     }
@@ -87,6 +89,7 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
             let alertController = UIAlertController(title: nil, message: "Start setup for new printer. Please turn off the power of other printers. After turning off, touch [OK]. Easy Setup is started.", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertController.addAction(cancelAction)
+                       
             
             let OKAction = UIAlertAction(title: "OK", style: .default) {
                 UIAlertAction in
@@ -134,6 +137,11 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
         self.show(vc, sender: self)
     }
     
+    @IBAction func scanDoc(_ sender: UIButton) {
+        let scanDoc = UIStoryboard(name: "ScanDocumentStoryboard", bundle: nil)
+        let vc = scanDoc.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
 //    @IBAction func ScanDoc(_ sender: Any) {
 //        let ScanDocSB = UIStoryboard(name: "ScanDocumentStoryboard", bundle: nil)
 //        let vc = ScanDocSB.instantiateInitialViewController()!
