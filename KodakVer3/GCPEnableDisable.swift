@@ -53,7 +53,7 @@ class GCPEnableDisable: UIViewController {
         saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
         
         //initial value for Userdefault
-        UserDefaults.standard.register(defaults: [switchKey: false])
+        UserDefaults.standard.register(defaults: [switchKey: true])
     }
     
     func loadAlerts(){
