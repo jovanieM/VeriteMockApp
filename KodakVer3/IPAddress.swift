@@ -345,15 +345,12 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   
   @IBAction func ipAdd1DidChanged(_ sender: Any) {
     print("ip add 1: \(ipAdd1.text)")
-    if ipAdd1.text == ""{
+    if ipAdd1.text == "" || ipAdd1.text == "0"{
       ipAdd1.text = "0"
       ipAdd1.clearsOnBeginEditing = true
-    }
-    
-    if ipAdd1.text == "0"{
       ipAdd1.clearsOnInsertion = true
     }
-    
+
     if ((ipAdd1.text) != nil){
       if Int(ipAdd1.text!)! > 255 {
         ipAdd1.text = "255"
@@ -363,12 +360,9 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   
   @IBAction func ipAdd2DidChanged(_ sender: Any) {
     print("ip add 2: \(ipAdd2.text)")
-    if ipAdd2.text == ""{
+    if ipAdd2.text == "" || ipAdd2.text == "0"{
       ipAdd2.text = "0"
       ipAdd2.clearsOnBeginEditing = true
-    }
-    
-    if ipAdd2.text == "0"{
       ipAdd2.clearsOnInsertion = true
     }
     
@@ -381,12 +375,9 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   
   @IBAction func ipAdd3DidChanged(_ sender: Any) {
     print("ip add 3: \(ipAdd3.text)")
-    if ipAdd3.text == ""{
+    if ipAdd3.text == "" || ipAdd3.text == "0"{
       ipAdd3.text = "0"
       ipAdd3.clearsOnBeginEditing = true
-    }
-    
-    if ipAdd3.text == "0"{
       ipAdd3.clearsOnInsertion = true
     }
     
@@ -399,15 +390,12 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   
   @IBAction func ipAdd4DidChanged(_ sender: Any) {
     print("ip add 4: \(ipAdd4.text)")
-    if ipAdd4.text == ""{
+    if ipAdd4.text == "" || ipAdd4.text == "0"{
       ipAdd4.text = "0"
       ipAdd4.clearsOnBeginEditing = true
-    }
-    
-    if ipAdd4.text == "0"{
       ipAdd4.clearsOnInsertion = true
     }
-    
+
     if ((ipAdd4.text) != nil){
       if Int(ipAdd4.text!)! > 255 {
         ipAdd4.text = "255"
@@ -417,12 +405,9 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   
   @IBAction func subnet1DidChanged(_ sender: Any) {
     print("subnet mask 1: \(subnet1.text)")
-    if subnet1.text == ""{
+    if subnet1.text == "" || subnet1.text == "0"{
       subnet1.text = "0"
       subnet1.clearsOnBeginEditing = true
-    }
-    
-    if subnet1.text == "0"{
       subnet1.clearsOnInsertion = true
     }
     
@@ -435,12 +420,9 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   
   @IBAction func subnet2DidChanged(_ sender: Any) {
     print("subnet mask 2: \(subnet2.text)")
-    if subnet2.text == ""{
+    if subnet2.text == "" || subnet2.text == "0"{
       subnet2.text = "0"
       subnet2.clearsOnBeginEditing = true
-    }
-    
-    if subnet2.text == "0"{
       subnet2.clearsOnInsertion = true
     }
     
@@ -453,12 +435,9 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   
   @IBAction func subnet3DidChanged(_ sender: Any) {
     print("subnet mask 3: \(subnet3.text)")
-    if subnet3.text == ""{
+    if subnet3.text == "" || subnet3.text == "0"{
       subnet3.text = "0"
       subnet3.clearsOnBeginEditing = true
-    }
-    
-    if subnet3.text == "0"{
       subnet3.clearsOnInsertion = true
     }
     
@@ -471,12 +450,9 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   
   @IBAction func subnet4DidChanged(_ sender: Any) {
     print("subnet mask 4: \(subnet4.text)")
-    if subnet4.text == ""{
+    if subnet4.text == "" || subnet4.text == "0"{
       subnet4.text = "0"
       subnet4.clearsOnBeginEditing = true
-    }
-    
-    if subnet4.text == "0"{
       subnet4.clearsOnInsertion = true
     }
     
@@ -489,12 +465,9 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   
   @IBAction func default1DidChanged(_ sender: Any) {
     print("default gateway 1: \(defaultGate1.text)")
-    if defaultGate1.text == ""{
+    if defaultGate1.text == "" || defaultGate1.text == "0"{
       defaultGate1.text = "0"
       defaultGate1.clearsOnBeginEditing = true
-    }
-    
-    if defaultGate1.text == "0"{
       defaultGate1.clearsOnInsertion = true
     }
     
@@ -507,16 +480,13 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   
   @IBAction func default2DidChanged(_ sender: Any) {
     print("default gateway 2: \(defaultGate2.text)")
-    if defaultGate2.text == ""{
+    if defaultGate2.text == "" || defaultGate2.text == "0"{
       defaultGate2.text = "0"
       defaultGate2.clearsOnBeginEditing = true
-    }
-    
-    if defaultGate2.text == "0"{
       defaultGate2.clearsOnInsertion = true
     }
     
-    if ((defaultGate2.text) != nil){
+     if ((defaultGate2.text) != nil){
       if Int(defaultGate2.text!)! > 255 {
         defaultGate2.text = "255"
       }
@@ -525,15 +495,12 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   
   @IBAction func default3DidChanged(_ sender: Any) {
     print("default gateway 3: \(defaultGate3.text)")
-    if defaultGate3.text == ""{
+    if defaultGate3.text == "" || defaultGate3.text == "0"{
       defaultGate3.text = "0"
       defaultGate3.clearsOnBeginEditing = true
-    }
-    
-    if defaultGate3.text == "0"{
       defaultGate3.clearsOnInsertion = true
     }
-    
+
     if ((defaultGate3.text) != nil){
       if Int(defaultGate3.text!)! > 255 {
         defaultGate3.text = "255"
@@ -543,12 +510,9 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   
   @IBAction func default4DidChanged(_ sender: Any) {
     print("default gateway 4: \(defaultGate4.text)")
-    if defaultGate4.text == ""{
+    if defaultGate4.text == "" || defaultGate4.text == "0"{
       defaultGate4.text = "0"
       defaultGate4.clearsOnBeginEditing = true
-    }
-    
-    if defaultGate4.text == "0"{
       defaultGate4.clearsOnInsertion = true
     }
     
@@ -561,12 +525,9 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   
   @IBAction func dns1DidChanged(_ sender: Any) {
     print("dns address 1: \(dns1.text)")
-    if dns1.text == ""{
+    if dns1.text == "" || dns1.text == "0"{
       dns1.text = "0"
       dns1.clearsOnBeginEditing = true
-    }
-    
-    if dns1.text == "0"{
       dns1.clearsOnInsertion = true
     }
     
@@ -580,15 +541,12 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   @IBAction func dns2DidChanged(_ sender: Any) {
     print("dns address 2: \(dns2.text)")
     
-    if dns2.text == ""{
+    if dns2.text == "" || dns2.text == "0"{
       dns2.text = "0"
       dns2.clearsOnBeginEditing = true
-    }
-    
-    if dns2.text == "0"{
       dns2.clearsOnInsertion = true
     }
-    
+
     if ((dns2.text) != nil){
       if Int(dns2.text!)! > 255 {
         dns2.text = "255"
@@ -599,12 +557,9 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   @IBAction func dns3DidChanged(_ sender: Any) {
     print("dns address 3: \(dns3.text)")
     
-    if dns3.text == ""{
+    if dns3.text == "" || dns3.text == "0"{
       dns3.text = "0"
       dns3.clearsOnBeginEditing = true
-    }
-    
-    if dns3.text == "0"{
       dns3.clearsOnInsertion = true
     }
     
@@ -618,12 +573,9 @@ class IPAddress: UIViewController, UITextFieldDelegate{
   @IBAction func dns4DidChanged(_ sender: Any) {
     print("dns address 4: \(dns4.text)")
     
-    if dns4.text == ""{
+    if dns4.text == "" || dns4.text == "0"{
       dns4.text = "0"
       dns4.clearsOnBeginEditing = true
-    }
-    
-    if dns4.text == "0"{
       dns4.clearsOnInsertion = true
     }
     
@@ -633,7 +585,4 @@ class IPAddress: UIViewController, UITextFieldDelegate{
       }
     }
   }
-  
-  
-  
 }

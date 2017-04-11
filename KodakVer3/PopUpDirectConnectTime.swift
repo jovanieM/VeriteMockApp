@@ -26,6 +26,8 @@ class PopUpDirectConnectTime: UIViewController, UITableViewDelegate, UITableView
   let directTimeList: [String] = ["5 min", "10 min", "60min", "Unlimited"]
   let textCellIdIdentifier = "cell"
   var cell: SettingsTableViewCell!
+  var selectedIndex: Int!
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,11 +47,15 @@ class PopUpDirectConnectTime: UIViewController, UITableViewDelegate, UITableView
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    cell = SettingsTableViewCell(style: .default, reuseIdentifier: textCellIdIdentifier)
+    cell = SettingsTableViewCell(style: .default, reuseIdentifier: textCellIdIdentifier)    
+    
     cell.textLabel?.text = directTimeList[indexPath.row]
     if indexPath.row == getDefault(){
       cell.isSelected = true
     }
+//    if (indexPath.row == selectedIndex){
+//      cell.isSelected = true
+//    }
     return cell
   }
   
@@ -62,6 +68,7 @@ class PopUpDirectConnectTime: UIViewController, UITableViewDelegate, UITableView
       delegate?.setTableRowData(dataRow: data!)
     }
     
+//    selectedIndex = indexPath.row
     setDefault(value: indexPath.row)
     tableView.deselectRow(at: indexPath, animated: false)
     self.dismiss(animated: true, completion: nil)
