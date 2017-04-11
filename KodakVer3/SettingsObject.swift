@@ -23,9 +23,9 @@ class SettingsObject : NSObject{
     var types: [String] = ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"]
     var quality: [String] = ["Automatic", "Normal", "Best", "Draft"]
     
+    var copyColor: String?
     
-    
-    
+   var color: [String] = ["Color", "Black and White"]
     
 }
 
