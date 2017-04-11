@@ -192,24 +192,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wwp-oQ-KHo">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wwp-oQ-KHo">
                                             <rect key="frame" x="8" y="0.0" width="68" height="69"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="Wwp-oQ-KHo" secondAttribute="height" multiplier="66:67" id="x5R-kI-mYD"/>
-                                            </constraints>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbo-cA-z3z">
-                                            <rect key="frame" x="80" y="22" width="184" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <rect key="frame" x="95" y="25" width="184" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Wwp-oQ-KHo" firstAttribute="leading" secondItem="bY1-fo-YZ2" secondAttribute="leading" constant="8" id="CJC-0q-YRU"/>
-                                        <constraint firstItem="Wwp-oQ-KHo" firstAttribute="height" secondItem="bY1-fo-YZ2" secondAttribute="height" id="pQs-s6-uN4"/>
-                                        <constraint firstItem="Wwp-oQ-KHo" firstAttribute="centerY" secondItem="bY1-fo-YZ2" secondAttribute="centerY" id="zT4-Dw-H1v"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
