@@ -38,7 +38,7 @@ class PhotoAssetCollection: UITableViewController {
     @IBAction func unwindAfterPrintingDone(segue: UIStoryboardSegue){
         
     }
-        func requestAccess(){
+    func requestAccess(){
         
         
         PHPhotoLibrary.requestAuthorization { (status : PHAuthorizationStatus) in
@@ -101,26 +101,29 @@ class PhotoAssetCollection: UITableViewController {
         if let stream = res3.firstObject{
             phAssetCollections.append(stream)
         }
- 
+        
+        let res4 = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .smartAlbumUserLibrary, options: nil)
+        for i in 0..<res4.count{
+            
+            if res4[i].estimatedAssetCount != 0{
+                phAssetCollections.append(res4[i])
+            
+            }
+      
+        }
+
         if phAssetCollections.count > 0{
-            print(phAssetCollections.count)
             
             
             for i in 0..<phAssetCollections.count{
-                
-                print(phAssetCollections.count)
-               
-                
+             
                 
                 let phAsset = PHAsset.fetchAssets(in: phAssetCollections[i], options: fetchOptions)
                 
                
                     imgManager.requestImage(for: phAsset.object(at: 0), targetSize: CGSize.init(width: 150, height: 150), contentMode: .aspectFill, options: requestOp, resultHandler: {
                         image, info in
-                        
-                        //self.imagesArray.append(image!)
-                        
-                        
+             
                         self.folderInfoArray.image.append(image)
                         
                         
