@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import ContactsUI
+import Contacts
 
+//protocol MyDelegate: class {
+//    func changeValue()
+//}
 
-
-class LoadInstructionsViewController: UIViewController {
+@available(iOS 9.0, *)
+class LoadInstructionsViewController: UIViewController, CNContactPickerDelegate {
 
     @IBOutlet weak var OKbutton: UIButton!
     @IBOutlet weak var loadingImageView: UIImageView!
@@ -19,9 +24,23 @@ class LoadInstructionsViewController: UIViewController {
     @IBOutlet weak var envelopeName: UILabel!
     @IBOutlet weak var envelopeDescription: UILabel!
     
+    var test = "testing"
+
     var dataNameReceived: String = ""
     var dataDescReceived: String = ""
     var dataImage: UIImage!
+//    var address = CNLabeledValue()
+//    var selectedAddress = CNPostalAddress
+    var street: String = ""
+    var city: String = ""
+    var state: String = ""
+    var postalCode: String = ""
+    var country: String = ""
+    var isoCountry: String = ""
+    var getAddress: String = ""
+    
+    var selectedContact: CNContactProperty = CNContactProperty()
+  
     
     let animationImages1:[UIImage] = [UIImage(named: "ap_setenvelope04")!,
                                        UIImage(named: "ap_setenvelope04")!,
@@ -67,13 +86,20 @@ class LoadInstructionsViewController: UIViewController {
                                       UIImage(named: "ap_setenvelope69-18")!,
                                       UIImage(named: "ap_setenvelope69-18")!]
     
+   
+    
+    
     override func viewWillAppear(_ animated: Bool) {
+        
         let navTransition = CATransition()
         navTransition.duration = 1
         navTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         navTransition.type = kCATransitionPush
         navTransition.subtype = kCATransitionPush
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+    
+        
+        
     }
 
     
@@ -101,6 +127,79 @@ class LoadInstructionsViewController: UIViewController {
         loadingImageView.startAnimating()
         self.view.addSubview(loadingImageView)
         
+        
 
     }
-}
+    
+    
+//    func changeValue() {
+//        PreviewViewController.nameReceived = dataNameReceived
+//        
+//    }
+    
+    
+    
+    @available(iOS 9.0, *)
+    @IBAction func OKbuttonpressed(_ sender: Any) {
+
+        DisplayContacts()
+    }
+
+    func DisplayContacts(){
+        
+        let cnPicker = CNContactPickerViewController()
+        cnPicker.delegate = self
+        
+        cnPicker.displayedPropertyKeys = [CNContactPostalAddressesKey]
+        self.present(cnPicker, animated: true, completion: nil)
+        NSLog("contacts displayed")
+ 
+    }
+    
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
+        
+        
+//        if let address = contactProperty.value as? CNPostalAddress {
+//            
+//            street = address.street
+//            city = address.city
+//            state = address.state
+//            postalCode = address.postalCode
+//            country = address.country
+//            isoCountry = address.isoCountryCode
+//        }
+        
+            let postalAddress = contactProperty.value as? CNPostalAddress
+     
+      //      let selectedAddress = CNPostalAddressFormatter().string(from: postalAddress!)
+        
+       
+        
+        
+        let contact = contactProperty.contact
+        let contactName = CNContactFormatter.string(from: contact, style: .fullName)
+        let contactAddress = CNPostalAddressFormatter.string(from: postalAddress!, style: .mailingAddress)
+        
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "PreviewViewController") as? PreviewViewController
+        
+        nextVC?.nameReceived = self.dataNameReceived
+        nextVC?.descReceived = self.dataDescReceived
+        nextVC?.passedName = contactName!
+        nextVC?.passedAddress = contactAddress
+        self.navigationController?.pushViewController(nextVC!, animated: true)
+        NSLog(contactAddress)
+        NSLog(contactName!)
+
+    }
+    
+    
+    
+    @available(iOS 9.0, *)
+    func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
+        NSLog("Cancel Contact Picker")
+    }
+    
+    
+    
+    }
+

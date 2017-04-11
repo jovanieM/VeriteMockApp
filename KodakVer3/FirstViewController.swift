@@ -77,6 +77,7 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
         selectedPrinter.text = "Selected printer"
         checkmark.isHidden = false
         activityIndicator.stopAnimating()
+        name.layer.borderWidth = 0.0
     }
     
     
