@@ -153,8 +153,8 @@
                                                             <action selector="Print:" destination="wZA-pm-V9E" eventType="touchUpInside" id="Vpm-F6-1Ds"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Print" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRS-jh-rxU">
-                                                        <rect key="frame" x="209" y="10" width="38" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Print Photo" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRS-jh-rxU">
+                                                        <rect key="frame" x="178" y="10" width="99" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -185,7 +185,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ink Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMc-e9-fRs">
-                                                        <rect key="frame" x="44" y="18" width="60" height="18"/>
+                                                        <rect key="frame" x="43" y="18" width="60" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="Jme-tU-ueT"/>
                                                         </constraints>
@@ -203,7 +203,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan Document" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37k-ht-gvq">
-                                                        <rect key="frame" x="14" y="314" width="121" height="18"/>
+                                                        <rect key="frame" x="13" y="314" width="121" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="121" id="ZOA-Ws-lOS"/>
                                                         </constraints>
@@ -218,7 +218,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0L-qK-TU2">
-                                                        <rect key="frame" x="69" y="127" width="21" height="18"/>
+                                                        <rect key="frame" x="68" y="127" width="21" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -284,7 +284,7 @@
                                                     <constraint firstItem="omC-TW-Nz3" firstAttribute="baseline" secondItem="CLt-L7-G9t" secondAttribute="baseline" id="Yuz-xO-2pW"/>
                                                     <constraint firstAttribute="trailing" secondItem="KBN-uy-dQf" secondAttribute="trailing" constant="14" id="ZHu-bq-BTi"/>
                                                     <constraint firstItem="OG6-ZT-6cp" firstAttribute="top" secondItem="VBc-xd-7Kq" secondAttribute="bottom" constant="41" id="b6p-yv-OKu"/>
-                                                    <constraint firstItem="zRS-jh-rxU" firstAttribute="leading" secondItem="bEP-wM-DvP" secondAttribute="trailing" constant="59" id="bvR-XF-tSA"/>
+                                                    <constraint firstItem="zRS-jh-rxU" firstAttribute="leading" secondItem="bEP-wM-DvP" secondAttribute="trailing" constant="28" id="bvR-XF-tSA"/>
                                                     <constraint firstItem="oav-k1-Iqd" firstAttribute="baseline" secondItem="OG6-ZT-6cp" secondAttribute="baseline" id="dsL-Dd-dXd"/>
                                                     <constraint firstItem="VBc-xd-7Kq" firstAttribute="leading" secondItem="KBN-uy-dQf" secondAttribute="leading" constant="-5" id="ede-Kq-sQg"/>
                                                     <constraint firstItem="OG6-ZT-6cp" firstAttribute="centerX" secondItem="CLt-L7-G9t" secondAttribute="centerX" constant="2.25" id="ehi-Sx-pKm"/>

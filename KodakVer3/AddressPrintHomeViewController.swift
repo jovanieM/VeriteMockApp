@@ -7,17 +7,20 @@
 //
 
 import UIKit
+import ContactsUI
 
-class AddressPrintHomeViewController: UIViewController {
+@available(iOS 9.0, *)
+class AddressPrintHomeViewController: UIViewController, CNContactPickerDelegate {
 
     @IBOutlet weak var addReturnAddressCheckbox: UIImageView!
     
     @IBOutlet weak var doNotShowInstructionsCheckbox: UIImageView!
     
-    
-    
-    let checked = UIImage(named: "check_box_off")
-    let unchecked = UIImage(named: "check_box_on_orange")
+        
+    let unchecked = UIImage(named: "check_box_off")
+    let checked = UIImage(named: "check_box_on_orange")
+    var name: String?
+    var desc: String?
     
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
@@ -51,47 +54,101 @@ class AddressPrintHomeViewController: UIViewController {
             doNotShowInstructionsCheckbox.image = checked
         }
     }
+    
     @IBAction func Photo(_ sender: Any) {
         
-        let NextViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoadInstructionsViewController") as? LoadInstructionsViewController
-        
-        NextViewController?.dataNameReceived = "Photo"
-        NextViewController?.dataDescReceived = "4 3/4\" x 6 1/2\""
-        NextViewController?.dataImage = UIImage(named: "icon_env_photo_noblank")!
-        self.navigationController?.pushViewController(NextViewController!, animated: true)
-        
+        checkHowToLoad(dataNameReceived: "Photo", dataDescReceived: "4 3/4\" x 6 1/2\"", dataImage: UIImage(named: "icon_env_photo_noblank")!)
     }
     
     @IBAction func No6(_ sender: Any) {
         
-        let NextViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoadInstructionsViewController") as? LoadInstructionsViewController
-        
-        NextViewController?.dataNameReceived = "No. 6 3/4"
-        NextViewController?.dataDescReceived = "3 5/8\" x 6 1/2\""
-        NextViewController?.dataImage = UIImage(named: "icon_env-no6-34_noblank")!
-        self.navigationController?.pushViewController(NextViewController!, animated: true)
+        checkHowToLoad(dataNameReceived: "No. 6 3/4", dataDescReceived: "3 5/8\" x 6 1/2\"", dataImage: UIImage(named: "icon_env-no6-34_noblank")!)
     }
     
     
     @IBAction func No10(_ sender: Any) {
         
-        let NextViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoadInstructionsViewController") as? LoadInstructionsViewController
-        
-        NextViewController?.dataNameReceived = "No. 10"
-        NextViewController?.dataDescReceived = "4 1/8\" x 9 1/2\""
-        NextViewController?.dataImage = UIImage(named: "icon_env_no10_noblank")!
-        self.navigationController?.pushViewController(NextViewController!, animated: true)
+        checkHowToLoad(dataNameReceived: "No. 10", dataDescReceived: "4 1/8\" x 9 1/2\"", dataImage: UIImage(named: "icon_env_no10_noblank")!)
     }
     
     @IBAction func SixByNine(_ sender: Any) {
         
-        let NextViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoadInstructionsViewController") as? LoadInstructionsViewController
-        
-        NextViewController?.dataNameReceived = "6x9"
-        NextViewController?.dataDescReceived = "6\" x 9\""
-        NextViewController?.dataImage = UIImage(named: "icon_env-6x9_noblank.png")!
-        self.navigationController?.pushViewController(NextViewController!, animated: true)
+        checkHowToLoad(dataNameReceived: "6x9", dataDescReceived: "6\" x 9\"", dataImage: UIImage(named: "icon_env-6x9_noblank.png")!)
     }
    
     
+    
+    
+    
+    func checkHowToLoad(dataNameReceived: String, dataDescReceived: String, dataImage: UIImage) {
+        
+        name = dataNameReceived
+        desc = dataDescReceived
+        
+        if doNotShowInstructionsCheckbox.image == checked {
+         
+            // this will display contacts
+            
+        //    func DisplayContacts(){
+                
+                
+                let cnPicker = CNContactPickerViewController()
+                cnPicker.delegate = self
+                
+                cnPicker.displayedPropertyKeys = [CNContactPostalAddressesKey]
+                self.present(cnPicker, animated: true, completion: nil)
+                NSLog("contacts displayed")
+        //    }
+            
+           
+            
+        } else {
+            
+            //display How to Load Instructions
+            let NextViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoadInstructionsViewController") as? LoadInstructionsViewController
+            
+            NextViewController?.dataNameReceived = dataNameReceived
+            NextViewController?.dataDescReceived = dataDescReceived
+            NextViewController?.dataImage = dataImage
+            self.navigationController?.pushViewController(NextViewController!, animated: true)
+            
+        }
+        
+    }
+    
+            func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
+            
+            
+            let postalAddress = contactProperty.value as? CNPostalAddress
+            
+            
+            let contact = contactProperty.contact
+            let contactName = CNContactFormatter.string(from: contact, style: .fullName)
+            let contactAddress = CNPostalAddressFormatter.string(from: postalAddress!, style: .mailingAddress)
+            
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "PreviewViewController") as? PreviewViewController
+            
+            
+            nextVC?.nameReceived = name!
+            nextVC?.descReceived = desc!
+            nextVC?.passedName = contactName!
+            nextVC?.passedAddress = contactAddress
+            self.navigationController?.pushViewController(nextVC!, animated: true)
+            NSLog(contactAddress)
+            NSLog(contactName!)
+            
+        }
+        
+        
+        
+        @available(iOS 9.0, *)
+        func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
+            NSLog("Cancel Contact Picker")
+        }
+
+        
+    
 }
+
+
+
