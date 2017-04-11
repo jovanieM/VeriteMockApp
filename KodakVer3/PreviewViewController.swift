@@ -18,22 +18,15 @@ class PreviewViewController: UIViewController {
     @IBOutlet weak var envelopeDescription: UILabel!
     @IBOutlet weak var envelopeName: UILabel!
     @IBOutlet weak var previewWindow: UIView!
-  
-    
-    
- //   weak var delegate: MyDelegate?
     
     var nameReceived: String = ""
     var descReceived: String = ""
     var passedAddress: String = ""
     var passedName: String = ""
     
-    
-    
     var contact: CNContactProperty = CNContactProperty()
     
     override func viewWillAppear(_ animated: Bool) {
-        
       
     }
     
@@ -80,18 +73,8 @@ class PreviewViewController: UIViewController {
             nameLabel.frame.origin.y = addressLabel.frame.origin.y
         }
         
-    //    self.previewWindow.center = CGPoint(x: self.center.x, y: self.center.y)
+    
     }
     
-//    func Photo(){
-//        
-//        let screenSize: CGRect = UIScreen.main.bounds
-//        let screenWidth = screenSize.width
-//        let screenHeight = screenSize.height
-//        
-//        previewWindow.frame = CGRect(x: 20, y: 200, width: 468*0.60, height: 342*0.60)
-//        
-//    }
-
     
 }
