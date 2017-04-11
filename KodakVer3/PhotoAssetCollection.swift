@@ -93,15 +93,7 @@ class PhotoAssetCollection: UITableViewController {
         if let cam = res1.firstObject{
             phAssetCollections.append(cam)
         }
-        let res2 = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumCloudShared, options: nil)
-        if let cloud = res2.firstObject{
-            phAssetCollections.append(cloud)
-        }
-        let res3 = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumMyPhotoStream, options: nil)
-        if let stream = res3.firstObject{
-            phAssetCollections.append(stream)
-        }
-        
+
         let res4 = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .smartAlbumUserLibrary, options: nil)
         for i in 0..<res4.count{
             
