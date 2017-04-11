@@ -84,6 +84,8 @@
 		10DE83091E72A935001F6FDA /* ItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE83071E72A935001F6FDA /* ItemsTableViewCell.swift */; };
 		10DE830A1E72A935001F6FDA /* ItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10DE83081E72A935001F6FDA /* ItemsTableViewCell.xib */; };
 		10DE830C1E72B294001F6FDA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE830B1E72B294001F6FDA /* FirstViewController.swift */; };
+		10EFBE531E9CC0A800235DBF /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBE511E9CC0A800235DBF /* PreviewViewController.swift */; };
+		10EFBE541E9CC0A800235DBF /* ReturnAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBE521E9CC0A800235DBF /* ReturnAddressViewController.swift */; };
 		10F4969A1E6D350800E10DA1 /* PopUpPaperTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */; };
 		11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */; };
 		11072BBA1E72756600F7CF99 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11072BB91E72756600F7CF99 /* CustomCollectionViewCell.swift */; };
@@ -233,6 +235,8 @@
 		10DE83071E72A935001F6FDA /* ItemsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTableViewCell.swift; sourceTree = "<group>"; };
 		10DE83081E72A935001F6FDA /* ItemsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemsTableViewCell.xib; sourceTree = "<group>"; };
 		10DE830B1E72B294001F6FDA /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		10EFBE511E9CC0A800235DBF /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		10EFBE521E9CC0A800235DBF /* ReturnAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnAddressViewController.swift; sourceTree = "<group>"; };
 		10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpPaperTypeVC.swift; sourceTree = "<group>"; };
 		11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSelectPopUp.swift; sourceTree = "<group>"; };
 		11072BB91E72756600F7CF99 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -580,6 +584,8 @@
 		114B30A61DF90A57008A57F1 /* KodakVer3 */ = {
 			isa = PBXGroup;
 			children = (
+				10EFBE511E9CC0A800235DBF /* PreviewViewController.swift */,
+				10EFBE521E9CC0A800235DBF /* ReturnAddressViewController.swift */,
 				1093B8251E8A5C4E000E8670 /* Images-2.xcassets */,
 				114159301E83C652007276CA /* PrintQueueStoryboard */,
 				10DE82FB1E72A813001F6FDA /* MyTableView.swift */,
@@ -822,6 +828,7 @@
 				107B37B71E5FDF08007CA90C /* PrinterUtitlityHome.swift in Sources */,
 				10DE82FC1E72A813001F6FDA /* MyTableView.swift in Sources */,
 				1158B74F1DFA8655008F081F /* QuickViewController.swift in Sources */,
+				10EFBE531E9CC0A800235DBF /* PreviewViewController.swift in Sources */,
 				10DE82FE1E72A82F001F6FDA /* ScandocSettingViewController.swift in Sources */,
 				107B37AB1E5FDE4E007CA90C /* AirPrint.swift in Sources */,
 				10DE82F81E72A7D9001F6FDA /* PagesPerSideViewer.swift in Sources */,
@@ -841,6 +848,7 @@
 				107B37B41E5FDF08007CA90C /* CleanPrinthead.swift in Sources */,
 				107B37A61E5FDE30007CA90C /* GCPEnableDisable.swift in Sources */,
 				107B37A81E5FDE30007CA90C /* GCPRegisterUnregister.swift in Sources */,
+				10EFBE541E9CC0A800235DBF /* ReturnAddressViewController.swift in Sources */,
 				1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */,
 				105FAB181E55794000A180E8 /* SecurityType.swift in Sources */,
 				10A4E08F1E604010007724EF /* DirectConnectTime.swift in Sources */,
