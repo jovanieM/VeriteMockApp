@@ -66,7 +66,7 @@ enum ScanDocumentType: Int{
         
         switch self {
         case .TextGraphics:
-            return "Text and Graphics"
+            return "Text/Graphics"
         case .Text:
             return "Text"
         }

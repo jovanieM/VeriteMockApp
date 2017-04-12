@@ -25,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Print Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0Yx-ap-T1S">
-                                <rect key="frame" x="4" y="28" width="169" height="21.5"/>
+                                <rect key="frame" x="8" y="28" width="169" height="21.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0Yx-ap-T1S" secondAttribute="height" multiplier="87:11" id="BiT-HW-fMb"/>
                                 </constraints>
@@ -93,7 +93,7 @@
                             <constraint firstItem="0Yx-ap-T1S" firstAttribute="width" secondItem="Bcu-ae-7h1" secondAttribute="width" multiplier="0.45" id="DIf-cy-zhA"/>
                             <constraint firstItem="smQ-Bh-q1w" firstAttribute="leading" secondItem="Bcu-ae-7h1" secondAttribute="leading" constant="4" id="ItT-ub-WjE"/>
                             <constraint firstAttribute="trailing" secondItem="OaY-fY-LVh" secondAttribute="trailing" constant="4" id="P6R-G5-cOF"/>
-                            <constraint firstItem="0Yx-ap-T1S" firstAttribute="leading" secondItem="Bcu-ae-7h1" secondAttribute="leading" constant="4" id="Psh-Mj-cK6"/>
+                            <constraint firstItem="0Yx-ap-T1S" firstAttribute="leading" secondItem="Bcu-ae-7h1" secondAttribute="leading" constant="8" id="Psh-Mj-cK6"/>
                             <constraint firstAttribute="trailing" secondItem="hXK-mA-hH9" secondAttribute="trailing" constant="4" id="R9t-8f-w9j"/>
                             <constraint firstItem="hXK-mA-hH9" firstAttribute="leading" secondItem="smQ-Bh-q1w" secondAttribute="trailing" constant="7" id="Vf4-qp-ygX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OhV-jy-Rf5" secondAttribute="trailing" id="WBZ-SG-Kcp"/>
