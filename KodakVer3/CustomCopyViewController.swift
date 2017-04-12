@@ -58,7 +58,7 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     super.viewDidLoad()
     
     //button
-    customcopybutton.layer.cornerRadius = 25
+    customcopybutton.layer.cornerRadius = 20
     customcopybutton.layer.borderWidth = 2
     customcopybutton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
     customcopybutton.layer.masksToBounds = true;

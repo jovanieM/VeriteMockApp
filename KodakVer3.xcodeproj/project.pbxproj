@@ -420,6 +420,8 @@
 		1033032D1E52ACB900E7D24C /* AddressPrintStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				10EFBE511E9CC0A800235DBF /* PreviewViewController.swift */,
+				10EFBE521E9CC0A800235DBF /* ReturnAddressViewController.swift */,
 				10B68ABD1E89004800182F0F /* LoadInstructionsViewController.swift */,
 				114159241E83C33F007276CA /* AddressPrintHomeViewController.swift */,
 				1033032E1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard */,
@@ -587,8 +589,6 @@
 			isa = PBXGroup;
 			children = (
 				11555D3B1E9CCD9400365346 /* Images.xcassets */,
-				10EFBE511E9CC0A800235DBF /* PreviewViewController.swift */,
-				10EFBE521E9CC0A800235DBF /* ReturnAddressViewController.swift */,
 				1093B8251E8A5C4E000E8670 /* Images-2.xcassets */,
 				114159301E83C652007276CA /* PrintQueueStoryboard */,
 				10DE82FB1E72A813001F6FDA /* MyTableView.swift */,
