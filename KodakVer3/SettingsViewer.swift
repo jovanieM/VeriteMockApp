@@ -63,7 +63,7 @@ class SettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource{
     }
     
     func computeHeight(numberOfItems: Int) ->Int{
-        if numberOfItems > 5 {
+        if numberOfItems > 7 {
             let height = UIScreen.main.bounds.height * 0.7
             return Int(height / 44.0)
         }else{

@@ -121,8 +121,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         
         imageView.contentMode = .scaleAspectFill
         imageView.center.y = container.bounds.midY
-        print(container.frame)
-    
+        
         imageView.image = image
         container.addSubview(imageView)
         container.alpha = 0.75
@@ -134,7 +133,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     }
     override func viewDidLayoutSubviews() {
         updateUI()
-         print("viewdidlayoutSub  flick")
+         
     }
     
   
