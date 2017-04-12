@@ -215,10 +215,13 @@ class ScanDocumentHomeVC: UIViewController {
     
     }
     
-    @IBAction func touchToScanAction(_ sender: UITapGestureRecognizer) {
-        popUpActivityIndicatorAlert()
+   
+    @IBAction func touchToScan(_ sender: UITapGestureRecognizer) {
+        if scanCounter == 0 {
+            popUpActivityIndicatorAlert()
+        }
+        imageView.isUserInteractionEnabled = false
     }
-    
     @IBOutlet weak var scannedItems: UILabel!
     @IBOutlet weak var touchToScanLabel: UILabel!
     @IBOutlet weak var cropIcon: UIImageView!
@@ -233,46 +236,55 @@ class ScanDocumentHomeVC: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     
     @IBAction func sendButtonAction(_ sender: UIButton) {
-        if !sendIcon.isHighlighted{
-            openTray()
+       
+        openCloseTray(open: isTrayOpen)
+    
+    }
+    var isTrayOpen: Bool = false
+    
+    private func openCloseTray(open : Bool){
+        
+        if open{
+                // tray is currently open
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.buttonContainer.center.y = self.buttonContainer.center.y + self.buttonContainer.frame.height
+                    self.buttonNext.isUserInteractionEnabled = true
+                    self.isTrayOpen = false
+                }) { (done) in
+                    if done{
+                        self.sendIcon.isHighlighted = false
+                    }
+                }
+            
+
             
         }else{
+            // tray is currently close
             
-            closeTray()
+            UIView.animate(withDuration: 0.5, animations: {
+                self.buttonContainer.center.y = self.buttonContainer.center.y - self.buttonContainer.frame.height
+                self.buttonNext.isUserInteractionEnabled = false
+                self.isTrayOpen = true
+            }) { (done) in
+                if done{
+                    self.sendIcon.isHighlighted = true
+                }
+            }
         
         }
     
     }
-    private func openTray(){
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.buttonContainer.center.y = self.buttonContainer.center.y - self.buttonContainer.frame.height
-            self.buttonNext.isUserInteractionEnabled = false
-        }) { (done) in
-            if done{
-                self.sendIcon.isHighlighted = true
-            }
-        }
+    
 
-    }
-    private func closeTray(){
-        UIView.animate(withDuration: 0.5, animations: {
-            self.buttonContainer.center.y = self.buttonContainer.center.y + self.buttonContainer.frame.height
-            self.buttonNext.isUserInteractionEnabled = true
-        }) { (done) in
-            if done{
-                self.sendIcon.isHighlighted = false
-            }
-        }
-    }
     
     var scanCounter: Int = 0
     var scannedImageID: Int = 0
     
     @IBAction func scanButtonAction(_ sender: UIButton) {
         
-        if sendIcon.isHighlighted{
-            closeTray()
+        if isTrayOpen{
+            
+            openCloseTray(open: isTrayOpen)
         }
         
         popUpActivityIndicatorAlert()

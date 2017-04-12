@@ -24,7 +24,7 @@ class PrintPhotoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var arrayofMainLbl = ["dummy", "Paper Size :", "Color Output :", "Paper Type :", "Print Quality :"]
     
-    var collections: [[String]] = [["dummy"],["4x6 in.", "4x6 in. Borderless", "3x5 in", "5x7 in.", "5x7 in. Borderless", "3.5x5 in.(L)", "3.5x5 in.(L) Borderless", "Letter", "Letter Borderless", "Legal", "Executive", "Statement", "A4", "A4 Borderless", "JIS B5", "A5", "A5 Borderless", "A6", "A6 Borderless", "Hagaki", "Hagaki BorderLess", "10 Envelope", "DL envelope", "C5 Envelope"],  ["Color"], ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"], ["Automatic", "Normal", "Best", "Draft"]]
+    var collections: [[String]] = [["dummy"],["4x6 in.", "4x6 in. Borderless", "3x5 in", "5x7 in.(2L)", "5x7 in.(2L) Borderless", "3.5x5 in.(L)", "3.5x5 in.(L) Borderless", "Letter", "Letter Borderless", "Legal", "Executive", "Statement", "A4", "A4 Borderless", "JIS B5", "A5", "A5 Borderless", "A6", "A6 Borderless", "Hagaki", "Hagaki BorderLess", "10 Envelope", "DL Envelope", "C5 Envelope"],  ["Color"], ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"], ["Automatic", "Normal", "Best", "Draft"]]
     
   
     

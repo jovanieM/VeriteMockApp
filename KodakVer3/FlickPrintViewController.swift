@@ -113,26 +113,30 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         //let pan2 = MyGestureRecognizer(target: self, action: #selector(pan(pan:)))
         
         imageView = UIImageView()
-        
-        //print(scrollView.bounds)
-        let scaleFactor = image.size.height / image.size.width
-        
-        imageView.frame = CGRect(x: 0, y: 0, width: container.bounds.width, height: container.bounds.width * scaleFactor)
-        
-        imageView.contentMode = .scaleAspectFill
-        imageView.center.y = container.bounds.midY
-        
-        imageView.image = image
-        container.addSubview(imageView)
-        container.alpha = 0.75
-        //container.addGestureRecognizer(pan)
+    
+                //container.addGestureRecognizer(pan)
         container.addGestureRecognizer(pinchZoom)
         container.addGestureRecognizer(pan)
 
 
     }
     override func viewDidLayoutSubviews() {
-        updateUI()
+        //updateUI()
+        imageView.contentMode = .scaleAspectFit
+        //let insets = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
+        imageView.image = image
+        
+        //print(scrollView.bounds)
+        //let scaleFactor = image.size.height / image.size.width
+        
+        imageView.frame = container.frame
+        imageView.center.y = container.bounds.midY
+        
+        //imageView.center.y = container.bounds.midY
+        
+        container.addSubview(imageView)
+        container.alpha = 0.75
+
          
     }
     
@@ -234,9 +238,19 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     }
     
 
-   
-    
+}
 
-    
 
+extension UIImage {
+    func imageWithInsets(insets: UIEdgeInsets) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(
+            CGSize(width: self.size.width + insets.left + insets.right,
+                   height: self.size.height + insets.top + insets.bottom), false, self.scale)
+        let _ = UIGraphicsGetCurrentContext()
+        let origin = CGPoint(x: insets.left, y: insets.top)
+        self.draw(at: origin)
+        let imageWithInsets = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return imageWithInsets
+    }
 }

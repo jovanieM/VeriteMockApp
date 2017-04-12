@@ -445,7 +445,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgN-5t-Lau">
+                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="kgN-5t-Lau">
                                 <rect key="frame" x="0.0" y="28" width="320" height="464"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
