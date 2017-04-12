@@ -15,7 +15,7 @@ class StandardCopyViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        copyButton.layer.cornerRadius = 35
+        copyButton.layer.cornerRadius = 30
         copyButton.layer.borderWidth = 2
         copyButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
         copyButton.layer.masksToBounds = true;
