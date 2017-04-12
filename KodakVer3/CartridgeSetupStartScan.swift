@@ -25,12 +25,12 @@ class CartridgeSetupStartScan: UIViewController {
     super.viewDidLoad()
     
     //start scan button
-    startScanButton.layer.cornerRadius = 25
+    startScanButton.layer.cornerRadius = 20
     startScanButton.layer.borderWidth = 2
     startScanButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
     
     //help button
-    helpButton.layer.cornerRadius = 25
+    helpButton.layer.cornerRadius = 20
     helpButton.layer.borderWidth = 2
     helpButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
     
