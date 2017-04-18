@@ -122,11 +122,11 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
       cell.selectionStyle = .none
       return cell
       
-    }else if indexPath.row == 5{
+    }else if indexPath.row == 4{
       let cell2 = Bundle.main.loadNibNamed("CustomCopySecondCell", owner: self, options: nil)?.first as! CustomCopySecondCell
       
       cell2.settingname.text = mainLabels[indexPath.row]
-      cell2.selectedsetting.text = subLabels[indexPath.row][0]
+      cell2.selectedsetting.text = "100%" //subLabels[indexPath.row][0]
       
       return cell2
     }else {
@@ -153,10 +153,10 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-    if indexPath.row < 4{
+    if indexPath.row < 5{
       table  = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
       
-      for i in 0..<4{
+      for i in 0..<5{
         if indexPath.row == i{
           table.preselect = selectedSettings[i]
         }
@@ -169,16 +169,6 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
       tableView.deselectRow(at: indexPath, animated: false)
       self.view.window?.addSubview(table)
       
-      
-    }else if indexPath.row == 4{
-      table  = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
-      table.preselect = selectedSettings[indexPath.row]
-      table.propertyIndex = indexPath
-      table.data = subLabels[indexPath.row]
-      
-      table.sendDataDelegate = self
-      tableView.deselectRow(at: indexPath, animated: false)
-      self.view.window?.addSubview(table)
       
     }else if indexPath.row == 5{
       table2 = PagesPerSideViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
@@ -202,58 +192,82 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     }
   }
   
-  func getSavedData(receiver: Int) -> Int?{
-    
-    switch receiver {
-    case 1:
-      return defaultCopyColor.integer(forKey: copyColorKey)
-    case 2:
-      return defaultCopySize.integer(forKey: copyPaperSizeKey)
-    case 3:
-      return defaultCopyType.integer(forKey: copyPaperTypeKey)
-    case 4:
-      return defaultCopyQuality.integer(forKey: copyQualityKey)
-    case 5:
-      return defaultCopyResize.integer(forKey: copyResizeKey)
-    case 6:
-      return defaultCopyPerSide.integer(forKey: pagespersideKey)
-    default:
-      return 0
-    }
-    
-  }
+//  func getSavedData(receiver: Int) -> Int?{
+//    
+//    switch receiver {
+//    case 1:
+//      return defaultCopyColor.integer(forKey: copyColorKey)
+//    case 2:
+//      return defaultCopySize.integer(forKey: copyPaperSizeKey)
+//    case 3:
+//      return defaultCopyType.integer(forKey: copyPaperTypeKey)
+//    case 4:
+//      return defaultCopyQuality.integer(forKey: copyQualityKey)
+//    case 5:
+//      return defaultCopyResize.integer(forKey: copyResizeKey)
+//    case 6:
+//      return defaultCopyPerSide.integer(forKey: pagespersideKey)
+//    default:
+//      return 0
+//    }
+//    
+//  }
   
-  var copySize: SettingsObject?
-  var copyType: SettingsObject?
-  var copyQuality: SettingsObject?
-  var copyColor: SettingsObject?
-  
-  func setData(value: Int, receiverIndex: Int){
-    switch receiverIndex {
-    case 1:
-      //copyColor?.color = [subLabels[1][value]]
-      defaultCopyColor.set(value, forKey: copyColorKey)
-    case 2:
-      //copySize?.paperSize = subLabels[2][value]
-      defaultCopySize.set(value, forKey: copyPaperSizeKey)
-    case 3:
-      defaultCopyType.set(value, forKey: copyPaperTypeKey)
-    case 4:
-      defaultCopyQuality.set(value, forKey: copyQualityKey)
-    case 5:
-      defaultCopyResize.set(value, forKey: copyResizeKey)
-    case 6:
-      defaultCopyPerSide.set(value, forKey: pagespersideKey)
-    default:
-      break
-    }
-  }
+//  var copySize: SettingsObject?
+//  var copyType: SettingsObject?
+//  var copyQuality: SettingsObject?
+//  var copyColor: SettingsObject?
+//  
+//  func setData(value: Int, receiverIndex: Int){
+//    switch receiverIndex {
+//    case 1:
+//      //copyColor?.color = [subLabels[1][value]]
+//      defaultCopyColor.set(value, forKey: copyColorKey)
+//    case 2:
+//      //copySize?.paperSize = subLabels[2][value]
+//      defaultCopySize.set(value, forKey: copyPaperSizeKey)
+//    case 3:
+//      defaultCopyType.set(value, forKey: copyPaperTypeKey)
+//    case 4:
+//      defaultCopyQuality.set(value, forKey: copyQualityKey)
+//    case 5:
+//      defaultCopyResize.set(value, forKey: copyResizeKey)
+//    case 6:
+//      defaultCopyPerSide.set(value, forKey: pagespersideKey)
+//    default:
+//      break
+//    }
+//  }
   
   func sendData(index: Int, receiver: IndexPath) {
     //setData(value: index, receiverIndex: receiver.row)
     selectedSettings[receiver.row] = index
-    let cell = self.customTable.cellForRow(at: receiver) as! CustomCopySecondCell
-    cell.selectedsetting.text = subLabels[receiver.row][index]
+    
+    if receiver.row == 4 {
+      print("index 4")
+      let cell = self.customTable.cellForRow(at: receiver) as! CustomCopySecondCell
+      let str = subLabels[receiver.row][index]
+      
+      if str == "Custom" {
+        cell.selectedsetting.text = str
+        print("index 4: \(str)")
+      }else if str == "100% Default" || str == "130% Letter->Legal" || str == "104% Executive->Letter" {
+        let ind = str.index(str.startIndex, offsetBy: 5)
+        cell.selectedsetting.text = str.substring(to: ind)
+        print("index 4: \(str)")
+      }else if str == "97% Letter->A4" || str == "93% A4->Letter" || str == "85% Letter->Executive" {
+        //"97% Letter->A4", "93% A4->Letter", "85% Letter->Executive"
+        let ind = str.index(str.startIndex, offsetBy: 4)
+        cell.selectedsetting.text = str.substring(to: ind)
+        print("index 4: \(str)")
+      }
+      
+    }else{
+      let cell = self.customTable.cellForRow(at: receiver) as! CustomCopySecondCell
+      cell.selectedsetting.text = subLabels[receiver.row][index]
+      
+      print("\(cell.selectedsetting.text)")
+    }
   }
   
   
