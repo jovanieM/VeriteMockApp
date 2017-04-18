@@ -123,10 +123,13 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
       return cell
       
     }else if indexPath.row == 4{
-      let cell2 = Bundle.main.loadNibNamed("CustomCopySecondCell", owner: self, options: nil)?.first as! CustomCopySecondCell
+      let cell2 = Bundle.main.loadNibNamed("CustomCopyThirdCell", owner: self, options: nil)?.first as! CustomCopyThirdCell
       
-      cell2.settingname.text = mainLabels[indexPath.row]
-      cell2.selectedsetting.text = "100%" //subLabels[indexPath.row][0]
+      cell2.settingnameLabel.text = mainLabels[indexPath.row]
+      cell2.selectedsettingLabel.text = "100%" //subLabels[indexPath.row][0]
+      cell2.tfCustomResize.isHidden = true
+      cell2.lblPercent.isHidden = true
+      cell2.stpCustomResize.isHidden = true
       
       return cell2
     }else {
@@ -143,8 +146,14 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     
   }
   
+  let ind: Int! = nil
+  
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 44
+    if indexPath.row == 4{
+      return 88
+    }else{
+      return 44
+    }
   }
   
   //display the corresponding tableview based on the selected custom copy settings
@@ -245,20 +254,28 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     
     if receiver.row == 4 {
       print("index 4")
-      let cell = self.customTable.cellForRow(at: receiver) as! CustomCopySecondCell
+      let cell = self.customTable.cellForRow(at: receiver) as! CustomCopyThirdCell
       let str = subLabels[receiver.row][index]
       
       if str == "Custom" {
-        cell.selectedsetting.text = str
+        cell.selectedsettingLabel.text = str
+        cell.tfCustomResize.isHidden = false
+        cell.lblPercent.isHidden = false
+        cell.stpCustomResize.isHidden = false
         print("index 4: \(str)")
       }else if str == "100% Default" || str == "130% Letter->Legal" || str == "104% Executive->Letter" {
         let ind = str.index(str.startIndex, offsetBy: 5)
-        cell.selectedsetting.text = str.substring(to: ind)
+        cell.selectedsettingLabel.text = str.substring(to: ind)
+        cell.tfCustomResize.isHidden = true
+        cell.lblPercent.isHidden = true
+        cell.stpCustomResize.isHidden = true
         print("index 4: \(str)")
       }else if str == "97% Letter->A4" || str == "93% A4->Letter" || str == "85% Letter->Executive" {
-        //"97% Letter->A4", "93% A4->Letter", "85% Letter->Executive"
         let ind = str.index(str.startIndex, offsetBy: 4)
-        cell.selectedsetting.text = str.substring(to: ind)
+        cell.selectedsettingLabel.text = str.substring(to: ind)
+        cell.tfCustomResize.isHidden = true
+        cell.lblPercent.isHidden = true
+        cell.stpCustomResize.isHidden = true
         print("index 4: \(str)")
       }
       
