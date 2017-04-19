@@ -16,5 +16,9 @@ class CustomCopyThirdCell: UITableViewCell {
   @IBOutlet weak var lblPercent: UILabel!
   @IBOutlet weak var stpCustomResize: UIStepper!
   
+ 
+  @IBAction func actionStpCustomResize(_ sender: Any) {
+    tfCustomResize.text = Int(stpCustomResize.value).description
+  }
   
 }

@@ -109,6 +109,9 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    tableView.estimatedRowHeight = 44.0
+    tableView.rowHeight = UITableViewAutomaticDimension
+    
     return mainLabels.count
   }
   
@@ -125,6 +128,8 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     }else if indexPath.row == 4{
       let cell2 = Bundle.main.loadNibNamed("CustomCopyThirdCell", owner: self, options: nil)?.first as! CustomCopyThirdCell
       
+      cell2.sizeToFit()
+      cell2.textLabel?.numberOfLines = 2
       cell2.settingnameLabel.text = mainLabels[indexPath.row]
       cell2.selectedsettingLabel.text = "100%" //subLabels[indexPath.row][0]
       cell2.tfCustomResize.isHidden = true
@@ -146,14 +151,24 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     
   }
   
-  let ind: Int! = nil
-  
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     if indexPath.row == 4{
       return 88
+      
+//      tableView.estimatedRowHeight = 44.0
+//      tableView.rowHeight = UITableViewAutomaticDimension
+//      
+//      return UITableViewAutomaticDimension
     }else{
       return 44
     }
+    
+    
+    
+  }
+  
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    return UITableViewAutomaticDimension
   }
   
   //display the corresponding tableview based on the selected custom copy settings
@@ -192,61 +207,6 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     }
   }
   
-  func computeHeight(numberOfItems: Int) ->Int{
-    if numberOfItems > 5 {
-      let height = UIScreen.main.bounds.height * 0.8
-      return Int(height / 44.0)
-    }else{
-      return numberOfItems
-    }
-  }
-  
-//  func getSavedData(receiver: Int) -> Int?{
-//    
-//    switch receiver {
-//    case 1:
-//      return defaultCopyColor.integer(forKey: copyColorKey)
-//    case 2:
-//      return defaultCopySize.integer(forKey: copyPaperSizeKey)
-//    case 3:
-//      return defaultCopyType.integer(forKey: copyPaperTypeKey)
-//    case 4:
-//      return defaultCopyQuality.integer(forKey: copyQualityKey)
-//    case 5:
-//      return defaultCopyResize.integer(forKey: copyResizeKey)
-//    case 6:
-//      return defaultCopyPerSide.integer(forKey: pagespersideKey)
-//    default:
-//      return 0
-//    }
-//    
-//  }
-  
-//  var copySize: SettingsObject?
-//  var copyType: SettingsObject?
-//  var copyQuality: SettingsObject?
-//  var copyColor: SettingsObject?
-//  
-//  func setData(value: Int, receiverIndex: Int){
-//    switch receiverIndex {
-//    case 1:
-//      //copyColor?.color = [subLabels[1][value]]
-//      defaultCopyColor.set(value, forKey: copyColorKey)
-//    case 2:
-//      //copySize?.paperSize = subLabels[2][value]
-//      defaultCopySize.set(value, forKey: copyPaperSizeKey)
-//    case 3:
-//      defaultCopyType.set(value, forKey: copyPaperTypeKey)
-//    case 4:
-//      defaultCopyQuality.set(value, forKey: copyQualityKey)
-//    case 5:
-//      defaultCopyResize.set(value, forKey: copyResizeKey)
-//    case 6:
-//      defaultCopyPerSide.set(value, forKey: pagespersideKey)
-//    default:
-//      break
-//    }
-//  }
   
   func sendData(index: Int, receiver: IndexPath) {
     //setData(value: index, receiverIndex: receiver.row)
@@ -263,13 +223,35 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         cell.lblPercent.isHidden = false
         cell.stpCustomResize.isHidden = false
         print("index 4: \(str)")
-      }else if str == "100% Default" || str == "130% Letter->Legal" || str == "104% Executive->Letter" {
+        
+        let i = IndexPath(item: 5, section: 0)
+        self.customTable.reloadRows(at: [i], with: .automatic)
+        
+        
+        let alert = UIAlertController(title: "Pages per Side returned to One.", message: nil, preferredStyle: .actionSheet)
+        present(alert, animated: true, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+          alert.dismiss(animated: true, completion: nil)
+        })
+      }else if str == "130% Letter->Legal" || str == "104% Executive->Letter" {
         let ind = str.index(str.startIndex, offsetBy: 5)
         cell.selectedsettingLabel.text = str.substring(to: ind)
         cell.tfCustomResize.isHidden = true
         cell.lblPercent.isHidden = true
         cell.stpCustomResize.isHidden = true
         print("index 4: \(str)")
+        
+        let indexPath = IndexPath(item: 5, section: 0)
+        self.customTable.reloadRows(at: [indexPath], with: .automatic)
+        
+        let alert = UIAlertController(title: "Pages per Side returned to One.", message: nil, preferredStyle: .actionSheet)
+        present(alert, animated: true, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+          alert.dismiss(animated: true, completion: nil)
+        })
+
       }else if str == "97% Letter->A4" || str == "93% A4->Letter" || str == "85% Letter->Executive" {
         let ind = str.index(str.startIndex, offsetBy: 4)
         cell.selectedsettingLabel.text = str.substring(to: ind)
@@ -277,13 +259,58 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         cell.lblPercent.isHidden = true
         cell.stpCustomResize.isHidden = true
         print("index 4: \(str)")
+        
+        let indexPath = IndexPath(item: 5, section: 0)
+        self.customTable.reloadRows(at: [indexPath], with: .automatic)
+        
+        let alert = UIAlertController(title: "Pages per Side returned to One.", message: nil, preferredStyle: .actionSheet)
+        present(alert, animated: true, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+          alert.dismiss(animated: true, completion: nil)
+        })
+
+      }else if str == "100% Default" {
+        let ind = str.index(str.startIndex, offsetBy: 5)
+        cell.selectedsettingLabel.text = str.substring(to: ind)
+        cell.tfCustomResize.isHidden = true
+        cell.lblPercent.isHidden = true
+        cell.stpCustomResize.isHidden = true
+        print("index 4: \(str)")
+      }
+      
+    }else if receiver.row == 5{
+      print("index 5")     
+      let cell2 = self.customTable.cellForRow(at: receiver) as! CustomCopySecondCell
+      let str1 = subLabels[receiver.row][index]
+      
+      if str1 == "One"{
+        print("\(str1)")
+        cell2.selectedsetting.text = str1
+      }else{
+        print("\(str1)")
+        cell2.selectedsetting.text = str1
+        
+        let indexPath = IndexPath(item: 4, section: 0)
+        self.customTable.reloadRows(at: [indexPath], with: .automatic)
+        
+        let alert = UIAlertController(title: "Resize returned to 100%.", message: nil, preferredStyle: .actionSheet)
+        present(alert, animated: true, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+          alert.dismiss(animated: true, completion: nil)
+        })
+        
+        
+        
       }
       
     }else{
-      let cell = self.customTable.cellForRow(at: receiver) as! CustomCopySecondCell
-      cell.selectedsetting.text = subLabels[receiver.row][index]
+    
+      let cell3 = self.customTable.cellForRow(at: receiver) as! CustomCopySecondCell
+      cell3.selectedsetting.text = subLabels[receiver.row][index]
       
-      print("\(cell.selectedsetting.text)")
+      print("\(cell3.selectedsetting.text)")
     }
   }
   
@@ -522,3 +549,62 @@ extension String{
     return substring(from: fromIndex)
   }
 }
+
+
+
+//  func computeHeight(numberOfItems: Int) ->Int{
+//    if numberOfItems > 5 {
+//      let height = UIScreen.main.bounds.height * 0.8
+//      return Int(height / 44.0)
+//    }else{
+//      return numberOfItems
+//    }
+//  }
+
+//  func getSavedData(receiver: Int) -> Int?{
+//
+//    switch receiver {
+//    case 1:
+//      return defaultCopyColor.integer(forKey: copyColorKey)
+//    case 2:
+//      return defaultCopySize.integer(forKey: copyPaperSizeKey)
+//    case 3:
+//      return defaultCopyType.integer(forKey: copyPaperTypeKey)
+//    case 4:
+//      return defaultCopyQuality.integer(forKey: copyQualityKey)
+//    case 5:
+//      return defaultCopyResize.integer(forKey: copyResizeKey)
+//    case 6:
+//      return defaultCopyPerSide.integer(forKey: pagespersideKey)
+//    default:
+//      return 0
+//    }
+//
+//  }
+
+//  var copySize: SettingsObject?
+//  var copyType: SettingsObject?
+//  var copyQuality: SettingsObject?
+//  var copyColor: SettingsObject?
+//
+//  func setData(value: Int, receiverIndex: Int){
+//    switch receiverIndex {
+//    case 1:
+//      //copyColor?.color = [subLabels[1][value]]
+//      defaultCopyColor.set(value, forKey: copyColorKey)
+//    case 2:
+//      //copySize?.paperSize = subLabels[2][value]
+//      defaultCopySize.set(value, forKey: copyPaperSizeKey)
+//    case 3:
+//      defaultCopyType.set(value, forKey: copyPaperTypeKey)
+//    case 4:
+//      defaultCopyQuality.set(value, forKey: copyQualityKey)
+//    case 5:
+//      defaultCopyResize.set(value, forKey: copyResizeKey)
+//    case 6:
+//      defaultCopyPerSide.set(value, forKey: pagespersideKey)
+//    default:
+//      break
+//    }
+//  }
+
