@@ -46,6 +46,8 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
   let defaultCopyPerSide = UserDefaults.standard
   
   
+  
+  
   var alert: UIAlertController!
   var cancel: UIAlertAction!
   var no: UIAlertAction!
@@ -109,9 +111,6 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    tableView.estimatedRowHeight = 44.0
-    tableView.rowHeight = UITableViewAutomaticDimension
-    
     return mainLabels.count
   }
   
@@ -146,29 +145,18 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
       //cell2.selectedsetting.text = subLabels[indexPath.row][getSavedData(receiver: indexPath.row) ?? 0]
       
       return cell3
-      
     }
-    
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     if indexPath.row == 4{
       return 88
-      
-//      tableView.estimatedRowHeight = 44.0
-//      tableView.rowHeight = UITableViewAutomaticDimension
-//      
-//      return UITableViewAutomaticDimension
-    }else{
-      return 44
     }
-    
-    
-    
+    return 44
   }
   
   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-    return UITableViewAutomaticDimension
+    return 88
   }
   
   //display the corresponding tableview based on the selected custom copy settings
@@ -226,7 +214,6 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         
         let i = IndexPath(item: 5, section: 0)
         self.customTable.reloadRows(at: [i], with: .automatic)
-        
         
         let alert = UIAlertController(title: "Pages per Side returned to One.", message: nil, preferredStyle: .actionSheet)
         present(alert, animated: true, completion: nil)
@@ -300,11 +287,7 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
           alert.dismiss(animated: true, completion: nil)
         })
-        
-        
-        
       }
-      
     }else{
     
       let cell3 = self.customTable.cellForRow(at: receiver) as! CustomCopySecondCell
@@ -426,6 +409,7 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         self.include = UIAlertAction(title: "Include", style: .default, handler: {(action: UIAlertAction) in
           self.alert = UIAlertController(title: "Copy Pages per Side", message: "2nd page Scanning...\n\n", preferredStyle: .alert)
           self.cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction) in
+            DispatchQueue.cancelPreviousPerformRequests(withTarget: self)
             self.copyCancel()
           })
           self.alert.addAction(self.cancel)
