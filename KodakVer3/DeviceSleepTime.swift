@@ -19,6 +19,7 @@ class DeviceSleepTime: UIViewController {
   @IBOutlet weak var minuteTextField: UITextField!
   @IBOutlet weak var desc: UILabel!
   @IBOutlet weak var viewDeviceSleep: UIView!
+  @IBOutlet weak var stpTime: UIStepper!
   
   // navigation bar
   override func viewWillAppear(_ animated: Bool) {
@@ -34,12 +35,13 @@ class DeviceSleepTime: UIViewController {
     view.addGestureRecognizer(tap)
     
     // button
-    saveSettingButton.layer.cornerRadius = 20
+    saveSettingButton.layer.cornerRadius = 25
     saveSettingButton.layer.borderWidth = 2
     saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
     
     if let time = timeDefault.string(forKey: "time"){
       minuteTextField.text = time
+      stpTime.value = Double(time)!
     }
   }
   

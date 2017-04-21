@@ -226,7 +226,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuG-U9-GTq">
                                 <rect key="frame" x="0.0" y="215" width="320" height="40"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Clean Printhead">
                                     <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -863,7 +863,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9m-It-p39">
                                 <rect key="frame" x="0.0" y="224" width="320" height="40"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Save setting">
                                     <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -879,6 +879,7 @@
                         <outlet property="desc" destination="yvc-lq-HLY" id="Oi8-9Z-oV7"/>
                         <outlet property="minuteTextField" destination="mxJ-SF-U1O" id="XIy-KP-3lC"/>
                         <outlet property="saveSettingButton" destination="b9m-It-p39" id="Jpq-zq-b1Z"/>
+                        <outlet property="stpTime" destination="jX6-7Q-Km2" id="qcs-VA-KmM"/>
                         <outlet property="viewDeviceSleep" destination="1ZV-Ef-Nxi" id="YDa-Cf-Q8o"/>
                     </connections>
                 </viewController>

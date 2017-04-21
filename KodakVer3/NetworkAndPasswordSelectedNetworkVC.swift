@@ -37,7 +37,7 @@ class NetworkAndPasswordSelectedNetworkVC: UIViewController, UITextFieldDelegate
         // help button border
         helpButton.layer.cornerRadius = 30
         helpButton.layer.borderWidth = 2
-        helpButton.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
+        helpButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
         
         // other button border
         otherButton.layer.cornerRadius = 30

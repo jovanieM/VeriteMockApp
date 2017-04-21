@@ -26,7 +26,7 @@ class GCPRegisterUnregister: UIViewController {
     loadAlerts()
     
     //button oval border
-    saveSettingButton.layer.cornerRadius = 20
+    saveSettingButton.layer.cornerRadius = 25
     saveSettingButton.layer.borderWidth = 2
     saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
   }
