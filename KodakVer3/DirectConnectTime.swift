@@ -125,8 +125,6 @@ class DirectConnectTime: UIViewController, UITableViewDelegate, UITableViewDataS
     indicator.startAnimating()
     self.present(alert, animated: true, completion: nil)
     
-    //    _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
-    
     time = DispatchTime.now() + 4.0
     DispatchQueue.main.asyncAfter(deadline: time){
       self.alert.dismiss(animated: true, completion: nil)
@@ -137,14 +135,6 @@ class DirectConnectTime: UIViewController, UITableViewDelegate, UITableViewDataS
       self.tblDirect.isHidden = false
     }
   }
-  
-  //  func dismissAlert(){
-  //    alert.dismiss(animated: true, completion: nil)
-  //
-  //    desc.isHidden = false
-  //    viewDirectConnect.isHidden = false;
-  //    saveSettingButton.isHidden = false
-  //  }
   
   @IBAction func saveSettingActionButton(_ sender: UIButton) {
     

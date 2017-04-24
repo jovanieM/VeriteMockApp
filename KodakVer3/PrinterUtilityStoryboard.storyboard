@@ -280,7 +280,7 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tn6-VW-KoE" userLabel="ViewPaperSize">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tn6-VW-KoE" userLabel="ViewPaperSize">
                                 <rect key="frame" x="0.0" y="155" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -291,9 +291,6 @@
                                         <state key="normal" title="                                              ">
                                             <color key="titleColor" red="1" green="0.71764705882352942" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="xcU-7l-ieg" kind="presentation" identifier="popUpPaperSize" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="VTn-jy-S8Z"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Paper Size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="HSg-h4-d0o">
                                         <rect key="frame" x="8" y="15" width="86" height="21"/>
@@ -305,7 +302,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fYe-IL-ajQ" userLabel="ViewPaperType">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYe-IL-ajQ" userLabel="ViewPaperType">
                                 <rect key="frame" x="0.0" y="211" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -316,9 +313,6 @@
                                         <state key="normal" title="                                              ">
                                             <color key="titleColor" red="1" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="hjY-5R-bnS" kind="presentation" identifier="popUpPaperType" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="M8l-SN-gcp"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Paper Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="i9l-GK-iLn">
                                         <rect key="frame" x="8" y="15" width="91" height="21"/>
@@ -331,7 +325,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAh-au-eCz">
-                                <rect key="frame" x="0.0" y="280" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="300" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Save setting">
@@ -341,14 +335,37 @@
                                     <action selector="saveSettingActionButton:" destination="kc9-xD-Vzw" eventType="touchUpInside" id="rbQ-eF-mpz"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q2F-Cj-1Ru">
+                                <rect key="frame" x="0.0" y="170" width="320" height="120"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="F67-4q-DAT">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F67-4q-DAT" id="8Nt-eR-88v">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Tn6-VW-KoE"/>
+                                <exclude reference="fYe-IL-ajQ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="descPaperSetup" destination="E39-EA-hce" id="YJt-Dw-1jh"/>
                         <outlet property="paperSizeButton" destination="Ekt-nc-m3e" id="dZY-Ww-ryI"/>
                         <outlet property="paperTypeButton" destination="c8e-Mb-3St" id="6xj-pL-Fzm"/>
                         <outlet property="saveSettingButton" destination="xAh-au-eCz" id="AEz-Il-LYS"/>
+                        <outlet property="tblPaperSetup" destination="Q2F-Cj-1Ru" id="Ivv-Xn-dPh"/>
                         <outlet property="viewPaperSize" destination="Tn6-VW-KoE" id="Km0-ZT-3Mz"/>
                         <outlet property="viewPaperType" destination="fYe-IL-ajQ" id="2yV-61-1wh"/>
                     </connections>

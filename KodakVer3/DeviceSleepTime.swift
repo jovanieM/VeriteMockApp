@@ -139,6 +139,9 @@ class DeviceSleepTime: UIViewController {
   }
   
   @IBAction func timeDidChanged(_ sender: Any) {
+    if minuteTextField.text != ""{
+      stpTime.value = Double(minuteTextField.text!)!
+    }
   }
   
 }
