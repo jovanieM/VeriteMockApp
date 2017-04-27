@@ -35,14 +35,14 @@ class NetworkAndPasswordSelectedNetworkVC: UIViewController, UITextFieldDelegate
         // Do any additional setup after loading the view.
         
         // help button border
-        helpButton.layer.cornerRadius = 30
+        helpButton.layer.cornerRadius = 25
         helpButton.layer.borderWidth = 2
-        helpButton.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
+        helpButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
         
         // other button border
-        otherButton.layer.cornerRadius = 30
+        otherButton.layer.cornerRadius = 25
         otherButton.layer.borderWidth = 2
-        otherButton.layer.borderColor = UIColor(red: 254/255, green: 169/255, blue: 10/255, alpha: 1).cgColor
+        otherButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
         
         ssidLabel.text = networkData
         passwordTextField.becomeFirstResponder()

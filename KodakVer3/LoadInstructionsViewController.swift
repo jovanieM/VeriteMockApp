@@ -93,8 +93,6 @@ class LoadInstructionsViewController: UIViewController, CNContactPickerDelegate 
         navTransition.subtype = kCATransitionPush
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
     
-        
-        
     }
 
     

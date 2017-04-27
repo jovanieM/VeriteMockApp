@@ -13,11 +13,13 @@ class DeviceSleepTime: UIViewController {
   var alert: UIAlertController!
   var alert2: UIAlertController!
   var indicator: UIActivityIndicatorView!
+  var timeDefault = UserDefaults.standard
   
   @IBOutlet weak var saveSettingButton: UIButton!
   @IBOutlet weak var minuteTextField: UITextField!
   @IBOutlet weak var desc: UILabel!
   @IBOutlet weak var viewDeviceSleep: UIView!
+  @IBOutlet weak var stpTime: UIStepper!
   
   // navigation bar
   override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +38,11 @@ class DeviceSleepTime: UIViewController {
     saveSettingButton.layer.cornerRadius = 25
     saveSettingButton.layer.borderWidth = 2
     saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+    
+    if let time = timeDefault.string(forKey: "time"){
+      minuteTextField.text = time
+      stpTime.value = Double(time)!
+    }
   }
   
   func loadAlerts(){
@@ -76,9 +83,31 @@ class DeviceSleepTime: UIViewController {
   
   func dismissKeyboard(){
     view.endEditing(true)
+    
+    if minuteTextField.text == "" || minuteTextField.text == "0" || minuteTextField.text == nil {
+      minuteTextField.text = "1"
+    }
+    
+    if Int(minuteTextField.text!)! > 120 {
+      minuteTextField.text = "120"
+    }
+    
   }
   
   @IBAction func saveSettingActionButton(_ sender: UIButton) {
+    
+    view.endEditing(true)
+    
+    if minuteTextField.text == "" || minuteTextField.text == "0" || minuteTextField.text == nil {
+      minuteTextField.text = "1"
+    }
+    
+    if Int(minuteTextField.text!)! > 120 {
+      minuteTextField.text = "120"
+    }
+    
+    timeDefault.set(minuteTextField.text, forKey: "time")
+    
     alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
     
     indicator = UIActivityIndicatorView(frame: CGRect(x: 135, y: 70, width: 50, height:50))
@@ -108,4 +137,11 @@ class DeviceSleepTime: UIViewController {
     self.alert2?.dismiss(animated: true, completion: nil)
     _ = navigationController?.popViewController(animated: true)
   }
+  
+  @IBAction func timeDidChanged(_ sender: Any) {
+    if minuteTextField.text != ""{
+      stpTime.value = Double(minuteTextField.text!)!
+    }
+  }
+  
 }

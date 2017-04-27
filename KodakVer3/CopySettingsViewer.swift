@@ -30,13 +30,13 @@ class CopySettingsViewer: UIView, UITableViewDelegate, UITableViewDataSource {
       tableView.frame = CGRect(x: 0, y: 0, width: width, height: CGFloat(computeHeight(numberOfItems: data.count))*44.0)
       
       let detail: CustomCopyViewController = CustomCopyViewController()
-      let index: Int = detail.getSavedData(receiver: propertyIndex!.row)!
+      //let index: Int = detail.getSavedData(receiver: propertyIndex!.row)!
       
       tableView.center = convert(center, from: self)
       tableView.delegate = self
       tableView.dataSource = self
 //    tableView.selectRow(at: IndexPath.init(row: preselect ?? 0, section: 0), animated: false, scrollPosition: .middle)
-      tableView.selectRow(at: IndexPath.init(row: index, section: 0), animated: false, scrollPosition: .middle)
+      //tableView.selectRow(at: IndexPath.init(row: index, section: 0), animated: false, scrollPosition: .middle)
       self.addSubview(tableView)
     }
   }
