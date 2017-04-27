@@ -27,6 +27,10 @@
 		104D37E41E83CA9700654166 /* ScanPhotoSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D37E31E83CA9700654166 /* ScanPhotoSettingViewController.swift */; };
 		104F1D391E6575AC00532AC3 /* CartridgeSetupPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F1D371E6575AC00532AC3 /* CartridgeSetupPrinting.swift */; };
 		104F1D3A1E6575AC00532AC3 /* CartridgeSetupStartScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F1D381E6575AC00532AC3 /* CartridgeSetupStartScan.swift */; };
+		105726E41EB17DD10058D94B /* AddressSizeSettingsViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105726E31EB17DD10058D94B /* AddressSizeSettingsViewer.swift */; };
+		105755761EB1889B00A119B2 /* SetupViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105755751EB1889B00A119B2 /* SetupViewer.swift */; };
+		105755791EB188C800A119B2 /* CustomCopyThirdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 105755771EB188C800A119B2 /* CustomCopyThirdCell.xib */; };
+		1057557A1EB188C800A119B2 /* CustomCopyThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105755781EB188C800A119B2 /* CustomCopyThirdCell.swift */; };
 		105965E41E531B95003B7CD6 /* DeviceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105965E21E531B95003B7CD6 /* DeviceSettings.swift */; };
 		105965E51E531B95003B7CD6 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105965E31E531B95003B7CD6 /* NetworkStatus.swift */; };
 		105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105965EC1E5320C6003B7CD6 /* WiFiSetupHome.swift */; };
@@ -68,7 +72,6 @@
 		10D36C641E5FE0C400D79664 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C5F1E5FE0C400D79664 /* CustomViewController.swift */; };
 		10D36C661E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C651E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift */; };
 		10D36C681E5FE0F500D79664 /* StandardCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D36C671E5FE0F500D79664 /* StandardCopyViewController.swift */; };
-		10D459D11E94EC9F005FE0DA /* CopySettingsViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D459D01E94EC9F005FE0DA /* CopySettingsViewer.swift */; };
 		10DC00DA1E70D5DA0027DF46 /* NetworkAndPasswordSwitchNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC00D91E70D5DA0027DF46 /* NetworkAndPasswordSwitchNetwork.swift */; };
 		10DE82F61E72A7D9001F6FDA /* PagesPerSideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE82F31E72A7D9001F6FDA /* PagesPerSideTableViewCell.swift */; };
 		10DE82F71E72A7D9001F6FDA /* PagesPerSideTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10DE82F41E72A7D9001F6FDA /* PagesPerSideTableViewCell.xib */; };
@@ -192,6 +195,10 @@
 		104D37E31E83CA9700654166 /* ScanPhotoSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanPhotoSettingViewController.swift; sourceTree = "<group>"; };
 		104F1D371E6575AC00532AC3 /* CartridgeSetupPrinting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupPrinting.swift; sourceTree = "<group>"; };
 		104F1D381E6575AC00532AC3 /* CartridgeSetupStartScan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartridgeSetupStartScan.swift; sourceTree = "<group>"; };
+		105726E31EB17DD10058D94B /* AddressSizeSettingsViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressSizeSettingsViewer.swift; sourceTree = "<group>"; };
+		105755751EB1889B00A119B2 /* SetupViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewer.swift; sourceTree = "<group>"; };
+		105755771EB188C800A119B2 /* CustomCopyThirdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCopyThirdCell.xib; sourceTree = "<group>"; };
+		105755781EB188C800A119B2 /* CustomCopyThirdCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCopyThirdCell.swift; sourceTree = "<group>"; };
 		105965E21E531B95003B7CD6 /* DeviceSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSettings.swift; sourceTree = "<group>"; };
 		105965E31E531B95003B7CD6 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		105965EC1E5320C6003B7CD6 /* WiFiSetupHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiFiSetupHome.swift; sourceTree = "<group>"; };
@@ -234,7 +241,6 @@
 		10D36C5F1E5FE0C400D79664 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		10D36C651E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnonymousPrinterUsageViewController.swift; sourceTree = "<group>"; };
 		10D36C671E5FE0F500D79664 /* StandardCopyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardCopyViewController.swift; sourceTree = "<group>"; };
-		10D459D01E94EC9F005FE0DA /* CopySettingsViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopySettingsViewer.swift; sourceTree = "<group>"; };
 		10DC00D91E70D5DA0027DF46 /* NetworkAndPasswordSwitchNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordSwitchNetwork.swift; sourceTree = "<group>"; };
 		10DE82F31E72A7D9001F6FDA /* PagesPerSideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesPerSideTableViewCell.swift; sourceTree = "<group>"; };
 		10DE82F41E72A7D9001F6FDA /* PagesPerSideTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagesPerSideTableViewCell.xib; sourceTree = "<group>"; };
@@ -409,6 +415,8 @@
 		103303241E52AC5A00E7D24C /* CopyStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				105755771EB188C800A119B2 /* CustomCopyThirdCell.xib */,
+				105755781EB188C800A119B2 /* CustomCopyThirdCell.swift */,
 				10DE83001E72A873001F6FDA /* BrightnessTableViewCell.xib */,
 				10DE82FF1E72A873001F6FDA /* BrightnessTableViewCell.swift */,
 				10DE82F51E72A7D9001F6FDA /* PagesPerSideViewer.swift */,
@@ -420,7 +428,6 @@
 				10D36C5C1E5FE0C400D79664 /* CustomCopySecondCell.swift */,
 				10D36C5D1E5FE0C400D79664 /* CustomCopySecondCell.xib */,
 				10D36C5E1E5FE0C400D79664 /* CustomCopyViewController.swift */,
-				10D459D01E94EC9F005FE0DA /* CopySettingsViewer.swift */,
 				10D36C5F1E5FE0C400D79664 /* CustomViewController.swift */,
 			);
 			name = CopyStoryboard;
@@ -460,6 +467,7 @@
 		1033032D1E52ACB900E7D24C /* AddressPrintStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				105726E31EB17DD10058D94B /* AddressSizeSettingsViewer.swift */,
 				10EFBE511E9CC0A800235DBF /* PreviewViewController.swift */,
 				10EFBE521E9CC0A800235DBF /* ReturnAddressViewController.swift */,
 				10B68ABD1E89004800182F0F /* LoadInstructionsViewController.swift */,
@@ -503,6 +511,7 @@
 		103303391E52AD8800E7D24C /* WiFiSetupStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				105755751EB1889B00A119B2 /* SetupViewer.swift */,
 				109A952D1E729575004D28FD /* NetworkAndPasswordHelp.swift */,
 				109A952E1E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift */,
 				10DC00D91E70D5DA0027DF46 /* NetworkAndPasswordSwitchNetwork.swift */,
@@ -823,6 +832,7 @@
 				103303261E52AC6D00E7D24C /* CopyStoryboard.storyboard in Resources */,
 				103303321E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard in Resources */,
 				1141592B1E83C33F007276CA /* PrintQueueStoryboard.storyboard in Resources */,
+				105755791EB188C800A119B2 /* CustomCopyThirdCell.xib in Resources */,
 				103303291E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard in Resources */,
 				103303471E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard in Resources */,
 				1161F5C91EA38965006DD120 /* CropImage.storyboard in Resources */,
@@ -895,6 +905,8 @@
 				104F1D3A1E6575AC00532AC3 /* CartridgeSetupStartScan.swift in Sources */,
 				113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */,
 				11DB094D1E6028E000B6F317 /* AdjustmentViewController.swift in Sources */,
+				105726E41EB17DD10058D94B /* AddressSizeSettingsViewer.swift in Sources */,
+				105755761EB1889B00A119B2 /* SetupViewer.swift in Sources */,
 				10DE83051E72A8AE001F6FDA /* HeaderTableViewCell.swift in Sources */,
 				107B37B91E5FDF08007CA90C /* RestoreFactoryDefault.swift in Sources */,
 				1073B57A1E669801000C60EB /* CartridgeSetupScanning.swift in Sources */,
@@ -907,6 +919,7 @@
 				107B37A61E5FDE30007CA90C /* GCPEnableDisable.swift in Sources */,
 				107B37A81E5FDE30007CA90C /* GCPRegisterUnregister.swift in Sources */,
 				10EFBE541E9CC0A800235DBF /* ReturnAddressViewController.swift in Sources */,
+				1057557A1EB188C800A119B2 /* CustomCopyThirdCell.swift in Sources */,
 				1173DCFD1EA7647B00C31533 /* ButtonActions.swift in Sources */,
 				1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */,
 				105FAB181E55794000A180E8 /* SecurityType.swift in Sources */,
@@ -914,7 +927,6 @@
 				1073B5791E669801000C60EB /* CartridgeSetupHelp.swift in Sources */,
 				109A952F1E729575004D28FD /* NetworkAndPasswordHelp.swift in Sources */,
 				105965E51E531B95003B7CD6 /* NetworkStatus.swift in Sources */,
-				10D459D11E94EC9F005FE0DA /* CopySettingsViewer.swift in Sources */,
 				11C657D51EAF0EAC008593BF /* WorkProgressSimulator.swift in Sources */,
 				109A95301E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift in Sources */,
 				10CD81831E567A22001815A1 /* Proxy.swift in Sources */,
