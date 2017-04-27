@@ -26,7 +26,21 @@ class CropperView: UIView {
         tl.contentMode = .scaleAspectFill
         self.addSubview(tl)
         
+        let ur = UIImageView(image: #imageLiteral(resourceName: "scale_ur"))
+        ur.frame = CGRect(x: self.frame.maxX - 30, y: 0, width: 30, height: 30)
+        ur.contentMode = .scaleAspectFill
+        self.addSubview(ur)
         
+        let bl = UIImageView(image: #imageLiteral(resourceName: "scale_bl"))
+        bl.frame = CGRect(x: 0, y: self.frame.maxY - 30, width: 30, height: 30)
+        bl.contentMode = .scaleAspectFill
+        self.addSubview(bl)
+        
+        let br = UIImageView(image: #imageLiteral(resourceName: "scale_br"))
+        br.frame = CGRect(x: self.frame.maxX, y: self.frame.maxY - 30, width: 30, height: 30)
+        br.contentMode = .scaleAspectFill
+        self.addSubview(br)
+
     
     }
     /*
