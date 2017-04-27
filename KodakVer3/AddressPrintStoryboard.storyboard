@@ -486,11 +486,24 @@ When you insert envelope, please do not change paper setting to be displayed on 
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qIf-5R-NWR" userLabel="FontSettingView">
-                                <rect key="frame" x="8" y="568" width="98" height="90"/>
+                                <rect key="frame" x="8" y="568" width="98" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="mf7-C4-yhv">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="mf7-C4-yhv" userLabel="ret addess    size">
                                         <rect key="frame" x="0.0" y="0.0" width="98" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" backgroundImage="main_button">
+                                            <string key="title">return add.
+      size</string>
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="retAddSize:" destination="yaM-LH-alk" eventType="touchUpInside" id="zRi-Pc-Fpj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Frm-1N-ytV">
+                                        <rect key="frame" x="0.0" y="45" width="98" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" backgroundImage="main_button">
@@ -499,11 +512,11 @@ When you insert envelope, please do not change paper setting to be displayed on 
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="selectAddressSize:" destination="yaM-LH-alk" eventType="touchUpInside" id="rvQ-Pz-JZI"/>
+                                            <action selector="selectAddressSize:" destination="yaM-LH-alk" eventType="touchUpInside" id="PAx-Ce-qiE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8I8-ni-0PH">
-                                        <rect key="frame" x="0.0" y="44" width="98" height="40"/>
+                                        <rect key="frame" x="0.0" y="90" width="98" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="font type" backgroundImage="main_button">

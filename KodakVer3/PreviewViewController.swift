@@ -18,7 +18,7 @@ protocol loadData: class {
 @available(iOS 9.0, *)
 class PreviewViewController: UIViewController, AddressSizeViewDelegate {
     
-    var size = [0, 0, 0, 0]
+    var size = [0, 0, 0, 0, 0]
     var addressSize = ["Large", "Normal", "Small"]
     var fontType = ["Times New Roman", "Arial", "Marker Felt", "Snell Roundhand"]
     
@@ -122,6 +122,8 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
             size[2] = index
         } else if receiver == 3 {
             size[3] = index
+        } else if receiver == 4 {
+            size[4] = index
         }
         
         nameLabel.sizeToFitHeight()
@@ -181,6 +183,18 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
         
     }
     
+    @IBAction func retAddSize(_ sender: Any) {
+        
+        table  = AddressSizeSettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
+        
+        table.preselect = size[4]
+        table.propertyIndex = 4
+        table.data = addressSize
+        
+        table.sendAddressPrintDelegate = self
+        
+        self.view.window?.addSubview(table)
+    }
    
     
     @IBAction func selectAddressSize(_ sender: Any) {
