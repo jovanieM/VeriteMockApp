@@ -54,6 +54,7 @@ class DirectConnectTime: UIViewController, SetupViewerDelegate{
     saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
     
     //directTimeLabel.setTitle(directTimeList[0].description, for: .normal)
+    directLabel.text = directTimeList[0]
     
     let index: Int? = directDefaults.object(forKey: directKey) as? Int
     if let x = index {
