@@ -154,12 +154,12 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
         let vc = AddressPrintSB.instantiateInitialViewController()!
         self.show(vc, sender: self)
     }
+    @IBAction func ScanPhoto(_ sender: Any) {
+        let ScanPhotoSB = UIStoryboard(name: "ScanPhotoStoryboard", bundle: nil)
+        let vc = ScanPhotoSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+    }
 
-//    @IBAction func ScanPhoto(_ sender: Any) {
-//        let ScanPhotoSB = UIStoryboard(name: "ScanPhotoStoryboard", bundle: nil)
-//        let vc = ScanPhotoSB.instantiateInitialViewController()!
-//        self.show(vc, sender: self)
-//    }
     
     @IBAction func Print(_ sender: Any) {
         let PrintSB = UIStoryboard(name: "PrintPhotoStoryboard", bundle: nil)

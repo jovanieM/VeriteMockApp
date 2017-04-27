@@ -17,13 +17,7 @@ class PrintQueueViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBOutlet weak var printJobs: UITableView!
-    //    let cancelButton: UIButton = {
-    //        let button = UIButton(type: .custom)
-    //        button.setBackgroundImage(#imageLiteral(resourceName: "job_cancel"), for: .normal)
-    //
-    //        return button
-    //
-    //    }()
+
     var images2 = [UIImage]()
       
     

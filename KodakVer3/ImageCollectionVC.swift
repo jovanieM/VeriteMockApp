@@ -150,37 +150,55 @@ class ImageCollectionVC: UIViewController, UICollectionViewDataSource, UICollect
             
         }
         
-        if isMulti && selectedItems.count != 0{
+        if cell.isSelected && selectedItems.count != 0 && isMulti{
+            let label = cell.contentView.viewWithTag(5) as! UILabel
+            label.backgroundColor = .gold
+            label.alpha = 1.0
+            let num = selectedItems.index(of: indexPath)
+            label.text = String(num! + 1)
+            cell.customHighlight()
+            return cell
+        }else{
+            let label = cell.contentView.viewWithTag(5) as! UILabel
             
-            for i in 0..<selectedItems.count{
-                
-                if cell.isSelected{
-                    
-                    if selectedItems[i] == indexPath{
-                        
-                        let label = cell.contentView.viewWithTag(5) as! UILabel
-                        label.backgroundColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1.0)
-                        
-                        label.alpha = 1.0
-                        
-                        label.text = String(i + 1)
-                        
-                        cell.customHighlight()
-                        
-                    }
-                    
-                }else{
-                    
-                    let label = cell.contentView.viewWithTag(5) as! UILabel
-                    
-                    label.alpha = 0.0
-                    
-                    cell.customHighlight()
-                }
-            }
+            label.alpha = 0.0
+            
+            cell.customHighlight()
+            return cell
+        
         }
         
-        return cell
+//        if isMulti && selectedItems.count != 0{
+//            
+//            for i in 0..<selectedItems.count{
+//                
+//                if cell.isSelected{
+//                    
+//                    if selectedItems[i] == indexPath{
+//                        
+//                        let label = cell.contentView.viewWithTag(5) as! UILabel
+//                        label.backgroundColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1.0)
+//                        
+//                        label.alpha = 1.0
+//                        
+//                        label.text = String(i + 1)
+//                        
+//                        cell.customHighlight()
+//                        
+//                    }
+//                    
+//                }else{
+//                    
+//                    let label = cell.contentView.viewWithTag(5) as! UILabel
+//                    
+//                    label.alpha = 0.0
+//                    
+//                    cell.customHighlight()
+//                }
+//            }
+//        }
+//        
+//        return cell
         
     }
     
@@ -230,16 +248,17 @@ class ImageCollectionVC: UIViewController, UICollectionViewDataSource, UICollect
                 
                 
                 for i in 0..<selectedItems.count {
-                    let cell = collectionView.cellForItem(at: selectedItems[i])!
- //                   let iv = cell.contentView.viewWithTag(4) as! UIImageView
-                   
                     
-                    cell.customHighlight()
+                    if let cell = collectionView.cellForItem(at: selectedItems[i]){
+                        cell.customHighlight()
+                        
+                        let label = cell.contentView.viewWithTag(5) as! UILabel
+                        
+                        let index = selectedItems.index(of: selectedItems[i])
+                        label.text = String(index! + 1)
                     
-                    let label = cell.contentView.viewWithTag(5) as! UILabel
-                    
-                    label.text = String(i + 1)
-                }
+                    }
+                 }
             }
         }
     }
@@ -272,9 +291,11 @@ class ImageCollectionVC: UIViewController, UICollectionViewDataSource, UICollect
             PHCachingImageManager.default().requestImageData(for: asset.object(at: collectionView.indexPathsForSelectedItems![0].item), options: reqOptions, resultHandler:{
                     imageData, dataUTI, orientation, info in
                 
-                
+                    if let img = imageData{
+                        vc.image = UIImage(data: img)
+
+                    }
                     
-                    vc.image = UIImage(data: imageData!)
             })
         }
         

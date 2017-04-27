@@ -35,9 +35,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
             if (newValue){
                 self.layer.borderWidth = 2.0
                 self.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1.0).cgColor
-                
-
-                
+               
             }else {
                 self.layer.borderColor = UIColor.clear.cgColor
                 self.contentView.setNeedsDisplay()
@@ -47,5 +45,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
             
         }
     }
+    
+    
     
 }

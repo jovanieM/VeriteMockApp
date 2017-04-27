@@ -54,9 +54,10 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     
     
     @IBAction func settingButton(_ sender: UIButton) {
-        let settingSB = UIStoryboard(name: "PhotoPrintSettingsStoryboard", bundle: nil)
-        let vc = settingSB.instantiateInitialViewController()!
-        self.show(vc, sender: self)
+//        let settingSB = UIStoryboard(name: "PhotoPrintSettingsStoryboard", bundle: nil)
+//        let vc = settingSB.instantiateInitialViewController()!
+//        self.show(vc, sender: self)
+        printPhoto()
     }
     @IBOutlet weak var flickLabel: UILabel!
     
@@ -100,6 +101,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         }
     
     }
+    let pd = PrintData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +110,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(pan:)))
         let pinchZoom = UIPinchGestureRecognizer(target: self, action: #selector(pinchHandler(sender:)))
         pinchZoom.delegate = self
+        pd.thumbNail = image
         
         //pan.delegate = self
         //let pan2 = MyGestureRecognizer(target: self, action: #selector(pan(pan:)))
@@ -125,6 +128,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         imageView.contentMode = .scaleAspectFit
         //let insets = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
         imageView.image = image
+        imageView.backgroundColor = .white
         
         //print(scrollView.bounds)
         //let scaleFactor = image.size.height / image.size.width
@@ -142,22 +146,21 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     
   
     func pan(pan: UIPanGestureRecognizer){
+        var newCenter = pan.translation(in: container)
         
         if pan.state == .began{
             
         }else if pan.state == .changed{
-            let newcCenter = pan.translation(in: container)
+            newCenter = pan.translation(in: container)
             if cont > 0.0{
                 
-                imageView.center.x = container.bounds.midX + newcCenter.x
-                imageView.center.y = container.bounds.midY + newcCenter.y
+                imageView.center.x = container.bounds.midX + newCenter.x
+                imageView.center.y = container.bounds.midY + newCenter.y
             }else{
-                let newY = newcCenter.y
+                let newY = newCenter.y
                 imageView.center.y = container.bounds.midY + newY
             }
-            if newcCenter.y < (-150.0){
-                printPhoto()
-            }
+         
             
         }else if pan.state == .ended{
            
@@ -170,6 +173,9 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
                 imageView.center.y = container.bounds.midY
             
             }
+            if newCenter.y < (-150.0){
+                printPhoto()
+            }
         
         }
        
@@ -177,11 +183,10 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     
     func printPhoto(){
         let sb = UIStoryboard(name: "PrintQueueStoryboard", bundle: nil)
-        let vc = sb.instantiateInitialViewController() as! PrintQueueViewController
-        let pd = PrintData()
-        pd.thumbNail = image
+        let vc = sb.instantiateViewController(withIdentifier: "printQueue") as! PrintQueueViewController
         vc.printData = [pd]
-        self.show(vc, sender: self)
+        self.navigationController?.show(vc, sender: self)
+        //show(vc, sender: self)
     
     }
     
@@ -227,9 +232,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! AdjustmentViewController
-        vc.image = self.image
-        
-        
+        vc.image = self.image      
     }
     override func viewWillAppear(_ animated: Bool){
         self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)

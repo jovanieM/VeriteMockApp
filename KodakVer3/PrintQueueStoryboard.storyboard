@@ -12,7 +12,7 @@
         <!--Print Queue View Controller-->
         <scene sceneID="76J-R9-Rnb">
             <objects>
-                <viewController id="1Vr-ln-NJS" customClass="PrintQueueViewController" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="printQueue" id="1Vr-ln-NJS" customClass="PrintQueueViewController" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="icG-lz-tZz"/>
                         <viewControllerLayoutGuide type="bottom" id="rdy-uq-0bm"/>

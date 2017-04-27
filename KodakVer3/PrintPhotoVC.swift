@@ -182,6 +182,7 @@ class PrintPhotoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+     
         if tableView == self.quickTableView{
             
             let cell = UITableViewCell(style: .default, reuseIdentifier: "any")

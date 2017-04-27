@@ -17,7 +17,12 @@ class SettingsObject : NSObject{
     var docScanQual: String!
     var docScanColor: String!
     var docScanDocument: String!
-    var docScanSaveAsType: String?!
+    var docScanSaveAsType: String!
+    
+    var photoScanQual: String!
+    var photoScanColor: String!
+    
+    
     
     var sizes: [String] = ["4x6 in.", "4x6 in. Borderless", "3x5 in", "5x7 in.", "5x7 in. Borderless", "3.5x5 in.(L)", "3.5x5 in.(L) Borderless", "Letter", "Letter Borderless", "Legal", "Executive", "Statement", "A4", "A4 Borderless", "JIS B5", "A5", "A5 Borderless", "A6", "A6 Borderless", "Hagaki", "Hagaki BorderLess", "10 Envelope", "DL envelope", "C5 Envelope"]
     var types: [String] = ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"]
@@ -25,7 +30,7 @@ class SettingsObject : NSObject{
     
     var copyColor: String?
     
-   var color: [String] = ["Color", "Black and White"]
+    var color: [String] = ["Color", "Black and White"]
     
 }
 
@@ -86,9 +91,43 @@ enum SaveAsType:Int {
         }
         
     }
+    func extensionType() ->String{
+        switch self {
+        case .Jpeg:
+            return "jpg"
+        case .Pdf:
+            return "pdf"
+        }
+        
+    }
+}
+enum ScanPhotoQuality:Int {
+    case Normal, Low, High
+    func description() ->String{
+        switch self {
+        case .Normal:
+            return "Normal"
+        case .Low:
+            return "Low(Fast)"
+        case .High:
+            return "High"
+        }
+    }
 }
 
-
+enum ScanPhotoColor:Int{
+    case Color, GrayScale, BlackWhite
+    func description() ->String{
+        switch self {
+        case .Color:
+            return "Color"
+        case .GrayScale:
+            return "Gray Scale"
+        case .BlackWhite:
+            return "Black and White"
+        }
+    }
+}
 
 
 

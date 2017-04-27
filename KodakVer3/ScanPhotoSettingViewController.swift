@@ -14,6 +14,7 @@ class ScanPhotoSettingViewController: UIViewController, UITableViewDelegate, UIT
 
     @IBOutlet weak var ScanPhotoTableView: UITableView!
     var expandedSections : NSMutableSet = []
+    var scanPhotoSettings : SettingsObject = SettingsObject()
     
     var sectionData : [String] = ["Quality", "Color", "Document"]
     var rowQuality = ["Normal", "Low(Fast)", "High"]
@@ -48,9 +49,11 @@ class ScanPhotoSettingViewController: UIViewController, UITableViewDelegate, UIT
     func setDataPhoto (valueRowPhoto : Int, valueSectionPhoto : Int) {
         switch valueSectionPhoto {
         case 0:
+            scanPhotoSettings.photoScanQual = ScanPhotoQuality(rawValue: valueRowPhoto)?.description()
             defaultQualityPhoto.set(valueRowPhoto, forKey: qualityKeyPhoto)
         case 1:
             defaultColorPhoto.set(valueRowPhoto, forKey: colorKeyPhoto)
+            scanPhotoSettings.photoScanColor = ScanPhotoColor(rawValue: valueRowPhoto)?.description()
         case 2:
             defaultDocument.set(valueRowPhoto, forKey: documentKey)
         default:

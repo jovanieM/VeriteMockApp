@@ -14,7 +14,6 @@
 		103303231E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303221E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard */; };
 		103303261E52AC6D00E7D24C /* CopyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303251E52AC6D00E7D24C /* CopyStoryboard.storyboard */; };
 		103303291E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303281E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard */; };
-		1033032C1E52ACB300E7D24C /* ScanPhotoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033032B1E52ACB300E7D24C /* ScanPhotoStoryboard.storyboard */; };
 		1033032F1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033032E1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard */; };
 		103303321E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303311E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard */; };
 		103303351E52AD2A00E7D24C /* ScanSettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303341E52AD2A00E7D24C /* ScanSettingsStoryboard.storyboard */; };
@@ -89,6 +88,7 @@
 		10F4969A1E6D350800E10DA1 /* PopUpPaperTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */; };
 		11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */; };
 		11072BBA1E72756600F7CF99 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11072BB91E72756600F7CF99 /* CustomCollectionViewCell.swift */; };
+		110801971EA9E850002914FB /* BoxUIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110801961EA9E850002914FB /* BoxUIWebViewController.swift */; };
 		1113B2DE1E66649300CC4BA2 /* SizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1113B2DD1E66649300CC4BA2 /* SizeHelper.swift */; };
 		1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */; };
 		1116A3291E30A92B0038F2E5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */; };
@@ -120,23 +120,37 @@
 		1158B74D1DFA4A5B008F081F /* MyNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158B74C1DFA4A5B008F081F /* MyNavController.swift */; };
 		1158B74F1DFA8655008F081F /* QuickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158B74E1DFA8655008F081F /* QuickViewController.swift */; };
 		1158B7511DFA86C1008F081F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158B7501DFA86C1008F081F /* DetailViewController.swift */; };
+		1160D34A1EA4AC9100645829 /* ScanDocumentHomeVC+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160D3491EA4AC9100645829 /* ScanDocumentHomeVC+handlers.swift */; };
+		1160D34C1EA4B88E00645829 /* SaveAsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160D34B1EA4B88E00645829 /* SaveAsView.swift */; };
+		1161F5C91EA38965006DD120 /* CropImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1161F5C81EA38965006DD120 /* CropImage.storyboard */; };
+		116323611EA5B0BB00EE4207 /* SaveAsVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116323601EA5B0BB00EE4207 /* SaveAsVCViewController.swift */; };
 		11699E5E1E8A462700F56A3E /* PrintQueueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11699E5D1E8A462700F56A3E /* PrintQueueTableViewCell.swift */; };
 		11699E601E8A463200F56A3E /* PrintQueueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11699E5F1E8A463200F56A3E /* PrintQueueTableViewCell.xib */; };
 		11699E621E8A464600F56A3E /* PrintData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11699E611E8A464600F56A3E /* PrintData.swift */; };
 		116CE2681E1F445F005687E9 /* MyTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116CE2671E1F445F005687E9 /* MyTableViewDataSource.swift */; };
 		11715AA41E5AC3FE005367B9 /* ImageCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11715AA31E5AC3FE005367B9 /* ImageCollectionVC.swift */; };
 		11715AA61E5AC413005367B9 /* PhotoAssetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */; };
+		1173DCFD1EA7647B00C31533 /* ButtonActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173DCFC1EA7647B00C31533 /* ButtonActions.swift */; };
+		1173DCFF1EA7740500C31533 /* FileNameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173DCFE1EA7740500C31533 /* FileNameGenerator.swift */; };
+		1173DD011EA7824A00C31533 /* ImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173DD001EA7824A00C31533 /* ImageBuilder.swift */; };
 		118186E71E249FFA00B40A5F /* MyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */; };
 		118A67E91E6565BE00B0107C /* BoxBackGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A67E81E6565BE00B0107C /* BoxBackGround.swift */; };
 		11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */; };
 		11A8C1AE1E92369300280569 /* ScanDocumentHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8C1AD1E92369300280569 /* ScanDocumentHomeVC.swift */; };
 		11B56EB91E5D69180031108D /* FlickPrintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B56EB81E5D69180031108D /* FlickPrintViewController.swift */; };
+		11C657D11EAECF01008593BF /* ScanPhotoSettingsPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C657D01EAECF01008593BF /* ScanPhotoSettingsPreview.xib */; };
+		11C657D31EAEDB70008593BF /* ScanPhotoSettingPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C657D21EAEDB70008593BF /* ScanPhotoSettingPreview.swift */; };
+		11C657D51EAF0EAC008593BF /* WorkProgressSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C657D41EAF0EAC008593BF /* WorkProgressSimulator.swift */; };
 		11CB551E1E95EB9E00EAC722 /* ScanSettingsPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11CB551D1E95EB9E00EAC722 /* ScanSettingsPreview.xib */; };
 		11CB55201E97145B00EAC722 /* ScanSettingsPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB551F1E97145B00EAC722 /* ScanSettingsPreview.swift */; };
 		11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */; };
+		11D431DD1EB038DE00BEC4A0 /* ScanPhotoSendActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D431DC1EB038DE00BEC4A0 /* ScanPhotoSendActions.swift */; };
+		11D431E51EB097CC00BEC4A0 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D431E41EB097CC00BEC4A0 /* CropViewController.swift */; };
 		11DB094D1E6028E000B6F317 /* AdjustmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB094C1E6028E000B6F317 /* AdjustmentViewController.swift */; };
 		11DF48201E36E46A0012AD60 /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF481F1E36E46A0012AD60 /* FirstCell.swift */; };
 		11DFF0081E63AE2300C53EB7 /* BoxForeground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DFF0071E63AE2300C53EB7 /* BoxForeground.swift */; };
+		11E95C071EAE02BA00F3265C /* ScanPhotoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E95C061EAE02BA00F3265C /* ScanPhotoStoryboard.storyboard */; };
+		11E95C091EAE10BF00F3265C /* ScanPhotoHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E95C081EAE10BF00F3265C /* ScanPhotoHomeVC.swift */; };
 		11F865961E530B1D00326907 /* PrintPhotoHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F865951E530B1D00326907 /* PrintPhotoHomeVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -165,7 +179,6 @@
 		103303221E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PrintPhotoStoryboard.storyboard; sourceTree = "<group>"; };
 		103303251E52AC6D00E7D24C /* CopyStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CopyStoryboard.storyboard; sourceTree = "<group>"; };
 		103303281E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScanDocumentStoryboard.storyboard; sourceTree = "<group>"; };
-		1033032B1E52ACB300E7D24C /* ScanPhotoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScanPhotoStoryboard.storyboard; sourceTree = "<group>"; };
 		1033032E1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddressPrintStoryboard.storyboard; sourceTree = "<group>"; };
 		103303311E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoAdjustmentsStoryboard.storyboard; sourceTree = "<group>"; };
 		103303341E52AD2A00E7D24C /* ScanSettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScanSettingsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -241,6 +254,7 @@
 		10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpPaperTypeVC.swift; sourceTree = "<group>"; };
 		11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSelectPopUp.swift; sourceTree = "<group>"; };
 		11072BB91E72756600F7CF99 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		110801961EA9E850002914FB /* BoxUIWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxUIWebViewController.swift; sourceTree = "<group>"; };
 		1113B2DD1E66649300CC4BA2 /* SizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeHelper.swift; sourceTree = "<group>"; };
 		1116A3261E3043AC0038F2E5 /* MyUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUITableViewController.swift; sourceTree = "<group>"; };
 		1116A3281E30A92B0038F2E5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -278,23 +292,37 @@
 		1158B74C1DFA4A5B008F081F /* MyNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavController.swift; sourceTree = "<group>"; };
 		1158B74E1DFA8655008F081F /* QuickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickViewController.swift; sourceTree = "<group>"; };
 		1158B7501DFA86C1008F081F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		1160D3491EA4AC9100645829 /* ScanDocumentHomeVC+handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScanDocumentHomeVC+handlers.swift"; sourceTree = "<group>"; };
+		1160D34B1EA4B88E00645829 /* SaveAsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveAsView.swift; sourceTree = "<group>"; };
+		1161F5C81EA38965006DD120 /* CropImage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CropImage.storyboard; sourceTree = "<group>"; };
+		116323601EA5B0BB00EE4207 /* SaveAsVCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveAsVCViewController.swift; sourceTree = "<group>"; };
 		11699E5D1E8A462700F56A3E /* PrintQueueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintQueueTableViewCell.swift; sourceTree = "<group>"; };
 		11699E5F1E8A463200F56A3E /* PrintQueueTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrintQueueTableViewCell.xib; sourceTree = "<group>"; };
 		11699E611E8A464600F56A3E /* PrintData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintData.swift; sourceTree = "<group>"; };
 		116CE2671E1F445F005687E9 /* MyTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewDataSource.swift; sourceTree = "<group>"; };
 		11715AA31E5AC3FE005367B9 /* ImageCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionVC.swift; sourceTree = "<group>"; };
 		11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAssetCollection.swift; sourceTree = "<group>"; };
+		1173DCFC1EA7647B00C31533 /* ButtonActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonActions.swift; sourceTree = "<group>"; };
+		1173DCFE1EA7740500C31533 /* FileNameGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileNameGenerator.swift; sourceTree = "<group>"; };
+		1173DD001EA7824A00C31533 /* ImageBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBuilder.swift; sourceTree = "<group>"; };
 		118186E61E249FFA00B40A5F /* MyTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewDelegate.swift; sourceTree = "<group>"; };
 		118A67E81E6565BE00B0107C /* BoxBackGround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxBackGround.swift; sourceTree = "<group>"; };
 		11A62A5C1E31AB2D00F12289 /* MyNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavBar.swift; sourceTree = "<group>"; };
 		11A8C1AD1E92369300280569 /* ScanDocumentHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanDocumentHomeVC.swift; sourceTree = "<group>"; };
 		11B56EB81E5D69180031108D /* FlickPrintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickPrintViewController.swift; sourceTree = "<group>"; };
+		11C657D01EAECF01008593BF /* ScanPhotoSettingsPreview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanPhotoSettingsPreview.xib; sourceTree = "<group>"; };
+		11C657D21EAEDB70008593BF /* ScanPhotoSettingPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanPhotoSettingPreview.swift; sourceTree = "<group>"; };
+		11C657D41EAF0EAC008593BF /* WorkProgressSimulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkProgressSimulator.swift; sourceTree = "<group>"; };
 		11CB551D1E95EB9E00EAC722 /* ScanSettingsPreview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanSettingsPreview.xib; sourceTree = "<group>"; };
 		11CB551F1E97145B00EAC722 /* ScanSettingsPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanSettingsPreview.swift; sourceTree = "<group>"; };
 		11CFD1241E2F3226008253E6 /* PrintSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintSettingsModel.swift; sourceTree = "<group>"; };
+		11D431DC1EB038DE00BEC4A0 /* ScanPhotoSendActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanPhotoSendActions.swift; sourceTree = "<group>"; };
+		11D431E41EB097CC00BEC4A0 /* CropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		11DB094C1E6028E000B6F317 /* AdjustmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustmentViewController.swift; sourceTree = "<group>"; };
 		11DF481F1E36E46A0012AD60 /* FirstCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCell.swift; sourceTree = "<group>"; };
 		11DFF0071E63AE2300C53EB7 /* BoxForeground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxForeground.swift; sourceTree = "<group>"; };
+		11E95C061EAE02BA00F3265C /* ScanPhotoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScanPhotoStoryboard.storyboard; sourceTree = "<group>"; };
+		11E95C081EAE10BF00F3265C /* ScanPhotoHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanPhotoHomeVC.swift; sourceTree = "<group>"; };
 		11F865951E530B1D00326907 /* PrintPhotoHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintPhotoHomeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -405,6 +433,13 @@
 				11A8C1AD1E92369300280569 /* ScanDocumentHomeVC.swift */,
 				11CB551D1E95EB9E00EAC722 /* ScanSettingsPreview.xib */,
 				11CB551F1E97145B00EAC722 /* ScanSettingsPreview.swift */,
+				1160D3491EA4AC9100645829 /* ScanDocumentHomeVC+handlers.swift */,
+				1160D34B1EA4B88E00645829 /* SaveAsView.swift */,
+				116323601EA5B0BB00EE4207 /* SaveAsVCViewController.swift */,
+				1173DCFC1EA7647B00C31533 /* ButtonActions.swift */,
+				1173DCFE1EA7740500C31533 /* FileNameGenerator.swift */,
+				1173DD001EA7824A00C31533 /* ImageBuilder.swift */,
+				110801961EA9E850002914FB /* BoxUIWebViewController.swift */,
 			);
 			name = ScanDocument;
 			sourceTree = "<group>";
@@ -412,7 +447,12 @@
 		1033032A1E52AC8F00E7D24C /* ScanPhotoStoryboard */ = {
 			isa = PBXGroup;
 			children = (
-				1033032B1E52ACB300E7D24C /* ScanPhotoStoryboard.storyboard */,
+				11E95C061EAE02BA00F3265C /* ScanPhotoStoryboard.storyboard */,
+				11E95C081EAE10BF00F3265C /* ScanPhotoHomeVC.swift */,
+				11C657D01EAECF01008593BF /* ScanPhotoSettingsPreview.xib */,
+				11C657D21EAEDB70008593BF /* ScanPhotoSettingPreview.swift */,
+				11D431DC1EB038DE00BEC4A0 /* ScanPhotoSendActions.swift */,
+				11D431E41EB097CC00BEC4A0 /* CropViewController.swift */,
 			);
 			name = ScanPhotoStoryboard;
 			sourceTree = "<group>";
@@ -588,6 +628,7 @@
 		114B30A61DF90A57008A57F1 /* KodakVer3 */ = {
 			isa = PBXGroup;
 			children = (
+				1161F5C71EA388F6006DD120 /* CropImageStoryboard */,
 				11555D3B1E9CCD9400365346 /* Images.xcassets */,
 				1093B8251E8A5C4E000E8670 /* Images-2.xcassets */,
 				114159301E83C652007276CA /* PrintQueueStoryboard */,
@@ -637,6 +678,7 @@
 				114159291E83C33F007276CA /* SettingsObject.swift */,
 				11DF481F1E36E46A0012AD60 /* FirstCell.swift */,
 				1093B8231E8A58C5000E8670 /* Images-2.xcassets */,
+				11C657D41EAF0EAC008593BF /* WorkProgressSimulator.swift */,
 			);
 			path = KodakVer3;
 			sourceTree = "<group>";
@@ -657,6 +699,14 @@
 				114B30C91DF90A57008A57F1 /* Info.plist */,
 			);
 			path = KodakVer3UITests;
+			sourceTree = "<group>";
+		};
+		1161F5C71EA388F6006DD120 /* CropImageStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				1161F5C81EA38965006DD120 /* CropImage.storyboard */,
+			);
+			name = CropImageStoryboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -773,9 +823,9 @@
 				103303261E52AC6D00E7D24C /* CopyStoryboard.storyboard in Resources */,
 				103303321E52ACFC00E7D24C /* PhotoAdjustmentsStoryboard.storyboard in Resources */,
 				1141592B1E83C33F007276CA /* PrintQueueStoryboard.storyboard in Resources */,
-				1033032C1E52ACB300E7D24C /* ScanPhotoStoryboard.storyboard in Resources */,
 				103303291E52AC8900E7D24C /* ScanDocumentStoryboard.storyboard in Resources */,
 				103303471E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard in Resources */,
+				1161F5C91EA38965006DD120 /* CropImage.storyboard in Resources */,
 				113123A51E51AC8D0079CEAB /* SettingsStoryboard.storyboard in Resources */,
 				1156AAF81E1E2F24009C2493 /* TableViewCell2.xib in Resources */,
 				11555D3C1E9CCD9400365346 /* Images.xcassets in Resources */,
@@ -789,6 +839,7 @@
 				103303381E52AD8400E7D24C /* NetworkStatusStoryboard.storyboard in Resources */,
 				10DE82F71E72A7D9001F6FDA /* PagesPerSideTableViewCell.xib in Resources */,
 				1033031A1E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard in Resources */,
+				11E95C071EAE02BA00F3265C /* ScanPhotoStoryboard.storyboard in Resources */,
 				1033032F1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard in Resources */,
 				1033033B1E52AD9F00E7D24C /* WiFiSetupStoryboard.storyboard in Resources */,
 				10DE83061E72A8AE001F6FDA /* HeaderTableViewCell.xib in Resources */,
@@ -797,6 +848,7 @@
 				103303201E52AC2500E7D24C /* InkLevelStoryboard.storyboard in Resources */,
 				1156AAF41E1E2EFC009C2493 /* TableViewCell1.xib in Resources */,
 				11699E601E8A463200F56A3E /* PrintQueueTableViewCell.xib in Resources */,
+				11C657D11EAECF01008593BF /* ScanPhotoSettingsPreview.xib in Resources */,
 				10DE830A1E72A935001F6FDA /* ItemsTableViewCell.xib in Resources */,
 				1033033E1E52ADC100E7D24C /* GCPStoryboard.storyboard in Resources */,
 				1033031D1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard in Resources */,
@@ -836,7 +888,9 @@
 				10DE82FE1E72A82F001F6FDA /* ScandocSettingViewController.swift in Sources */,
 				107B37AB1E5FDE4E007CA90C /* AirPrint.swift in Sources */,
 				10DE82F81E72A7D9001F6FDA /* PagesPerSideViewer.swift in Sources */,
+				110801971EA9E850002914FB /* BoxUIWebViewController.swift in Sources */,
 				10CD81811E567A22001815A1 /* HostName.swift in Sources */,
+				1173DD011EA7824A00C31533 /* ImageBuilder.swift in Sources */,
 				10B68ABE1E89004800182F0F /* LoadInstructionsViewController.swift in Sources */,
 				104F1D3A1E6575AC00532AC3 /* CartridgeSetupStartScan.swift in Sources */,
 				113255971E28AC3500A66A9A /* SettingsViewer.swift in Sources */,
@@ -853,6 +907,7 @@
 				107B37A61E5FDE30007CA90C /* GCPEnableDisable.swift in Sources */,
 				107B37A81E5FDE30007CA90C /* GCPRegisterUnregister.swift in Sources */,
 				10EFBE541E9CC0A800235DBF /* ReturnAddressViewController.swift in Sources */,
+				1173DCFD1EA7647B00C31533 /* ButtonActions.swift in Sources */,
 				1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */,
 				105FAB181E55794000A180E8 /* SecurityType.swift in Sources */,
 				10A4E08F1E604010007724EF /* DirectConnectTime.swift in Sources */,
@@ -860,12 +915,14 @@
 				109A952F1E729575004D28FD /* NetworkAndPasswordHelp.swift in Sources */,
 				105965E51E531B95003B7CD6 /* NetworkStatus.swift in Sources */,
 				10D459D11E94EC9F005FE0DA /* CopySettingsViewer.swift in Sources */,
+				11C657D51EAF0EAC008593BF /* WorkProgressSimulator.swift in Sources */,
 				109A95301E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift in Sources */,
 				10CD81831E567A22001815A1 /* Proxy.swift in Sources */,
 				105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */,
 				104F1D391E6575AC00532AC3 /* CartridgeSetupPrinting.swift in Sources */,
 				1141592F1E83C33F007276CA /* SettingsObject.swift in Sources */,
 				114B30D81DF92C44008A57F1 /* PrintPhotoVC.swift in Sources */,
+				1173DCFF1EA7740500C31533 /* FileNameGenerator.swift in Sources */,
 				10D36C641E5FE0C400D79664 /* CustomViewController.swift in Sources */,
 				114159321E83CC3B007276CA /* PrintMultiViewController.swift in Sources */,
 				11B56EB91E5D69180031108D /* FlickPrintViewController.swift in Sources */,
@@ -881,6 +938,7 @@
 				10DE82F61E72A7D9001F6FDA /* PagesPerSideTableViewCell.swift in Sources */,
 				11DFF0081E63AE2300C53EB7 /* BoxForeground.swift in Sources */,
 				1156AAF31E1E2EFC009C2493 /* TableViewCell1.swift in Sources */,
+				116323611EA5B0BB00EE4207 /* SaveAsVCViewController.swift in Sources */,
 				11715AA41E5AC3FE005367B9 /* ImageCollectionVC.swift in Sources */,
 				107B37B31E5FDF08007CA90C /* CartridgeSetup.swift in Sources */,
 				10DE83011E72A873001F6FDA /* BrightnessTableViewCell.swift in Sources */,
@@ -891,6 +949,7 @@
 				107B37BB1E5FDF1D007CA90C /* SoftwareUpdate.swift in Sources */,
 				1158B74D1DFA4A5B008F081F /* MyNavController.swift in Sources */,
 				10A4E08C1E603FBB007724EF /* TextFieldMaxLengths.swift in Sources */,
+				11C657D31EAEDB70008593BF /* ScanPhotoSettingPreview.swift in Sources */,
 				107B37A91E5FDE30007CA90C /* GCPStatus.swift in Sources */,
 				1116A32B1E30BC430038F2E5 /* SettingsTableViewCell.swift in Sources */,
 				107B37B51E5FDF08007CA90C /* DeviceSleepTime.swift in Sources */,
@@ -901,6 +960,7 @@
 				11699E621E8A464600F56A3E /* PrintData.swift in Sources */,
 				107B37B61E5FDF08007CA90C /* PaperSetup.swift in Sources */,
 				11DF48201E36E46A0012AD60 /* FirstCell.swift in Sources */,
+				11D431DD1EB038DE00BEC4A0 /* ScanPhotoSendActions.swift in Sources */,
 				1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */,
 				1141592D1E83C33F007276CA /* PrintSettingsPreview.swift in Sources */,
 				10D36C601E5FE0C400D79664 /* CopyViewController.swift in Sources */,
@@ -908,14 +968,18 @@
 				10A630731E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift in Sources */,
 				105965E41E531B95003B7CD6 /* DeviceSettings.swift in Sources */,
 				11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */,
+				1160D34C1EA4B88E00645829 /* SaveAsView.swift in Sources */,
 				10759B2E1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift in Sources */,
 				1156AAF71E1E2F24009C2493 /* TableViewCell2.swift in Sources */,
 				10D36C611E5FE0C400D79664 /* CustomCopySecondCell.swift in Sources */,
 				11A8C1AE1E92369300280569 /* ScanDocumentHomeVC.swift in Sources */,
 				11F865961E530B1D00326907 /* PrintPhotoHomeVC.swift in Sources */,
+				11D431E51EB097CC00BEC4A0 /* CropViewController.swift in Sources */,
 				10D36C661E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift in Sources */,
 				10DE830C1E72B294001F6FDA /* FirstViewController.swift in Sources */,
+				1160D34A1EA4AC9100645829 /* ScanDocumentHomeVC+handlers.swift in Sources */,
 				1158B7511DFA86C1008F081F /* DetailViewController.swift in Sources */,
+				11E95C091EAE10BF00F3265C /* ScanPhotoHomeVC.swift in Sources */,
 				104D37E41E83CA9700654166 /* ScanPhotoSettingViewController.swift in Sources */,
 				118186E71E249FFA00B40A5F /* MyTableViewDelegate.swift in Sources */,
 				10A4E0901E604010007724EF /* FriendlyName.swift in Sources */,

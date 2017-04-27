@@ -7,24 +7,28 @@
 //
 
 import UIKit
+import MessageUI
+import SafariServices
+import WebKit
 
-class ScanDocumentHomeVC: UIViewController {
+
+class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDelegate, SaveAsViewDelegate, MFMailComposeViewControllerDelegate {
     
-
+//    private let kKeyChainItemName = "Drive API"
+//    private let kClientID = "762193006490-ko8glbbn82p0vbac060ps1u4qeknbfuo.apps.googleusercontent.com"
+//    private let scopes = [kGTLRAuthScopeDriveFile]
+//    private let service = GTLRDriveService()
+    
     @IBOutlet weak var imageView: UIImageView!
+    
 
     
     var croppingRect : CGRect?
     var screenWidth: CGFloat = UIScreen.main.bounds.width * 0.7029
     
-//    var imageViewMaxHeight: CGFloat{
-//        get{
-//            return screenWidth * 1.42
-//        }
-//        
-//    }
+
     
-    var convertedImage : [UIImage] = {
+    var convertedImage : [UIImage?] = {
         
         let uiImage = UIImage(named: "tulips")
    
@@ -48,54 +52,30 @@ class ScanDocumentHomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scanSettings.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-       
-        popUpActivityIndicatorAlert()
+        runScanner()
+        //popUpActivityIndicatorAlert()
+        definesPresentationContext = true
        
     }
-   
     
-    func popUpActivityIndicatorAlert(){
-        
-        let alertScanning = UIAlertController(title: "Scanning...", message: "\n\n", preferredStyle: .alert)
-        
-        
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        activityIndicator.color = .gray
-        
-        activityIndicator.frame = alertScanning.view.bounds
-        activityIndicator.center.y = alertScanning.view.center.y + 8.0
-        activityIndicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        alertScanning.view.addSubview(activityIndicator)
-        
-        activityIndicator.isUserInteractionEnabled = false
-        
-        activityIndicator.startAnimating()
-        
-        alertScanning.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: { (cancel) in
+    func runScanner(){
+        WorkProgressSimulator.sharedInstance.popUpActivityIndicatorAlert(controller: self.navigationController!) { (completed) in
             
-            self.cancelingTaskAlert()
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.scanningDone), object: nil)
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.displayImage), object: nil)
-        }))
+            if completed{
+                self.displayImage()
+            }else{
+                if self.scanCounter == 0{
+                    self.touchToScanLabel.isHidden = false
+                    self.imageView.isUserInteractionEnabled = true
+                    
+                }
+            }
+            
+            
+        }
         
-        
-        self.navigationController?.present(alertScanning, animated: true, completion: {
-        
-        })
-        
-        self.perform(#selector(self.scanningDone), with: nil, afterDelay: 4)
-        self.perform(#selector(displayImage), with: nil, afterDelay: 5)
-
-    
     }
    
-    
-    func scanningDone(){
-        self.navigationController?.presentedViewController?.dismiss(animated: true, completion: nil)
-        
-    }
-    
     func displayImage(){
         
         scanCounter = scanCounter + 1
@@ -119,41 +99,6 @@ class ScanDocumentHomeVC: UIViewController {
         
     }
     
-    func cancelingTaskAlert(){
-        
-        let alertCanceling = UIAlertController(title: "Canceling...", message: "\n\n\n", preferredStyle: .alert)
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        activityIndicator.color = .gray
-        
-        activityIndicator.frame = alertCanceling.view.bounds
-        activityIndicator.center.y = alertCanceling.view.center.y + 16.0
-        activityIndicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        alertCanceling.view.addSubview(activityIndicator)
-        
-        activityIndicator.startAnimating()
-        
-        self.navigationController?.present(alertCanceling, animated: true, completion: nil)
-        self.perform(#selector(self.scanCanceled), with: nil, afterDelay: 4.0)
-        //
-        
-    }
-    func scanCanceled(){
-        
-        self.navigationController?.presentedViewController?.dismiss(animated: true, completion: nil)
-        let alert = UIAlertController(title: "Scan Canceled", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { (alert: UIAlertAction) in
-            
-            if self.scanCounter == 0{
-                self.touchToScanLabel.isHidden = false
-                self.imageView.isUserInteractionEnabled = true
-
-            }
-
-        }))
-        
-        self.navigationController?.present(alert, animated: true, completion: nil)
-    }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -175,16 +120,24 @@ class ScanDocumentHomeVC: UIViewController {
         
         let saveAsKey = s.defaultColor.integer(forKey: "Save as type")
         scanSettings.docScanSaveAsType.text = SaveAsType(rawValue: saveAsKey)?.description()
+        ext = SaveAsType(rawValue: saveAsKey)?.extensionType()
+        
         
     }
   
     // interfaces, buttons and button actions
-
+    
+    var isTrayOpen: Bool = false
+    var scanCounter: Int = 0
+    var scannedImageID: Int = 0
+    var ext : String?
+    
     @IBOutlet weak var buttonContainer: UIView!
 
     @IBOutlet weak var scanSettings: ScanSettingsPreview!{
         didSet{
             updateScanSettingsUI()
+            
         }
     }
     
@@ -218,7 +171,8 @@ class ScanDocumentHomeVC: UIViewController {
    
     @IBAction func touchToScan(_ sender: UITapGestureRecognizer) {
         if scanCounter == 0 {
-            popUpActivityIndicatorAlert()
+            //popUpActivityIndicatorAlert()
+            runScanner()
         }
         imageView.isUserInteractionEnabled = false
     }
@@ -227,9 +181,13 @@ class ScanDocumentHomeVC: UIViewController {
     @IBOutlet weak var cropIcon: UIImageView!
     @IBOutlet weak var cropButton: UIButton!
     
+    
+    // send func temp button
+    var documentController : UIDocumentInteractionController!
+    
     @IBAction func cropButtonAction(_ sender: UIButton) {
     }
-    
+
     
     @IBOutlet weak var sendIcon: UIImageView!
     
@@ -240,45 +198,6 @@ class ScanDocumentHomeVC: UIViewController {
         openCloseTray(open: isTrayOpen)
     
     }
-    var isTrayOpen: Bool = false
-    
-    private func openCloseTray(open : Bool){
-        
-        if open{
-                // tray is currently open
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.buttonContainer.center.y = self.buttonContainer.center.y + self.buttonContainer.frame.height
-                    self.buttonNext.isUserInteractionEnabled = true
-                    self.isTrayOpen = false
-                }) { (done) in
-                    if done{
-                        self.sendIcon.isHighlighted = false
-                    }
-                }
-            
-
-            
-        }else{
-            // tray is currently close
-            
-            UIView.animate(withDuration: 0.5, animations: {
-                self.buttonContainer.center.y = self.buttonContainer.center.y - self.buttonContainer.frame.height
-                self.buttonNext.isUserInteractionEnabled = false
-                self.isTrayOpen = true
-            }) { (done) in
-                if done{
-                    self.sendIcon.isHighlighted = true
-                }
-            }
-        
-        }
-    
-    }
-    
-
-    
-    var scanCounter: Int = 0
-    var scannedImageID: Int = 0
     
     @IBAction func scanButtonAction(_ sender: UIButton) {
         
@@ -286,16 +205,157 @@ class ScanDocumentHomeVC: UIViewController {
             
             openCloseTray(open: isTrayOpen)
         }
-        
-        popUpActivityIndicatorAlert()
-        
-        
+        runScanner()
+       // popUpActivityIndicatorAlert()
     }
+    
+    @IBAction func googleDrive(_ sender: UIButton) {
+        if #available(iOS 9.0, *) {
+            
+            let url = URL(string: "https://accounts.google.com")
+            let sfVC = SFSafariViewController(url: url!)
+    
+            
+            self.present(sfVC, animated: true, completion: nil)
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    @IBAction func email(_ sender: UIButton) {
+        
+        let action = ButtonActions(viewController: self)
+        
+       // let act = ButtonActions()
+        
+        //let url = createLocalURL(forImageNamed: fname, forUIImage: imageView.image!, ext: ext!)
+        
+        if let mail = action.configuredMailComposerVC(image: imageView.image!, mimeSubtype : "jpeg"){
+            mail.mailComposeDelegate = self
+            if MFMailComposeViewController.canSendMail(){
+                
+                self.present(mail, animated: true, completion: nil)
+                
+            }else{
+                print("unable to send mail")
+            }
+        }
+       
+    }
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .sent:
+            print("message is sent")
+            controller.dismiss(animated: true, completion: nil)
+        case .saved:
+            print("message is saved")
+            controller.dismiss(animated: true, completion: nil)
+        case .cancelled:
+            print("message is cancelled")
+            controller.dismiss(animated: true, completion: nil)
+        case .failed:
+            print("message is failed")
+            controller.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func openScanSettings(_ sender: UIButton) {
-        print("print")
+        
         let sb = UIStoryboard(name: "ScanSettingsStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "ScanDocSettingsMenuVC")
         self.show(vc, sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "editFileName"{
+            let vc = segue.destination as! SaveAsVCViewController
+            vc.delegate = self
+            if scanSettings.docScanSaveAsType.text == SaveAsType.Pdf.description(){
+                vc.extName = "pdf"
+            }else{
+                vc.extName = "jpg"
+            }
+        }
+        if segue.identifier == "box"{
+            let navC = segue.destination as! UINavigationController
+            let child = navC.viewControllers.first as! BoxUIWebViewController
+            child.urlString = "https://account.box.com"
+        }
+        if segue.identifier == "oneDrive"{
+            let navC = segue.destination as! UINavigationController
+            let child = navC.viewControllers.first as! BoxUIWebViewController
+            child.urlString = "https://login.live.com"
+        }
+        
+    }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "editFileName"{
+            if scanSettings.docScanSaveAsType.text == SaveAsType.Jpeg.description(){
+                UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(saveToCameraRoll), nil)
+                
+                let alertScanning = UIAlertController(title: "Saving...", message: "\n\n", preferredStyle: .alert)
+                
+                
+                let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+                activityIndicator.color = .gray
+                
+                activityIndicator.frame = alertScanning.view.bounds
+                activityIndicator.center.y = alertScanning.view.center.y + 8.0
+                activityIndicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                
+                alertScanning.view.addSubview(activityIndicator)
+                
+                activityIndicator.isUserInteractionEnabled = false
+                
+                activityIndicator.startAnimating()
+                self.navigationController?.present(alertScanning, animated: true, completion: nil)
+                
+                
+                return false
+            }
+
+        }
+        if identifier == "box"{
+            return true
+        }
+        return true
+    }
+    
+    func dismissSaveToCam(){
+        self.navigationController?.presentedViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func saveToCameraRoll(image : UIImage, didFinishSavingWithError error : NSError?, contextInfo: UnsafeRawPointer){
+        guard error == nil else {
+            
+            return
+        }
+        self.navigationController?.presentedViewController?.dismiss(animated: true, completion: {
+            let alertScanning = UIAlertController(title: "Saved to camera roll", message: nil, preferredStyle: .alert)
+            
+            
+            alertScanning.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { (action) in
+                NSObject.cancelPreviousPerformRequests(withTarget: self)
+            }))
+            self.navigationController?.present(alertScanning, animated: true, completion: nil)
+            
+        })
+        
+        self.perform(#selector(dismissSaveToCam), with: self, afterDelay: 2.0)
+    }
+    
+    func saveImage(name : String, ext : String){
+      
+        save(filename: name, fileExt : ext)
+    }
+    
+  
+    
+    func finishWithError(){
+        print("error authorization")
+    
+    }
+    
+ 
  
 }

@@ -97,6 +97,9 @@
                                                 <state key="highlighted" backgroundImage="button_pressed">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="VpB-0E-9yL" kind="presentation" identifier="oneDrive" modalPresentationStyle="fullScreen" id="zaJ-sL-wxe"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="onedrive" translatesAutoresizingMaskIntoConstraints="NO" id="Opi-Xa-VGr">
                                                 <rect key="frame" x="0.0" y="0.0" width="98" height="52"/>
@@ -123,6 +126,9 @@
                                                 <state key="highlighted" backgroundImage="button_pressed">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="VpB-0E-9yL" kind="presentation" identifier="box" modalPresentationStyle="fullScreen" id="eLJ-Gn-abk"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="box_cyan" translatesAutoresizingMaskIntoConstraints="NO" id="oVb-rc-KGD">
                                                 <rect key="frame" x="25" y="0.0" width="49" height="52"/>
@@ -149,6 +155,9 @@
                                                 <state key="highlighted" backgroundImage="button_pressed">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="googleDrive:" destination="agd-j2-gWx" eventType="touchUpInside" id="rLD-9V-0S3"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="googledrive" translatesAutoresizingMaskIntoConstraints="NO" id="g8q-rn-hO0">
                                                 <rect key="frame" x="0.0" y="0.0" width="98" height="52"/>
@@ -176,6 +185,9 @@
                                                 <state key="highlighted" backgroundImage="button_pressed">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="email:" destination="agd-j2-gWx" eventType="touchUpInside" id="be1-ce-lmx"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mail_icon" translatesAutoresizingMaskIntoConstraints="NO" id="RDp-1I-Cil">
                                                 <rect key="frame" x="0.0" y="17" width="35" height="18"/>
@@ -203,6 +215,9 @@
                                                 <state key="highlighted" backgroundImage="button_pressed">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="5yj-ot-Xxy" kind="presentation" identifier="editFileName" animates="NO" modalPresentationStyle="overFullScreen" id="SGI-Yu-BdJ"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="save_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Z3q-qt-6Px">
                                                 <rect key="frame" x="0.0" y="17" width="35" height="18"/>
@@ -343,6 +358,132 @@
             </objects>
             <point key="canvasLocation" x="-270" y="-118.30985915492958"/>
         </scene>
+        <!--Save AsVC View Controller-->
+        <scene sceneID="ajy-Oy-iAK">
+            <objects>
+                <viewController id="5yj-ot-Xxy" customClass="SaveAsVCViewController" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G2y-Iu-zoa"/>
+                        <viewControllerLayoutGuide type="bottom" id="Boe-p5-ggy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2G6-VI-NRM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="szK-Jz-Abb">
+                                <rect key="frame" x="0.0" y="195" width="320" height="176"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Save as" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3f7-KL-MYh">
+                                        <rect key="frame" x="117" y="11" width="88" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Zb2-Zc-GuX">
+                                        <rect key="frame" x="9" y="61" width="301" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1X-7i-jXF">
+                                        <rect key="frame" x="0.0" y="130" width="160" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelAction:" destination="5yj-ot-Xxy" eventType="touchUpInside" id="S0d-l9-j1E"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tKg-eb-jsx">
+                                        <rect key="frame" x="0.0" y="130" width="320" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9GP-EW-fpj">
+                                        <rect key="frame" x="159" y="130" width="2" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Of-cO-bFd">
+                                        <rect key="frame" x="160" y="130" width="160" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveAction:" destination="5yj-ot-Xxy" eventType="touchUpInside" id="o2p-oO-5ye"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="cancel" destination="e1X-7i-jXF" id="iFs-oc-EeY"/>
+                        <outlet property="save" destination="0Of-cO-bFd" id="VrQ-nO-tGW"/>
+                        <outlet property="textField" destination="Zb2-Zc-GuX" id="Whv-kI-2vV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nfk-ZE-dac" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="570" y="-118.30985915492958"/>
+        </scene>
+        <!--BoxUI Web View Controller-->
+        <scene sceneID="lhO-kc-y2S">
+            <objects>
+                <viewController id="k0M-mj-CSs" customClass="BoxUIWebViewController" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="foI-uC-Cfn"/>
+                        <viewControllerLayoutGuide type="bottom" id="WJT-B5-xLO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IvL-4T-zUx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="z3W-i9-w01">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="8dy-Gx-Uiy">
+                            <connections>
+                                <action selector="cancel:" destination="k0M-mj-CSs" id="kEU-YJ-xpN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6bd-MA-VgF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1290" y="837"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3Ph-gN-mO0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VpB-0E-9yL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SVk-Lo-0da">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="k0M-mj-CSs" kind="relationship" relationship="rootViewController" id="2Qd-M1-jiv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4c9-8A-Yhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="411" y="837"/>
+        </scene>
     </scenes>
     <resources>
         <image name="box_cyan" width="150" height="79"/>
@@ -358,4 +499,7 @@
         <image name="setting" width="60" height="60"/>
         <image name="trim_icon" width="35" height="35"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zaJ-sL-wxe"/>
+    </inferredMetricsTieBreakers>
 </document>
