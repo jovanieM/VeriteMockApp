@@ -15,6 +15,18 @@ class ScanPhotoHomeVC: UIViewController, MFMailComposeViewControllerDelegate {
     // variable declerations --------------------------------------------------------------------------------------------
     var firstScan : Bool = true
     var isTrayOpen : Bool = false
+    
+    let croppedImage:UIImage = {
+        let uiImage = UIImage(named: "tulips")
+        
+        let imageWidth = (uiImage?.size.height)! * 0.7071
+        
+        let imageRef = uiImage?.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: imageWidth, height: (uiImage?.size.height)!))
+        
+        let image = UIImage(cgImage: imageRef!)
+        return image
+    
+    }()
 
     @IBOutlet weak var cropPhoto: UIButton!
     @IBOutlet weak var sendPhoto: UIButton!
@@ -143,7 +155,7 @@ class ScanPhotoHomeVC: UIViewController, MFMailComposeViewControllerDelegate {
         if scanImage.image == nil && enabled{
             
             touchToScan.isHidden = enabled
-            scanImage.image = #imageLiteral(resourceName: "tulips")
+            scanImage.image = self.croppedImage
             cropPhoto.isEnabled = enabled
             sendIcon.isHidden = !enabled
             sendPhoto.isEnabled = enabled

@@ -14,7 +14,7 @@ class CropViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let pan = UITapGestureRecognizer(target: self, action: #selector(handleCornerPan(sender:)))
+        let _ = UITapGestureRecognizer(target: self, action: #selector(handleCornerPan(sender:)))
 
         // Do any additional setup after loading the view.
     }
