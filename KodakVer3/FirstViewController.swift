@@ -23,10 +23,11 @@ extension CATransition{
 
 }
 
+
+
 class FirstViewController: UIViewController, PrinterSelectDelegate{
     
-    
-    
+   
     @IBOutlet weak var ecomodeLabel: UILabel!
     
     @IBOutlet weak var ecoLed1: UIImageView!
@@ -58,6 +59,12 @@ class FirstViewController: UIViewController, PrinterSelectDelegate{
         name.text = printer
         
         
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        UIView.animate(withDuration: 0.5) { 
+        
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

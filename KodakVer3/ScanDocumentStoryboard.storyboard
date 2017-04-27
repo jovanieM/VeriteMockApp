@@ -190,7 +190,7 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mail_icon" translatesAutoresizingMaskIntoConstraints="NO" id="RDp-1I-Cil">
-                                                <rect key="frame" x="0.0" y="17" width="35" height="18"/>
+                                                <rect key="frame" x="0.0" y="13" width="45" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -220,7 +220,7 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="save_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Z3q-qt-6Px">
-                                                <rect key="frame" x="0.0" y="17" width="35" height="18"/>
+                                                <rect key="frame" x="0.0" y="15" width="45" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
