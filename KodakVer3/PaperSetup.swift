@@ -103,7 +103,7 @@ class PaperSetup: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   var index1: Int!
   var recieve1: Int!
-  var result: String!
+  var result: String! = ""
   
   func sendData(index: Int, receiver: IndexPath){
     
@@ -121,14 +121,10 @@ class PaperSetup: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     recieve1 = receiver.row
     
     let cell = self.tblPaperSetup.cellForRow(at: receiver) as! CustomCopySecondCell
-    cell.selectedsetting.text = result
-    result = listPaperSettings[receiver.row][index]
+    cell.selectedsetting.text = listPaperSettings[receiver.row][index]
   }
   
   @IBAction func saveSettingActionButton(_ sender: UIButton) {
-    
-    defaults.set(result, forKey: sizeKey)
-    
     
     alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
     

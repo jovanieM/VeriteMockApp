@@ -87,6 +87,7 @@
 		10DE830C1E72B294001F6FDA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE830B1E72B294001F6FDA /* FirstViewController.swift */; };
 		10EFBE531E9CC0A800235DBF /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBE511E9CC0A800235DBF /* PreviewViewController.swift */; };
 		10EFBE541E9CC0A800235DBF /* ReturnAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBE521E9CC0A800235DBF /* ReturnAddressViewController.swift */; };
+		10F324621EB17BB1001D89A1 /* SetupViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F324611EB17BB1001D89A1 /* SetupViewer.swift */; };
 		10F4969A1E6D350800E10DA1 /* PopUpPaperTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */; };
 		11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */; };
 		11072BBA1E72756600F7CF99 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11072BB91E72756600F7CF99 /* CustomCollectionViewCell.swift */; };
@@ -240,6 +241,7 @@
 		10DE830B1E72B294001F6FDA /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		10EFBE511E9CC0A800235DBF /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		10EFBE521E9CC0A800235DBF /* ReturnAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnAddressViewController.swift; sourceTree = "<group>"; };
+		10F324611EB17BB1001D89A1 /* SetupViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewer.swift; sourceTree = "<group>"; };
 		10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpPaperTypeVC.swift; sourceTree = "<group>"; };
 		11054CCD1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSelectPopUp.swift; sourceTree = "<group>"; };
 		11072BB91E72756600F7CF99 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 		103303391E52AD8800E7D24C /* WiFiSetupStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				10F324611EB17BB1001D89A1 /* SetupViewer.swift */,
 				109A952D1E729575004D28FD /* NetworkAndPasswordHelp.swift */,
 				109A952E1E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift */,
 				10DC00D91E70D5DA0027DF46 /* NetworkAndPasswordSwitchNetwork.swift */,
@@ -908,6 +911,7 @@
 				1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */,
 				1141592D1E83C33F007276CA /* PrintSettingsPreview.swift in Sources */,
 				10D36C601E5FE0C400D79664 /* CopyViewController.swift in Sources */,
+				10F324621EB17BB1001D89A1 /* SetupViewer.swift in Sources */,
 				103A0DA71E8A5EA10062E730 /* TermsOfUseViewController.swift in Sources */,
 				10A630731E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift in Sources */,
 				105965E41E531B95003B7CD6 /* DeviceSettings.swift in Sources */,
