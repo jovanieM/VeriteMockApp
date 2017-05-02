@@ -8,9 +8,9 @@
 
 import UIKit
 
-class PaperSetup: UIViewController, UITableViewDelegate, UITableViewDataSource, SettingViewDelegate {
+class PaperSetup: UIViewController, PaperSizeDelegate, PaperTypeDelegate {
 
-  //PaperSizeProtocol, PaperTypeProtocol
+  //PaperSizeProtocol, PaperTypeProtocol, UITableViewDelegate, UITableViewDataSource, SettingViewDelegate
   
   @IBOutlet weak var paperSizeButton: UIButton!
   @IBOutlet weak var paperTypeButton: UIButton!
@@ -19,6 +19,8 @@ class PaperSetup: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   @IBOutlet weak var viewPaperSize: UIView!
   @IBOutlet weak var viewPaperType: UIView!
   @IBOutlet weak var tblPaperSetup: UITableView!
+  @IBOutlet weak var lblPaperSize: UILabel!
+  @IBOutlet weak var lblPaperType: UILabel!
   
   var alert: UIAlertController!
   var alert2: UIAlertController!
@@ -36,6 +38,13 @@ class PaperSetup: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   let listPaperSettings: [[String]] = [["Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "4x6 in.", "3x5 in.", "5x7 in.(2L)", "3.5x5 in.(L)", "Hagaki", "10 Envelope", "DL Envelope", "C5 Envelope"], ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"]]
   
+  let listPaperSize = ["Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "4x6 in.", "3x5 in.", "5x7 in.(2L)", "3.5x5 in.(L)", "Hagaki", "10 Envelope", "DL Envelope", "C5 Envelope"]
+  
+  let listPaperType = ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"]
+  
+  var table: PaperSizeViewer!
+  var table2: PaperTypeViewer!
+  
   // navigation bar
   override func viewWillAppear(_ animated: Bool) {
     self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
@@ -51,80 +60,63 @@ class PaperSetup: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     saveSettingButton.layer.cornerRadius = 25
     saveSettingButton.layer.borderWidth = 2
     saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
-
-    tblPaperSetup.delegate = self
-    tblPaperSetup.dataSource = self
+    
+    //paper size
+    selectedPaperSize = getSaveIndexPaperSize() ?? 0
+    lblPaperSize.text = listPaperSize[selectedPaperSize]
+    
+    //paper type
+    selectedPaperType = getSaveIndexPaperType() ?? 0
+    lblPaperType.text = listPaperType[selectedPaperType]
   }
   
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return listMainPaperSetup.count
+  func getSaveIndexPaperSize() -> Int?{
+    return defaults.integer(forKey: sizeKey)
   }
   
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 60
+  func getSaveIndexPaperType() -> Int?{
+    return defaults.integer(forKey: typeKey)
   }
   
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = Bundle.main.loadNibNamed("CustomCopySecondCell", owner: self, options: nil)?.first as! CustomCopySecondCell
-   
-    cell.settingname.text = listMainPaperSetup[indexPath.row]
-    cell.settingname.textColor = .white
-    cell.selectedsetting.text = listPaperSettings[indexPath.row][0]
-    //[getSavedData(receiver: indexPath.row) ?? 0]
-    
-    
-    let roundView: UIView = UIView(frame: CGRect(x: 0, y: 5, width: self.view.frame.size.width, height: (cell.contentView.frame.size.height)))
-    roundView.layer.masksToBounds = true
-    roundView.backgroundColor = UIColor(red: 127/255, green: 127/255, blue: 127/255, alpha: 1)
-    roundView.layer.cornerRadius = 2.0
-    
-    cell.contentView.addSubview(roundView)
-    cell.contentView.sendSubview(toBack: roundView)
-    return cell
-  }
   
-  var selected: [Int] = [0,0]
   
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let table: SettingsViewer = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y: UIScreen.main.bounds.minY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+  var selectedPaperSize: Int = 0
+  var selectedPaperType: Int = 0
+  
+  @IBAction func paperSizeAction(_ sender: Any) {
+    table = PaperSizeViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y: UIScreen.main.bounds.minY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     
-    for i in 0..<2{
-      if indexPath.row == i{
-        table.preselect = selected[i]
-      }
-    }
-    
-    table.propertyIndex = indexPath
-    table.data = listPaperSettings[indexPath.row]
-    table.sendDataDelegate = self
-    tableView.deselectRow(at: indexPath, animated: false)
+    table.preselect = selectedPaperSize
+    table.data = listPaperSize
+    table.delegate = self
     self.view.window?.addSubview(table)
   }
   
-  var index1: Int!
-  var recieve1: Int!
-  var result: String! = ""
+  @IBAction func paperTypeAction(_ sender: Any) {
+    table2 = PaperTypeViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y: UIScreen.main.bounds.minY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+    table2.preselect = selectedPaperType
+    table2.data = listPaperType
+    table2.delegate = self
+    self.view.window?.addSubview(table2)
+  }
   
-  func sendData(index: Int, receiver: IndexPath){
-    
-    switch index {
-    case 1:
-      defaults.integer(forKey: sizeKey)
-    case 2:
-      defaults.integer(forKey: typeKey)
-    default:
-      break
-    }
-    
-    selected[receiver.row] = index
-    index1 = index
-    recieve1 = receiver.row
-    
-    let cell = self.tblPaperSetup.cellForRow(at: receiver) as! CustomCopySecondCell
-    cell.selectedsetting.text = listPaperSettings[receiver.row][index]
+  let isPaperSize: Bool! = true
+  let isPaperType: Bool! = true
+  
+  func sendPaperSizeData(index: Int){
+      selectedPaperSize = index
+      lblPaperSize.text = listPaperSize[index]
+  }
+  
+  func sendPaperTypeData(index: Int) {
+    selectedPaperType = index
+    lblPaperType.text = listPaperType[index]
   }
   
   @IBAction func saveSettingActionButton(_ sender: UIButton) {
+    
+    self.defaults.set(selectedPaperSize, forKey: sizeKey)
+    self.defaults.set(selectedPaperType, forKey: typeKey)
     
     alert = UIAlertController(title: "Setting... \n\n", message: "", preferredStyle: .alert)
     
@@ -257,4 +249,57 @@ class PaperSetup: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 //
 //    return view
 //  }
+
+// tblPaperSetup.delegate = self
+// tblPaperSetup.dataSource = self
+
+//func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//  return listMainPaperSetup.count
+//}
+//
+//func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//  return 60
+//}
+//
+//func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//  let cell = Bundle.main.loadNibNamed("CustomCopySecondCell", owner: self, options: nil)?.first as! CustomCopySecondCell
+//  
+//  cell.settingname.text = listMainPaperSetup[indexPath.row]
+//  cell.settingname.textColor = .white
+//  cell.selectedsetting.text = listPaperSettings[indexPath.row][0]
+//  //[getSavedData(receiver: indexPath.row) ?? 0]
+//  
+//  
+//  let roundView: UIView = UIView(frame: CGRect(x: 0, y: 5, width: self.view.frame.size.width, height: (cell.contentView.frame.size.height)))
+//  roundView.layer.masksToBounds = true
+//  roundView.backgroundColor = UIColor(red: 127/255, green: 127/255, blue: 127/255, alpha: 1)
+//  roundView.layer.cornerRadius = 2.0
+//  
+//  cell.contentView.addSubview(roundView)
+//  cell.contentView.sendSubview(toBack: roundView)
+//  return cell
+//}
+//
+//var selected: [Int] = [0,0]
+//
+//func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//  let table: SettingsViewer = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y: UIScreen.main.bounds.minY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+//  
+//  for i in 0..<2{
+//    if indexPath.row == i{
+//      table.preselect = selected[i]
+//    }
+//  }
+//  
+//  table.propertyIndex = indexPath
+//  table.data = listPaperSettings[indexPath.row]
+//  table.sendDataDelegate = self
+//  tableView.deselectRow(at: indexPath, animated: false)
+//  self.view.window?.addSubview(table)
+//}
+//
+//var index1: Int!
+//var recieve1: Int!
+//var result: String! = ""
+
 

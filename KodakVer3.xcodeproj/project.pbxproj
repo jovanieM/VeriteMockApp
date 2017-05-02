@@ -50,6 +50,8 @@
 		107B37B91E5FDF08007CA90C /* RestoreFactoryDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37B21E5FDF08007CA90C /* RestoreFactoryDefault.swift */; };
 		107B37BB1E5FDF1D007CA90C /* SoftwareUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B37BA1E5FDF1D007CA90C /* SoftwareUpdate.swift */; };
 		107DE2A51E6EB9B10094FA0B /* PopUpDirectConnectTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107DE2A41E6EB9B10094FA0B /* PopUpDirectConnectTime.swift */; };
+		108627B51EB88C4E0022FDF5 /* PaperTypeViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108627B31EB88C4E0022FDF5 /* PaperTypeViewer.swift */; };
+		108627B61EB88C4E0022FDF5 /* PaperSizeViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108627B41EB88C4E0022FDF5 /* PaperSizeViewer.swift */; };
 		1093B8241E8A58C5000E8670 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1093B8231E8A58C5000E8670 /* Images-2.xcassets */; };
 		109A952F1E729575004D28FD /* NetworkAndPasswordHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109A952D1E729575004D28FD /* NetworkAndPasswordHelp.swift */; };
 		109A95301E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109A952E1E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift */; };
@@ -219,6 +221,8 @@
 		107B37B21E5FDF08007CA90C /* RestoreFactoryDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreFactoryDefault.swift; sourceTree = "<group>"; };
 		107B37BA1E5FDF1D007CA90C /* SoftwareUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareUpdate.swift; sourceTree = "<group>"; };
 		107DE2A41E6EB9B10094FA0B /* PopUpDirectConnectTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpDirectConnectTime.swift; sourceTree = "<group>"; };
+		108627B31EB88C4E0022FDF5 /* PaperTypeViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperTypeViewer.swift; sourceTree = "<group>"; };
+		108627B41EB88C4E0022FDF5 /* PaperSizeViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperSizeViewer.swift; sourceTree = "<group>"; };
 		1093B8231E8A58C5000E8670 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		1093B8251E8A5C4E000E8670 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		109A952D1E729575004D28FD /* NetworkAndPasswordHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAndPasswordHelp.swift; sourceTree = "<group>"; };
@@ -558,6 +562,8 @@
 		103303421E52ADEE00E7D24C /* PrinterUtilityStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				108627B31EB88C4E0022FDF5 /* PaperTypeViewer.swift */,
+				108627B41EB88C4E0022FDF5 /* PaperSizeViewer.swift */,
 				10F496991E6D350800E10DA1 /* PopUpPaperTypeVC.swift */,
 				1073B5771E669801000C60EB /* CartridgeSetupHelp.swift */,
 				1073B5781E669801000C60EB /* CartridgeSetupScanning.swift */,
@@ -916,6 +922,7 @@
 				10F4969A1E6D350800E10DA1 /* PopUpPaperTypeVC.swift in Sources */,
 				10CD81821E567A22001815A1 /* IPAddress.swift in Sources */,
 				11715AA61E5AC413005367B9 /* PhotoAssetCollection.swift in Sources */,
+				108627B51EB88C4E0022FDF5 /* PaperTypeViewer.swift in Sources */,
 				115DE3331EB189DD00275720 /* CropperView.swift in Sources */,
 				107B37B41E5FDF08007CA90C /* CleanPrinthead.swift in Sources */,
 				107B37A61E5FDE30007CA90C /* GCPEnableDisable.swift in Sources */,
@@ -974,6 +981,7 @@
 				1141592C1E83C33F007276CA /* PrintQueueViewController.swift in Sources */,
 				11699E621E8A464600F56A3E /* PrintData.swift in Sources */,
 				107B37B61E5FDF08007CA90C /* PaperSetup.swift in Sources */,
+				108627B61EB88C4E0022FDF5 /* PaperSizeViewer.swift in Sources */,
 				11DF48201E36E46A0012AD60 /* FirstCell.swift in Sources */,
 				11D431DD1EB038DE00BEC4A0 /* ScanPhotoSendActions.swift in Sources */,
 				1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */,

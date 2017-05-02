@@ -45,44 +45,30 @@ class DirectConnectTime: UIViewController, SetupViewerDelegate{
     
     loadAlerts()
     
-    //    tblDirect.delegate = self
-    //    tblDirect.dataSource = self
-    
     //button
     saveSettingButton.layer.cornerRadius = 25
     saveSettingButton.layer.borderWidth = 2
     saveSettingButton.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
     
-    //directTimeLabel.setTitle(directTimeList[0].description, for: .normal)
-    directLabel.text = directTimeList[0]
-    
-    let index: Int? = directDefaults.object(forKey: directKey) as? Int
-    if let x = index {
-      directLabel.text = directTimeList[x]
-    }
-//    let name1: String? = directDefaults.object(forKey: directKey) as? String
-//    if let toDisplay = name1{
-//      directLabel.text = toDisplay
-//      
-//    }
+    selectedSetting = getSaveIndex() ?? 0
+    directLabel.text = directTimeList[selectedSetting]
   }
   
-  var selectedSetting: Int = 0 
+  func getSaveIndex() -> Int?{
+    return directDefaults.integer(forKey: directKey)
+  }
   
-  func sendData(index: Int, receiver: Int) {
-    //setData(value: index, receiverIndex: receiver.row)
-    
+  var selectedSetting: Int = 0
+  
+  func sendData(index: Int) {
     selectedSetting = index
     directLabel.text = directTimeList[index]
-    
   }
   
   @IBAction func btnSelectedSettings(_ sender: Any) {
     table = SetupViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y: UIScreen.main.bounds.minY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     table.preselect = selectedSetting
-    table.propertyIndex = selectedSetting
     table.data = directTimeList
-    
     table.delegate = self
     self.view.window?.addSubview(table)
   }
@@ -152,69 +138,3 @@ class DirectConnectTime: UIViewController, SetupViewerDelegate{
     }
   }
 }
-
-
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if segue.identifier == "popUpDirectConnect"{
-//      let vc: PopUpDirectConnectTime = segue.destination as! PopUpDirectConnectTime
-//      vc.delegate = self
-//    }
-//  }
-
-//  func setDataFromDisplay(dataSent: String){
-//    self.directConnectTimeData = dataSent
-//  }
-
-
-//  func setTableRowData(dataRow: String) {
-//    directLabel.text = dataRow
-//  }
-
-//  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//    return mainLabel.count
-//  }
-//
-//  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//    return 50
-//  }
-
-//  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//    let cell = Bundle.main.loadNibNamed("CustomCopySecondCell", owner: self, options: nil)?.first as! CustomCopySecondCell
-//
-//    cell.settingname.textColor = .white
-//    cell.settingname.text = mainLabel[indexPath.row]
-//    cell.contentView.backgroundColor = UIColor(red: 127/255, green: 127/255, blue: 127/255, alpha: 1)
-//    cell.selectedsetting.textColor = UIColor(red: 191/255, green: 191/255, blue: 191/255, alpha: 1)
-//
-//    //cell.selectedsetting.text = directTimeList[indexPath.row][0]
-//    //[0]
-//    //[getSavedData(receiver: indexPath.row) ?? 0]
-//    return cell
-//  }
-
-//  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    table = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y: UIScreen.main.bounds.minY, width: UIScreen.main.bounds.width , height: UIScreen.main.bounds.height))
-//
-//
-//    table.preselect = selectedSetting[indexPath.row]
-//    // selectedSetting[indexPath.row]
-//    //  getSavedData(receiver: indexPath.row)
-//    table.propertyIndex = indexPath
-//    table.data = directTimeList[indexPath.row]
-//
-//    table.sendDataDelegate = self
-//    tableView.deselectRow(at: indexPath, animated: false)
-//    self.view.window?.addSubview(table)
-//  }
-
-//name = directDefaults.object(forKey: directKey) as! String!
-
-//directTimeLabel.setTitle(name, for: .normal)
-//  func getSavedData(receiver: Int) -> Int?{
-//    return directDefaults.integer(forKey: directKey)
-//  }
-//
-//  func setData(value: Int, receiverIndex: Int){
-//    //directDefaults.set(value, forKey: directKey)
-//
-//  }

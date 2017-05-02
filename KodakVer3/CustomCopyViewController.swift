@@ -15,9 +15,9 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
   @IBOutlet weak var customcopybutton: UIButton!
   @IBOutlet weak var myScrollview: UIScrollView!
   
-  var mainLabels: [String] = ["Color :", "Paper Size :", "Paper Type :", "Quality :", "Copy Resize :" ,"Pages per Side :", "Brightness :"]
+  var mainLabels: [String] = ["Advanced Settings", "Color :", "Paper Size :", "Paper Type :", "Quality :", "Copy Resize :" ,"Pages per Side :", "Brightness :"]
   
-  var subLabels: [[String]] = [["Color" ,"Black and White"], ["Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "4x6 in.", "3x5 in.", "5x7 in. (2L)", "3.5x5 in.(L)", "Hagaki", "10 Envelope", "DL Envelope", "C5 Envelope"], ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"], ["Text", "Text/Photo", "Photo", "Draft"], ["100% Default", "130% Letter->Legal", "104% Executive->Letter", "97% Letter->A4", "93% A4->Letter", "85% Letter->Executive", "Custom"] ,["One", "2 in 1 Portrait", "2 in 1 Landscape", "4 in 1 Portrait", "4 in 1 Landscape"], ["dummybrightness"]]
+  var subLabels: [[String]] = [["Dummy"], ["Color" ,"Black and White"], ["Letter", "Legal", "Executive", "Statement", "A4", "JIS B5", "A5", "A6", "4x6 in.", "3x5 in.", "5x7 in. (2L)", "3.5x5 in.(L)", "Hagaki", "10 Envelope", "DL Envelope", "C5 Envelope"], ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"], ["Text", "Text/Photo", "Photo", "Draft"], ["100% Default", "130% Letter->Legal", "104% Executive->Letter", "97% Letter->A4", "93% A4->Letter", "85% Letter->Executive", "Custom"] ,["One", "2 in 1 Portrait", "2 in 1 Landscape", "4 in 1 Portrait", "4 in 1 Landscape"], ["dummybrightness"]]
   
   var perSideArrays: [(String, String)] = [("One", "one.png"), ("2 in 1 Portrait", "two_portrait.png"), ("2 in 1 Landscape", "two_landscape.png"), ("4 in 1 Portrait", "four_portrait.png"), ("4 in 1 Landscape", "four_landscape.png")]
   
@@ -73,7 +73,8 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     customTable.backgroundColor = .black
     customTable.tableFooterView = UIView(frame: .zero)
     customTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: customTable.frame.width, height: kSeparatorHeight))
-    customTable.tableHeaderView?.backgroundColor = .lightGray
+    //customTable.tableHeaderView?.backgroundColor = .lightGray
+    
     
   }
   
@@ -117,14 +118,20 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
   // display the corresponding custom copy settings table
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    if indexPath.row == 6{
+    if indexPath.row == 7{
       let cell = Bundle.main.loadNibNamed("BrightnessTableViewCell", owner: self, options: nil)?.first as! BrightnessTableViewCell
       //cell.brightnessbar.isContinuous = true
       cell.brightnessbar.setThumbImage(UIImage(named: "seekbar_thumb"), for: .normal)
       cell.selectionStyle = .none
       return cell
       
-    }else if indexPath.row == 4{
+    }else if indexPath.row == 0{
+      let cell4 = Bundle.main.loadNibNamed("CustomCopySecondCell", owner: self, options: nil)?.first as! CustomCopySecondCell
+      cell4.settingname.text = mainLabels[indexPath.row]
+      cell4.selectedsetting.isHidden = true
+      
+      return cell4
+    }else if indexPath.row == 5{
       let cell2 = Bundle.main.loadNibNamed("CustomCopyThirdCell", owner: self, options: nil)?.first as! CustomCopyThirdCell
       
       cell2.sizeToFit()
@@ -149,7 +156,7 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    if indexPath.row == 4{
+    if indexPath.row == 5{
       return 88
     }
     return 44
@@ -165,10 +172,11 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-    if indexPath.row < 5{
+    if indexPath.row == 0{
+    } else if indexPath.row < 6{
       table  = SettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
       
-      for i in 0..<5{
+      for i in 1..<6{
         if indexPath.row == i{
           table.preselect = selectedSettings[i]
         }
@@ -182,12 +190,11 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
       self.view.window?.addSubview(table)
       
       
-    }else if indexPath.row == 5{
+    }else if indexPath.row == 6{
       table2 = PagesPerSideViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
       table2.preselect = selectedSettings[indexPath.row]
       table2.propertyIndex = indexPath
       table2.data = perSideArrays
-      
       
       table2.sendDataDelegate = self
       tableView.deselectRow(at: indexPath, animated: false)
@@ -200,8 +207,8 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
     //setData(value: index, receiverIndex: receiver.row)
     selectedSettings[receiver.row] = index
     
-    if receiver.row == 4 {
-      print("index 4")
+    if receiver.row == 5 {
+      print("index 5")
       let cell = self.customTable.cellForRow(at: receiver) as! CustomCopyThirdCell
       let str = subLabels[receiver.row][index]
       
@@ -210,9 +217,9 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         cell.tfCustomResize.isHidden = false
         cell.lblPercent.isHidden = false
         cell.stpCustomResize.isHidden = false
-        print("index 4: \(str)")
+        print("index 5: \(str)")
         
-        let i = IndexPath(item: 5, section: 0)
+        let i = IndexPath(item: 6, section: 0)
         self.customTable.reloadRows(at: [i], with: .automatic)
         
         let alert = UIAlertController(title: "Pages per Side returned to One.", message: nil, preferredStyle: .actionSheet)
@@ -227,9 +234,9 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         cell.tfCustomResize.isHidden = true
         cell.lblPercent.isHidden = true
         cell.stpCustomResize.isHidden = true
-        print("index 4: \(str)")
+        print("index 5: \(str)")
         
-        let indexPath = IndexPath(item: 5, section: 0)
+        let indexPath = IndexPath(item: 6, section: 0)
         self.customTable.reloadRows(at: [indexPath], with: .automatic)
         
         let alert = UIAlertController(title: "Pages per Side returned to One.", message: nil, preferredStyle: .actionSheet)
@@ -247,7 +254,7 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         cell.stpCustomResize.isHidden = true
         print("index 4: \(str)")
         
-        let indexPath = IndexPath(item: 5, section: 0)
+        let indexPath = IndexPath(item: 6, section: 0)
         self.customTable.reloadRows(at: [indexPath], with: .automatic)
         
         let alert = UIAlertController(title: "Pages per Side returned to One.", message: nil, preferredStyle: .actionSheet)
@@ -266,8 +273,8 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         print("index 4: \(str)")
       }
       
-    }else if receiver.row == 5{
-      print("index 5")     
+    }else if receiver.row == 6{
+      print("index 6")
       let cell2 = self.customTable.cellForRow(at: receiver) as! CustomCopySecondCell
       let str1 = subLabels[receiver.row][index]
       
@@ -278,7 +285,7 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
         print("\(str1)")
         cell2.selectedsetting.text = str1
         
-        let indexPath = IndexPath(item: 4, section: 0)
+        let indexPath = IndexPath(item: 5, section: 0)
         self.customTable.reloadRows(at: [indexPath], with: .automatic)
         
         let alert = UIAlertController(title: "Resize returned to 100%.", message: nil, preferredStyle: .actionSheet)

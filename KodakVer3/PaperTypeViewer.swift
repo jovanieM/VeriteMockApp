@@ -1,20 +1,20 @@
 //
-//  SetupViewer.swift
+//  PaperTypeViewer.swift
 //  KodakVer3
 //
-//  Created by anarte on 26/04/2017.
+//  Created by anarte on 02/05/2017.
 //  Copyright © 2017 jmolas. All rights reserved.
 //
 
 import UIKit
 
-protocol SetupViewerDelegate: class{
-  func sendData(index: Int)
+protocol PaperTypeDelegate: class{
+  func sendPaperTypeData(index: Int)
 }
 
-class SetupViewer: UIView, UITableViewDelegate, UITableViewDataSource{
+class PaperTypeViewer: UIView, UITableViewDelegate, UITableViewDataSource{
   
-  var delegate: SetupViewerDelegate?
+  var delegate: PaperTypeDelegate?
   var width: CGFloat!
   var preselect: Int?
   var klass: UIViewController?{
@@ -73,7 +73,7 @@ class SetupViewer: UIView, UITableViewDelegate, UITableViewDataSource{
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    delegate?.sendData(index: indexPath.row)
+    delegate?.sendPaperTypeData(index: indexPath.row)
     preselect = indexPath.row
     self.removeFromSuperview()
   }
@@ -83,3 +83,4 @@ class SetupViewer: UIView, UITableViewDelegate, UITableViewDataSource{
     self.removeFromSuperview()
   }
 }
+
