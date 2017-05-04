@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000F6001E52CDB700DE4B3C /* InkLevel.swift */; };
+		10153EB01EBAFE260012EC2D /* StartSoftwareUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153EAF1EBAFE260012EC2D /* StartSoftwareUpdate.swift */; };
 		1033031A1E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303191E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard */; };
 		1033031D1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */; };
 		103303201E52AC2500E7D24C /* InkLevelStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033031F1E52AC2500E7D24C /* InkLevelStoryboard.storyboard */; };
@@ -179,6 +180,7 @@
 
 /* Begin PBXFileReference section */
 		1000F6001E52CDB700DE4B3C /* InkLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InkLevel.swift; sourceTree = "<group>"; };
+		10153EAF1EBAFE260012EC2D /* StartSoftwareUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartSoftwareUpdate.swift; sourceTree = "<group>"; };
 		103303191E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeviceSettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsConditionsStoryboard.storyboard; sourceTree = "<group>"; };
 		1033031F1E52AC2500E7D24C /* InkLevelStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InkLevelStoryboard.storyboard; sourceTree = "<group>"; };
@@ -585,6 +587,7 @@
 		103303451E52AE1200E7D24C /* SoftwareUpdate */ = {
 			isa = PBXGroup;
 			children = (
+				10153EAF1EBAFE260012EC2D /* StartSoftwareUpdate.swift */,
 				107B37BA1E5FDF1D007CA90C /* SoftwareUpdate.swift */,
 				103303461E52AE2200E7D24C /* SoftwareUpdateStoryboard.storyboard */,
 			);
@@ -931,6 +934,7 @@
 				1173DCFD1EA7647B00C31533 /* ButtonActions.swift in Sources */,
 				1116A3271E3043AC0038F2E5 /* MyUITableViewController.swift in Sources */,
 				115DE32F1EB180BB00275720 /* CustomCopyThirdCell.swift in Sources */,
+				10153EB01EBAFE260012EC2D /* StartSoftwareUpdate.swift in Sources */,
 				105FAB181E55794000A180E8 /* SecurityType.swift in Sources */,
 				10A4E08F1E604010007724EF /* DirectConnectTime.swift in Sources */,
 				1073B5791E669801000C60EB /* CartridgeSetupHelp.swift in Sources */,
