@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000F6001E52CDB700DE4B3C /* InkLevel.swift */; };
 		10153EB01EBAFE260012EC2D /* StartSoftwareUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153EAF1EBAFE260012EC2D /* StartSoftwareUpdate.swift */; };
+		102E6A0B1EC3E4DF00E67685 /* FacebookImageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102E6A071EC3E4DF00E67685 /* FacebookImageCollection.swift */; };
+		102E6A0C1EC3E4DF00E67685 /* Facebook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 102E6A081EC3E4DF00E67685 /* Facebook.storyboard */; };
+		102E6A0D1EC3E4DF00E67685 /* FacebookPhotoAssetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102E6A091EC3E4DF00E67685 /* FacebookPhotoAssetCollection.swift */; };
+		102E6A0E1EC3E4DF00E67685 /* FacebookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102E6A0A1EC3E4DF00E67685 /* FacebookCollectionViewCell.swift */; };
 		1033031A1E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103303191E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard */; };
 		1033031D1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */; };
 		103303201E52AC2500E7D24C /* InkLevelStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1033031F1E52AC2500E7D24C /* InkLevelStoryboard.storyboard */; };
@@ -181,6 +185,10 @@
 /* Begin PBXFileReference section */
 		1000F6001E52CDB700DE4B3C /* InkLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InkLevel.swift; sourceTree = "<group>"; };
 		10153EAF1EBAFE260012EC2D /* StartSoftwareUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartSoftwareUpdate.swift; sourceTree = "<group>"; };
+		102E6A071EC3E4DF00E67685 /* FacebookImageCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookImageCollection.swift; sourceTree = "<group>"; };
+		102E6A081EC3E4DF00E67685 /* Facebook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Facebook.storyboard; sourceTree = "<group>"; };
+		102E6A091EC3E4DF00E67685 /* FacebookPhotoAssetCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookPhotoAssetCollection.swift; sourceTree = "<group>"; };
+		102E6A0A1EC3E4DF00E67685 /* FacebookCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookCollectionViewCell.swift; sourceTree = "<group>"; };
 		103303191E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeviceSettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsConditionsStoryboard.storyboard; sourceTree = "<group>"; };
 		1033031F1E52AC2500E7D24C /* InkLevelStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InkLevelStoryboard.storyboard; sourceTree = "<group>"; };
@@ -405,6 +413,10 @@
 		103303211E52AC2900E7D24C /* PrintPhotoStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				102E6A071EC3E4DF00E67685 /* FacebookImageCollection.swift */,
+				102E6A081EC3E4DF00E67685 /* Facebook.storyboard */,
+				102E6A091EC3E4DF00E67685 /* FacebookPhotoAssetCollection.swift */,
+				102E6A0A1EC3E4DF00E67685 /* FacebookCollectionViewCell.swift */,
 				103303221E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard */,
 				11F865951E530B1D00326907 /* PrintPhotoHomeVC.swift */,
 				11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */,
@@ -872,6 +884,7 @@
 				11699E601E8A463200F56A3E /* PrintQueueTableViewCell.xib in Resources */,
 				11C657D11EAECF01008593BF /* ScanPhotoSettingsPreview.xib in Resources */,
 				10DE830A1E72A935001F6FDA /* ItemsTableViewCell.xib in Resources */,
+				102E6A0C1EC3E4DF00E67685 /* Facebook.storyboard in Resources */,
 				1033033E1E52ADC100E7D24C /* GCPStoryboard.storyboard in Resources */,
 				1033031D1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard in Resources */,
 				103303441E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard in Resources */,
@@ -928,6 +941,7 @@
 				108627B51EB88C4E0022FDF5 /* PaperTypeViewer.swift in Sources */,
 				115DE3331EB189DD00275720 /* CropperView.swift in Sources */,
 				107B37B41E5FDF08007CA90C /* CleanPrinthead.swift in Sources */,
+				102E6A0D1EC3E4DF00E67685 /* FacebookPhotoAssetCollection.swift in Sources */,
 				107B37A61E5FDE30007CA90C /* GCPEnableDisable.swift in Sources */,
 				107B37A81E5FDE30007CA90C /* GCPRegisterUnregister.swift in Sources */,
 				10EFBE541E9CC0A800235DBF /* ReturnAddressViewController.swift in Sources */,
@@ -946,6 +960,7 @@
 				105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */,
 				104F1D391E6575AC00532AC3 /* CartridgeSetupPrinting.swift in Sources */,
 				1141592F1E83C33F007276CA /* SettingsObject.swift in Sources */,
+				102E6A0E1EC3E4DF00E67685 /* FacebookCollectionViewCell.swift in Sources */,
 				114B30D81DF92C44008A57F1 /* PrintPhotoVC.swift in Sources */,
 				1173DCFF1EA7740500C31533 /* FileNameGenerator.swift in Sources */,
 				115DE32B1EB1809200275720 /* AddressSizeSettingsViewer.swift in Sources */,
@@ -958,6 +973,7 @@
 				10D36C681E5FE0F500D79664 /* StandardCopyViewController.swift in Sources */,
 				11699E5E1E8A462700F56A3E /* PrintQueueTableViewCell.swift in Sources */,
 				114B30DA1DF92D78008A57F1 /* QuickDetailSelector.swift in Sources */,
+				102E6A0B1EC3E4DF00E67685 /* FacebookImageCollection.swift in Sources */,
 				107DE2A51E6EB9B10094FA0B /* PopUpDirectConnectTime.swift in Sources */,
 				11CB55201E97145B00EAC722 /* ScanSettingsPreview.swift in Sources */,
 				11A62A5D1E31AB2D00F12289 /* MyNavBar.swift in Sources */,

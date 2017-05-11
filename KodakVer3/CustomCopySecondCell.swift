@@ -15,5 +15,11 @@ class CustomCopySecondCell: UITableViewCell {
     
     @IBOutlet weak var selectedsetting: UILabel!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        settingname.text = nil
+        selectedsetting.text = nil
+    }
+    
     
 }

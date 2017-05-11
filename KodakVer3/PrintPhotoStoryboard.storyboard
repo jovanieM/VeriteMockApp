@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c1K-ws-oLf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c1K-ws-oLf">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -75,6 +75,9 @@
                                     <constraint firstAttribute="width" secondItem="2OG-Fy-Hmg" secondAttribute="height" multiplier="40:7" id="sn9-8O-CU7"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="selectmenu"/>
+                                <connections>
+                                    <action selector="btnFacebook:" destination="c1K-ws-oLf" eventType="touchUpInside" id="K66-qb-JZT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbL-9Z-keU">
                                 <rect key="frame" x="0.0" y="211" width="320" height="56"/>
