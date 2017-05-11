@@ -194,11 +194,7 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
             tableView.deselectRow(at: indexPath, animated: false)
             self.view.window?.addSubview(table2)
         }
-        
-        
     }
-    
-    
     
     func sendData(index: Int, receiver: IndexPath) {
         
@@ -215,39 +211,6 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
                 cell.lblPercent.isHidden = true
                 cell.stpCustomResize.isHidden = true
 
-//                if selectedSettings[6] != 0 {
-//                    let x = IndexPath(item: 6, section: 0)
-//                    let cell = self.customTable.cellForRow(at: x) as! CustomCopySecondCell
-//                    selectedSettings[6] = 0
-//                    cell.selectedsetting.text = subLabels[6][0]
-//                    
-//                    //let alert = UIAlertController(title: "Pages per Side returned to One", message: nil, preferredStyle: .actionSheet)
-//                    //present(alert, animated: true, completion: nil)
-//                    
-//                    let alert = UIView(frame: CGRect(x: 10, y: 230, width: 280, height: 30))
-//                    alert.backgroundColor = UIColor.gray
-//                    alert.layer.cornerRadius = 15
-//                    alert.layer.borderWidth = 2
-//                    alert.layer.borderColor = UIColor.white.cgColor
-//                    
-//                    let text = UILabel(frame: CGRect(x: 15, y: 5, width: 50, height: 21))
-//                    //text.center = alert.convert(alert.center, from: text)
-//                    text.text = "Pages per Side returned to One."
-//                    //text.sizeToFitHeight()
-//                    text.sizeToFit()
-//                    text.font = UIFont(name: "", size: 9)
-//                    text.textColor = UIColor.black
-//                    text.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//                    alert.addSubview(text)
-//                    self.view.addSubview(alert)
-//                    
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-//                        //alert.dismiss(animated: true, completion: nil)
-//                        alert.removeFromSuperview()
-//                    })
-//                }else{
-//                    print("ok")
-//                }
             }else{
                 cell.selectedsettingLabel.text = str
                 cell.tfCustomResize.isHidden = false
@@ -576,51 +539,3 @@ extension String{
         return substring(from: fromIndex)
     }
 }
-
-
-//if index == 0{
-//    //let ind = str.index(str.startIndex, offsetBy: 5)
-//    cell.selectedsettingLabel.text = str  //.substring(to: ind)
-//    cell.tfCustomResize.isHidden = true
-//    cell.lblPercent.isHidden = true
-//    cell.stpCustomResize.isHidden = true
-//    print("Copy Resize: \(str) \n \(index)")
-//    
-//}else if index == 1 || index == 2{
-//    //let ind = str.index(str.startIndex, offsetBy: 5)
-//    cell.selectedsettingLabel.text = str //.substring(to: ind)
-//    cell.tfCustomResize.isHidden = true
-//    cell.lblPercent.isHidden = true
-//    cell.stpCustomResize.isHidden = true
-//    print("Copy Resize: \(str) \n \(index)")
-//    //                let i = IndexPath(item: 6, section: 0)
-//    //
-//    //                self.customTable.reloadRows(at: [i], with: .automatic)
-//    //                print("\(i)")
-//    
-//}else if index == 3 || index == 4 || index == 5{
-//    //let ind = str.index(str.startIndex, offsetBy: 4)
-//    cell.selectedsettingLabel.text = str //.substring(to: ind)
-//    cell.tfCustomResize.isHidden = true
-//    cell.lblPercent.isHidden = true
-//    cell.stpCustomResize.isHidden = true
-//    print("Copy Resize: \(str)")
-//    
-//    //                let i = IndexPath(item: 6, section: 0)
-//    //                self.customTable.reloadRows(at: [i], with: .automatic)
-//    //                print("\(i)")
-//}
-//
-//switch index{
-//case 6:
-//    cell.selectedsettingLabel.text = str
-//    cell.tfCustomResize.isHidden = false
-//    cell.lblPercent.isHidden = false
-//    cell.stpCustomResize.isHidden = false
-//    print("Copy Resize: \(str)")
-//    
-//default:
-//    break
-//}
-//
-//
