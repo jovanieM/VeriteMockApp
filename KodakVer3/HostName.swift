@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HostName: UIViewController {
+class HostName: UIViewController{
   
   @IBOutlet weak var saveSettingButton: UIButton!
   @IBOutlet weak var hostNameText: UITextField!

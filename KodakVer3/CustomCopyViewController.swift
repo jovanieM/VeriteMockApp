@@ -215,44 +215,78 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
                 cell.lblPercent.isHidden = true
                 cell.stpCustomResize.isHidden = true
 
-                if selectedSettings[6] != 0 {
-                    let x = IndexPath(item: 6, section: 0)
-                    let cell = self.customTable.cellForRow(at: x) as! CustomCopySecondCell
-                    selectedSettings[6] = 0
-                    cell.selectedsetting.text = subLabels[6][0]
-                    
-                    //let alert = UIAlertController(title: "Pages per Side returned to One", message: nil, preferredStyle: .actionSheet)
-                    //present(alert, animated: true, completion: nil)
-                    
-                    let alert = UIView(frame: CGRect(x: 10, y: 230, width: 280, height: 30))
-                    alert.backgroundColor = UIColor.gray
-                    alert.layer.cornerRadius = 15
-                    alert.layer.borderWidth = 2
-                    alert.layer.borderColor = UIColor.white.cgColor
-                    
-                    let text = UILabel(frame: CGRect(x: 15, y: 5, width: 50, height: 21))
-                    //text.center = alert.convert(alert.center, from: text)
-                    text.text = "Pages per Side returned to One."
-                    //text.sizeToFitHeight()
-                    text.sizeToFit()
-                    text.font = UIFont(name: "", size: 9)
-                    text.textColor = UIColor.black
-                    text.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                    alert.addSubview(text)
-                    self.view.addSubview(alert)
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-                        //alert.dismiss(animated: true, completion: nil)
-                        alert.removeFromSuperview()
-                    })
-                }else{
-                    print("ok")
-                }
+//                if selectedSettings[6] != 0 {
+//                    let x = IndexPath(item: 6, section: 0)
+//                    let cell = self.customTable.cellForRow(at: x) as! CustomCopySecondCell
+//                    selectedSettings[6] = 0
+//                    cell.selectedsetting.text = subLabels[6][0]
+//                    
+//                    //let alert = UIAlertController(title: "Pages per Side returned to One", message: nil, preferredStyle: .actionSheet)
+//                    //present(alert, animated: true, completion: nil)
+//                    
+//                    let alert = UIView(frame: CGRect(x: 10, y: 230, width: 280, height: 30))
+//                    alert.backgroundColor = UIColor.gray
+//                    alert.layer.cornerRadius = 15
+//                    alert.layer.borderWidth = 2
+//                    alert.layer.borderColor = UIColor.white.cgColor
+//                    
+//                    let text = UILabel(frame: CGRect(x: 15, y: 5, width: 50, height: 21))
+//                    //text.center = alert.convert(alert.center, from: text)
+//                    text.text = "Pages per Side returned to One."
+//                    //text.sizeToFitHeight()
+//                    text.sizeToFit()
+//                    text.font = UIFont(name: "", size: 9)
+//                    text.textColor = UIColor.black
+//                    text.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//                    alert.addSubview(text)
+//                    self.view.addSubview(alert)
+//                    
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+//                        //alert.dismiss(animated: true, completion: nil)
+//                        alert.removeFromSuperview()
+//                    })
+//                }else{
+//                    print("ok")
+//                }
             }else{
                 cell.selectedsettingLabel.text = str
                 cell.tfCustomResize.isHidden = false
                 cell.lblPercent.isHidden = false
                 cell.stpCustomResize.isHidden = false
+            }
+            
+            if selectedSettings[6] != 0 {
+                let x = IndexPath(item: 6, section: 0)
+                let cell = self.customTable.cellForRow(at: x) as! CustomCopySecondCell
+                selectedSettings[6] = 0
+                cell.selectedsetting.text = subLabels[6][0]
+                
+                //let alert = UIAlertController(title: "Pages per Side returned to One", message: nil, preferredStyle: .actionSheet)
+                //present(alert, animated: true, completion: nil)
+                
+                let alert = UIView(frame: CGRect(x: 10, y: 230, width: 280, height: 30))
+                alert.backgroundColor = UIColor.gray
+                alert.layer.cornerRadius = 15
+                alert.layer.borderWidth = 2
+                alert.layer.borderColor = UIColor.white.cgColor
+                
+                let text = UILabel(frame: CGRect(x: 15, y: 5, width: 50, height: 21))
+                //text.center = alert.convert(alert.center, from: text)
+                text.text = "Pages per Side returned to One."
+                //text.sizeToFitHeight()
+                text.sizeToFit()
+                text.font = UIFont(name: "", size: 9)
+                text.textColor = UIColor.black
+                text.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                alert.addSubview(text)
+                self.view.addSubview(alert)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+                    //alert.dismiss(animated: true, completion: nil)
+                    alert.removeFromSuperview()
+                })
+            }else{
+                print("ok")
             }
             
         }else if receiver.row == 6{
@@ -272,7 +306,9 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
                     let cell = self.customTable.cellForRow(at: x) as! CustomCopyThirdCell
                     selectedSettings[5] = 0
                     cell.selectedsettingLabel.text = subLabels2[5][0]
-                    
+                    cell.tfCustomResize.isHidden = true
+                    cell.lblPercent.isHidden = true
+                    cell.stpCustomResize.isHidden = true
                     //let alert = UIAlertController(title: "Resize returned to 100%.", message: nil, preferredStyle: .actionSheet)
                     
                     let alert = UIView(frame: CGRect(x: 10, y: 230, width: 280, height: 30))
@@ -300,17 +336,6 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
                 }else{
                     print("ok")
                 }
-                
-//                let x = IndexPath(item: 5, section: 0)
-//                self.customTable.reloadRows(at: [x], with: .automatic)
-//                
-//                print("\(x)")
-//                let alert = UIAlertController(title: "Resize returned to 100%.", message: nil, preferredStyle: .actionSheet)
-//                present(alert, animated: true, completion: nil)
-//                
-//                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-//                    alert.dismiss(animated: true, completion: nil)
-//                })
             }
         }else{
             
