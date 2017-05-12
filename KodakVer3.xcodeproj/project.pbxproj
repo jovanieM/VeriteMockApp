@@ -135,6 +135,8 @@
 		1160D34C1EA4B88E00645829 /* SaveAsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160D34B1EA4B88E00645829 /* SaveAsView.swift */; };
 		1161F5C91EA38965006DD120 /* CropImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1161F5C81EA38965006DD120 /* CropImage.storyboard */; };
 		116323611EA5B0BB00EE4207 /* SaveAsVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116323601EA5B0BB00EE4207 /* SaveAsVCViewController.swift */; };
+		11665DB91EC556580061CF29 /* CustomRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11665DB81EC556580061CF29 /* CustomRect.swift */; };
+		11665DBB1EC556C00061CF29 /* CropViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11665DBA1EC556C00061CF29 /* CropViewStoryboard.storyboard */; };
 		11699E5E1E8A462700F56A3E /* PrintQueueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11699E5D1E8A462700F56A3E /* PrintQueueTableViewCell.swift */; };
 		11699E601E8A463200F56A3E /* PrintQueueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11699E5F1E8A463200F56A3E /* PrintQueueTableViewCell.xib */; };
 		11699E621E8A464600F56A3E /* PrintData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11699E611E8A464600F56A3E /* PrintData.swift */; };
@@ -318,6 +320,8 @@
 		1160D34B1EA4B88E00645829 /* SaveAsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveAsView.swift; sourceTree = "<group>"; };
 		1161F5C81EA38965006DD120 /* CropImage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CropImage.storyboard; sourceTree = "<group>"; };
 		116323601EA5B0BB00EE4207 /* SaveAsVCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveAsVCViewController.swift; sourceTree = "<group>"; };
+		11665DB81EC556580061CF29 /* CustomRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRect.swift; sourceTree = "<group>"; };
+		11665DBA1EC556C00061CF29 /* CropViewStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CropViewStoryboard.storyboard; sourceTree = "<group>"; };
 		11699E5D1E8A462700F56A3E /* PrintQueueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintQueueTableViewCell.swift; sourceTree = "<group>"; };
 		11699E5F1E8A463200F56A3E /* PrintQueueTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrintQueueTableViewCell.xib; sourceTree = "<group>"; };
 		11699E611E8A464600F56A3E /* PrintData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintData.swift; sourceTree = "<group>"; };
@@ -481,8 +485,6 @@
 				11C657D01EAECF01008593BF /* ScanPhotoSettingsPreview.xib */,
 				11C657D21EAEDB70008593BF /* ScanPhotoSettingPreview.swift */,
 				11D431DC1EB038DE00BEC4A0 /* ScanPhotoSendActions.swift */,
-				11D431E41EB097CC00BEC4A0 /* CropViewController.swift */,
-				115DE3321EB189DD00275720 /* CropperView.swift */,
 			);
 			name = ScanPhotoStoryboard;
 			sourceTree = "<group>";
@@ -737,7 +739,11 @@
 		1161F5C71EA388F6006DD120 /* CropImageStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				11665DBA1EC556C00061CF29 /* CropViewStoryboard.storyboard */,
+				11665DB81EC556580061CF29 /* CustomRect.swift */,
 				1161F5C81EA38965006DD120 /* CropImage.storyboard */,
+				11D431E41EB097CC00BEC4A0 /* CropViewController.swift */,
+				115DE3321EB189DD00275720 /* CropperView.swift */,
 			);
 			name = CropImageStoryboard;
 			sourceTree = "<group>";
@@ -874,6 +880,7 @@
 				10DE82F71E72A7D9001F6FDA /* PagesPerSideTableViewCell.xib in Resources */,
 				1033031A1E52AB5000E7D24C /* DeviceSettingsStoryboard.storyboard in Resources */,
 				11E95C071EAE02BA00F3265C /* ScanPhotoStoryboard.storyboard in Resources */,
+				11665DBB1EC556C00061CF29 /* CropViewStoryboard.storyboard in Resources */,
 				1033032F1E52ACCE00E7D24C /* AddressPrintStoryboard.storyboard in Resources */,
 				1033033B1E52AD9F00E7D24C /* WiFiSetupStoryboard.storyboard in Resources */,
 				10DE83061E72A8AE001F6FDA /* HeaderTableViewCell.xib in Resources */,
@@ -1010,6 +1017,7 @@
 				103A0DA71E8A5EA10062E730 /* TermsOfUseViewController.swift in Sources */,
 				10A630731E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift in Sources */,
 				105965E41E531B95003B7CD6 /* DeviceSettings.swift in Sources */,
+				11665DB91EC556580061CF29 /* CustomRect.swift in Sources */,
 				11CFD1251E2F3226008253E6 /* PrintSettingsModel.swift in Sources */,
 				1160D34C1EA4B88E00645829 /* SaveAsView.swift in Sources */,
 				10759B2E1E5469BF009E66BC /* NetworkAndPasswordSelectTheNetwork.swift in Sources */,

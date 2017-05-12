@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ui-Y9-mvZ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ui-Y9-mvZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="478"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -225,8 +225,7 @@
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="cropPhotoAction:" destination="agd-j2-gWx" eventType="touchUpInside" id="78K-TB-AgH"/>
-                                                    <segue destination="8Fs-aX-rcq" kind="show" id="Hom-Cj-jPj"/>
+                                                    <action selector="cropPhoto:" destination="agd-j2-gWx" eventType="touchUpInside" id="7lX-cA-4WQ"/>
                                                 </connections>
                                             </button>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="trim_icon" translatesAutoresizingMaskIntoConstraints="NO" id="dPn-PX-2PI">
@@ -303,7 +302,7 @@
                     <connections>
                         <outlet property="buttonContainer" destination="KUy-ay-1E0" id="TTA-Xq-lOo"/>
                         <outlet property="cropIcon" destination="dPn-PX-2PI" id="Mam-lb-Y7d"/>
-                        <outlet property="cropPhoto" destination="Ph4-ka-i9E" id="0dU-qV-wQO"/>
+                        <outlet property="cropPhtoto" destination="Ph4-ka-i9E" id="xVv-RK-rnu"/>
                         <outlet property="scanImage" destination="6ui-Y9-mvZ" id="FEA-rK-aj7"/>
                         <outlet property="scanPhotoSettings" destination="e74-FT-8g9" id="lST-T1-q72"/>
                         <outlet property="sendBTn" destination="7bp-tC-o1z" id="Tzc-lg-Je3"/>
@@ -320,61 +319,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-270" y="-118.30985915492958"/>
-        </scene>
-        <!--Crop View Controller-->
-        <scene sceneID="APn-vY-gTs">
-            <objects>
-                <viewController id="8Fs-aX-rcq" customClass="CropViewController" customModule="KodakVer3" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VyG-D2-Xdk"/>
-                        <viewControllerLayoutGuide type="bottom" id="n7D-8V-B1q"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="S1F-VX-8f8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lzh-4M-CH8">
-                                <rect key="frame" x="16" y="500" width="138" height="48"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kID-76-HsL">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="48"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <state key="normal" title="ok" backgroundImage="selectmenu">
-                                            <color key="titleColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <state key="selected" backgroundImage="button_pressed"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vy-dS-pHM">
-                                <rect key="frame" x="166" y="500" width="138" height="48"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mN2-UK-3v6">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="cancel" backgroundImage="selectmenu">
-                                            <color key="titleColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <state key="selected" backgroundImage="button_pressed"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tK2-pS-hoW" customClass="CropperView" customModule="KodakVer3" customModuleProvider="target">
-                                <rect key="frame" x="16" y="20" width="288" height="459"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jr5-BX-scr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="451.875" y="-118.30985915492958"/>
         </scene>
     </scenes>
     <resources>

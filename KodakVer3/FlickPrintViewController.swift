@@ -10,7 +10,7 @@ import UIKit
 
 class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     
-
+    
     
     var sizes: [String] = ["4x6 in.", "4x6 in. Borderless", "3x5 in", "5x7 in.", "5x7 in. Borderless", "3.5x5 in.(L)", "3.5x5 in.(L) Borderless", "Letter", "Letter Borderless", "Legal", "Executive", "Statement", "A4", "A4 Borderless", "JIS B5", "A5", "A5 Borderless", "A6", "A6 Borderless", "Hagaki", "Hagaki BorderLess", "10 Envelope", "DL envelope", "C5 Envelope"]
     var types: [String] = ["Plain", "Labels", "Envelope", "Glossy Photo", "Matte Photo"]
@@ -19,22 +19,22 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     
     @IBOutlet weak var printSettingsPrev: PrintSettingsPreview!{
         didSet{
-           
+            
             updateUI()
         }
     }
-   
+    
     
     
     func updateUI(){
-       
+        
         let vc = PrintPhotoVC()
         printSettingsPrev.paperSize.text = sizes[vc.getSavedData(receiver: 1)!]
         printSettingsPrev.paperType.text = types[vc.getSavedData(receiver: 3)!]
         printSettingsPrev.printQuality.text = quality[vc.getSavedData(receiver: 4)!]
         
-    
-    
+        
+        
     }
     
     
@@ -44,7 +44,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     var image: UIImage!
     var toggler : Bool = false
     
-   
+    
     
     @IBOutlet weak var toggleButton: UIButton!{
         didSet{
@@ -54,10 +54,10 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     
     
     @IBAction func settingButton(_ sender: UIButton) {
-//        let settingSB = UIStoryboard(name: "PhotoPrintSettingsStoryboard", bundle: nil)
-//        let vc = settingSB.instantiateInitialViewController()!
-//        self.show(vc, sender: self)
-        printPhoto()
+        let settingSB = UIStoryboard(name: "PhotoPrintSettingsStoryboard", bundle: nil)
+        let vc = settingSB.instantiateInitialViewController()!
+        self.show(vc, sender: self)
+        //printPhoto()
     }
     @IBOutlet weak var flickLabel: UILabel!
     
@@ -65,7 +65,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     
     @IBOutlet weak var swipImage: UIImageView!
     
-//    @IBOutlet weak var settingsDisplay: UIView!
+    //    @IBOutlet weak var settingsDisplay: UIView!
     
     @IBAction func hintDisplayToggle(_ sender: UIButton) {
         
@@ -77,7 +77,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         toggle(tog: toggler)
         
     }
-   
+    
     func toggle(tog : Bool){
         
         if tog == true{
@@ -86,10 +86,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
             swipeLabel.alpha = 0.0
             swipImage.alpha = 0.0
             printSettingsPrev.alpha = 0.0
-//            settingsDisplay.alpha = 0.0
-//            for i in 0..<settingsDisplay.subviews.count{
-//                print(settingsDisplay.subviews[i])
-//            }
+            
             
         }else{
             container.alpha = 0.6
@@ -97,9 +94,9 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
             swipeLabel.alpha = 1.0
             swipImage.alpha = 1.0
             printSettingsPrev.alpha = 1.0
-//            settingsDisplay.alpha = 1.0
+            //            settingsDisplay.alpha = 1.0
         }
-    
+        
     }
     let pd = PrintData()
     
@@ -112,16 +109,14 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         pinchZoom.delegate = self
         pd.thumbNail = image
         
-        //pan.delegate = self
-        //let pan2 = MyGestureRecognizer(target: self, action: #selector(pan(pan:)))
         
         imageView = UIImageView()
-    
-                //container.addGestureRecognizer(pan)
+        
+        //container.addGestureRecognizer(pan)
         container.addGestureRecognizer(pinchZoom)
         container.addGestureRecognizer(pan)
-
-
+        
+        
     }
     override func viewDidLayoutSubviews() {
         //updateUI()
@@ -140,11 +135,11 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         
         container.addSubview(imageView)
         container.alpha = 0.75
-
-         
+        
+        
     }
     
-  
+    
     func pan(pan: UIPanGestureRecognizer){
         var newCenter = pan.translation(in: container)
         
@@ -160,10 +155,10 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
                 let newY = newCenter.y
                 imageView.center.y = container.bounds.midY + newY
             }
-         
+            
             
         }else if pan.state == .ended{
-           
+            
             if pan.translation(in: container).y > 0.0 {
                 imageView.center.x = container.bounds.midX
                 imageView.center.y = container.bounds.midY
@@ -171,14 +166,14 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
             if pan.translation(in: container).y > (-150.0){
                 imageView.center.x = container.bounds.midX
                 imageView.center.y = container.bounds.midY
-            
+                
             }
             if newCenter.y < (-150.0){
                 printPhoto()
             }
-        
+            
         }
-       
+        
     }
     
     func printPhoto(){
@@ -187,7 +182,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         vc.printData = [pd]
         self.navigationController?.show(vc, sender: self)
         //show(vc, sender: self)
-    
+        
     }
     
     var cont : CGFloat = 0.0
@@ -209,7 +204,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
             if newScale >= 1.0 {
                 
                 imageView.transform = CGAffineTransform(scaleX: newScale, y: newScale)
-
+                
             }
             
         }else if sender.state == .ended{
@@ -232,7 +227,11 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! AdjustmentViewController
-        vc.image = self.image      
+        vc.image = self.image
+        vc.onOKpressed = {
+            (im) in
+            self.imageView.image = im
+        }
     }
     override func viewWillAppear(_ animated: Bool){
         self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
@@ -240,7 +239,7 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         updateUI()
     }
     
-
+    
 }
 
 

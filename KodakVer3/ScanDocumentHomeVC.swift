@@ -12,28 +12,28 @@ import SafariServices
 import WebKit
 
 
-class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDelegate, SaveAsViewDelegate, MFMailComposeViewControllerDelegate {
+class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDelegate, SaveAsViewDelegate, MFMailComposeViewControllerDelegate, CropViewDelegate {
     
-//    private let kKeyChainItemName = "Drive API"
-//    private let kClientID = "762193006490-ko8glbbn82p0vbac060ps1u4qeknbfuo.apps.googleusercontent.com"
-//    private let scopes = [kGTLRAuthScopeDriveFile]
-//    private let service = GTLRDriveService()
     
     @IBOutlet weak var imageView: UIImageView!
     
-
+    var imageDictionary = [Int: UIImage?]()
+    var saveToDictionary : Bool = false
     
     var croppingRect : CGRect?
     var screenWidth: CGFloat = UIScreen.main.bounds.width * 0.7029
     
-
+    @IBOutlet weak var scannedItems: UILabel!
+    @IBOutlet weak var touchToScanLabel: UILabel!
+    @IBOutlet weak var cropIcon: UIImageView!
+    @IBOutlet weak var cropButton: UIButton!
     
     var convertedImage : [UIImage?] = {
         
         let uiImage = UIImage(named: "tulips")
-   
+        
         let imageWidth = (uiImage?.size.height)! * 0.7071
-
+        
         let imageRef = uiImage?.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: imageWidth, height: (uiImage?.size.height)!))
         
         let image = UIImage(cgImage: imageRef!)
@@ -45,7 +45,7 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
         let imageRef3 = uiImage?.cgImage?.cropping(to: CGRect(x: (uiImage?.size.width)! - imageWidth, y: 0, width: imageWidth, height: (uiImage?.size.height)!))
         
         let image3 = UIImage(cgImage: imageRef3!)
-     
+        
         return [image, image2, image3]
     }()
     
@@ -55,10 +55,11 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
         runScanner()
         //popUpActivityIndicatorAlert()
         definesPresentationContext = true
-       
+        
     }
     
     func runScanner(){
+        self.imageView.isUserInteractionEnabled = false
         WorkProgressSimulator.sharedInstance.popUpActivityIndicatorAlert(controller: self.navigationController!) { (completed) in
             
             if completed{
@@ -71,11 +72,10 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
                 }
             }
             
-            
         }
         
     }
-   
+    
     func displayImage(){
         
         scanCounter = scanCounter + 1
@@ -86,7 +86,7 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
         cropButton.isEnabled = true
         sendIcon.isHidden = false
         sendButton.isEnabled = true
-        imageView.isUserInteractionEnabled = false
+        imageView.isUserInteractionEnabled = true
         
         touchToScanLabel.isHidden = true
         buttonNext.isEnabled = false
@@ -94,7 +94,7 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
         if scanCounter > 1{
             
             buttonPrevious.isEnabled = true
-        
+            
         }
         
     }
@@ -124,7 +124,7 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
         
         
     }
-  
+    
     // interfaces, buttons and button actions
     
     var isTrayOpen: Bool = false
@@ -133,7 +133,7 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
     var ext : String?
     
     @IBOutlet weak var buttonContainer: UIView!
-
+    
     @IBOutlet weak var scanSettings: ScanSettingsPreview!{
         didSet{
             updateScanSettingsUI()
@@ -141,62 +141,90 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
         }
     }
     
- 
+    
     
     @IBOutlet weak var buttonNext: UIButton!
     
     @IBAction func actionNext(_ sender: UIButton) {
-     
+        
+        
         scannedImageID += 1
-        imageView.image = convertedImage[(scannedImageID - 1) % 3]
+        if let im = imageDictionary[scannedImageID]{
+            imageView.image = im
+            
+        }else{
+            imageView.image =  convertedImage[(scannedImageID - 1) % 3]
+            
+        }
+        
         scannedItems.text = "\(scannedImageID)/\(scanCounter)"
         if scannedImageID == scanCounter{
             buttonNext.isEnabled = false
         }
         buttonPrevious.isEnabled = true
     }
+    
     @IBOutlet weak var buttonPrevious: UIButton!
     
     @IBAction func actionPrevious(_ sender: UIButton) {
+        
+        
         scannedImageID -= 1
-        imageView.image = convertedImage[(scannedImageID - 1) % 3]
+        if let im = imageDictionary[scannedImageID]{
+            imageView.image = im
+            
+        }else{
+            imageView.image =  convertedImage[(scannedImageID - 1) % 3]
+            
+        }
         scannedItems.text = "\(scannedImageID)/\(scanCounter)"
         if scannedImageID < 2{
             buttonPrevious.isEnabled = false
         }
         buttonNext.isEnabled = true
-    
+        
     }
     
-   
+    
     @IBAction func touchToScan(_ sender: UITapGestureRecognizer) {
-        if scanCounter == 0 {
-            //popUpActivityIndicatorAlert()
+        
+        print("tapped")
+        if imageView.image == nil{
             runScanner()
+        }else{
+            
+            if isTrayOpen{
+                
+                openCloseTray(open: isTrayOpen)
+            }
         }
-        imageView.isUserInteractionEnabled = false
     }
-    @IBOutlet weak var scannedItems: UILabel!
-    @IBOutlet weak var touchToScanLabel: UILabel!
-    @IBOutlet weak var cropIcon: UIImageView!
-    @IBOutlet weak var cropButton: UIButton!
     
     
     // send func temp button
     var documentController : UIDocumentInteractionController!
     
     @IBAction func cropButtonAction(_ sender: UIButton) {
+        if isTrayOpen { openCloseTray(open: isTrayOpen) }
+        
+        let cropImageSB = UIStoryboard(name: "CropViewStoryboard", bundle: nil)
+        if let vc = cropImageSB.instantiateInitialViewController() as? CropViewController{
+            vc.delegate = self
+            vc.image = imageView.image
+            self.navigationController?.pushViewController(vc, animated: false)
+            
+        }
     }
-
+    
     
     @IBOutlet weak var sendIcon: UIImageView!
     
     @IBOutlet weak var sendButton: UIButton!
     
     @IBAction func sendButtonAction(_ sender: UIButton) {
-       
+        
         openCloseTray(open: isTrayOpen)
-    
+        
     }
     
     @IBAction func scanButtonAction(_ sender: UIButton) {
@@ -206,7 +234,7 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
             openCloseTray(open: isTrayOpen)
         }
         runScanner()
-       // popUpActivityIndicatorAlert()
+        // popUpActivityIndicatorAlert()
     }
     
     @IBAction func googleDrive(_ sender: UIButton) {
@@ -214,7 +242,7 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
             
             let url = URL(string: "https://accounts.google.com")
             let sfVC = SFSafariViewController(url: url!)
-    
+            
             
             self.present(sfVC, animated: true, completion: nil)
         } else {
@@ -225,7 +253,7 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
         
         let action = ButtonActions(viewController: self)
         
-       // let act = ButtonActions()
+        // let act = ButtonActions()
         
         //let url = createLocalURL(forImageNamed: fname, forUIImage: imageView.image!, ext: ext!)
         
@@ -239,7 +267,7 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
                 print("unable to send mail")
             }
         }
-       
+        
     }
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         switch result {
@@ -313,7 +341,7 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
                 
                 return false
             }
-
+            
         }
         if identifier == "box"{
             return true
@@ -345,17 +373,26 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
     }
     
     func saveImage(name : String, ext : String){
-      
+        
         save(filename: name, fileExt : ext)
     }
     
-  
+    
     
     func finishWithError(){
         print("error authorization")
-    
+        
+    }
+    func getImageFromCrop(image: UIImage?) {
+        if let im = image{
+            saveToDictionary = true
+            imageDictionary[scannedImageID] = im
+            imageView.image = im
+        }
+        
+        
     }
     
- 
- 
+    
+    
 }

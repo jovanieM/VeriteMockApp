@@ -10,25 +10,28 @@ import UIKit
 import MessageUI
 import SafariServices
 
-class ScanPhotoHomeVC: UIViewController, MFMailComposeViewControllerDelegate {
+class ScanPhotoHomeVC: UIViewController, MFMailComposeViewControllerDelegate, CropViewDelegate {
     
     // variable declerations --------------------------------------------------------------------------------------------
     var firstScan : Bool = true
     var isTrayOpen : Bool = false
+    var enableScanImageValueReset : Bool = false
     
+
+    @IBOutlet weak var cropPhtoto: UIButton!
     let croppedImage:UIImage = {
         let uiImage = UIImage(named: "tulips")
         
-        let imageWidth = (uiImage?.size.height)! * 0.7071
+        let imageWidth = (uiImage?.size.height)! * 0.707236842105263
         
-        let imageRef = uiImage?.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: imageWidth, height: (uiImage?.size.height)!))
+        let imageRef = uiImage?.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: imageWidth , height: (uiImage?.size.height)!))
         
         let image = UIImage(cgImage: imageRef!)
         return image
-    
+        
     }()
-
-    @IBOutlet weak var cropPhoto: UIButton!
+    
+   
     @IBOutlet weak var sendPhoto: UIButton!
     @IBOutlet weak var cropIcon: UIImageView!
     @IBOutlet weak var sendIcon: UIImageView!
@@ -53,16 +56,36 @@ class ScanPhotoHomeVC: UIViewController, MFMailComposeViewControllerDelegate {
         runScanner()
         
     }
-    
-    @IBAction func cropPhotoAction(_ sender: UIButton) {
-        print("cropPhoto")
+    @IBAction func cropPhoto(_ sender: UIButton) {
+        if isTrayOpen{
+            
+            openCloseTray(open: isTrayOpen)
+        }
+        let cropImageSB = UIStoryboard(name: "CropViewStoryboard", bundle: nil)
+        if let vc = cropImageSB.instantiateInitialViewController() as? CropViewController{
+            vc.delegate = self
+            vc.image = scanImage.image
+            self.navigationController?.pushViewController(vc, animated: false)
+            
+        }
     }
     
+   
     @IBAction func sendPhotoAction(_ sender: UIButton) {
         openCloseTray(open: isTrayOpen)
     }
     @IBAction func touchToScanPhoto(_ sender: UITapGestureRecognizer) {
-        runScanner()
+        print("tapped")
+        if scanImage.image == nil{
+            runScanner()
+        }else{
+            
+            if isTrayOpen{
+                
+                openCloseTray(open: isTrayOpen)
+            }
+        }
+        
     }
     @IBAction func sendOptions(_ sender: UIButton){
         
@@ -95,11 +118,11 @@ class ScanPhotoHomeVC: UIViewController, MFMailComposeViewControllerDelegate {
             } else {
                 // Fallback on earlier versions
             }
-
-  
+            
+            
         case 4:
             
-
+            
             if let mail = action.configuredMailComposerVC(image: scanImage.image!, mimeSubtype : "jpeg"){
                 mail.mailComposeDelegate = self
                 if MFMailComposeViewController.canSendMail(){
@@ -115,7 +138,7 @@ class ScanPhotoHomeVC: UIViewController, MFMailComposeViewControllerDelegate {
         default:
             return
         }
-    
+        
     }
     
     @IBAction func openScanPhotoSettings(_ sender: UIButton) {
@@ -132,37 +155,52 @@ class ScanPhotoHomeVC: UIViewController, MFMailComposeViewControllerDelegate {
         super.viewDidLoad()
         scanPhotoSettings.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         runScanner()
+        
     }
-   
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
         updateScanSettingsUI()
     }
     
+    
     // declared functions ----------------------------------------------------------------------------
-  
+    
     func runScanner(){
+        scanImage.isUserInteractionEnabled = false
         WorkProgressSimulator.sharedInstance.popUpActivityIndicatorAlert(controller: self.navigationController!) { (completed) in
-         
+            
             self.enabler(enabled: completed)
-       
+            
         }
-
+        
+    }
+    
+    func getImageFromCrop(image: UIImage?) {
+        
+        if let img = image{
+            
+            scanImage.image = img
+        }
+        
     }
     
     func enabler(enabled : Bool){
         
+        
         if scanImage.image == nil && enabled{
             
+            enableScanImageValueReset = true
             touchToScan.isHidden = enabled
             scanImage.image = self.croppedImage
-            cropPhoto.isEnabled = enabled
+            cropPhtoto.isEnabled = enabled
             sendIcon.isHidden = !enabled
             sendPhoto.isEnabled = enabled
             cropIcon.isHidden = !enabled
-            if scanImage.isUserInteractionEnabled{
-                scanImage.isUserInteractionEnabled = false
-            }
+            scanImage.isUserInteractionEnabled = true
+            //            if scanImage.isUserInteractionEnabled{
+            //                scanImage.isUserInteractionEnabled = false
+            //            }
             
         }else{
             
@@ -171,6 +209,9 @@ class ScanPhotoHomeVC: UIViewController, MFMailComposeViewControllerDelegate {
                 scanImage.isUserInteractionEnabled = true
             }
             
+        }
+        if enableScanImageValueReset && enabled{
+            scanImage.image = self.croppedImage
         }
         
     }
@@ -183,7 +224,7 @@ class ScanPhotoHomeVC: UIViewController, MFMailComposeViewControllerDelegate {
         
         let color = scanP.defaultColorPhoto.integer(forKey: "ColorPhoto")
         scanPhotoSettings.scanPhotoColor.text = ScanPhotoColor(rawValue: color)?.description()
- 
+        
     }
     
     func openCloseTray(open : Bool){
@@ -216,7 +257,6 @@ class ScanPhotoHomeVC: UIViewController, MFMailComposeViewControllerDelegate {
     }
     
     
-    
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         switch result {
         case .sent:
@@ -234,8 +274,10 @@ class ScanPhotoHomeVC: UIViewController, MFMailComposeViewControllerDelegate {
         }
     }
     
-
-
-
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! CropViewController
+        vc.delegate = self
+        vc.image = scanImage.image
+    }
+    
 }
