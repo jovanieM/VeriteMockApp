@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000F6001E52CDB700DE4B3C /* InkLevel.swift */; };
 		10153EB01EBAFE260012EC2D /* StartSoftwareUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153EAF1EBAFE260012EC2D /* StartSoftwareUpdate.swift */; };
+		10257C161EC5955D00D5CE1B /* AddressPrintQueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10257C121EC5955D00D5CE1B /* AddressPrintQueueViewController.swift */; };
+		10257C171EC5955D00D5CE1B /* AddressPrintData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10257C131EC5955D00D5CE1B /* AddressPrintData.swift */; };
+		10257C181EC5955D00D5CE1B /* AddressPrintQueueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10257C141EC5955D00D5CE1B /* AddressPrintQueueTableViewCell.swift */; };
+		10257C191EC5955D00D5CE1B /* AddressPrintQueueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10257C151EC5955D00D5CE1B /* AddressPrintQueueTableViewCell.xib */; };
 		102E6A0B1EC3E4DF00E67685 /* FacebookImageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102E6A071EC3E4DF00E67685 /* FacebookImageCollection.swift */; };
 		102E6A0C1EC3E4DF00E67685 /* Facebook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 102E6A081EC3E4DF00E67685 /* Facebook.storyboard */; };
 		102E6A0D1EC3E4DF00E67685 /* FacebookPhotoAssetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102E6A091EC3E4DF00E67685 /* FacebookPhotoAssetCollection.swift */; };
@@ -187,6 +191,10 @@
 /* Begin PBXFileReference section */
 		1000F6001E52CDB700DE4B3C /* InkLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InkLevel.swift; sourceTree = "<group>"; };
 		10153EAF1EBAFE260012EC2D /* StartSoftwareUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartSoftwareUpdate.swift; sourceTree = "<group>"; };
+		10257C121EC5955D00D5CE1B /* AddressPrintQueueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPrintQueueViewController.swift; sourceTree = "<group>"; };
+		10257C131EC5955D00D5CE1B /* AddressPrintData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPrintData.swift; sourceTree = "<group>"; };
+		10257C141EC5955D00D5CE1B /* AddressPrintQueueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPrintQueueTableViewCell.swift; sourceTree = "<group>"; };
+		10257C151EC5955D00D5CE1B /* AddressPrintQueueTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressPrintQueueTableViewCell.xib; sourceTree = "<group>"; };
 		102E6A071EC3E4DF00E67685 /* FacebookImageCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookImageCollection.swift; sourceTree = "<group>"; };
 		102E6A081EC3E4DF00E67685 /* Facebook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Facebook.storyboard; sourceTree = "<group>"; };
 		102E6A091EC3E4DF00E67685 /* FacebookPhotoAssetCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookPhotoAssetCollection.swift; sourceTree = "<group>"; };
@@ -492,6 +500,10 @@
 		1033032D1E52ACB900E7D24C /* AddressPrintStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				10257C121EC5955D00D5CE1B /* AddressPrintQueueViewController.swift */,
+				10257C131EC5955D00D5CE1B /* AddressPrintData.swift */,
+				10257C141EC5955D00D5CE1B /* AddressPrintQueueTableViewCell.swift */,
+				10257C151EC5955D00D5CE1B /* AddressPrintQueueTableViewCell.xib */,
 				10EFBE511E9CC0A800235DBF /* PreviewViewController.swift */,
 				10EFBE521E9CC0A800235DBF /* ReturnAddressViewController.swift */,
 				10B68ABD1E89004800182F0F /* LoadInstructionsViewController.swift */,
@@ -894,6 +906,7 @@
 				102E6A0C1EC3E4DF00E67685 /* Facebook.storyboard in Resources */,
 				1033033E1E52ADC100E7D24C /* GCPStoryboard.storyboard in Resources */,
 				1033031D1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard in Resources */,
+				10257C191EC5955D00D5CE1B /* AddressPrintQueueTableViewCell.xib in Resources */,
 				103303441E52AE0300E7D24C /* PrinterUtilityStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -942,6 +955,7 @@
 				1073B57A1E669801000C60EB /* CartridgeSetupScanning.swift in Sources */,
 				1141592A1E83C33F007276CA /* AddressPrintHomeViewController.swift in Sources */,
 				106C69351E6420D700CDA7B6 /* PopUpPaperSizeVC.swift in Sources */,
+				10257C171EC5955D00D5CE1B /* AddressPrintData.swift in Sources */,
 				10F4969A1E6D350800E10DA1 /* PopUpPaperTypeVC.swift in Sources */,
 				10CD81821E567A22001815A1 /* IPAddress.swift in Sources */,
 				11715AA61E5AC413005367B9 /* PhotoAssetCollection.swift in Sources */,
@@ -962,6 +976,7 @@
 				109A952F1E729575004D28FD /* NetworkAndPasswordHelp.swift in Sources */,
 				105965E51E531B95003B7CD6 /* NetworkStatus.swift in Sources */,
 				11C657D51EAF0EAC008593BF /* WorkProgressSimulator.swift in Sources */,
+				10257C161EC5955D00D5CE1B /* AddressPrintQueueViewController.swift in Sources */,
 				109A95301E729575004D28FD /* NetworkAndPasswordSelectedNetworkVC.swift in Sources */,
 				10CD81831E567A22001815A1 /* Proxy.swift in Sources */,
 				105965ED1E5320C6003B7CD6 /* WiFiSetupHome.swift in Sources */,
@@ -1015,6 +1030,7 @@
 				1141592D1E83C33F007276CA /* PrintSettingsPreview.swift in Sources */,
 				10D36C601E5FE0C400D79664 /* CopyViewController.swift in Sources */,
 				103A0DA71E8A5EA10062E730 /* TermsOfUseViewController.swift in Sources */,
+				10257C181EC5955D00D5CE1B /* AddressPrintQueueTableViewCell.swift in Sources */,
 				10A630731E54191B00AE1D16 /* NetworkAndPasswordSearchingPrinter.swift in Sources */,
 				105965E41E531B95003B7CD6 /* DeviceSettings.swift in Sources */,
 				11665DB91EC556580061CF29 /* CustomRect.swift in Sources */,

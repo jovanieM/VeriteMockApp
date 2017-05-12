@@ -146,19 +146,30 @@ class LoadInstructionsViewController: UIViewController, CNContactPickerDelegate 
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
         
         let postalAddress = contactProperty.value as? CNPostalAddress
+        let street = postalAddress?.street
+        let city = postalAddress?.city
+        let state = postalAddress?.state
+        let postalcode = postalAddress?.postalCode
+        let country = postalAddress?.country
      
         let contact = contactProperty.contact
         let contactName = CNContactFormatter.string(from: contact, style: .fullName)
-        let contactAddress = CNPostalAddressFormatter.string(from: postalAddress!, style: .mailingAddress)
+ //       let contactAddress = CNPostalAddressFormatter.string(from: postalAddress!, style: .mailingAddress)
         
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "PreviewViewController") as? PreviewViewController
         
         nextVC?.nameReceived = self.dataNameReceived
         nextVC?.descReceived = self.dataDescReceived
         nextVC?.passedName = contactName!
-        nextVC?.passedAddress = contactAddress
+        nextVC?.passedStreet = street!
+        nextVC?.passedCity = city!
+        nextVC?.passedState = state!
+        nextVC?.passedPostalCode = postalcode!
+        nextVC?.passedCountry = country!
+
+ //       nextVC?.passedAddress = contactAddress
         self.navigationController?.pushViewController(nextVC!, animated: true)
-        NSLog(contactAddress)
+ //       NSLog(contactAddress)
         NSLog(contactName!)
 
     }

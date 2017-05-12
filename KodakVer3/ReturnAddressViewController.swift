@@ -8,8 +8,11 @@
 
 import UIKit
 
-class ReturnAddressViewController: UIViewController {
 
+@available(iOS 9.0, *)
+class ReturnAddressViewController: UIViewController, UITextFieldDelegate {
+
+    @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var save: UIButton!
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var middleName: UITextField!
@@ -20,6 +23,36 @@ class ReturnAddressViewController: UIViewController {
     @IBOutlet weak var postalCode: UITextField!
     @IBOutlet weak var country: UITextField!
     
+    let defaults = UserDefaults.standard
+    let fnameKey = "firstname"
+    let mnameKey = "middlename"
+    let lnameKey = "lastname"
+    let streetKey = "street"
+    let cityKey = "city"
+    let stateKey = "state"
+    let postalCodeKey = "postalCode"
+    let countryKey = "country"
+
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+   
+ 
+        if (firstName.text?.isEmpty)! || (lastName.text?.isEmpty)! || (middleName.text?.isEmpty)! || (street.text?.isEmpty)! || (city.text?.isEmpty)! || (state.text?.isEmpty)! || (postalCode.text?.isEmpty)! || (country.text?.isEmpty)!
+        {
+            self.save.setTitleColor(UIColor.lightGray, for: .normal)
+            self.save.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+            save.isEnabled = true
+        }
+                else {
+            self.save.setTitleColor(UIColor.darkGray, for: .normal)
+            self.save.layer.borderColor = UIColor.darkGray.cgColor
+            save.isEnabled = false
+            
+                    print("enabled")
+                }
+        return true
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -29,17 +62,115 @@ class ReturnAddressViewController: UIViewController {
         navTransition.type = kCATransitionPush
         navTransition.subtype = kCATransitionPush
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
-        
+   //     save.isUserInteractionEnabled = false
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+    
+        savedDatas()
         
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         save.layer.cornerRadius = 15;
         save.layer.borderWidth = 1;
-        save.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
         save.layer.masksToBounds = true;
+        
+        self.firstName.delegate = self
+        self.lastName.delegate = self
+        self.middleName.delegate = self
+        self.street.delegate = self
+        self.city.delegate = self
+        self.state.delegate = self
+        self.postalCode.delegate = self
+        self.country.delegate = self
+        
+        save.setTitleColor(UIColor.darkGray, for: .normal)
+        save.layer.borderColor = UIColor.darkGray.cgColor
+        save.isEnabled = false
+        
+    }
+    
+    
+    
+    @IBAction func saveButton(_ sender: UIButton) {
+        
+        defaults.set(firstName.text, forKey: fnameKey)
+        defaults.set(lastName.text, forKey: lnameKey)
+        defaults.set(middleName.text, forKey: mnameKey)
+        defaults.set(street.text, forKey: streetKey)
+        defaults.set(city.text, forKey: cityKey)
+        defaults.set(state.text, forKey: stateKey)
+        defaults.set(postalCode.text, forKey: postalCodeKey)
+        defaults.set(country.text, forKey: countryKey)
+
+        print(firstName)
+        print(lastName)
+        
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    func savedDatas () {
+        firstName.text = defaults.object(forKey: fnameKey) as! String?
+        lastName.text = defaults.object(forKey: lnameKey) as! String?
+        middleName.text = defaults.object(forKey: mnameKey) as! String?
+        street.text = defaults.object(forKey: streetKey) as! String?
+        city.text = defaults.object(forKey: cityKey) as! String?
+        state.text = defaults.object(forKey: stateKey) as! String?
+        postalCode.text = defaults.object(forKey: postalCodeKey) as! String?
+        country.text = defaults.object(forKey: countryKey) as! String?
+    }
+    
+
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == self.firstName {
+            self.middleName.becomeFirstResponder()
+        } else if textField == self.middleName {
+            self.lastName.becomeFirstResponder()
+        } else if textField == self.lastName {
+            self.street.becomeFirstResponder()
+            UIView.animate(withDuration: 0.3, animations: { self.holderView.frame.origin.y = self.holderView.frame.origin.y - self.street.frame.height })
+        } else if textField == self.street {
+            self.city.becomeFirstResponder()
+            UIView.animate(withDuration: 0.3, animations: { self.holderView.frame.origin.y = self.holderView.frame.origin.y - self.city.frame.height })
+        } else if textField == self.city {
+            self.state.becomeFirstResponder()
+            UIView.animate(withDuration: 0.3, animations: { self.holderView.frame.origin.y = self.holderView.frame.origin.y - self.state.frame.height })
+        } else if textField == self.state {
+            self.postalCode.becomeFirstResponder()
+            UIView.animate(withDuration: 0.3, animations: { self.holderView.frame.origin.y = self.holderView.frame.origin.y - self.postalCode.frame.height })
+        } else if textField == self.postalCode {
+            self.country.becomeFirstResponder()
+            UIView.animate(withDuration: 0.3, animations: { self.holderView.frame.origin.y = self.holderView.frame.origin.y - self.country.frame.height })
+        } else if textField == self.country {
+            self.country.resignFirstResponder()
+            UIView.animate(withDuration: 0.3, animations: { self.holderView.frame.origin.y = 0 })
+        }; return true
     }
 
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("edited")
+        return true
+        
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
