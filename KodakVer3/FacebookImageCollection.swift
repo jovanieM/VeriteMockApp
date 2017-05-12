@@ -130,20 +130,20 @@ class FacebookImageCollection: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if isMulti{
-            selectedItems.append(indexPath)
-            let cell = collectionView.cellForItem(at: indexPath)
-            cell?.customHighlight()
-            
-            let label = cell?.viewWithTag(5) as! UILabel
-            label.backgroundColor = UIColor.gold
-            label.alpha = 1.0
-            label.text = String(selectedItems.count)
-            
-            let imageView = cell?.contentView.viewWithTag(4) as! UIImageView
-            images.append(imageView.image!)
-        }else{
-            collectionView.deselectItem(at: indexPath, animated: false)
-        }
+//        if isMulti{
+//            selectedItems.append(indexPath)
+//            let cell = collectionView.cellForItem(at: indexPath)
+//            cell?.customHighlight()
+//            
+//            let label = cell?.viewWithTag(5) as! UILabel
+//            label.backgroundColor = UIColor.gold
+//            label.alpha = 1.0
+//            label.text = String(selectedItems.count)
+//            
+//            let imageView = cell?.contentView.viewWithTag(4) as! UIImageView
+//            images.append(imageView.image!)
+//        }else{
+//            collectionView.deselectItem(at: indexPath, animated: false)
+//        }
     }
 }
