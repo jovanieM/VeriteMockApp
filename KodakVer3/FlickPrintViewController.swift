@@ -65,7 +65,6 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
     
     @IBOutlet weak var swipImage: UIImageView!
     
-    //    @IBOutlet weak var settingsDisplay: UIView!
     
     @IBAction func hintDisplayToggle(_ sender: UIButton) {
         
@@ -119,14 +118,11 @@ class FlickPrintViewController: UIViewController, UIGestureRecognizerDelegate{
         
     }
     override func viewDidLayoutSubviews() {
-        //updateUI()
+      
         imageView.contentMode = .scaleAspectFit
-        //let insets = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
-        imageView.image = image
+                imageView.image = image
         imageView.backgroundColor = .white
-        
-        //print(scrollView.bounds)
-        //let scaleFactor = image.size.height / image.size.width
+
         
         imageView.frame = container.frame
         imageView.center.y = container.bounds.midY

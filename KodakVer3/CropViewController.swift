@@ -55,8 +55,7 @@ class CropViewController: UIViewController {
         super.viewDidLoad()
         
         imView.image = image
-
-        
+    
         cropperView = CropperView(frame: .zero)
         cropperView.backgroundColor = UIColor.clear
         cropperView.contentMode = .redraw
