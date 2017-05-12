@@ -51,17 +51,29 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
         
     }
     
-    func pop(){
+       func pop(){
         
         
       
         if (viewControllers.last?.description.contains("AdjustmentViewController"))!{
             popViewController(animated: false)
+            
+        }else if
+            (viewControllers.last?.description.contains("AddressPrintQueueViewController"))! {
+            if #available(iOS 9.0, *) {
+                NSObject.cancelPreviousPerformRequests(withTarget: viewControllers.last as! AddressPrintQueueViewController)
+            } else {
+                // Fallback on earlier versions
+            }
+            viewControllers.last?.performSegue(withIdentifier: "unwindToAddressHome", sender: viewControllers.last)
+            
+            
         }else if (viewControllers.last?.description.contains("PrintQueueViewController"))!{
             NSObject.cancelPreviousPerformRequests(withTarget: viewControllers.last as! PrintQueueViewController)
             viewControllers.last?.performSegue(withIdentifier: "backToImageFolders", sender: viewControllers.last)
- 
-
+        
+        
+      
         }else{
             popViewController(animated: true)
         }

@@ -18,15 +18,23 @@ protocol loadData: class {
 @available(iOS 9.0, *)
 class PreviewViewController: UIViewController, AddressSizeViewDelegate {
     
-    var size = [0, 0, 0, 0, 0]
+    
     var addressSize = ["Large", "Normal", "Small"]
     var fontType = ["Times New Roman", "Arial", "Marker Felt", "Snell Roundhand"]
     
     var onOff = ["ON", "OFF"]
     
+    @IBOutlet weak var returnName: UILabel!
+    @IBOutlet weak var returnStreet: UILabel!
+    @IBOutlet weak var returnAddress: UILabel!
+    @IBOutlet weak var returnCountry: UILabel!
     
+    
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var cityStatePostal: UILabel!
+    @IBOutlet weak var addressStreet1: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
+    
     @IBOutlet weak var envelopeDescription: UILabel!
     @IBOutlet weak var envelopeName: UILabel!
     @IBOutlet weak var previewWindow: UIView!
@@ -36,75 +44,194 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
     @IBOutlet weak var optionsettingButton: UIButton!
     @IBOutlet weak var OptionSettingView: UIView!
     
+    let defaults = UserDefaults.standard
+    let fnameKey = "firstname"
+    let mnameKey = "middlename"
+    let lnameKey = "lastname"
+    let streetKey = "street"
+    let cityKey = "city"
+    let stateKey = "state"
+    let postalCodeKey = "postalCode"
+    let countryKey = "country"
+    var tagger: Int?
+    var size = [0, 0, 0, 0, 0]
+    
+    
     var nameReceived: String = ""
     var descReceived: String = ""
     var passedAddress: String = ""
     var passedName: String = ""
+    var passedStreet: String = ""
+    var passedCity: String = ""
+    var passedState: String = ""
+    var passedPostalCode: String = ""
+    var passedCountry: String = ""
     
     var table:AddressSizeSettingsViewer!
     var contact: CNContactProperty = CNContactProperty()
     
+    let tempImage = UIImage(named: "icon_env_photo.png")
+    let pd = AddressPrintData()
     
     override func viewWillAppear(_ animated: Bool) {
-      
+        
+        let first = defaults.object(forKey: fnameKey) as! String
+        let middle = defaults.object(forKey: mnameKey) as! String?
+        let last = defaults.object(forKey: lnameKey) as! String?
+        let street = defaults.object(forKey: streetKey) as! String?
+        let city = defaults.object(forKey: cityKey) as! String?
+        let state = defaults.object(forKey: stateKey) as! String?
+        let postal = defaults.object(forKey: postalCodeKey) as! String?
+        let country = defaults.object(forKey: countryKey) as! String?
+        
+        print("\(first)")
+        print("\(middle)")
+        print("\(last)")
+        returnName.text = first + " " + middle! + " " + last!
+        returnStreet.text = street!
+        returnAddress.text = city! + " " + state! + " " + postal!
+        returnCountry.text = country!
+
+    
     }
-    
-    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//      let times = [NSFontAttributeName: UIFont.fontNames(forFamilyName: "Times New Roman")]
-//      let datas = NSMutableAttributedString(string: "Times New Roman", attributes: times)
-   
+   //     pd.thumbNail = tempImage
+        
+//        defaults.set("", forKey: fnameKey)
+//        defaults.set("", forKey: lnameKey)
+//        defaults.set("", forKey: mnameKey)
+//        defaults.set("", forKey: streetKey)
+//        defaults.set("", forKey: cityKey)
+//        defaults.set("", forKey: stateKey)
+//        defaults.set("", forKey: postalCodeKey)
+//        defaults.set("", forKey: countryKey)
+
+        
         let screenwidth = self.view.frame.size.width
         let screenheight = self.view.frame.size.height
         
-//      fontType.append(timesType)
-//      fontType.append(arialType as! NSMutableAttributedString)
-        
         envelopeDescription.text = descReceived
         envelopeName.text = nameReceived
-        self.addressLabel.text = passedAddress
-        self.nameLabel.text = passedName
-        addressLabel.adjustsFontSizeToFitWidth = true
+        nameLabel.text = passedName
+        addressStreet1.text = passedStreet
+        cityStatePostal.text = passedCity + " " + passedState + " " + passedPostalCode
+        countryLabel.text = passedCountry
+        
         nameLabel.adjustsFontSizeToFitWidth = true
         nameLabel.sizeToFitHeight()
-        addressLabel.sizeToFitHeight()
-        
-        
+        addressStreet1.sizeToFitHeight()
+        cityStatePostal.sizeToFitHeight()
+        countryLabel.sizeToFitHeight()
+        returnName.sizeToFitHeight()
+        returnStreet.sizeToFitHeight()
+        returnAddress.sizeToFitHeight()
+        returnCountry.sizeToFitHeight()
+
+        if size[4] == 0 {
+            
+            returnName.font = returnName.font.withSize(6)
+            returnStreet.font = returnStreet.font.withSize(6)
+            returnAddress.font = returnAddress.font.withSize(6)
+            returnCountry.font = returnCountry.font.withSize(6)
+
+
+        }
         
         if envelopeName.text == "Photo" {
             previewWindow.frame = CGRect(x: (screenwidth / 2) - ((468*0.60)/2), y: (screenheight / 2) - ((342*0.60)/2) - 67, width: 468*0.60, height: 342*0.60)
-            addressLabel.frame.origin.x = previewWindow.center.x - 60
-            addressLabel.frame.origin.y = (previewWindow.frame.height - addressLabel.frame.height) - 30
-            nameLabel.frame.origin.x = previewWindow.center.x - 60
-            nameLabel.frame.origin.y = addressLabel.frame.origin.y - nameLabel.frame.height
+            
+            cityStatePostal.frame.origin.x = previewWindow.bounds.origin.x + 100
+            cityStatePostal.frame.origin.y = previewWindow.frame.height - 50
+            countryLabel.frame.origin.x = previewWindow.bounds.origin.x + 100
+            countryLabel.frame.origin.y = cityStatePostal.frame.origin.y + cityStatePostal.frame.height
+            addressStreet1.frame.origin.x = previewWindow.bounds.origin.x + 100
+            addressStreet1.frame.origin.y = cityStatePostal.frame.origin.y - addressStreet1.frame.height
+            nameLabel.frame.origin.x = previewWindow.bounds.origin.x + 100
+            nameLabel.frame.origin.y = addressStreet1.frame.origin.y - nameLabel.frame.height
+            
+            returnName.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnName.frame.origin.y = previewWindow.bounds.origin.y + 5
+            returnStreet.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnStreet.frame.origin.y = returnName.frame.origin.y + returnStreet.frame.height
+            returnAddress.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnAddress.frame.origin.y = returnStreet.frame.origin.y + returnAddress.frame.height
+            returnCountry.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnCountry.frame.origin.y = returnAddress.frame.origin.y + returnCountry.frame.height
+
             
         } else if envelopeName.text == "No. 6 3/4" {
             previewWindow.frame = CGRect(x: (screenwidth / 2) - ((468*0.60)/2), y: (screenheight / 2) - ((261*0.60)/2) - 67, width: 468*0.60, height: 261*0.60)
-            addressLabel.frame.origin.x = previewWindow.frame.origin.x + 80
-            addressLabel.frame.origin.y = previewWindow.frame.height - (addressLabel.frame.height) - 20
-            nameLabel.frame.origin.x = previewWindow.frame.origin.x + 80
-            nameLabel.frame.origin.y = addressLabel.frame.origin.y - nameLabel.frame.height
+            
+            cityStatePostal.frame.origin.x = previewWindow.bounds.origin.x + 100
+            cityStatePostal.frame.origin.y = previewWindow.frame.height - 40
+            countryLabel.frame.origin.x = previewWindow.bounds.origin.x + 100
+            countryLabel.frame.origin.y = cityStatePostal.frame.origin.y + cityStatePostal.frame.height
+            addressStreet1.frame.origin.x = previewWindow.bounds.origin.x + 100
+            addressStreet1.frame.origin.y = cityStatePostal.frame.origin.y - addressStreet1.frame.height
+            nameLabel.frame.origin.x = previewWindow.bounds.origin.x + 100
+            nameLabel.frame.origin.y = addressStreet1.frame.origin.y - nameLabel.frame.height
+            
+            returnName.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnName.frame.origin.y = previewWindow.bounds.origin.y + 5
+            returnStreet.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnStreet.frame.origin.y = returnName.frame.origin.y + returnStreet.frame.height
+            returnAddress.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnAddress.frame.origin.y = returnStreet.frame.origin.y + returnAddress.frame.height
+            returnCountry.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnCountry.frame.origin.y = returnAddress.frame.origin.y + returnCountry.frame.height
+
 
         } else if envelopeName.text == "No. 10" {
             previewWindow.frame = CGRect(x: (screenwidth / 2) - ((684*0.42)/2), y: (screenheight / 2) - ((297*0.42)/2) - 67, width: 684*0.42, height: 297*0.40)
-            addressLabel.frame.origin.x = previewWindow.frame.origin.x + 80
-            addressLabel.frame.origin.y = previewWindow.frame.height - (addressLabel.frame.height) - 15
-            nameLabel.frame.origin.x = previewWindow.frame.origin.x + 80
-            nameLabel.frame.origin.y = addressLabel.frame.origin.y - nameLabel.frame.height
             
-        } else {
-            previewWindow.frame = CGRect(x: (screenwidth / 2) - ((432*0.48)/2), y: (screenheight / 2) - ((648*0.48)/2) - 67, width: 432*0.48, height: 648*0.48)
-            addressLabel.frame.origin.x = previewWindow.frame.origin.x - 10
-            addressLabel.frame.origin.y = (previewWindow.frame.height - addressLabel.frame.height) - 50
-            nameLabel.frame.origin.x = previewWindow.frame.origin.x - 10
-            nameLabel.frame.origin.y = addressLabel.frame.origin.y - nameLabel.frame.height
+            cityStatePostal.frame.origin.x = previewWindow.bounds.origin.x + 95
+            cityStatePostal.frame.origin.y = previewWindow.frame.height - 40
+            countryLabel.frame.origin.x = previewWindow.bounds.origin.x + 95
+            countryLabel.frame.origin.y = cityStatePostal.frame.origin.y + cityStatePostal.frame.height
+            addressStreet1.frame.origin.x = previewWindow.bounds.origin.x + 95
+            addressStreet1.frame.origin.y = cityStatePostal.frame.origin.y - addressStreet1.frame.height
+            nameLabel.frame.origin.x = previewWindow.bounds.origin.x + 95
+            nameLabel.frame.origin.y = addressStreet1.frame.origin.y - nameLabel.frame.height
+            
+            returnName.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnName.frame.origin.y = previewWindow.bounds.origin.y + 5
+            returnStreet.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnStreet.frame.origin.y = returnName.frame.origin.y + returnStreet.frame.height
+            returnAddress.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnAddress.frame.origin.y = returnStreet.frame.origin.y + returnAddress.frame.height
+            returnCountry.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnCountry.frame.origin.y = returnAddress.frame.origin.y + returnCountry.frame.height
+            
+        } else if envelopeName.text == "6x9" {
+            previewWindow.frame = CGRect(x: (screenwidth / 2) - ((432*0.48)/2), y: (screenheight / 2) - ((648*0.48)/2) - 65, width: 432*0.48, height: 648*0.48)         
+            
+            cityStatePostal.frame.origin.x = previewWindow.bounds.origin.x + 45
+            cityStatePostal.frame.origin.y = previewWindow.frame.height - 70
+            countryLabel.frame.origin.x = previewWindow.bounds.origin.x + 45
+            countryLabel.frame.origin.y = cityStatePostal.frame.origin.y + cityStatePostal.frame.height
+            addressStreet1.frame.origin.x = previewWindow.bounds.origin.x + 45
+            addressStreet1.frame.origin.y = cityStatePostal.frame.origin.y - addressStreet1.frame.height
+            nameLabel.frame.origin.x = previewWindow.bounds.origin.x + 45
+            nameLabel.frame.origin.y = addressStreet1.frame.origin.y - nameLabel.frame.height
+
+            
+            returnName.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnName.frame.origin.y = previewWindow.bounds.origin.y + 5
+            returnStreet.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnStreet.frame.origin.y = returnName.frame.origin.y + returnStreet.frame.height
+            returnAddress.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnAddress.frame.origin.y = returnStreet.frame.origin.y + returnAddress.frame.height
+            returnCountry.frame.origin.x = previewWindow.bounds.origin.x + 5
+            returnCountry.frame.origin.y = returnAddress.frame.origin.y + returnCountry.frame.height
+
+
         }
         
-    
+        displayReturnAdd()
     }
     
     
@@ -120,14 +247,26 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
             print(index)
         } else if receiver == 2 {
             size[2] = index
+            countryOnOff()
         } else if receiver == 3 {
+          //  let a = index
             size[3] = index
+            tagger = index
+            displayReturnAdd()
         } else if receiver == 4 {
             size[4] = index
+            returnAddSize()
         }
         
         nameLabel.sizeToFitHeight()
-        addressLabel.sizeToFitHeight()
+        addressStreet1.sizeToFitHeight()
+//        addressStreet2.sizeToFitHeight()
+        cityStatePostal.sizeToFitHeight()
+        countryLabel.sizeToFitHeight()
+        returnName.sizeToFitHeight()
+        returnStreet.sizeToFitHeight()
+        returnAddress.sizeToFitHeight()
+        returnCountry.sizeToFitHeight()
         viewDidLoad()
      }
 
@@ -187,8 +326,8 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
         
         table  = AddressSizeSettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
         
-        table.preselect = size[4]
         table.propertyIndex = 4
+        table.preselect = size[4]
         table.data = addressSize
         
         table.sendAddressPrintDelegate = self
@@ -201,8 +340,8 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
         
         table  = AddressSizeSettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
         
-        table.preselect = size[0]
         table.propertyIndex = 0
+        table.preselect = size[0]
         table.data = addressSize
         
         
@@ -216,6 +355,7 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
     @IBAction func selectFontType(_ sender: Any) {
         
         table  = AddressSizeSettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
+        
         table.propertyIndex = 1
         table.preselect = size[1]
         
@@ -246,7 +386,7 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
         table  = AddressSizeSettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
         
         table.propertyIndex = 3
-        table.preselect = size[3]
+        table.preselect = tagger
         table.data = onOff
         
         table.sendAddressPrintDelegate = self
@@ -260,58 +400,176 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
         self.navigationController?.pushViewController(NextViewController!, animated: true)
     }
     
+    
+//    
+    
+//    let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+    
+    @IBAction func toPrintQueue(_ sender: Any) {
+        pd.thumbNail = tempImage
+        let NextViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddressPrintQueueViewController") as? AddressPrintQueueViewController
+        NextViewController?.printData = [pd]
+        self.navigationController?.pushViewController(NextViewController!, animated: true)
+        
+        
+//        let sb = UIStoryboard(name: "PrintQueueStoryboard", bundle: nil)
+//        let vc = sb.instantiateViewController(withIdentifier: "printQueue") as! PrintQueueViewController
+//                vc.printData = [pd]
+//        self.navigationController?.show(vc, sender: self)
+    }
+    
+    
+//    @IBAction func print(_ sender: UIButton) {
+        
+//        pd.thumbNail = tempImage
+//        let sb = UIStoryboard(name: "PrintQueueStoryboard", bundle: nil)
+//        let vc = sb.instantiateViewController(withIdentifier: "printQueue") as! PrintQueueViewController
+//        vc.printData = [pd]
+//        self.navigationController?.show(vc, sender: self)
+        
+//        let NextViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddressPrintQueueViewController") as? AddressPrintQueueViewController
+//              NextViewController?.printData = [pd]
+// 
+//        self.navigationController?.pushViewController(NextViewController!, animated: true)
+
+//      }
+    
+    
     func applySize(){
         
         switch size[0] {
         case 0:
             nameLabel.font = nameLabel.font.withSize(8)
-            addressLabel.font = addressLabel.font.withSize(8)
+            addressStreet1.font = addressStreet1.font.withSize(8)
+            cityStatePostal.font = addressStreet1.font.withSize(8)
+            countryLabel.font = addressStreet1.font.withSize(8)
+            
         case 1:
             nameLabel.font = nameLabel.font.withSize(7)
-            addressLabel.font = addressLabel.font.withSize(7)
+            addressStreet1.font = addressStreet1.font.withSize(7)
+            cityStatePostal.font = addressStreet1.font.withSize(7)
+            countryLabel.font = addressStreet1.font.withSize(7)
+        
         case 2:
             nameLabel.font = nameLabel.font.withSize(6)
-            addressLabel.font = addressLabel.font.withSize(6)
+            addressStreet1.font = addressStreet1.font.withSize(6)
+            cityStatePostal.font = addressStreet1.font.withSize(6)
+            countryLabel.font = addressStreet1.font.withSize(6)
+            
         default:
             break
         }
-        
 
+    }
+    
+    
+    func returnAddSize() {
+        switch size[4] {
+        case 0:
+            returnName.font = returnName.font.withSize(6)
+            returnStreet.font = returnStreet.font.withSize(6)
+            returnAddress.font = returnAddress.font.withSize(6)
+            returnCountry.font = returnCountry.font.withSize(6)
+        case 1:
+            returnName.font = returnName.font.withSize(5)
+            returnStreet.font = returnStreet.font.withSize(5)
+            returnAddress.font = returnAddress.font.withSize(5)
+            returnCountry.font = returnCountry.font.withSize(5)
+        case 2:
+            returnName.font = returnName.font.withSize(4)
+            returnStreet.font = returnStreet.font.withSize(4)
+            returnAddress.font = returnAddress.font.withSize(4)
+            returnCountry.font = returnCountry.font.withSize(4)
+        default:
+            break
+        }
     }
     
     
     func applyFont(){
         
         let namesize = self.nameLabel.font.pointSize
-        let addsize = self.addressLabel.font.pointSize
+        let addsize = self.addressStreet1.font.pointSize
+        let returnsize = self.returnName.font.pointSize
         
         switch size[1] {
         case 0:
             nameLabel.font = UIFont(name: "Times New Roman", size: namesize)
-            addressLabel.font = UIFont(name: "Times New Roman", size: addsize)
+            addressStreet1.font = UIFont(name: "Times New Roman", size: addsize)
+            cityStatePostal.font = UIFont(name: "Times New Roman", size: addsize)
+            countryLabel.font = UIFont(name: "Times New Roman", size: addsize)
+            returnName.font = UIFont(name: "Times New Roman", size: returnsize)
+            returnStreet.font = UIFont(name: "Times New Roman", size: returnsize)
+            returnAddress.font = UIFont(name: "Times New Roman", size: returnsize)
+            returnCountry.font = UIFont(name: "Times New Roman", size: returnsize)
             print("timesNewRoman")
         case 1:
             nameLabel.font = UIFont(name: "Arial", size: namesize)
-            addressLabel.font = UIFont(name: "Arial", size: addsize)
+            addressStreet1.font = UIFont(name: "Arial", size: addsize)
+            cityStatePostal.font = UIFont(name: "Arial", size: addsize)
+            countryLabel.font = UIFont(name: "Arial", size: addsize)
+            returnName.font = UIFont(name: "Arial", size: returnsize)
+            returnStreet.font = UIFont(name: "Arial", size: returnsize)
+            returnAddress.font = UIFont(name: "Arial", size: returnsize)
+            returnCountry.font = UIFont(name: "Arial", size: returnsize)
         case 2:
             nameLabel.font = UIFont(name: "Marker Felt", size: namesize)
-            addressLabel.font = UIFont(name: "Marker Felt", size: addsize)
+            addressStreet1.font = UIFont(name: "Marker Felt", size: addsize)
+            cityStatePostal.font = UIFont(name: "Marker Felt", size: addsize)
+            countryLabel.font = UIFont(name: "Marker Felt", size: addsize)
+            returnName.font = UIFont(name: "Marker Felt", size: returnsize)
+            returnStreet.font = UIFont(name: "Marker Felt", size: returnsize)
+            returnAddress.font = UIFont(name: "Marker Felt", size: returnsize)
+            returnCountry.font = UIFont(name: "Marker Felt", size: returnsize)
+            
         case 3:
             nameLabel.font = UIFont(name: "Snell Roundhand", size: namesize)
-            addressLabel.font = UIFont(name: "Snell Roundhand", size: addsize)
+            addressStreet1.font = UIFont(name: "Snell Roundhand", size: addsize)
+            cityStatePostal.font = UIFont(name: "Snell Roundhand", size: addsize)
+            countryLabel.font = UIFont(name: "Snell Roundhand", size: addsize)
+            returnName.font = UIFont(name: "Snell Roundhand", size: returnsize)
+            returnStreet.font = UIFont(name: "Snell Roundhand", size: returnsize)
+            returnAddress.font = UIFont(name: "Snell Roundhand", size: returnsize)
+            returnCountry.font = UIFont(name: "Snell Roundhand", size: returnsize)
         default: break
         }
     }
     
-//    func countryOnOff(){
-//        
-//        switch size[2] {
-//        case 0:
-//            
-//        default:
-//            <#code#>
-//        }
-//    }
+    
+    func displayReturnAdd() {
+        
+        if tagger == 0 {
+            returnName.isHidden = false
+            returnStreet.isHidden = false
+            returnAddress.isHidden = false
+            returnCountry.isHidden = false
+            
+        } else {
+            returnName.isHidden = true
+            returnStreet.isHidden = true
+            returnAddress.isHidden = true
+            returnCountry.isHidden = true
+        }
+    }
+    
+    func countryOnOff(){
+        
+        switch size[2] {
+        case 0:
+            if returnName.isHidden == true {
+                countryLabel.isHidden = false
+                returnCountry.isHidden = true
+            } else if returnName.isHidden == false {
+            countryLabel.isHidden = false
+            returnCountry.isHidden = false
+            }
+        case 1:
+            countryLabel.isHidden = true
+            returnCountry.isHidden = true
+        default:
+            break
+        }
+    }
 
     
     

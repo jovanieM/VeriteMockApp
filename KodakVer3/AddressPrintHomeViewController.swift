@@ -21,6 +21,9 @@ class AddressPrintHomeViewController: UIViewController, CNContactPickerDelegate 
     let checked = UIImage(named: "check_box_on_orange")
     var name: String?
     var desc: String?
+    var returnChecker: Int?
+    
+    let tag = PreviewViewController()
     
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
@@ -29,20 +32,30 @@ class AddressPrintHomeViewController: UIViewController, CNContactPickerDelegate 
         navTransition.type = kCATransitionPush
         navTransition.subtype = kCATransitionPush
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
+        
+        returnChecker = tag.tagger
+        if returnChecker == 0 {
+            addReturnAddressCheckbox.image = checked
+        } else {
+            addReturnAddressCheckbox.image = unchecked
+        }
+        
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-      
-    }
+        
+        }
     
     @IBAction func AddReturnAddressButton(_ sender: Any) {
         
         if addReturnAddressCheckbox.image == checked {
             addReturnAddressCheckbox.image = unchecked
+            tag.tagger = 1
         } else {
             addReturnAddressCheckbox.image = checked
+            tag.tagger = 0
         }
     }
    
@@ -77,8 +90,20 @@ class AddressPrintHomeViewController: UIViewController, CNContactPickerDelegate 
     }
    
     
+    @IBAction func unwindToAddressHome(segue: UIStoryboardSegue){
+        
+    }
     
     
+//    func checkAddTheReturnAddress(tagReturnAddress: Int){
+//        
+//        if addReturnAddressCheckbox.image == checked {
+//            tag.tagger = 0
+//        } else {
+//            tag.tagger = 1
+//        }
+//        
+//    }
     
     func checkHowToLoad(dataNameReceived: String, dataDescReceived: String, dataImage: UIImage) {
         
@@ -117,25 +142,37 @@ class AddressPrintHomeViewController: UIViewController, CNContactPickerDelegate 
             
             
             let postalAddress = contactProperty.value as? CNPostalAddress
-            
-            
+            let street = postalAddress?.street
+            let city = postalAddress?.city
+            let state = postalAddress?.state
+            let postalcode = postalAddress?.postalCode
+            let country = postalAddress?.country
+           
+           
             let contact = contactProperty.contact
             let contactName = CNContactFormatter.string(from: contact, style: .fullName)
             let contactAddress = CNPostalAddressFormatter.string(from: postalAddress!, style: .mailingAddress)
+                
             
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "PreviewViewController") as? PreviewViewController
             
-            
+                           
             nextVC?.nameReceived = name!
             nextVC?.descReceived = desc!
             nextVC?.passedName = contactName!
             nextVC?.passedAddress = contactAddress
+            nextVC?.passedStreet = street!
+            nextVC?.passedCity = city!
+            nextVC?.passedState = state!
+            nextVC?.passedPostalCode = postalcode!
+            nextVC?.passedCountry = country!
+                
             self.navigationController?.pushViewController(nextVC!, animated: true)
             NSLog(contactAddress)
             NSLog(contactName!)
             
         }
-        
+    
         
         
         @available(iOS 9.0, *)
