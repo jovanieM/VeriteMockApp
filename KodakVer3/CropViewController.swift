@@ -21,6 +21,13 @@ class CropViewController: UIViewController {
     var widthScale : CGFloat!
     var heightScale : CGFloat!
     var cropRect : CGRect!
+    var myRect : CustomRectangle!
+    var tlPressed : Bool = false
+    var urPressed : Bool = false
+    var blPressed : Bool = false
+    var brPressed : Bool = false
+    var centerPressed : Bool = false
+    
     
     @IBOutlet weak var containerView: UIView!
     
@@ -48,11 +55,7 @@ class CropViewController: UIViewController {
         super.viewDidLoad()
         
         imView.image = image
-        
-        //        let imageSize = imView.image?.size
-        //        let scale: CGFloat = min(imView.bounds.width / (imageSize?.width)!, imView.bounds.height / (imageSize?.height)!)
-        //        let scaledImageSize = CGSize(width: (imageSize?.width)! * scale, height: (imageSize?.height)! * scale)
-        //        let imageFrame = CGRect(x: (imView.bounds.width - scaledImageSize.width) * 0.5, y: (imView.bounds.height - scaledImageSize.height) * 0.5, width: scaledImageSize.width, height: scaledImageSize.height)
+
         
         cropperView = CropperView(frame: .zero)
         cropperView.backgroundColor = UIColor.clear
@@ -83,13 +86,7 @@ class CropViewController: UIViewController {
         
     }
     
-    var myRect : CustomRectangle!
-    var tlPressed : Bool = false
-    var urPressed : Bool = false
-    var blPressed : Bool = false
-    var brPressed : Bool = false
-    var centerPressed : Bool = false
-    
+  
     func handlePan(recognizer: UIPanGestureRecognizer){
         let loc = recognizer.location(in: self.view)
         let trans = recognizer.translation(in: self.view)
