@@ -425,10 +425,6 @@
 		103303211E52AC2900E7D24C /* PrintPhotoStoryboard */ = {
 			isa = PBXGroup;
 			children = (
-				102E6A071EC3E4DF00E67685 /* FacebookImageCollection.swift */,
-				102E6A081EC3E4DF00E67685 /* Facebook.storyboard */,
-				102E6A091EC3E4DF00E67685 /* FacebookPhotoAssetCollection.swift */,
-				102E6A0A1EC3E4DF00E67685 /* FacebookCollectionViewCell.swift */,
 				103303221E52AC5500E7D24C /* PrintPhotoStoryboard.storyboard */,
 				11F865951E530B1D00326907 /* PrintPhotoHomeVC.swift */,
 				11715AA51E5AC413005367B9 /* PhotoAssetCollection.swift */,
@@ -620,6 +616,17 @@
 			name = SoftwareUpdate;
 			sourceTree = "<group>";
 		};
+		10FEC4651EC55EF000AF5F7E /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				102E6A0A1EC3E4DF00E67685 /* FacebookCollectionViewCell.swift */,
+				102E6A091EC3E4DF00E67685 /* FacebookPhotoAssetCollection.swift */,
+				102E6A081EC3E4DF00E67685 /* Facebook.storyboard */,
+				102E6A071EC3E4DF00E67685 /* FacebookImageCollection.swift */,
+			);
+			name = Facebook;
+			sourceTree = "<group>";
+		};
 		113123A31E51AC410079CEAB /* SettingsStoryboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -695,6 +702,7 @@
 				103303271E52AC7700E7D24C /* ScanDocument */,
 				103303241E52AC5A00E7D24C /* CopyStoryboard */,
 				103303211E52AC2900E7D24C /* PrintPhotoStoryboard */,
+				10FEC4651EC55EF000AF5F7E /* Facebook */,
 				1033031E1E52AC0A00E7D24C /* InkLevelStoryboard */,
 				1033031B1E52AB5D00E7D24C /* TermsConditionsStoryboard */,
 				103303181E52AB1000E7D24C /* DeviceSettingsStoryboard */,
