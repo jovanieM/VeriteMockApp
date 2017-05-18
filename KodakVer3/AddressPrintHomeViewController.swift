@@ -23,7 +23,6 @@ class AddressPrintHomeViewController: UIViewController, CNContactPickerDelegate 
     var desc: String?
     var returnChecker: Int?
     
-    let tag = PreviewViewController()
     
     override func viewWillAppear(_ animated: Bool) {
         let navTransition = CATransition()
@@ -33,29 +32,29 @@ class AddressPrintHomeViewController: UIViewController, CNContactPickerDelegate 
         navTransition.subtype = kCATransitionPush
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
         
-        returnChecker = tag.tagger
-        if returnChecker == 0 {
+ 
+        if tagger == 0 {
             addReturnAddressCheckbox.image = checked
         } else {
             addReturnAddressCheckbox.image = unchecked
         }
-        
+
 
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        }
+            }
     
     @IBAction func AddReturnAddressButton(_ sender: Any) {
         
         if addReturnAddressCheckbox.image == checked {
             addReturnAddressCheckbox.image = unchecked
-            tag.tagger = 1
+            tagger = 1
         } else {
             addReturnAddressCheckbox.image = checked
-            tag.tagger = 0
+            tagger = 0
         }
     }
    
@@ -71,22 +70,26 @@ class AddressPrintHomeViewController: UIViewController, CNContactPickerDelegate 
     @IBAction func Photo(_ sender: Any) {
         
         checkHowToLoad(dataNameReceived: "Photo", dataDescReceived: "4 3/4\" x 6 1/2\"", dataImage: UIImage(named: "icon_env_photo_noblank")!)
+
     }
     
     @IBAction func No6(_ sender: Any) {
         
         checkHowToLoad(dataNameReceived: "No. 6 3/4", dataDescReceived: "3 5/8\" x 6 1/2\"", dataImage: UIImage(named: "icon_env-no6-34_noblank")!)
+
     }
     
     
     @IBAction func No10(_ sender: Any) {
         
         checkHowToLoad(dataNameReceived: "No. 10", dataDescReceived: "4 1/8\" x 9 1/2\"", dataImage: UIImage(named: "icon_env_no10_noblank")!)
+
     }
     
     @IBAction func SixByNine(_ sender: Any) {
         
         checkHowToLoad(dataNameReceived: "6x9", dataDescReceived: "6\" x 9\"", dataImage: UIImage(named: "icon_env-6x9_noblank.png")!)
+
     }
    
     
@@ -94,16 +97,6 @@ class AddressPrintHomeViewController: UIViewController, CNContactPickerDelegate 
         
     }
     
-    
-//    func checkAddTheReturnAddress(tagReturnAddress: Int){
-//        
-//        if addReturnAddressCheckbox.image == checked {
-//            tag.tagger = 0
-//        } else {
-//            tag.tagger = 1
-//        }
-//        
-//    }
     
     func checkHowToLoad(dataNameReceived: String, dataDescReceived: String, dataImage: UIImage) {
         

@@ -9,7 +9,7 @@
 import UIKit
 import Contacts
 import ContactsUI
-
+var tagger: Int?
 
 protocol loadData: class {
     func reloadData()
@@ -53,7 +53,7 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
     let stateKey = "state"
     let postalCodeKey = "postalCode"
     let countryKey = "country"
-    var tagger: Int?
+    
     var size = [0, 0, 0, 0, 0]
     
     
@@ -99,6 +99,8 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("\(tagger)")
+        
    //     pd.thumbNail = tempImage
         
 //        defaults.set("", forKey: fnameKey)
@@ -131,6 +133,22 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
         returnAddress.sizeToFitHeight()
         returnCountry.sizeToFitHeight()
 
+        if tagger == 0 {
+            returnName.isHidden = false
+            returnStreet.isHidden = false
+            returnAddress.isHidden = false
+            returnCountry.isHidden = false
+            size[3] = 0
+        } else {
+            returnName.isHidden = true
+            returnStreet.isHidden = true
+            returnAddress.isHidden = true
+            returnCountry.isHidden = true
+            size[3] = 1
+        }
+
+        
+        
         if size[4] == 0 {
             
             returnName.font = returnName.font.withSize(6)
@@ -231,7 +249,7 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
 
         }
         
-        displayReturnAdd()
+        
     }
     
     
@@ -249,8 +267,7 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
             size[2] = index
             countryOnOff()
         } else if receiver == 3 {
-          //  let a = index
-            size[3] = index
+             size[3] = index
             tagger = index
             displayReturnAdd()
         } else if receiver == 4 {
@@ -386,7 +403,7 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
         table  = AddressSizeSettingsViewer(frame: CGRect(x: UIScreen.main.bounds.minX, y:  UIScreen.main.bounds.minY, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height))
         
         table.propertyIndex = 3
-        table.preselect = tagger
+        table.preselect = size[3]
         table.data = onOff
         
         table.sendAddressPrintDelegate = self
@@ -411,28 +428,8 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
         NextViewController?.printData = [pd]
         self.navigationController?.pushViewController(NextViewController!, animated: true)
         
-        
-//        let sb = UIStoryboard(name: "PrintQueueStoryboard", bundle: nil)
-//        let vc = sb.instantiateViewController(withIdentifier: "printQueue") as! PrintQueueViewController
-//                vc.printData = [pd]
-//        self.navigationController?.show(vc, sender: self)
-    }
+        }
     
-    
-//    @IBAction func print(_ sender: UIButton) {
-        
-//        pd.thumbNail = tempImage
-//        let sb = UIStoryboard(name: "PrintQueueStoryboard", bundle: nil)
-//        let vc = sb.instantiateViewController(withIdentifier: "printQueue") as! PrintQueueViewController
-//        vc.printData = [pd]
-//        self.navigationController?.show(vc, sender: self)
-        
-//        let NextViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddressPrintQueueViewController") as? AddressPrintQueueViewController
-//              NextViewController?.printData = [pd]
-// 
-//        self.navigationController?.pushViewController(NextViewController!, animated: true)
-
-//      }
     
     
     func applySize(){
@@ -538,7 +535,7 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
     
     func displayReturnAdd() {
         
-        if tagger == 0 {
+        if size[3] == 0 {
             returnName.isHidden = false
             returnStreet.isHidden = false
             returnAddress.isHidden = false

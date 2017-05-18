@@ -12,6 +12,7 @@ import UIKit
 @available(iOS 9.0, *)
 class ReturnAddressViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var scroller: UIScrollView!
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var save: UIButton!
     @IBOutlet weak var firstName: UITextField!
@@ -32,26 +33,6 @@ class ReturnAddressViewController: UIViewController, UITextFieldDelegate {
     let stateKey = "state"
     let postalCodeKey = "postalCode"
     let countryKey = "country"
-
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-   
- 
-        if (firstName.text?.isEmpty)! || (lastName.text?.isEmpty)! || (middleName.text?.isEmpty)! || (street.text?.isEmpty)! || (city.text?.isEmpty)! || (state.text?.isEmpty)! || (postalCode.text?.isEmpty)! || (country.text?.isEmpty)!
-        {
-            self.save.setTitleColor(UIColor.lightGray, for: .normal)
-            self.save.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
-            save.isEnabled = true
-        }
-                else {
-            self.save.setTitleColor(UIColor.darkGray, for: .normal)
-            self.save.layer.borderColor = UIColor.darkGray.cgColor
-            save.isEnabled = false
-            
-                    print("enabled")
-                }
-        return true
-    }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,8 +43,78 @@ class ReturnAddressViewController: UIViewController, UITextFieldDelegate {
         navTransition.type = kCATransitionPush
         navTransition.subtype = kCATransitionPush
         self.navigationController?.navigationBar.layer.add(navTransition, forKey: nil)
-   //     save.isUserInteractionEnabled = false
+        
+        self.registerKeyboardNotifications()
     }
+
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unregisterKeyboardNotifications()
+    }
+    
+    func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ReturnAddressViewController.keyboardDidShow(notification:)),
+                                               name: NSNotification.Name.UIKeyboardDidShow,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ReturnAddressViewController.keyboardWillHide(notification:)),
+                                               name: NSNotification.Name.UIKeyboardWillHide,
+                                               object: nil)
+    }
+    
+    func unregisterKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    
+    func keyboardDidShow(notification: NSNotification) {
+        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardInfo = userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue
+        let keyboardSize = keyboardInfo.cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        scroller.contentInset = contentInsets
+        scroller.scrollIndicatorInsets = contentInsets
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        scroller.contentInset = UIEdgeInsets.zero
+        scroller.scrollIndicatorInsets = UIEdgeInsets.zero
+    }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        self.save.setTitleColor(UIColor.lightGray, for: .normal)
+        self.save.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+        save.isEnabled = true
+
+        return true
+    }
+    
+    
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+   
+    
+ 
+//        if (firstName.text?.isEmpty)! || (lastName.text?.isEmpty)! || (middleName.text?.isEmpty)! || (street.text?.isEmpty)! || (city.text?.isEmpty)! || (state.text?.isEmpty)! || (postalCode.text?.isEmpty)! || (country.text?.isEmpty)!
+//        {
+//            self.save.setTitleColor(UIColor.lightGray, for: .normal)
+//            self.save.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1).cgColor
+//            save.isEnabled = true
+//        }
+//                else {
+//            self.save.setTitleColor(UIColor.darkGray, for: .normal)
+//            self.save.layer.borderColor = UIColor.darkGray.cgColor
+//            save.isEnabled = false
+//            
+//                    print("enabled")
+//                }
+//        return true
+//    }
+    
+    
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -162,6 +213,8 @@ class ReturnAddressViewController: UIViewController, UITextFieldDelegate {
         return true
         
     }
+    
+    
     
 }
 

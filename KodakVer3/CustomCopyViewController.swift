@@ -237,11 +237,15 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
                 //text.center = alert.convert(alert.center, from: text)
                 text.text = "Pages per Side returned to One."
                 //text.sizeToFitHeight()
+                
                 text.sizeToFit()
                 text.font = UIFont(name: "", size: 9)
                 text.textColor = UIColor.black
                 text.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                text.center = CGPoint(x: alert.frame.size.width / 2, y: alert.frame.size.height / 2)
+                
                 alert.addSubview(text)
+                
                 self.view.addSubview(alert)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
@@ -287,6 +291,8 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
                     text.font = UIFont(name: "", size: 9)
                     text.textColor = UIColor.black
                     text.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                    text.center = CGPoint(x: alert.frame.size.width / 2, y: alert.frame.size.height / 2)
+                    
                     alert.addSubview(text)
                     self.view.addSubview(alert)
 

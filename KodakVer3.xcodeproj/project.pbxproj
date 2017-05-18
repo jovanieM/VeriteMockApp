@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1000F6011E52CDB700DE4B3C /* InkLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000F6001E52CDB700DE4B3C /* InkLevel.swift */; };
 		10153EB01EBAFE260012EC2D /* StartSoftwareUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153EAF1EBAFE260012EC2D /* StartSoftwareUpdate.swift */; };
+		101BDDA81ECD99F8004B1BBF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101BDDA61ECD99F8004B1BBF /* Reachability.swift */; };
+		101BDDA91ECD99F8004B1BBF /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101BDDA71ECD99F8004B1BBF /* PrivacyPolicyViewController.swift */; };
 		10257C161EC5955D00D5CE1B /* AddressPrintQueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10257C121EC5955D00D5CE1B /* AddressPrintQueueViewController.swift */; };
 		10257C171EC5955D00D5CE1B /* AddressPrintData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10257C131EC5955D00D5CE1B /* AddressPrintData.swift */; };
 		10257C181EC5955D00D5CE1B /* AddressPrintQueueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10257C141EC5955D00D5CE1B /* AddressPrintQueueTableViewCell.swift */; };
@@ -191,6 +193,8 @@
 /* Begin PBXFileReference section */
 		1000F6001E52CDB700DE4B3C /* InkLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InkLevel.swift; sourceTree = "<group>"; };
 		10153EAF1EBAFE260012EC2D /* StartSoftwareUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartSoftwareUpdate.swift; sourceTree = "<group>"; };
+		101BDDA61ECD99F8004B1BBF /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		101BDDA71ECD99F8004B1BBF /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		10257C121EC5955D00D5CE1B /* AddressPrintQueueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPrintQueueViewController.swift; sourceTree = "<group>"; };
 		10257C131EC5955D00D5CE1B /* AddressPrintData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPrintData.swift; sourceTree = "<group>"; };
 		10257C141EC5955D00D5CE1B /* AddressPrintQueueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPrintQueueTableViewCell.swift; sourceTree = "<group>"; };
@@ -385,6 +389,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		101BDDAA1ECD9A1F004B1BBF /* FacebookStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				102E6A071EC3E4DF00E67685 /* FacebookImageCollection.swift */,
+				102E6A081EC3E4DF00E67685 /* Facebook.storyboard */,
+				102E6A091EC3E4DF00E67685 /* FacebookPhotoAssetCollection.swift */,
+				102E6A0A1EC3E4DF00E67685 /* FacebookCollectionViewCell.swift */,
+			);
+			name = FacebookStoryboard;
+			sourceTree = "<group>";
+		};
 		103303171E52AACC00E7D24C /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +421,8 @@
 		1033031B1E52AB5D00E7D24C /* TermsConditionsStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				101BDDA61ECD99F8004B1BBF /* Reachability.swift */,
+				101BDDA71ECD99F8004B1BBF /* PrivacyPolicyViewController.swift */,
 				103A0DA61E8A5EA10062E730 /* TermsOfUseViewController.swift */,
 				10D36C651E5FE0E200D79664 /* AnonymousPrinterUsageViewController.swift */,
 				1033031C1E52AC0300E7D24C /* TermsConditionsStoryboard.storyboard */,
@@ -682,6 +699,7 @@
 		114B30A61DF90A57008A57F1 /* KodakVer3 */ = {
 			isa = PBXGroup;
 			children = (
+				101BDDAA1ECD9A1F004B1BBF /* FacebookStoryboard */,
 				1161F5C71EA388F6006DD120 /* CropImageStoryboard */,
 				11555D3B1E9CCD9400365346 /* Images.xcassets */,
 				1093B8251E8A5C4E000E8670 /* Images-2.xcassets */,
@@ -1001,6 +1019,7 @@
 				11054CCE1E4C6FF9001FEA31 /* PrinterSelectPopUp.swift in Sources */,
 				10DE83091E72A935001F6FDA /* ItemsTableViewCell.swift in Sources */,
 				10D36C681E5FE0F500D79664 /* StandardCopyViewController.swift in Sources */,
+				101BDDA91ECD99F8004B1BBF /* PrivacyPolicyViewController.swift in Sources */,
 				11699E5E1E8A462700F56A3E /* PrintQueueTableViewCell.swift in Sources */,
 				114B30DA1DF92D78008A57F1 /* QuickDetailSelector.swift in Sources */,
 				102E6A0B1EC3E4DF00E67685 /* FacebookImageCollection.swift in Sources */,
@@ -1013,6 +1032,7 @@
 				116323611EA5B0BB00EE4207 /* SaveAsVCViewController.swift in Sources */,
 				11715AA41E5AC3FE005367B9 /* ImageCollectionVC.swift in Sources */,
 				107B37B31E5FDF08007CA90C /* CartridgeSetup.swift in Sources */,
+				101BDDA81ECD99F8004B1BBF /* Reachability.swift in Sources */,
 				10DE83011E72A873001F6FDA /* BrightnessTableViewCell.swift in Sources */,
 				114B30D61DF92BEF008A57F1 /* SettingsMenuVCViewController.swift in Sources */,
 				114B30A81DF90A57008A57F1 /* AppDelegate.swift in Sources */,

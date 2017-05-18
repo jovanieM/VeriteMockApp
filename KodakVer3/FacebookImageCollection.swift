@@ -9,44 +9,53 @@
 import UIKit
 import Photos
 
-class FacebookImageCollection: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+
+class FacebookImageCollection: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var name: String!
-    var size: CGSize = CGSize(width: 50, height: 50)
-    var collection: PHAssetCollection?
-    var images = [UIImage]()
-    var selectedItems = [IndexPath]()
-    var assetCount: Int = 0
-    var requestOption: PHImageRequestOptions!
-    var phFetchOption: PHFetchOptions!
-    var asset: PHFetchResult<PHAsset>!
-    var onlyOnce = false
-    
-    @IBOutlet weak var btnPrint: UIButton!
     @IBOutlet weak var folderName: UILabel!
-    @IBOutlet weak var imageCollection: UICollectionView!{
+    var name: String!
+    let size: CGSize = CGSize(width: 50, height: 50)
+    var assetCount : Int = 0
+    var asset : PHFetchResult<PHAsset>!
+    var phFetchOption : PHFetchOptions!
+    var requestOption : PHImageRequestOptions!
+    var onlyOnce = false
+    var selectedItems = [IndexPath]()
+    var collections : PHAssetCollection?
+    @IBOutlet weak var dimmerView: UIView!
+    @IBOutlet weak var printButton: UIButton!
+    
+    @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
-            imageCollection.delegate = self
-            imageCollection.dataSource = self
+            collectionView.delegate = self
+            collectionView.dataSource = self
         }
+        
     }
     
-    var isMulti: Bool = false{
+    var isMulti : Bool = false{
         didSet{
-            btnPrint.alpha = isMulti ? 1.0 : 0.0
+            printButton.alpha = isMulti ?  1.0 :  0.0
         }
+        
     }
+    
+    var images = [UIImage]()
     
     func multi(){
         print("tapped")
         if selectedItems.count > 0{
             for i in 0..<selectedItems.count{
-                imageCollection.deselectItem(at: selectedItems[i], animated: false)
-                if let cell = imageCollection.cellForItem(at: selectedItems[i]){
+                
+                collectionView.deselectItem(at: selectedItems[i], animated: false)
+                if let cell = collectionView.cellForItem(at: selectedItems[i]){
                     let label = cell.contentView.viewWithTag(5) as! UILabel
                     label.alpha = 0.0
-                    cell.customHighlight()
+                    cell.facebookcustomHighlight()
+                    
+                    
                 }
+                
             }
             selectedItems.removeAll()
         }
@@ -55,12 +64,13 @@ class FacebookImageCollection: UIViewController, UICollectionViewDataSource, UIC
         if isMulti{
             let title = "cancel"
             
-            let attrs: [String: Any] = [NSForegroundColorAttributeName: UIColor.gold, NSFontAttributeName: UIFont(name: "Arial", size: 12)!]
+            let attrs: [String: Any] = [NSForegroundColorAttributeName : UIColor.gold, NSFontAttributeName : UIFont(name : "Arial", size : 12)!]
             
             let item = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(self.multi))
             item.setTitleTextAttributes(attrs, for: .normal)
             self.navigationItem.rightBarButtonItem = item
-            imageCollection.allowsMultipleSelection = true
+            collectionView.allowsMultipleSelection = true
+            
         }else{
             let button = UIButton(type: .custom)
             button.addTarget(self, action: #selector(multi), for: .touchUpInside)
@@ -68,9 +78,12 @@ class FacebookImageCollection: UIViewController, UICollectionViewDataSource, UIC
             button.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
             let item = UIBarButtonItem(customView: button)
             self.navigationItem.rightBarButtonItem = item
-            imageCollection.allowsMultipleSelection = false
+            collectionView.allowsMultipleSelection = false
+            
         }
+        
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +95,7 @@ class FacebookImageCollection: UIViewController, UICollectionViewDataSource, UIC
         let item = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = item
         
+        
         requestOption = PHImageRequestOptions()
         requestOption.isSynchronous = true
         requestOption.deliveryMode = .fastFormat
@@ -90,27 +104,50 @@ class FacebookImageCollection: UIViewController, UICollectionViewDataSource, UIC
         phFetchOption.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
         phFetchOption.predicate = NSPredicate(format: "mediaType = %d", argumentArray: [PHAssetMediaType.image.rawValue])
         
-        asset = PHAsset.fetchAssets(in: collection!, options: phFetchOption)
+        asset = PHAsset.fetchAssets(in: collections!, options: phFetchOption)
         assetCount = asset.count
+        
         
         self.folderName.text = name
     }
     
+    override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        
+        if !onlyOnce{
+            
+            let last = self.collectionView.numberOfItems(inSection: 0) - 1
+            
+            self.collectionView.scrollToItem(at: IndexPath.init(row: last, section: 0), at: .bottom, animated: false)
+            
+            onlyOnce = true
+        }
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return assetCount
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colCellId", for: indexPath)
+        
         
         DispatchQueue.global(qos: .userInteractive).async {
             let iv = cell.viewWithTag(4) as! UIImageView
             
             PHCachingImageManager.default().requestImage(for: self.asset.object(at: indexPath.item), targetSize: CGSize.init(width: 50, height: 50), contentMode: .aspectFill, options: self.requestOption, resultHandler: {
                 image, info in
-                DispatchQueue.main.async(execute: { iv.image = image
+                DispatchQueue.main.async(execute: {
+                    iv.image = image
+                    
                 })
             })
+            
         }
         
         if cell.isSelected && selectedItems.count != 0 && isMulti{
@@ -119,31 +156,227 @@ class FacebookImageCollection: UIViewController, UICollectionViewDataSource, UIC
             label.alpha = 1.0
             let num = selectedItems.index(of: indexPath)
             label.text = String(num! + 1)
-            cell.customHighlight()
+            cell.facebookcustomHighlight()
             return cell
         }else{
             let label = cell.contentView.viewWithTag(5) as! UILabel
+            
             label.alpha = 0.0
-            cell.customHighlight()
+            
+            cell.facebookcustomHighlight()
             return cell
+            
+        }
+        
+        //        if isMulti && selectedItems.count != 0{
+        //
+        //            for i in 0..<selectedItems.count{
+        //
+        //                if cell.isSelected{
+        //
+        //                    if selectedItems[i] == indexPath{
+        //
+        //                        let label = cell.contentView.viewWithTag(5) as! UILabel
+        //                        label.backgroundColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1.0)
+        //
+        //                        label.alpha = 1.0
+        //
+        //                        label.text = String(i + 1)
+        //
+        //                        cell.facebookcustomHighlight()
+        //
+        //                    }
+        //
+        //                }else{
+        //
+        //                    let label = cell.contentView.viewWithTag(5) as! UILabel
+        //
+        //                    label.alpha = 0.0
+        //
+        //                    cell.facebookcustomHighlight()
+        //                }
+        //            }
+        //        }
+        //
+        //        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        print(indexPath.row)
+        
+        if isMulti{
+            
+            selectedItems.append(indexPath)
+            
+            let cell = collectionView.cellForItem(at: indexPath)
+            
+            cell?.facebookcustomHighlight()
+            
+            let label = cell?.viewWithTag(5) as! UILabel
+            label.backgroundColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1.0)
+            
+            label.alpha = 1.0
+            
+            label.text = String(selectedItems.count)
+            
+            
+            let imageView = cell?.contentView.viewWithTag(4) as! UIImageView
+            
+            images.append(imageView.image!)
+            
+        }else{
+            collectionView.deselectItem(at: indexPath, animated: false)
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        if isMulti {
+            if selectedItems.count > 0 {
+                let arrayIndex = selectedItems.index(of: indexPath)!
+                selectedItems.remove(at: arrayIndex)
+                images.remove(at: arrayIndex)
+                
+                let label = collectionView.cellForItem(at: indexPath)!.viewWithTag(5) as! UILabel
+                
+                
+                label.alpha = 0.0
+                
+                collectionView.cellForItem(at: indexPath)?.facebookcustomHighlight()
+                
+                
+                for i in 0..<selectedItems.count {
+                    
+                    if let cell = collectionView.cellForItem(at: selectedItems[i]){
+                        cell.facebookcustomHighlight()
+                        
+                        let label = cell.contentView.viewWithTag(5) as! UILabel
+                        
+                        let index = selectedItems.index(of: selectedItems[i])
+                        label.text = String(index! + 1)
+                        
+                    }
+                }
+            }
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if isMulti{
-//            selectedItems.append(indexPath)
-//            let cell = collectionView.cellForItem(at: indexPath)
-//            cell?.customHighlight()
-//            
-//            let label = cell?.viewWithTag(5) as! UILabel
-//            label.backgroundColor = UIColor.gold
-//            label.alpha = 1.0
-//            label.text = String(selectedItems.count)
-//            
-//            let imageView = cell?.contentView.viewWithTag(4) as! UIImageView
-//            images.append(imageView.image!)
-//        }else{
-//            collectionView.deselectItem(at: indexPath, animated: false)
-//        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 2.0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 2.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width / 4 - 2
+        
+        return CGSize(width: width, height: width)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        if segue.identifier == "singlePrint"{
+            
+            let vc = segue.destination as! FlickPrintViewController
+            
+            let reqOptions = PHImageRequestOptions()
+            
+            reqOptions.isSynchronous = true
+            
+            reqOptions.deliveryMode = .highQualityFormat
+            
+            PHCachingImageManager.default().requestImageData(for: asset.object(at: collectionView.indexPathsForSelectedItems![0].item), options: reqOptions, resultHandler:{
+                imageData, dataUTI, orientation, info in
+                
+                if let img = imageData{
+                    vc.image = UIImage(data: img)
+                    
+                }
+                
+            })
+        }
+        
+        if segue.identifier == "multiPrint" && selectedItems.count != 0{
+            
+            dimmerView.alpha = 0.5
+            
+            
+            
+            //            for index in 0..<selectedItems.count{
+            //
+            //                let cell = collectionView.cellForItem(at: selectedItems[index])
+            //
+            //                let imageView = cell?.contentView.viewWithTag(4) as! UIImageView
+            //
+            //                images.append(imageView.image!)
+            //            }
+            
+            let vc2 = segue.destination as! PrintMultiViewController
+            vc2.onDone = {
+                self.dimmerView.alpha = 0.0
+            }
+            
+            vc2.onPrint = {
+                self.dimmerView.alpha = 0.0
+                let sb = UIStoryboard(name: "PrintQueueStoryboard", bundle: nil)
+                let vc = sb.instantiateInitialViewController() as! PrintQueueViewController
+                
+                for i in 0..<self.images.count{
+                    let pd = PrintData()
+                    pd.thumbNail = self.images[i]
+                    vc.printData.append(pd)
+                }
+                
+                self.show(vc, sender: self)
+                
+            }
+            vc2.onSettings = {
+                
+                self.dimmerView.alpha = 0.0
+                let sb = UIStoryboard(name: "PhotoPrintSettingsStoryboard", bundle: nil)
+                let vc = sb.instantiateInitialViewController() as! PrintPhotoVC
+                self.show(vc, sender: self)
+                
+            }
+            
+        }
+        
+        
+    }
+    override func viewWillAppear(_ animated: Bool){
+        self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool{
+        if identifier == "multiPrint" && selectedItems.count != 0{
+            return true
+        }
+        
+        if identifier == "singlePrint"{
+            
+            if isMulti{
+                return false
+            }else{
+                return true
+            }
+        }
+        return !isMulti
+    }
+    
+}
+
+extension UICollectionViewCell{
+    func facebookcustomHighlight(){
+        
+        if isSelected{
+            self.layer.borderWidth = 3.0
+            
+            self.layer.borderColor = UIColor(red: 255/255, green: 183/255, blue: 0/255, alpha: 1.0).cgColor
+        }else{
+            self.layer.borderWidth = 0.0
+        }
     }
 }

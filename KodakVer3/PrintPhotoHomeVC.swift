@@ -24,10 +24,11 @@ class PrintPhotoHomeVC: UIViewController {
         self.navigationController?.navigationBar.layer.add(CATransition.popAnimationDisabler(), forKey: nil)
     }
     
-  @IBAction func btnFacebook(_ sender: UIButton) {
-    let fbSB: UIStoryboard = UIStoryboard(name: "Facebook", bundle: nil)
-    let vc = fbSB.instantiateInitialViewController()
-    self.show(vc!, sender: self)
+    @IBAction func btnFacebook(_ sender: Any) {
+     
+    let fbSB = UIStoryboard(name: "Facebook", bundle: nil)
+    let vc = fbSB.instantiateInitialViewController()!
+    self.show(vc, sender: self)
   }
 
 }
