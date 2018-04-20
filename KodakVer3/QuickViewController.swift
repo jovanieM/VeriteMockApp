@@ -88,7 +88,7 @@ class QuickViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
         for index in 0..<sizes.count{
-            cell = tableView.cellForRow(at: IndexPath(item: index, section: 0)) as! SettingsTableViewCell!
+            cell = tableView.cellForRow(at: IndexPath(item: index, section: 0)) as! SettingsTableViewCell?
             cell.accessoryView = .none
             
         }

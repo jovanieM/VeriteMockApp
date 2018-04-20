@@ -56,7 +56,7 @@ class SecurityType: UIViewController, UITableViewDataSource, UITableViewDelegate
       data = currentCell.textLabel?.text
       delegate?.setSecurityRowData(dataRow: data!)
     }
-    print("\(data)")
+    print("\(String(describing: data))")
     
     _ = self.navigationController?.popViewController(animated: true)
   }

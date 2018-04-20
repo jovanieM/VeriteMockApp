@@ -74,7 +74,7 @@ class PopUpPaperSizeVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     
-    print("\(data)")
+    print("\(String(describing: data))")
     
     setDefault(value: indexPath.row)
     tableView.deselectRow(at: indexPath, animated: false)

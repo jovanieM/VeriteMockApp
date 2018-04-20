@@ -12,7 +12,7 @@ import Photos
 class PhotoAssetCollection: UITableViewController {
     
     
-    var folderInfoArray = (image : [UIImage!](), name : [String](), contents : [String]())
+    var folderInfoArray = (image : [UIImage?](), name : [String](), contents : [String]())
     //var phFetchResults = [PHFetchResult<PHAssetCollection>]()
     var phAssetCollections = [PHAssetCollection]()
     var imagesArray = [UIImage]()

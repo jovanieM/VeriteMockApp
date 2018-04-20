@@ -311,7 +311,7 @@ class CustomCopyViewController: UIViewController, UITableViewDataSource, UITable
             let cell3 = self.customTable.cellForRow(at: receiver) as! CustomCopySecondCell
             cell3.selectedsetting.text = subLabels[receiver.row][index]
             
-            print("\(cell3.selectedsetting.text)")
+            print("\(String(describing: cell3.selectedsetting.text))")
         }
     }
     

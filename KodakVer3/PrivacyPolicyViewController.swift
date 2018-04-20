@@ -31,7 +31,7 @@ class PrivacyPolicyViewController: UIViewController {
         if reachability.isConnectedToNetwork() {
             print("internet availble")
             let url = NSURL(string: "http://www.kodakverite.com/privacy-policy")
-            let requestObj = NSURLRequest(url: url as! URL)
+            let requestObj = NSURLRequest(url: url! as URL)
             privacyPolicyWebview.loadRequest(requestObj as URLRequest)
 
         } else {

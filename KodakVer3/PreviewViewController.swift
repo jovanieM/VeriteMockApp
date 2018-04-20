@@ -85,8 +85,8 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
         let country = defaults.object(forKey: countryKey) as! String?
         
         print("\(first)")
-        print("\(middle)")
-        print("\(last)")
+        print("\(String(describing: middle))")
+        print("\(last ?? "")")
         returnName.text = first + " " + middle! + " " + last!
         returnStreet.text = street!
         returnAddress.text = city! + " " + state! + " " + postal!
@@ -99,7 +99,7 @@ class PreviewViewController: UIViewController, AddressSizeViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("\(tagger)")
+        print("\(String(describing: tagger))")
         
    //     pd.thumbNail = tempImage
         
