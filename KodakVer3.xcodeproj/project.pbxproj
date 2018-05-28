@@ -850,7 +850,7 @@
 				TargetAttributes = {
 					114B30A31DF90A57008A57F1 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 5GFTBY65QD;
+						DevelopmentTeam = ZAZYZ6SEUT;
 						ProvisioningStyle = Automatic;
 					};
 					114B30B71DF90A57008A57F1 = {
@@ -1246,7 +1246,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 5GFTBY65QD;
+				DEVELOPMENT_TEAM = ZAZYZ6SEUT;
 				INFOPLIST_FILE = KodakVer3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1261,7 +1261,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 5GFTBY65QD;
+				DEVELOPMENT_TEAM = ZAZYZ6SEUT;
 				INFOPLIST_FILE = KodakVer3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

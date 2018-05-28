@@ -23,6 +23,7 @@ class ScanDocumentHomeVC: UIViewController, UIDocumentInteractionControllerDeleg
     var croppingRect : CGRect?
     var screenWidth: CGFloat = UIScreen.main.bounds.width * 0.7029
     
+    
     @IBOutlet weak var scannedItems: UILabel!
     @IBOutlet weak var touchToScanLabel: UILabel!
     @IBOutlet weak var cropIcon: UIImageView!

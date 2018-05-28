@@ -21,15 +21,11 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
         self.navigationBar.isTranslucent = false
         //visibleViewController?.navigationController?.navigationItem.title = "Home"
         
-        
         visibleViewController?.navigationController?.delegate = self
-      
-        
        
         //visibleViewController?.navigationController?.navigationBar.topItem?.title = "hello"
        
     }
-    
     
     let back = "< back "
     
@@ -51,9 +47,8 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
         
     }
     
-       func pop(){
-        
-        
+    func pop(){
+   
       
         if (viewControllers.last?.description.contains("AdjustmentViewController"))!{
             popViewController(animated: false)
@@ -79,9 +74,6 @@ class MyNavController: UINavigationController, UINavigationControllerDelegate{
         }
         
         //popViewController(animated: true)
-        
-    
-        
 
     }
     
